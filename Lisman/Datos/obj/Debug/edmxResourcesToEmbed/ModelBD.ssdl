@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="LISMANModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Jugador">
+    <Key>
+      <PropertyRef Name="idJugador" />
+    </Key>
+    <Property Name="idJugador" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nombre" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="apellidos" Type="varchar" MaxLength="75" Nullable="false" />
+    <Property Name="fecha_nacimiento" Type="date" Nullable="false" />
+    <Property Name="correo" Type="varchar" MaxLength="150" Nullable="false" />
+    <Property Name="usuario" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="contrasenia" Type="varchar" MaxLength="70" Nullable="false" />
+    <Property Name="key_confirmation" Type="varchar" MaxLength="68" />
+    <Property Name="registro_confirmado" Type="bit" />
+  </EntityType>
+  <EntityType Name="Puntaje">
+    <Key>
+      <PropertyRef Name="idPuntaje" />
+    </Key>
+    <Property Name="idPuntaje" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="idJugador" Type="int" Nullable="false" />
+    <Property Name="puntaje_historia" Type="int" />
+    <Property Name="victorias_multijugador" Type="int" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <Association Name="FK_Puntaje_Jugador">
+    <End Role="Jugador" Type="Self.Jugador" Multiplicity="1" />
+    <End Role="Puntaje" Type="Self.Puntaje" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Jugador">
+        <PropertyRef Name="idJugador" />
+      </Principal>
+      <Dependent Role="Puntaje">
+        <PropertyRef Name="idJugador" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="LISMANModelStoreContainer">
+    <EntitySet Name="Jugador" EntityType="Self.Jugador" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Puntaje" EntityType="Self.Puntaje" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_Puntaje_Jugador" Association="Self.FK_Puntaje_Jugador">
+      <End Role="Jugador" EntitySet="Jugador" />
+      <End Role="Puntaje" EntitySet="Puntaje" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

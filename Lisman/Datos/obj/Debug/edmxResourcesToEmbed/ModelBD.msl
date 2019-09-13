@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="LISMANModelStoreContainer" CdmEntityContainer="LISMANEntities">
+    <EntitySetMapping Name="Jugador">
+      <EntityTypeMapping TypeName="LISMANModel.Jugador">
+        <MappingFragment StoreEntitySet="Jugador">
+          <ScalarProperty Name="idJugador" ColumnName="idJugador" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="apellidos" ColumnName="apellidos" />
+          <ScalarProperty Name="fecha_nacimiento" ColumnName="fecha_nacimiento" />
+          <ScalarProperty Name="correo" ColumnName="correo" />
+          <ScalarProperty Name="usuario" ColumnName="usuario" />
+          <ScalarProperty Name="contrasenia" ColumnName="contrasenia" />
+          <ScalarProperty Name="key_confirmation" ColumnName="key_confirmation" />
+          <ScalarProperty Name="registro_confirmado" ColumnName="registro_confirmado" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Puntaje">
+      <EntityTypeMapping TypeName="LISMANModel.Puntaje">
+        <MappingFragment StoreEntitySet="Puntaje">
+          <ScalarProperty Name="idPuntaje" ColumnName="idPuntaje" />
+          <ScalarProperty Name="idJugador" ColumnName="idJugador" />
+          <ScalarProperty Name="puntaje_historia" ColumnName="puntaje_historia" />
+          <ScalarProperty Name="victorias_multijugador" ColumnName="victorias_multijugador" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="LISMANModel.sysdiagrams">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

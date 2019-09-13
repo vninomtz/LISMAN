@@ -1,0 +1,6 @@
+C:\Users\Vik-t\Documents\CarreraUV\5to Semestre\Tecnologías para la Construcción\Proyecto\LISMAN\Lisman\Logica\bin\Debug\Logica.dll
+C:\Users\Vik-t\Documents\CarreraUV\5to Semestre\Tecnologías para la Construcción\Proyecto\LISMAN\Lisman\Logica\bin\Debug\Logica.pdb
+C:\Users\Vik-t\Documents\CarreraUV\5to Semestre\Tecnologías para la Construcción\Proyecto\LISMAN\Lisman\Logica\obj\Debug\Logica.csprojAssemblyReference.cache
+C:\Users\Vik-t\Documents\CarreraUV\5to Semestre\Tecnologías para la Construcción\Proyecto\LISMAN\Lisman\Logica\obj\Debug\Logica.csproj.CoreCompileInputs.cache
+C:\Users\Vik-t\Documents\CarreraUV\5to Semestre\Tecnologías para la Construcción\Proyecto\LISMAN\Lisman\Logica\obj\Debug\Logica.dll
+C:\Users\Vik-t\Documents\CarreraUV\5to Semestre\Tecnologías para la Construcción\Proyecto\LISMAN\Lisman\Logica\obj\Debug\Logica.pdb

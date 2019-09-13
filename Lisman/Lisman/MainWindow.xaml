@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:p="clr-namespace:Lisman.Properties"
         xmlns:local="clr-namespace:Lisman"
         mc:Ignorable="d"
         TextElement.Foreground="{DynamicResource MaterialDesignBody}"
@@ -14,15 +15,16 @@
         Background="{DynamicResource MaterialDesignPaper}"
         FontFamily="{DynamicResource MaterialDesignFont}"
         Title="LISMAN" Height="550" Width="450" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
+
     <Grid>
-        <Menu IsMainMenu="True" Margin="300,0,0,470">
-            <MenuItem Header="Idioma"  HorizontalContentAlignment="Right" Width="130" Height="50" >
-                <MenuItem Header="Español">
+        <Menu IsMainMenu="True"  HorizontalAlignment="Right" VerticalAlignment="Top">
+            <MenuItem HorizontalContentAlignment="Right" Header="{x:Static p:Resources.language}" >
+                <MenuItem  Header="{x:Static p:Resources.language_spanish}">
                     <MenuItem.Icon>
                         <materialDesign:PackIcon Kind="Translate" />
                     </MenuItem.Icon>
                 </MenuItem>
-                <MenuItem Header="Inglés">
+                <MenuItem Header="{x:Static p:Resources.language_english}">
                     <MenuItem.Icon>
                         <materialDesign:PackIcon Kind="Translate" />
                     </MenuItem.Icon>
@@ -30,18 +32,18 @@
             </MenuItem>
         </Menu>
         <materialDesign:PackIcon Kind="PacMan" Height="70" Width="96" Margin="172,70,0,0" />
-        <TextBox materialDesign:HintAssist.Hint="Usuario" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="80,174,80,299" />
-        <PasswordBox materialDesign:HintAssist.Hint="Password" Style="{StaticResource MaterialDesignFloatingHintPasswordBox}" Margin="80,246,80,222" />
+        <TextBox materialDesign:HintAssist.Hint="{x:Static p:Resources.user}" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="80,174,80,299" />
+        <PasswordBox materialDesign:HintAssist.Hint="{x:Static p:Resources.password}" Style="{StaticResource MaterialDesignFloatingHintPasswordBox}" Margin="80,246,80,222" />
         <Button
             Style="{StaticResource MaterialDesignRaisedAccentButton}"
-            ToolTip="Resource name: MaterialDesignRaisedAccentButton" Click="Button_Click" Margin="134,321,121,164" Height="Auto">
-            Iniciar Sesión
+            ToolTip="Resource name: MaterialDesignRaisedAccentButton" Click="Button_Click" Margin="134,321,121,164" Height="Auto" Content="{x:Static p:Resources.log_in}" >
+
         </Button>
+
         <TextBlock
-            Style="{StaticResource MaterialDesignSubheadingTextBlock}" Margin="184,389,158,98" Foreground="#DD0F46FF">
-         <Hyperlink Click="Hyperlink_Click" TextDecorations="Underline" FontSize="16" Foreground="#DD0F46FF">
-            Registrarse
-        </Hyperlink>
+            Style="{StaticResource MaterialDesignSubheadingTextBlock}" Margin="184,389,158,98" Foreground="#DD0F46FF" 
+            Text="{x:Static p:Resources.register}" FontStyle="Italic" TextDecorations="Underline" HorizontalAlignment="Center">
+
         </TextBlock>
     </Grid>
 </Window>

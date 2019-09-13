@@ -1,0 +1,47 @@
+﻿<Window x:Class="Lisman.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:local="clr-namespace:Lisman"
+        mc:Ignorable="d"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        TextElement.FontWeight="Regular"
+        TextElement.FontSize="13"
+        TextOptions.TextFormattingMode="Ideal"
+        TextOptions.TextRenderingMode="Auto"
+        Background="{DynamicResource MaterialDesignPaper}"
+        FontFamily="{DynamicResource MaterialDesignFont}"
+        Title="LISMAN" Height="550" Width="450" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Menu IsMainMenu="True" Margin="300,0,0,470">
+            <MenuItem Header="Idioma"  HorizontalContentAlignment="Right" Width="130" Height="50" >
+                <MenuItem Header="Español">
+                    <MenuItem.Icon>
+                        <materialDesign:PackIcon Kind="Translate" />
+                    </MenuItem.Icon>
+                </MenuItem>
+                <MenuItem Header="Inglés">
+                    <MenuItem.Icon>
+                        <materialDesign:PackIcon Kind="Translate" />
+                    </MenuItem.Icon>
+                </MenuItem>
+            </MenuItem>
+        </Menu>
+        <materialDesign:PackIcon Kind="PacMan" Height="70" Width="96" Margin="172,70,0,0" />
+        <TextBox materialDesign:HintAssist.Hint="Usuario" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="80,174,80,299" />
+        <PasswordBox materialDesign:HintAssist.Hint="Password" Style="{StaticResource MaterialDesignFloatingHintPasswordBox}" Margin="80,246,80,222" />
+        <Button
+            Style="{StaticResource MaterialDesignRaisedAccentButton}"
+            ToolTip="Resource name: MaterialDesignRaisedAccentButton" Click="Button_Click" Margin="134,321,121,164" Height="Auto">
+            Iniciar Sesión
+        </Button>
+        <TextBlock
+            Style="{StaticResource MaterialDesignSubheadingTextBlock}" Margin="184,389,158,98" Foreground="#DD0F46FF">
+         <Hyperlink Click="Hyperlink_Click" TextDecorations="Underline" FontSize="16" Foreground="#DD0F46FF">
+            Registrarse
+        </Hyperlink>
+        </TextBlock>
+    </Grid>
+</Window>

@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29230.47
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lisman", "Lisman\Lisman.csproj", "{DEE3102E-47A0-4A46-8D61-2725A2A07552}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DEE3102E-47A0-4A46-8D61-2725A2A07552}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DEE3102E-47A0-4A46-8D61-2725A2A07552}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DEE3102E-47A0-4A46-8D61-2725A2A07552}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DEE3102E-47A0-4A46-8D61-2725A2A07552}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {03C8F13A-5D4A-4269-BE5B-4BF7E361D3FE}
+	EndGlobalSection
+EndGlobal

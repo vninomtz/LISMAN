@@ -7,7 +7,7 @@
         xmlns:p="clr-namespace:Lisman.Properties"
         xmlns:local="clr-namespace:Lisman"
         mc:Ignorable="d"
-        Title="LISMAN" Height="550" Width="450" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" 
+        Title="LISMAN" Height="530" Width="410" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" 
         Icon="C:\Users\Vik-t\Documents\CarreraUV\5to Semestre\Tecnologías para la Construcción\Proyecto\LISMAN\Lisman\Lisman\Resorces\img\icon_pacman.png">
 
     <Grid>
@@ -26,24 +26,22 @@
             </MenuItem>
         </Menu>
         <materialDesign:PackIcon Kind="PacMan" Height="70" Width="96" Margin="172,70,0,0" />
-        <TextBox materialDesign:HintAssist.Hint="{x:Static p:Resources.user}" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="80,174,80,299" />
-        <PasswordBox materialDesign:HintAssist.Hint="{x:Static p:Resources.password}" Style="{StaticResource MaterialDesignFloatingHintPasswordBox}" Margin="80,246,80,222" />
-        <Button
+        <TextBox materialDesign:HintAssist.Hint="{x:Static p:Resources.user}" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="80,160,80,283" />
+        <PasswordBox materialDesign:HintAssist.Hint="{x:Static p:Resources.password}" Style="{StaticResource MaterialDesignFloatingHintPasswordBox}" Margin="80,223,80,227" />
+
+        <Grid Width="170">
+            <Button
             Style="{StaticResource MaterialDesignRaisedAccentButton}"
-            ToolTip="Resource name: MaterialDesignRaisedAccentButton" Click="Button_Click" Margin="134,321,121,164" Height="Auto" Content="{x:Static p:Resources.log_in}" >
+            ToolTip="Resource name: MaterialDesignRaisedAccentButton" Click="Button_Click" 
+            Content="{x:Static p:Resources.log_in}" HorizontalAlignment="Center" Width="174" Margin="-4,308,0,145" Height="Auto" />
 
-        </Button>
-
-
-
-
-        <StackPanel HorizontalAlignment="Left" Height="46" Margin="143,387,0,0" VerticalAlignment="Top" Width="180">
             <TextBlock
                 Style="{StaticResource MaterialDesignSubheadingTextBlock}" Foreground="#DD0F46FF" 
-                 FontStyle="Italic" TextDecorations="Underline" HorizontalAlignment="Center" VerticalAlignment="Center" >
-                <Hyperlink Click="Hyperlink_Click" Foreground="#DD178DD1" >Register</Hyperlink>
+                 FontStyle="Italic" TextDecorations="Underline" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="56,367,58,105" Height="29" Width="56">
+                <Hyperlink Click="Hyperlink_Click" Foreground="#DD178DD1">Register</Hyperlink>
 
             </TextBlock>
-        </StackPanel>
+        </Grid>
+
     </Grid>
 </Window>

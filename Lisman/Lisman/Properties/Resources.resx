@@ -126,6 +126,9 @@
   <data name="email" xml:space="preserve">
     <value>e-mail</value>
   </data>
+  <data name="history_mode" xml:space="preserve">
+    <value>History Mode</value>
+  </data>
   <data name="language" xml:space="preserve">
     <value>Language</value>
   </data>
@@ -141,17 +144,29 @@
   <data name="log_in" xml:space="preserve">
     <value>Log In</value>
   </data>
+  <data name="log_out" xml:space="preserve">
+    <value>Log out</value>
+  </data>
+  <data name="multiplayer_mode" xml:space="preserve">
+    <value>Multiplayer Mode</value>
+  </data>
   <data name="name" xml:space="preserve">
     <value>Names</value>
   </data>
   <data name="password" xml:space="preserve">
     <value>Password</value>
   </data>
+  <data name="positions_table" xml:space="preserve">
+    <value>Positions Table</value>
+  </data>
   <data name="register" xml:space="preserve">
     <value>Register</value>
   </data>
   <data name="save" xml:space="preserve">
     <value>Save</value>
+  </data>
+  <data name="title_main_menu" xml:space="preserve">
+    <value>Main Menu</value>
   </data>
   <data name="title_user_register" xml:space="preserve">
     <value>User Register</value>

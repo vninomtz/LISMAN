@@ -88,6 +88,15 @@ namespace Lisman.Properties {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a History Mode.
+        /// </summary>
+        public static string history_mode {
+            get {
+                return ResourceManager.GetString("history_mode", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Language.
         /// </summary>
         public static string language {
@@ -133,6 +142,24 @@ namespace Lisman.Properties {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Log out.
+        /// </summary>
+        public static string log_out {
+            get {
+                return ResourceManager.GetString("log_out", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Multiplayer Mode.
+        /// </summary>
+        public static string multiplayer_mode {
+            get {
+                return ResourceManager.GetString("multiplayer_mode", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Names.
         /// </summary>
         public static string name {
@@ -151,6 +178,15 @@ namespace Lisman.Properties {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Positions Table.
+        /// </summary>
+        public static string positions_table {
+            get {
+                return ResourceManager.GetString("positions_table", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Register.
         /// </summary>
         public static string register {
@@ -165,6 +201,15 @@ namespace Lisman.Properties {
         public static string save {
             get {
                 return ResourceManager.GetString("save", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Main Menu.
+        /// </summary>
+        public static string title_main_menu {
+            get {
+                return ResourceManager.GetString("title_main_menu", resourceCulture);
             }
         }
         

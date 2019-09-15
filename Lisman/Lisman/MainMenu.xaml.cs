@@ -10,32 +10,23 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace Lisman {
     /// <summary>
-    /// Lógica de interacción para MainWindow.xaml
+    /// Lógica de interacción para MainMenu.xaml
     /// </summary>
-    public partial class MainWindow : Window {
-        public MainWindow()
+    public partial class MainMenu : Window {
+        public MainMenu()
         {
             InitializeComponent();
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void Button_Click_Logout(object sender, RoutedEventArgs e)
         {
-            MainMenu mainMenu = new MainMenu();
-            mainMenu.Show();
+            MainWindow login = new MainWindow();
+            login.Show();
             this.Close();
         }
-
-        private void Hyperlink_Click(object sender, RoutedEventArgs e)
-        {
-            UserRegister userRegister = new UserRegister();
-            userRegister.Show();
-            this.Close();
-        }
-
     }
 }

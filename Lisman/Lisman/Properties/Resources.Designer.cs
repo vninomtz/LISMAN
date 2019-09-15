@@ -61,6 +61,33 @@ namespace Lisman.Properties {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Cancel.
+        /// </summary>
+        public static string cancel {
+            get {
+                return ResourceManager.GetString("cancel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Confirm password.
+        /// </summary>
+        public static string confirm_pass {
+            get {
+                return ResourceManager.GetString("confirm_pass", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a e-mail.
+        /// </summary>
+        public static string email {
+            get {
+                return ResourceManager.GetString("email", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Language.
         /// </summary>
         public static string language {
@@ -88,11 +115,29 @@ namespace Lisman.Properties {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Last Name.
+        /// </summary>
+        public static string last_name {
+            get {
+                return ResourceManager.GetString("last_name", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Log In.
         /// </summary>
         public static string log_in {
             get {
                 return ResourceManager.GetString("log_in", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Names.
+        /// </summary>
+        public static string name {
+            get {
+                return ResourceManager.GetString("name", resourceCulture);
             }
         }
         
@@ -111,6 +156,24 @@ namespace Lisman.Properties {
         public static string register {
             get {
                 return ResourceManager.GetString("register", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Save.
+        /// </summary>
+        public static string save {
+            get {
+                return ResourceManager.GetString("save", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a User Register.
+        /// </summary>
+        public static string title_user_register {
+            get {
+                return ResourceManager.GetString("title_user_register", resourceCulture);
             }
         }
         

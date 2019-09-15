@@ -117,14 +117,29 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="cancel" xml:space="preserve">
+    <value>Cancelar</value>
+  </data>
+  <data name="confirm_pass" xml:space="preserve">
+    <value>Confirmar Contraseña</value>
+  </data>
+  <data name="email" xml:space="preserve">
+    <value>Correo Electrónico</value>
+  </data>
   <data name="english" xml:space="preserve">
     <value>Inglés</value>
   </data>
   <data name="language" xml:space="preserve">
     <value>Idioma</value>
   </data>
+  <data name="last_name" xml:space="preserve">
+    <value>Apellidos</value>
+  </data>
   <data name="log_in" xml:space="preserve">
     <value>Iniciar Sesión</value>
+  </data>
+  <data name="name" xml:space="preserve">
+    <value>Nombres</value>
   </data>
   <data name="password" xml:space="preserve">
     <value>Contraseña</value>
@@ -132,8 +147,14 @@
   <data name="register" xml:space="preserve">
     <value>Registrarse</value>
   </data>
+  <data name="save" xml:space="preserve">
+    <value>Guardar</value>
+  </data>
   <data name="spanish" xml:space="preserve">
     <value>Español</value>
+  </data>
+  <data name="title_user_register" xml:space="preserve">
+    <value>Registro de Usuario</value>
   </data>
   <data name="user" xml:space="preserve">
     <value>Usuario</value>

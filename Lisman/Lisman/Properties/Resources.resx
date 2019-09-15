@@ -117,6 +117,15 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="cancel" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="confirm_pass" xml:space="preserve">
+    <value>Confirm password</value>
+  </data>
+  <data name="email" xml:space="preserve">
+    <value>e-mail</value>
+  </data>
   <data name="language" xml:space="preserve">
     <value>Language</value>
   </data>
@@ -126,14 +135,26 @@
   <data name="language_spanish" xml:space="preserve">
     <value>Spanish</value>
   </data>
+  <data name="last_name" xml:space="preserve">
+    <value>Last Name</value>
+  </data>
   <data name="log_in" xml:space="preserve">
     <value>Log In</value>
+  </data>
+  <data name="name" xml:space="preserve">
+    <value>Names</value>
   </data>
   <data name="password" xml:space="preserve">
     <value>Password</value>
   </data>
   <data name="register" xml:space="preserve">
     <value>Register</value>
+  </data>
+  <data name="save" xml:space="preserve">
+    <value>Save</value>
+  </data>
+  <data name="title_user_register" xml:space="preserve">
+    <value>User Register</value>
   </data>
   <data name="user" xml:space="preserve">
     <value>User</value>

@@ -7,14 +7,8 @@
         xmlns:p="clr-namespace:Lisman.Properties"
         xmlns:local="clr-namespace:Lisman"
         mc:Ignorable="d"
-        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
-        TextElement.FontWeight="Regular"
-        TextElement.FontSize="13"
-        TextOptions.TextFormattingMode="Ideal"
-        TextOptions.TextRenderingMode="Auto"
-        Background="{DynamicResource MaterialDesignPaper}"
-        FontFamily="{DynamicResource MaterialDesignFont}"
-        Title="LISMAN" Height="550" Width="450" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
+        Title="LISMAN" Height="550" Width="450" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" 
+        Icon="C:\Users\Vik-t\Documents\CarreraUV\5to Semestre\Tecnologías para la Construcción\Proyecto\LISMAN\Lisman\Lisman\Resorces\img\icon_pacman.png">
 
     <Grid>
         <Menu IsMainMenu="True"  HorizontalAlignment="Right" VerticalAlignment="Top">
@@ -40,10 +34,16 @@
 
         </Button>
 
-        <TextBlock
-            Style="{StaticResource MaterialDesignSubheadingTextBlock}" Margin="184,389,158,98" Foreground="#DD0F46FF" 
-            Text="{x:Static p:Resources.register}" FontStyle="Italic" TextDecorations="Underline" HorizontalAlignment="Center">
 
-        </TextBlock>
+
+
+        <StackPanel HorizontalAlignment="Left" Height="46" Margin="143,387,0,0" VerticalAlignment="Top" Width="180">
+            <TextBlock
+                Style="{StaticResource MaterialDesignSubheadingTextBlock}" Foreground="#DD0F46FF" 
+                 FontStyle="Italic" TextDecorations="Underline" HorizontalAlignment="Center" VerticalAlignment="Center" >
+                <Hyperlink Click="Hyperlink_Click" Foreground="#DD178DD1" >Register</Hyperlink>
+
+            </TextBlock>
+        </StackPanel>
     </Grid>
 </Window>

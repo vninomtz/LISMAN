@@ -10,28 +10,23 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace Lisman {
     /// <summary>
-    /// Lógica de interacción para MainWindow.xaml
+    /// Lógica de interacción para UserRegister.xaml
     /// </summary>
-    public partial class MainWindow : Window {
-        public MainWindow()
+    public partial class UserRegister : Window {
+        public UserRegister()
         {
             InitializeComponent();
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void Button_Click_Cancel(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("Si jalo esta pendejada");
+            MainWindow login = new MainWindow();
+            login.Show();
+            this.Close();
         }
-
-        private void Hyperlink_Click(object sender, RoutedEventArgs e)
-        {
-            MessageBox.Show("Esto lleva a El Formulario");
-        }
-
     }
 }

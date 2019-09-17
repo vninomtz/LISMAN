@@ -37,5 +37,20 @@ namespace Lisman {
             this.Close();
         }
 
+        private void MenuItem_Click_Spanish(object sender, RoutedEventArgs e)
+        {
+            System.Threading.Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo("es-MX");
+            MainWindow login = new MainWindow();
+            login.Show();
+            this.Close();
+        }
+
+        private void MenuItem_Click_English(object sender, RoutedEventArgs e)
+        {
+            System.Threading.Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo("");
+            MainWindow login = new MainWindow();
+            login.Show();
+            this.Close();
+        }
     }
 }

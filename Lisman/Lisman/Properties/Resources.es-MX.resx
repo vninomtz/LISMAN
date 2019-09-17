@@ -135,6 +135,12 @@
   <data name="language" xml:space="preserve">
     <value>Idioma</value>
   </data>
+  <data name="language_english" xml:space="preserve">
+    <value>Inglés</value>
+  </data>
+  <data name="language_spanish" xml:space="preserve">
+    <value>Español</value>
+  </data>
   <data name="last_name" xml:space="preserve">
     <value>Apellidos</value>
   </data>

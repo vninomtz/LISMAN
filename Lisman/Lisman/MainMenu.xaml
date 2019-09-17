@@ -15,7 +15,7 @@
           L I S M A N
         </TextBlock>
 
-        <Grid Width="220">
+        <Grid Width="240">
             <Button
                 Style="{StaticResource MaterialDesignRaisedDarkButton}"
                 Height="Auto"

@@ -13,12 +13,12 @@
     <Grid>
         <Menu IsMainMenu="True"  HorizontalAlignment="Right" VerticalAlignment="Top">
             <MenuItem HorizontalContentAlignment="Right" Header="{x:Static p:Resources.language}" >
-                <MenuItem  Header="{x:Static p:Resources.language_spanish}">
+                <MenuItem  Header="{x:Static p:Resources.language_spanish}" Click="MenuItem_Click_Spanish">
                     <MenuItem.Icon>
                         <materialDesign:PackIcon Kind="Translate" />
                     </MenuItem.Icon>
                 </MenuItem>
-                <MenuItem Header="{x:Static p:Resources.language_english}">
+                <MenuItem Header="{x:Static p:Resources.language_english}" Click="MenuItem_Click_English" >
                     <MenuItem.Icon>
                         <materialDesign:PackIcon Kind="Translate" />
                     </MenuItem.Icon>

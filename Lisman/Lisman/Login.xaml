@@ -25,11 +25,12 @@
                 </MenuItem>
             </MenuItem>
         </Menu>
-        <materialDesign:PackIcon Kind="PacMan" Height="70" Width="96" Margin="172,70,0,0" />
+       
         <TextBox materialDesign:HintAssist.Hint="{x:Static p:Resources.user}" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="80,160,80,283" />
         <PasswordBox materialDesign:HintAssist.Hint="{x:Static p:Resources.password}" Style="{StaticResource MaterialDesignFloatingHintPasswordBox}" Margin="80,223,80,227" />
 
         <Grid Width="170">
+            <materialDesign:PackIcon Kind="PacMan" Height="100" Width="100" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="40,38,40,0"/>
             <Button
             Style="{StaticResource MaterialDesignRaisedAccentButton}"
             ToolTip="Resource name: MaterialDesignRaisedAccentButton" Click="Button_Click" 

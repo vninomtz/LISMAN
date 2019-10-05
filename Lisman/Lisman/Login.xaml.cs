@@ -25,6 +25,10 @@ namespace Lisman {
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
+            /*LismanService.UserClient  client = new LismanService.UserClient();
+            if (client.getConexion() == 1) {
+                MessageBox.Show("Conexion Establecida");
+            }*/
             MainMenu mainMenu = new MainMenu();
             mainMenu.Show();
             this.Close();

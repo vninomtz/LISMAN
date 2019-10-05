@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="LismanService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsp:Policy wsu:Id="NetTcpBinding_IUser_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <msb:BinaryEncoding xmlns:msb="http://schemas.microsoft.com/ws/06/2004/mspolicy/netbinary1" />
+        <sp:TransportBinding xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <wsp:Policy>
+            <sp:TransportToken>
+              <wsp:Policy>
+                <msf:WindowsTransportSecurity xmlns:msf="http://schemas.microsoft.com/ws/2006/05/framing/policy">
+                  <msf:ProtectionLevel>EncryptAndSign</msf:ProtectionLevel>
+                </msf:WindowsTransportSecurity>
+              </wsp:Policy>
+            </sp:TransportToken>
+            <sp:AlgorithmSuite>
+              <wsp:Policy>
+                <sp:Basic256 />
+              </wsp:Policy>
+            </sp:AlgorithmSuite>
+            <sp:Layout>
+              <wsp:Policy>
+                <sp:Strict />
+              </wsp:Policy>
+            </sp:Layout>
+          </wsp:Policy>
+        </sp:TransportBinding>
+        <wsaw:UsingAddressing />
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://localhost:8081/?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost:8081/?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:8081/?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/LismanService" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IUser_AddAcceso_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddAcceso" />
+  </wsdl:message>
+  <wsdl:message name="IUser_AddAcceso_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddAccesoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUser_UpdateAcceso_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateAcceso" />
+  </wsdl:message>
+  <wsdl:message name="IUser_UpdateAcceso_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateAccesoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUser_Login_InputMessage">
+    <wsdl:part name="parameters" element="tns:Login" />
+  </wsdl:message>
+  <wsdl:message name="IUser_Login_OutputMessage">
+    <wsdl:part name="parameters" element="tns:LoginResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUser_GetAccesoById_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAccesoById" />
+  </wsdl:message>
+  <wsdl:message name="IUser_GetAccesoById_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAccesoByIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUser_getConexion_InputMessage">
+    <wsdl:part name="parameters" element="tns:getConexion" />
+  </wsdl:message>
+  <wsdl:message name="IUser_getConexion_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getConexionResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IUser">
+    <wsdl:operation name="AddAcceso">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUser/AddAcceso" message="tns:IUser_AddAcceso_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUser/AddAccesoResponse" message="tns:IUser_AddAcceso_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateAcceso">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUser/UpdateAcceso" message="tns:IUser_UpdateAcceso_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUser/UpdateAccesoResponse" message="tns:IUser_UpdateAcceso_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Login">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUser/Login" message="tns:IUser_Login_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUser/LoginResponse" message="tns:IUser_Login_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAccesoById">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUser/GetAccesoById" message="tns:IUser_GetAccesoById_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUser/GetAccesoByIdResponse" message="tns:IUser_GetAccesoById_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getConexion">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUser/getConexion" message="tns:IUser_getConexion_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUser/getConexionResponse" message="tns:IUser_getConexion_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="NetTcpBinding_IUser" type="tns:IUser">
+    <wsp:PolicyReference URI="#NetTcpBinding_IUser_policy" />
+    <soap12:binding transport="http://schemas.microsoft.com/soap/tcp" />
+    <wsdl:operation name="AddAcceso">
+      <soap12:operation soapAction="http://tempuri.org/IUser/AddAcceso" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateAcceso">
+      <soap12:operation soapAction="http://tempuri.org/IUser/UpdateAcceso" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Login">
+      <soap12:operation soapAction="http://tempuri.org/IUser/Login" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAccesoById">
+      <soap12:operation soapAction="http://tempuri.org/IUser/GetAccesoById" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getConexion">
+      <soap12:operation soapAction="http://tempuri.org/IUser/getConexion" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="LismanService">
+    <wsdl:port name="NetTcpBinding_IUser" binding="tns:NetTcpBinding_IUser">
+      <soap12:address location="net.tcp://localhost:8091/CalculatorService" />
+      <wsa10:EndpointReference>
+        <wsa10:Address>net.tcp://localhost:8091/CalculatorService</wsa10:Address>
+        <Identity xmlns="http://schemas.xmlsoap.org/ws/2006/02/addressingidentity">
+          <Upn>VICTORNIÑOPC\Vik-t</Upn>
+        </Identity>
+      </wsa10:EndpointReference>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

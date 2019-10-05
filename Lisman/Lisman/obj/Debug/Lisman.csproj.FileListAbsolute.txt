@@ -13,7 +13,6 @@ C:\Users\Vik-t\Documents\CarreraUV\5to Semestre\Tecnologías para la Construcci�
 C:\Users\Vik-t\Documents\CarreraUV\5to Semestre\Tecnologías para la Construcción\Proyecto\LISMAN\Lisman\Lisman\obj\Debug\Lisman.g.resources
 C:\Users\Vik-t\Documents\CarreraUV\5to Semestre\Tecnologías para la Construcción\Proyecto\LISMAN\Lisman\Lisman\obj\Debug\Lisman.Properties.Resources.resources
 C:\Users\Vik-t\Documents\CarreraUV\5to Semestre\Tecnologías para la Construcción\Proyecto\LISMAN\Lisman\Lisman\obj\Debug\Lisman.csproj.GenerateResource.cache
-C:\Users\Vik-t\Documents\CarreraUV\5to Semestre\Tecnologías para la Construcción\Proyecto\LISMAN\Lisman\Lisman\obj\Debug\Lisman.csproj.CoreCompileInputs.cache
 C:\Users\Vik-t\Documents\CarreraUV\5to Semestre\Tecnologías para la Construcción\Proyecto\LISMAN\Lisman\Lisman\obj\Debug\Lisman.csproj.CopyComplete
 C:\Users\Vik-t\Documents\CarreraUV\5to Semestre\Tecnologías para la Construcción\Proyecto\LISMAN\Lisman\Lisman\obj\Debug\Lisman.exe
 C:\Users\Vik-t\Documents\CarreraUV\5to Semestre\Tecnologías para la Construcción\Proyecto\LISMAN\Lisman\Lisman\obj\Debug\Lisman.pdb

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -23,15 +24,17 @@ namespace Lisman {
             InitializeComponent();
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        public Boolean ValidarCampos()
         {
-            /*LismanService.UserClient  client = new LismanService.UserClient();
-            if (client.getConexion() == 1) {
-                MessageBox.Show("Conexion Establecida");
-            }*/
-            MainMenu mainMenu = new MainMenu();
-            mainMenu.Show();
-            this.Close();
+            if(txt_user.Text == "") {
+                MessageBox.Show("Por favor ingresar el usuario");
+                return false;
+            }
+            if (psw_password.Password == "") {
+                MessageBox.Show("Por favor ingresar la contraseña");
+                return false;
+            }
+            return true;
         }
 
         private void Hyperlink_Click(object sender, RoutedEventArgs e)
@@ -55,6 +58,41 @@ namespace Lisman {
             MainWindow login = new MainWindow();
             login.Show();
             this.Close();
+        }
+
+        private void btn_InicioSesion_Click(object sender, RoutedEventArgs e)
+        {
+            if (ValidarCampos()) {
+                using (var cliente = new LismanService.UserClient()) {
+                    try {
+                        LismanService.Cuenta cuenta = cliente.IniciarSesion(txt_user.Text, EncodePassword(psw_password.Password));
+                        if (cuenta != null) {
+                            MainMenu mainMenu = new MainMenu();
+                            mainMenu.Show();
+                            this.Close();
+                        } else {
+                            MessageBox.Show("Usuario o contraseña incorrecta, intente de nuevo");
+                        }
+                    } catch(Exception ex) {
+                        Console.WriteLine(ex.Message);
+                    }
+                    
+                    
+                }
+
+
+            }
+        }
+
+        public string EncodePassword(string originalPassword)
+        {
+            SHA256 sha256 = SHA256Managed.Create();
+            ASCIIEncoding encoding = new ASCIIEncoding();
+            byte[] stream = null;
+            StringBuilder sb = new StringBuilder();
+            stream = sha256.ComputeHash(encoding.GetBytes(originalPassword));
+            for (int i = 0; i < stream.Length; i++) sb.AppendFormat("{0:x2}", stream[i]);
+            return sb.ToString();
         }
     }
 }

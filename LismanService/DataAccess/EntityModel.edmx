@@ -4,20 +4,203 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl" Namespace="EntityModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2005">
-        <EntityContainer Name="EntityModelTargetContainer" >
-        </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+    <Schema Namespace="EntityModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2012" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="EntityModelStoreContainer">
+    <EntitySet Name="JugadorSet" EntityType="EntityModel.Store.JugadorSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="CuentaSet" EntityType="EntityModel.Store.CuentaSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="HistorialSet" EntityType="EntityModel.Store.HistorialSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="PartidaSet" EntityType="EntityModel.Store.PartidaSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ChatSet" EntityType="EntityModel.Store.ChatSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="MensajeSet" EntityType="EntityModel.Store.MensajeSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="CuentaPartida" EntityType="EntityModel.Store.CuentaPartida" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="CuentaUsuario" Association="EntityModel.Store.CuentaUsuario">
+      <End Role="Cuenta" EntitySet="CuentaSet" />
+      <End Role="Usuario" EntitySet="JugadorSet" />
+    </AssociationSet>
+    <AssociationSet Name="CuentaHistorial" Association="EntityModel.Store.CuentaHistorial">
+      <End Role="Cuenta" EntitySet="CuentaSet" />
+      <End Role="Historial" EntitySet="HistorialSet" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CuentaPartida_Cuenta" Association="EntityModel.Store.FK_CuentaPartida_Cuenta">
+      <End Role="Cuenta" EntitySet="CuentaSet" />
+      <End Role="CuentaPartida" EntitySet="CuentaPartida" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CuentaPartida_Partida" Association="EntityModel.Store.FK_CuentaPartida_Partida">
+      <End Role="Partida" EntitySet="PartidaSet" />
+      <End Role="CuentaPartida" EntitySet="CuentaPartida" />
+    </AssociationSet>
+    <AssociationSet Name="ChatPartida" Association="EntityModel.Store.ChatPartida">
+      <End Role="Chat" EntitySet="ChatSet" />
+      <End Role="Partida" EntitySet="PartidaSet" />
+    </AssociationSet>
+    <AssociationSet Name="ChatMensaje" Association="EntityModel.Store.ChatMensaje">
+      <End Role="Chat" EntitySet="ChatSet" />
+      <End Role="Mensaje" EntitySet="MensajeSet" />
+    </AssociationSet>
+    <AssociationSet Name="CuentaMensaje" Association="EntityModel.Store.CuentaMensaje">
+      <End Role="Cuenta" EntitySet="CuentaSet" />
+      <End Role="Mensaje" EntitySet="MensajeSet" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="JugadorSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nombre" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Apellido" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Email" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="CuentaSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Usuario" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Contrasenia" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="key_confirmation" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="fecha_registro" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Jugador_Id" Type="int" Nullable="false" />
+    <Property Name="Historial_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="HistorialSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Multijugador_PuntajeMaximo" Type="int" Nullable="true" />
+    <Property Name="Historia_PuntajeMaximo" Type="int" Nullable="true" />
+    <Property Name="Mult_PartidasJugadas" Type="int" Nullable="true" />
+    <Property Name="Mult_PartidasGanadas" Type="nvarchar(max)" Nullable="true" />
+  </EntityType>
+  <EntityType Name="PartidaSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Fecha_creacion" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ChatSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Fecha_Creacion" Type="datetime" Nullable="false" />
+    <Property Name="Partida_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="MensajeSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Texto" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Fecha_creacion" Type="datetime" Nullable="false" />
+    <Property Name="MAC" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="Chat_Id" Type="int" Nullable="false" />
+    <Property Name="Cuenta_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="CuentaPartida">
+    <Key>
+      <PropertyRef Name="Cuenta_Id" />
+      <PropertyRef Name="Partida_Id" />
+    </Key>
+    <Property Name="Cuenta_Id" Type="int" Nullable="false" />
+    <Property Name="Partida_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="CuentaUsuario">
+    <End Role="Cuenta" Type="EntityModel.Store.CuentaSet" Multiplicity="*" />
+    <End Role="Usuario" Type="EntityModel.Store.JugadorSet" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Usuario">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Cuenta">
+        <PropertyRef Name="Jugador_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="CuentaHistorial">
+    <End Role="Cuenta" Type="EntityModel.Store.CuentaSet" Multiplicity="*" />
+    <End Role="Historial" Type="EntityModel.Store.HistorialSet" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Historial">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Cuenta">
+        <PropertyRef Name="Historial_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ChatPartida">
+    <End Role="Chat" Type="EntityModel.Store.ChatSet" Multiplicity="*" />
+    <End Role="Partida" Type="EntityModel.Store.PartidaSet" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Partida">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Chat">
+        <PropertyRef Name="Partida_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ChatMensaje">
+    <End Role="Chat" Type="EntityModel.Store.ChatSet" Multiplicity="1" />
+    <End Role="Mensaje" Type="EntityModel.Store.MensajeSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Chat">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Mensaje">
+        <PropertyRef Name="Chat_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="CuentaMensaje">
+    <End Role="Cuenta" Type="EntityModel.Store.CuentaSet" Multiplicity="1" />
+    <End Role="Mensaje" Type="EntityModel.Store.MensajeSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Cuenta">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Mensaje">
+        <PropertyRef Name="Cuenta_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CuentaPartida_Cuenta">
+    <End Role="Cuenta" Type="EntityModel.Store.CuentaSet" Multiplicity="1" />
+    <End Role="CuentaPartida" Type="EntityModel.Store.CuentaPartida" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Cuenta">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="CuentaPartida">
+        <PropertyRef Name="Cuenta_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CuentaPartida_Partida">
+    <End Role="CuentaPartida" Type="EntityModel.Store.CuentaPartida" Multiplicity="*" />
+    <End Role="Partida" Type="EntityModel.Store.PartidaSet" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Partida">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="CuentaPartida">
+        <PropertyRef Name="Partida_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema xmlns="http://schemas.microsoft.com/ado/2009/11/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="EntityModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" annotation:UseStrongSpatialTypes="false">
         <EntityContainer Name="EntityModelContainer" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="UsuarioSet" EntityType="EntityModel.Usuario" />
+          <EntitySet Name="JugadorSet" EntityType="EntityModel.Jugador" />
           <EntitySet Name="CuentaSet" EntityType="EntityModel.Cuenta" />
           <AssociationSet Name="CuentaUsuario" Association="EntityModel.CuentaUsuario">
             <End Role="Cuenta" EntitySet="CuentaSet" />
-            <End Role="Usuario" EntitySet="UsuarioSet" />
+            <End Role="Usuario" EntitySet="JugadorSet" />
           </AssociationSet>
           <EntitySet Name="HistorialSet" EntityType="EntityModel.Historial" />
           <AssociationSet Name="CuentaHistorial" Association="EntityModel.CuentaHistorial">
@@ -44,14 +227,13 @@
             <End Role="Mensaje" EntitySet="MensajeSet" />
           </AssociationSet>
         </EntityContainer>
-        <EntityType Name="Usuario">
+        <EntityType Name="Jugador">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Nombre" Type="String" Nullable="false" />
           <Property Name="Apellido" Type="String" Nullable="false" />
-          <Property Name="FechaNacimiento" Type="String" Nullable="false" />
           <Property Name="Email" Type="String" Nullable="false" />
           <NavigationProperty Name="Cuenta" Relationship="EntityModel.CuentaUsuario" FromRole="Usuario" ToRole="Cuenta" />
         </EntityType>
@@ -64,14 +246,14 @@
           <Property Name="Contrasenia" Type="String" Nullable="false" />
           <Property Name="key_confirmation" Type="String" Nullable="true" />
           <Property Name="fecha_registro" Type="String" Nullable="false" />
-          <NavigationProperty Name="Usuario1" Relationship="EntityModel.CuentaUsuario" FromRole="Cuenta" ToRole="Usuario" />
+          <NavigationProperty Name="Jugador" Relationship="EntityModel.CuentaUsuario" FromRole="Cuenta" ToRole="Usuario" />
           <NavigationProperty Name="Historial" Relationship="EntityModel.CuentaHistorial" FromRole="Cuenta" ToRole="Historial" />
           <NavigationProperty Name="Partida" Relationship="EntityModel.CuentaPartida" FromRole="Cuenta" ToRole="Partida" />
           <NavigationProperty Name="Mensaje" Relationship="EntityModel.CuentaMensaje" FromRole="Cuenta" ToRole="Mensaje" />
         </EntityType>
         <Association Name="CuentaUsuario">
           <End Type="EntityModel.Cuenta" Role="Cuenta" Multiplicity="1" />
-          <End Type="EntityModel.Usuario" Role="Usuario" Multiplicity="1" />
+          <End Type="EntityModel.Jugador" Role="Usuario" Multiplicity="1" />
         </Association>
         <EntityType Name="Historial">
           <Key>
@@ -80,8 +262,9 @@
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Multijugador_PuntajeMaximo" Type="Int32" Nullable="true" />
           <Property Name="Historia_PuntajeMaximo" Type="Int32" Nullable="true" />
-          <Property Name="NumeroPartidasJugadas" Type="Int32" Nullable="true" />
+          <Property Name="Mult_PartidasJugadas" Type="Int32" Nullable="true" />
           <NavigationProperty Name="Cuenta" Relationship="EntityModel.CuentaHistorial" FromRole="Historial" ToRole="Cuenta" />
+          <Property Name="Mult_PartidasGanadas" Type="Int32" Nullable="true" />
         </EntityType>
         <Association Name="CuentaHistorial">
           <End Type="EntityModel.Cuenta" Role="Cuenta" Multiplicity="1" />
@@ -98,7 +281,7 @@
         </EntityType>
         <Association Name="CuentaPartida">
           <End Type="EntityModel.Cuenta" Role="Cuenta" Multiplicity="*" />
-          <End Type="EntityModel.Partida" Role="Partida" Multiplicity="1" />
+          <End Type="EntityModel.Partida" Role="Partida" Multiplicity="*" />
         </Association>
         <EntityType Name="Chat">
           <Key>
@@ -107,6 +290,7 @@
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <NavigationProperty Name="Partida" Relationship="EntityModel.ChatPartida" FromRole="Chat" ToRole="Partida" />
           <NavigationProperty Name="Mensaje" Relationship="EntityModel.ChatMensaje" FromRole="Chat" ToRole="Mensaje" />
+          <Property Name="Fecha_Creacion" Type="DateTime" Nullable="false" />
         </EntityType>
         <Association Name="ChatPartida">
           <End Type="EntityModel.Chat" Role="Chat" Multiplicity="1" />
@@ -121,6 +305,7 @@
           <Property Name="Fecha_creacion" Type="DateTime" Nullable="false" />
           <NavigationProperty Name="Chat" Relationship="EntityModel.ChatMensaje" FromRole="Mensaje" ToRole="Chat" />
           <NavigationProperty Name="Cuenta" Relationship="EntityModel.CuentaMensaje" FromRole="Mensaje" ToRole="Cuenta" />
+          <Property Name="MAC" Type="String" Nullable="true" />
         </EntityType>
         <Association Name="ChatMensaje">
           <End Type="EntityModel.Chat" Role="Chat" Multiplicity="1" />
@@ -128,19 +313,122 @@
         </Association>
         <Association Name="CuentaMensaje">
           <End Type="EntityModel.Cuenta" Role="Cuenta" Multiplicity="1" />
-          <End Type="EntityModel.Mensaje" Role="Mensaje" Multiplicity="1" />
+          <End Type="EntityModel.Mensaje" Role="Mensaje" Multiplicity="0..1" />
         </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
-      <Mapping xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs" Space="C-S">
-        <Alias Key="Model" Value="EntityModel" />
-        <Alias Key="Target" Value="EntityModel.Store" />
-        <EntityContainerMapping CdmEntityContainer="EntityModelContainer" StorageEntityContainer="EntityModelTargetContainer">
-        </EntityContainerMapping>
-      </Mapping>
-    </edmx:Mappings>
+    <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="EntityModelStoreContainer" CdmEntityContainer="EntityModelContainer">
+    <EntitySetMapping Name="JugadorSet">
+      <EntityTypeMapping TypeName="IsTypeOf(EntityModel.Jugador)">
+        <MappingFragment StoreEntitySet="JugadorSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Apellido" ColumnName="Apellido" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CuentaSet">
+      <EntityTypeMapping TypeName="IsTypeOf(EntityModel.Cuenta)">
+        <MappingFragment StoreEntitySet="CuentaSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Usuario" ColumnName="Usuario" />
+          <ScalarProperty Name="Contrasenia" ColumnName="Contrasenia" />
+          <ScalarProperty Name="key_confirmation" ColumnName="key_confirmation" />
+          <ScalarProperty Name="fecha_registro" ColumnName="fecha_registro" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="HistorialSet">
+      <EntityTypeMapping TypeName="IsTypeOf(EntityModel.Historial)">
+        <MappingFragment StoreEntitySet="HistorialSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Multijugador_PuntajeMaximo" ColumnName="Multijugador_PuntajeMaximo" />
+          <ScalarProperty Name="Historia_PuntajeMaximo" ColumnName="Historia_PuntajeMaximo" />
+          <ScalarProperty Name="Mult_PartidasJugadas" ColumnName="Mult_PartidasJugadas" />
+          <ScalarProperty Name="Mult_PartidasGanadas" ColumnName="Mult_PartidasGanadas" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PartidaSet">
+      <EntityTypeMapping TypeName="IsTypeOf(EntityModel.Partida)">
+        <MappingFragment StoreEntitySet="PartidaSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Fecha_creacion" ColumnName="Fecha_creacion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ChatSet">
+      <EntityTypeMapping TypeName="IsTypeOf(EntityModel.Chat)">
+        <MappingFragment StoreEntitySet="ChatSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Fecha_Creacion" ColumnName="Fecha_Creacion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MensajeSet">
+      <EntityTypeMapping TypeName="IsTypeOf(EntityModel.Mensaje)">
+        <MappingFragment StoreEntitySet="MensajeSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Texto" ColumnName="Texto" />
+          <ScalarProperty Name="Fecha_creacion" ColumnName="Fecha_creacion" />
+          <ScalarProperty Name="MAC" ColumnName="MAC" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="CuentaUsuario" TypeName="EntityModel.CuentaUsuario" StoreEntitySet="CuentaSet">
+      <EndProperty Name="Usuario">
+        <ScalarProperty Name="Id" ColumnName="Jugador_Id" />
+      </EndProperty>
+      <EndProperty Name="Cuenta">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="CuentaHistorial" TypeName="EntityModel.CuentaHistorial" StoreEntitySet="CuentaSet">
+      <EndProperty Name="Historial">
+        <ScalarProperty Name="Id" ColumnName="Historial_Id" />
+      </EndProperty>
+      <EndProperty Name="Cuenta">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="CuentaPartida" TypeName="EntityModel.CuentaPartida" StoreEntitySet="CuentaPartida">
+      <EndProperty Name="Cuenta">
+        <ScalarProperty Name="Id" ColumnName="Cuenta_Id" />
+      </EndProperty>
+      <EndProperty Name="Partida">
+        <ScalarProperty Name="Id" ColumnName="Partida_Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="ChatPartida" TypeName="EntityModel.ChatPartida" StoreEntitySet="ChatSet">
+      <EndProperty Name="Partida">
+        <ScalarProperty Name="Id" ColumnName="Partida_Id" />
+      </EndProperty>
+      <EndProperty Name="Chat">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="ChatMensaje" TypeName="EntityModel.ChatMensaje" StoreEntitySet="MensajeSet">
+      <EndProperty Name="Chat">
+        <ScalarProperty Name="Id" ColumnName="Chat_Id" />
+      </EndProperty>
+      <EndProperty Name="Mensaje">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="CuentaMensaje" TypeName="EntityModel.CuentaMensaje" StoreEntitySet="MensajeSet">
+      <EndProperty Name="Cuenta">
+        <ScalarProperty Name="Id" ColumnName="Cuenta_Id" />
+      </EndProperty>
+      <EndProperty Name="Mensaje">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping></edmx:Mappings>
   </edmx:Runtime>
   <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
@@ -154,6 +442,7 @@
         <DesignerProperty Name="ValidateOnBuild" Value="true" />
         <DesignerProperty Name="EnablePluralization" Value="False" />
         <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+        <DesignerProperty Name="UseLegacyProvider" Value="False" />
       </DesignerInfoPropertySet>
     </edmx:Options>
     <!-- Diagram content (shape and connector positions) -->

@@ -25,20 +25,25 @@
                 </MenuItem>
             </MenuItem>
         </Menu>
-       
-        <TextBox materialDesign:HintAssist.Hint="{x:Static p:Resources.user}" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="80,160,80,283" />
-        <PasswordBox materialDesign:HintAssist.Hint="{x:Static p:Resources.password}" Style="{StaticResource MaterialDesignFloatingHintPasswordBox}" Margin="80,223,80,227" />
+
+        <TextBox x:Name="txt_user" materialDesign:HintAssist.Hint="{x:Static p:Resources.user}" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="80,160,80,283" />
+        <PasswordBox x:Name="psw_password" materialDesign:HintAssist.Hint="{x:Static p:Resources.password}" Style="{StaticResource MaterialDesignFloatingHintPasswordBox}" Margin="80,223,80,227" />
 
         <Grid Width="170">
-            <materialDesign:PackIcon Kind="PacMan" Height="100" Width="100" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="40,38,40,0"/>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="202*"/>
+                <RowDefinition Height="299*"/>
+            </Grid.RowDefinitions>
+            <materialDesign:PackIcon Kind="PacMan" Height="100" Width="100" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="35,38,35,0"/>
             <Button
+                Name="btn_InicioSesion"
             Style="{StaticResource MaterialDesignRaisedAccentButton}"
-            ToolTip="Resource name: MaterialDesignRaisedAccentButton" Click="Button_Click" 
-            Content="{x:Static p:Resources.log_in}" HorizontalAlignment="Center" Width="174" Margin="-4,308,0,145" Height="Auto" />
+            ToolTip="Resource name: MaterialDesignRaisedAccentButton" 
+            Content="{x:Static p:Resources.log_in}" HorizontalAlignment="Center" Width="174" Margin="-4,106,0,145" Height="Auto" Grid.Row="1" Click="btn_InicioSesion_Click" />
 
             <TextBlock
                 Style="{StaticResource MaterialDesignSubheadingTextBlock}" Foreground="#DD0F46FF" 
-                 FontStyle="Italic" TextDecorations="Underline" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="56,367,58,105" Height="29" Width="56">
+                 FontStyle="Italic" TextDecorations="Underline" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="56,165,58,105" Height="29" Width="56" Grid.Row="1">
                 <Hyperlink Click="Hyperlink_Click" Foreground="#DD178DD1">Register</Hyperlink>
 
             </TextBlock>

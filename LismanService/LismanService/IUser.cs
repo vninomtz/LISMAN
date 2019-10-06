@@ -10,44 +10,111 @@ namespace LismanService {
     [ServiceContract]
     public interface IUser {
         [OperationContract]
-        int AddAcceso(Acceso cuenta);
+        int AddCuenta(Cuenta cuenta);
         [OperationContract]
-        int UpdateAcceso(Acceso cuenta);
+        List<Cuenta> GetCuentas();
         [OperationContract]
-        Acceso Login(String usuario, String contrasenia);
+        Cuenta IniciarSesion(String usuario, String contrasenia);
 
-        [OperationContract]
-        Acceso GetAccesoById(String cuentaId);
 
-        [OperationContract]
-        int getConexion();
-       
+
+
 
 
 
         // TODO: Add your service operations here
     }
+    public interface IPartida {
+        int NewPartida();
+    }
 
     // Use a data contract as illustrated in the sample below to add composite types to service operations.
     // You can add XSD files into the project. After building the project, you can directly use the data types defined there, with the namespace "MessageService.ContractType".
+
+   
+
     [DataContract]
-    //Es como marcado para serializar, como va a salir de la red, debe tenr una forma especifica, 
+    public partial class Jugador
+    {
+        [DataMember]
+        public int Id { get; set; }
+        [DataMember]
+        public string Nombre { get; set; }
+        [DataMember]
+        public string Apellido { get; set; }
+        [DataMember]
+        public string Email { get; set; }
+        
+    }
 
-
-    public class Acceso {
+    public partial class Cuenta {
         [DataMember]
         public int Id { get; set; }
         [DataMember]
         public string Usuario { get; set; }
         [DataMember]
-        public string Constrasenia { get; set; }
-        [DataMember]
-        public string Tipo_acceso { get; set; }
+        public string Contrasenia { get; set; }
         [DataMember]
         public string key_confirmation { get; set; }
         [DataMember]
-        public string Email { get; set; }
-       
+        public string fecha_registro { get; set; }
+        [DataMember]
 
+        public virtual Jugador Jugador { get; set; }
+        [DataMember]
+        public virtual Historial Historial { get; set; }
     }
+
+    public partial class Historial {
+        [DataMember]
+        public int Id { get; set; }
+        [DataMember]
+        public Nullable<int> Multijugador_PuntajeMaximo { get; set; }
+        [DataMember]
+        public Nullable<int> Historia_PuntajeMaximo { get; set; }
+        [DataMember]
+        public Nullable<int> Mult_PartidasJugadas { get; set; }
+        [DataMember]
+        public string Mult_PartidasGanadas { get; set; }
+        
+    }
+
+    public partial class Partida {
+        [DataMember]
+        public int Id { get; set; }
+        [DataMember]
+        public System.DateTime Fecha_creacion { get; set; }
+        [DataMember]
+        public virtual ICollection<Cuenta> Cuenta { get; set; }
+        [DataMember]
+        public virtual Chat Chat { get; set; }
+    }
+
+    public partial class Chat {
+        [DataMember]
+        public int Id { get; set; }
+        [DataMember]
+        public System.DateTime Fecha_Creacion { get; set; }
+        [DataMember]
+        public virtual Partida Partida { get; set; }
+        [DataMember]
+        public virtual ICollection<Mensaje> Mensaje { get; set; }
+    }
+
+    public partial class Mensaje {
+        [DataMember]
+        public int Id { get; set; }
+        [DataMember]
+        public string Texto { get; set; }
+        [DataMember]
+        public System.DateTime Fecha_creacion { get; set; }
+        [DataMember]
+        public string MAC { get; set; }
+        [DataMember]
+        public virtual Chat Chat { get; set; }
+        [DataMember]
+        public virtual Cuenta Cuenta { get; set; }
+    }
+
+
 }

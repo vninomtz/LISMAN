@@ -5,7 +5,7 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="85235708d8c1429aa1eaf3de1bbe4433" Name="Diagram1" >
-        <EntityTypeShape EntityType="EntityModel.Usuario" Width="1.5" PointX="0.5" PointY="0.5" />
+        <EntityTypeShape EntityType="EntityModel.Jugador" Width="1.5" PointX="0.5" PointY="0.5" />
         <EntityTypeShape EntityType="EntityModel.Cuenta" Width="1.5" PointX="2.875" PointY="0.5" />
         <AssociationConnector Association="EntityModel.CuentaUsuario" />
         <EntityTypeShape EntityType="EntityModel.Historial" Width="2.375" PointX="5.75" PointY="0.625" />

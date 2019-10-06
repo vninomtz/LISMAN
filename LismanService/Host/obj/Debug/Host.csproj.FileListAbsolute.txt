@@ -8,3 +8,10 @@ C:\Users\Vik-t\Documents\CarreraUV\5to Semestre\Tecnologías para la Construcci�
 C:\Users\Vik-t\Documents\CarreraUV\5to Semestre\Tecnologías para la Construcción\Proyecto\LISMAN\LismanService\Host\obj\Debug\Host.csproj.CopyComplete
 C:\Users\Vik-t\Documents\CarreraUV\5to Semestre\Tecnologías para la Construcción\Proyecto\LISMAN\LismanService\Host\obj\Debug\Host.exe
 C:\Users\Vik-t\Documents\CarreraUV\5to Semestre\Tecnologías para la Construcción\Proyecto\LISMAN\LismanService\Host\obj\Debug\Host.pdb
+C:\Users\Vik-t\Documents\CarreraUV\5to Semestre\Tecnologías para la Construcción\Proyecto\LISMAN\LismanService\Host\bin\Debug\DataAccess.dll
+C:\Users\Vik-t\Documents\CarreraUV\5to Semestre\Tecnologías para la Construcción\Proyecto\LISMAN\LismanService\Host\bin\Debug\EntityFramework.dll
+C:\Users\Vik-t\Documents\CarreraUV\5to Semestre\Tecnologías para la Construcción\Proyecto\LISMAN\LismanService\Host\bin\Debug\DataAccess.pdb
+C:\Users\Vik-t\Documents\CarreraUV\5to Semestre\Tecnologías para la Construcción\Proyecto\LISMAN\LismanService\Host\bin\Debug\DataAccess.dll.config
+C:\Users\Vik-t\Documents\CarreraUV\5to Semestre\Tecnologías para la Construcción\Proyecto\LISMAN\LismanService\Host\bin\Debug\EntityFramework.xml
+C:\Users\Vik-t\Documents\CarreraUV\5to Semestre\Tecnologías para la Construcción\Proyecto\LISMAN\LismanService\Host\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Vik-t\Documents\CarreraUV\5to Semestre\Tecnologías para la Construcción\Proyecto\LISMAN\LismanService\Host\bin\Debug\EntityFramework.SqlServer.xml

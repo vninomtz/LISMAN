@@ -133,7 +133,7 @@
     <None Include="Connected Services\LismanService\item2.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Connected Services\LismanService\Lisman.LismanService.Acceso.datasource">
+    <None Include="Connected Services\LismanService\Lisman.LismanService.Cuenta.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Connected Services\LismanService\LismanService.wsdl" />

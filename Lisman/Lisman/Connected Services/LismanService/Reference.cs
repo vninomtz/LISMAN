@@ -15,27 +15,30 @@ namespace Lisman.LismanService {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="Acceso", Namespace="http://schemas.datacontract.org/2004/07/LismanService")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Cuenta", Namespace="http://schemas.datacontract.org/2004/07/LismanService")]
     [System.SerializableAttribute()]
-    public partial class Acceso : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+    public partial class Cuenta : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
         [System.NonSerializedAttribute()]
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string ConstraseniaField;
+        private string ContraseniaField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string EmailField;
+        private Lisman.LismanService.Historial HistorialField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private int IdField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string Tipo_accesoField;
+        private Lisman.LismanService.Jugador JugadorField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string UsuarioField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string fecha_registroField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string key_confirmationField;
@@ -51,27 +54,27 @@ namespace Lisman.LismanService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Constrasenia {
+        public string Contrasenia {
             get {
-                return this.ConstraseniaField;
+                return this.ContraseniaField;
             }
             set {
-                if ((object.ReferenceEquals(this.ConstraseniaField, value) != true)) {
-                    this.ConstraseniaField = value;
-                    this.RaisePropertyChanged("Constrasenia");
+                if ((object.ReferenceEquals(this.ContraseniaField, value) != true)) {
+                    this.ContraseniaField = value;
+                    this.RaisePropertyChanged("Contrasenia");
                 }
             }
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Email {
+        public Lisman.LismanService.Historial Historial {
             get {
-                return this.EmailField;
+                return this.HistorialField;
             }
             set {
-                if ((object.ReferenceEquals(this.EmailField, value) != true)) {
-                    this.EmailField = value;
-                    this.RaisePropertyChanged("Email");
+                if ((object.ReferenceEquals(this.HistorialField, value) != true)) {
+                    this.HistorialField = value;
+                    this.RaisePropertyChanged("Historial");
                 }
             }
         }
@@ -90,14 +93,14 @@ namespace Lisman.LismanService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Tipo_acceso {
+        public Lisman.LismanService.Jugador Jugador {
             get {
-                return this.Tipo_accesoField;
+                return this.JugadorField;
             }
             set {
-                if ((object.ReferenceEquals(this.Tipo_accesoField, value) != true)) {
-                    this.Tipo_accesoField = value;
-                    this.RaisePropertyChanged("Tipo_acceso");
+                if ((object.ReferenceEquals(this.JugadorField, value) != true)) {
+                    this.JugadorField = value;
+                    this.RaisePropertyChanged("Jugador");
                 }
             }
         }
@@ -111,6 +114,19 @@ namespace Lisman.LismanService {
                 if ((object.ReferenceEquals(this.UsuarioField, value) != true)) {
                     this.UsuarioField = value;
                     this.RaisePropertyChanged("Usuario");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string fecha_registro {
+            get {
+                return this.fecha_registroField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.fecha_registroField, value) != true)) {
+                    this.fecha_registroField = value;
+                    this.RaisePropertyChanged("fecha_registro");
                 }
             }
         }
@@ -138,39 +154,277 @@ namespace Lisman.LismanService {
         }
     }
     
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Historial", Namespace="http://schemas.datacontract.org/2004/07/LismanService")]
+    [System.SerializableAttribute()]
+    public partial class Historial : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private Lisman.LismanService.Cuenta CuentaField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int Historia_PuntajeMaximoField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int IdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string Mult_PartidasGanadasField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int Mult_PartidasJugadasField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int Multijugador_PuntajeMaximoField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public Lisman.LismanService.Cuenta Cuenta {
+            get {
+                return this.CuentaField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.CuentaField, value) != true)) {
+                    this.CuentaField = value;
+                    this.RaisePropertyChanged("Cuenta");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Historia_PuntajeMaximo {
+            get {
+                return this.Historia_PuntajeMaximoField;
+            }
+            set {
+                if ((this.Historia_PuntajeMaximoField.Equals(value) != true)) {
+                    this.Historia_PuntajeMaximoField = value;
+                    this.RaisePropertyChanged("Historia_PuntajeMaximo");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Id {
+            get {
+                return this.IdField;
+            }
+            set {
+                if ((this.IdField.Equals(value) != true)) {
+                    this.IdField = value;
+                    this.RaisePropertyChanged("Id");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Mult_PartidasGanadas {
+            get {
+                return this.Mult_PartidasGanadasField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.Mult_PartidasGanadasField, value) != true)) {
+                    this.Mult_PartidasGanadasField = value;
+                    this.RaisePropertyChanged("Mult_PartidasGanadas");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Mult_PartidasJugadas {
+            get {
+                return this.Mult_PartidasJugadasField;
+            }
+            set {
+                if ((this.Mult_PartidasJugadasField.Equals(value) != true)) {
+                    this.Mult_PartidasJugadasField = value;
+                    this.RaisePropertyChanged("Mult_PartidasJugadas");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Multijugador_PuntajeMaximo {
+            get {
+                return this.Multijugador_PuntajeMaximoField;
+            }
+            set {
+                if ((this.Multijugador_PuntajeMaximoField.Equals(value) != true)) {
+                    this.Multijugador_PuntajeMaximoField = value;
+                    this.RaisePropertyChanged("Multijugador_PuntajeMaximo");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Jugador", Namespace="http://schemas.datacontract.org/2004/07/LismanService")]
+    [System.SerializableAttribute()]
+    public partial class Jugador : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string ApellidoField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private Lisman.LismanService.Cuenta CuentaField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string EmailField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string FechaNacimientoField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int IdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string NombreField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Apellido {
+            get {
+                return this.ApellidoField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ApellidoField, value) != true)) {
+                    this.ApellidoField = value;
+                    this.RaisePropertyChanged("Apellido");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public Lisman.LismanService.Cuenta Cuenta {
+            get {
+                return this.CuentaField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.CuentaField, value) != true)) {
+                    this.CuentaField = value;
+                    this.RaisePropertyChanged("Cuenta");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Email {
+            get {
+                return this.EmailField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.EmailField, value) != true)) {
+                    this.EmailField = value;
+                    this.RaisePropertyChanged("Email");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string FechaNacimiento {
+            get {
+                return this.FechaNacimientoField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.FechaNacimientoField, value) != true)) {
+                    this.FechaNacimientoField = value;
+                    this.RaisePropertyChanged("FechaNacimiento");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Id {
+            get {
+                return this.IdField;
+            }
+            set {
+                if ((this.IdField.Equals(value) != true)) {
+                    this.IdField = value;
+                    this.RaisePropertyChanged("Id");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Nombre {
+            get {
+                return this.NombreField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.NombreField, value) != true)) {
+                    this.NombreField = value;
+                    this.RaisePropertyChanged("Nombre");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="LismanService.IUser")]
     public interface IUser {
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUser/AddAcceso", ReplyAction="http://tempuri.org/IUser/AddAccesoResponse")]
-        int AddAcceso(Lisman.LismanService.Acceso cuenta);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUser/AddCuenta", ReplyAction="http://tempuri.org/IUser/AddCuentaResponse")]
+        int AddCuenta(Lisman.LismanService.Cuenta cuenta);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUser/AddAcceso", ReplyAction="http://tempuri.org/IUser/AddAccesoResponse")]
-        System.Threading.Tasks.Task<int> AddAccesoAsync(Lisman.LismanService.Acceso cuenta);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUser/AddCuenta", ReplyAction="http://tempuri.org/IUser/AddCuentaResponse")]
+        System.Threading.Tasks.Task<int> AddCuentaAsync(Lisman.LismanService.Cuenta cuenta);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUser/UpdateAcceso", ReplyAction="http://tempuri.org/IUser/UpdateAccesoResponse")]
-        int UpdateAcceso(Lisman.LismanService.Acceso cuenta);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUser/GetCuentas", ReplyAction="http://tempuri.org/IUser/GetCuentasResponse")]
+        Lisman.LismanService.Cuenta[] GetCuentas();
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUser/UpdateAcceso", ReplyAction="http://tempuri.org/IUser/UpdateAccesoResponse")]
-        System.Threading.Tasks.Task<int> UpdateAccesoAsync(Lisman.LismanService.Acceso cuenta);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUser/GetCuentas", ReplyAction="http://tempuri.org/IUser/GetCuentasResponse")]
+        System.Threading.Tasks.Task<Lisman.LismanService.Cuenta[]> GetCuentasAsync();
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUser/Login", ReplyAction="http://tempuri.org/IUser/LoginResponse")]
-        Lisman.LismanService.Acceso Login(string usuario, string contrasenia);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUser/IniciarSesion", ReplyAction="http://tempuri.org/IUser/IniciarSesionResponse")]
+        Lisman.LismanService.Cuenta IniciarSesion(string usuario, string contrasenia);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUser/Login", ReplyAction="http://tempuri.org/IUser/LoginResponse")]
-        System.Threading.Tasks.Task<Lisman.LismanService.Acceso> LoginAsync(string usuario, string contrasenia);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUser/GetAccesoById", ReplyAction="http://tempuri.org/IUser/GetAccesoByIdResponse")]
-        Lisman.LismanService.Acceso GetAccesoById(string cuentaId);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUser/GetAccesoById", ReplyAction="http://tempuri.org/IUser/GetAccesoByIdResponse")]
-        System.Threading.Tasks.Task<Lisman.LismanService.Acceso> GetAccesoByIdAsync(string cuentaId);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUser/getConexion", ReplyAction="http://tempuri.org/IUser/getConexionResponse")]
-        int getConexion();
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUser/getConexion", ReplyAction="http://tempuri.org/IUser/getConexionResponse")]
-        System.Threading.Tasks.Task<int> getConexionAsync();
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUser/IniciarSesion", ReplyAction="http://tempuri.org/IUser/IniciarSesionResponse")]
+        System.Threading.Tasks.Task<Lisman.LismanService.Cuenta> IniciarSesionAsync(string usuario, string contrasenia);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -200,44 +454,28 @@ namespace Lisman.LismanService {
                 base(binding, remoteAddress) {
         }
         
-        public int AddAcceso(Lisman.LismanService.Acceso cuenta) {
-            return base.Channel.AddAcceso(cuenta);
+        public int AddCuenta(Lisman.LismanService.Cuenta cuenta) {
+            return base.Channel.AddCuenta(cuenta);
         }
         
-        public System.Threading.Tasks.Task<int> AddAccesoAsync(Lisman.LismanService.Acceso cuenta) {
-            return base.Channel.AddAccesoAsync(cuenta);
+        public System.Threading.Tasks.Task<int> AddCuentaAsync(Lisman.LismanService.Cuenta cuenta) {
+            return base.Channel.AddCuentaAsync(cuenta);
         }
         
-        public int UpdateAcceso(Lisman.LismanService.Acceso cuenta) {
-            return base.Channel.UpdateAcceso(cuenta);
+        public Lisman.LismanService.Cuenta[] GetCuentas() {
+            return base.Channel.GetCuentas();
         }
         
-        public System.Threading.Tasks.Task<int> UpdateAccesoAsync(Lisman.LismanService.Acceso cuenta) {
-            return base.Channel.UpdateAccesoAsync(cuenta);
+        public System.Threading.Tasks.Task<Lisman.LismanService.Cuenta[]> GetCuentasAsync() {
+            return base.Channel.GetCuentasAsync();
         }
         
-        public Lisman.LismanService.Acceso Login(string usuario, string contrasenia) {
-            return base.Channel.Login(usuario, contrasenia);
+        public Lisman.LismanService.Cuenta IniciarSesion(string usuario, string contrasenia) {
+            return base.Channel.IniciarSesion(usuario, contrasenia);
         }
         
-        public System.Threading.Tasks.Task<Lisman.LismanService.Acceso> LoginAsync(string usuario, string contrasenia) {
-            return base.Channel.LoginAsync(usuario, contrasenia);
-        }
-        
-        public Lisman.LismanService.Acceso GetAccesoById(string cuentaId) {
-            return base.Channel.GetAccesoById(cuentaId);
-        }
-        
-        public System.Threading.Tasks.Task<Lisman.LismanService.Acceso> GetAccesoByIdAsync(string cuentaId) {
-            return base.Channel.GetAccesoByIdAsync(cuentaId);
-        }
-        
-        public int getConexion() {
-            return base.Channel.getConexion();
-        }
-        
-        public System.Threading.Tasks.Task<int> getConexionAsync() {
-            return base.Channel.getConexionAsync();
+        public System.Threading.Tasks.Task<Lisman.LismanService.Cuenta> IniciarSesionAsync(string usuario, string contrasenia) {
+            return base.Channel.IniciarSesionAsync(usuario, contrasenia);
         }
     }
 }

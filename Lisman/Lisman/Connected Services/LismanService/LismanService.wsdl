@@ -36,63 +36,43 @@
       <xsd:import schemaLocation="http://localhost:8081/?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/LismanService" />
     </xsd:schema>
   </wsdl:types>
-  <wsdl:message name="IUser_AddAcceso_InputMessage">
-    <wsdl:part name="parameters" element="tns:AddAcceso" />
+  <wsdl:message name="IUser_AddCuenta_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddCuenta" />
   </wsdl:message>
-  <wsdl:message name="IUser_AddAcceso_OutputMessage">
-    <wsdl:part name="parameters" element="tns:AddAccesoResponse" />
+  <wsdl:message name="IUser_AddCuenta_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddCuentaResponse" />
   </wsdl:message>
-  <wsdl:message name="IUser_UpdateAcceso_InputMessage">
-    <wsdl:part name="parameters" element="tns:UpdateAcceso" />
+  <wsdl:message name="IUser_GetCuentas_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCuentas" />
   </wsdl:message>
-  <wsdl:message name="IUser_UpdateAcceso_OutputMessage">
-    <wsdl:part name="parameters" element="tns:UpdateAccesoResponse" />
+  <wsdl:message name="IUser_GetCuentas_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCuentasResponse" />
   </wsdl:message>
-  <wsdl:message name="IUser_Login_InputMessage">
-    <wsdl:part name="parameters" element="tns:Login" />
+  <wsdl:message name="IUser_IniciarSesion_InputMessage">
+    <wsdl:part name="parameters" element="tns:IniciarSesion" />
   </wsdl:message>
-  <wsdl:message name="IUser_Login_OutputMessage">
-    <wsdl:part name="parameters" element="tns:LoginResponse" />
-  </wsdl:message>
-  <wsdl:message name="IUser_GetAccesoById_InputMessage">
-    <wsdl:part name="parameters" element="tns:GetAccesoById" />
-  </wsdl:message>
-  <wsdl:message name="IUser_GetAccesoById_OutputMessage">
-    <wsdl:part name="parameters" element="tns:GetAccesoByIdResponse" />
-  </wsdl:message>
-  <wsdl:message name="IUser_getConexion_InputMessage">
-    <wsdl:part name="parameters" element="tns:getConexion" />
-  </wsdl:message>
-  <wsdl:message name="IUser_getConexion_OutputMessage">
-    <wsdl:part name="parameters" element="tns:getConexionResponse" />
+  <wsdl:message name="IUser_IniciarSesion_OutputMessage">
+    <wsdl:part name="parameters" element="tns:IniciarSesionResponse" />
   </wsdl:message>
   <wsdl:portType name="IUser">
-    <wsdl:operation name="AddAcceso">
-      <wsdl:input wsaw:Action="http://tempuri.org/IUser/AddAcceso" message="tns:IUser_AddAcceso_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IUser/AddAccesoResponse" message="tns:IUser_AddAcceso_OutputMessage" />
+    <wsdl:operation name="AddCuenta">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUser/AddCuenta" message="tns:IUser_AddCuenta_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUser/AddCuentaResponse" message="tns:IUser_AddCuenta_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="UpdateAcceso">
-      <wsdl:input wsaw:Action="http://tempuri.org/IUser/UpdateAcceso" message="tns:IUser_UpdateAcceso_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IUser/UpdateAccesoResponse" message="tns:IUser_UpdateAcceso_OutputMessage" />
+    <wsdl:operation name="GetCuentas">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUser/GetCuentas" message="tns:IUser_GetCuentas_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUser/GetCuentasResponse" message="tns:IUser_GetCuentas_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="Login">
-      <wsdl:input wsaw:Action="http://tempuri.org/IUser/Login" message="tns:IUser_Login_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IUser/LoginResponse" message="tns:IUser_Login_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="GetAccesoById">
-      <wsdl:input wsaw:Action="http://tempuri.org/IUser/GetAccesoById" message="tns:IUser_GetAccesoById_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IUser/GetAccesoByIdResponse" message="tns:IUser_GetAccesoById_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="getConexion">
-      <wsdl:input wsaw:Action="http://tempuri.org/IUser/getConexion" message="tns:IUser_getConexion_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IUser/getConexionResponse" message="tns:IUser_getConexion_OutputMessage" />
+    <wsdl:operation name="IniciarSesion">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUser/IniciarSesion" message="tns:IUser_IniciarSesion_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUser/IniciarSesionResponse" message="tns:IUser_IniciarSesion_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="NetTcpBinding_IUser" type="tns:IUser">
     <wsp:PolicyReference URI="#NetTcpBinding_IUser_policy" />
     <soap12:binding transport="http://schemas.microsoft.com/soap/tcp" />
-    <wsdl:operation name="AddAcceso">
-      <soap12:operation soapAction="http://tempuri.org/IUser/AddAcceso" style="document" />
+    <wsdl:operation name="AddCuenta">
+      <soap12:operation soapAction="http://tempuri.org/IUser/AddCuenta" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
@@ -100,8 +80,8 @@
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="UpdateAcceso">
-      <soap12:operation soapAction="http://tempuri.org/IUser/UpdateAcceso" style="document" />
+    <wsdl:operation name="GetCuentas">
+      <soap12:operation soapAction="http://tempuri.org/IUser/GetCuentas" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
@@ -109,26 +89,8 @@
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="Login">
-      <soap12:operation soapAction="http://tempuri.org/IUser/Login" style="document" />
-      <wsdl:input>
-        <soap12:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap12:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="GetAccesoById">
-      <soap12:operation soapAction="http://tempuri.org/IUser/GetAccesoById" style="document" />
-      <wsdl:input>
-        <soap12:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap12:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="getConexion">
-      <soap12:operation soapAction="http://tempuri.org/IUser/getConexion" style="document" />
+    <wsdl:operation name="IniciarSesion">
+      <soap12:operation soapAction="http://tempuri.org/IUser/IniciarSesion" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>

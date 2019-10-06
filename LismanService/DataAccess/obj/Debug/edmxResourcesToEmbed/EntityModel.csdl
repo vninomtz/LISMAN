@@ -69,7 +69,7 @@
     <Property Name="Historia_PuntajeMaximo" Type="Int32" Nullable="true" />
     <Property Name="Mult_PartidasJugadas" Type="Int32" Nullable="true" />
     <NavigationProperty Name="Cuenta" Relationship="EntityModel.CuentaHistorial" FromRole="Historial" ToRole="Cuenta" />
-    <Property Name="Mult_PartidasGanadas" Type="String" Nullable="true" />
+    <Property Name="Mult_PartidasGanadas" Type="Int32" Nullable="true" />
   </EntityType>
   <Association Name="CuentaHistorial">
     <End Type="EntityModel.Cuenta" Role="Cuenta" Multiplicity="1" />

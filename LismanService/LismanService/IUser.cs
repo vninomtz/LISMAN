@@ -75,7 +75,7 @@ namespace LismanService {
         [DataMember]
         public Nullable<int> Mult_PartidasJugadas { get; set; }
         [DataMember]
-        public string Mult_PartidasGanadas { get; set; }
+        public Nullable<int> Mult_PartidasGanadas { get; set; }
         
     }
 

@@ -56,7 +56,33 @@ namespace LismanService {
 
         public List<Cuenta> GetCuentas()
         {
-            throw new NotImplementedException();
+            using (var dataBase = new EntityModelContainer()) {
+                var listCuenta = dataBase.CuentaSet.Select(u => new Cuenta {
+                    Id = u.Id,
+                    Contrasenia = u.Contrasenia,
+                    fecha_registro = u.fecha_registro,
+                    Usuario = u.Usuario,
+                    key_confirmation = u.key_confirmation,
+                    Historial = new Historial {
+                        Id = u.Historial.Id,
+                        Historia_PuntajeMaximo = u.Historial.Historia_PuntajeMaximo,
+                        Multijugador_PuntajeMaximo = u.Historial.Multijugador_PuntajeMaximo,
+                        Mult_PartidasGanadas = u.Historial.Mult_PartidasGanadas,
+                        Mult_PartidasJugadas = u.Historial.Mult_PartidasJugadas,
+                    },
+                    Jugador = new Jugador {
+                        Id = u.Jugador.Id,
+                        Nombre = u.Jugador.Nombre,
+                        Apellido = u.Jugador.Apellido,
+                        Email = u.Jugador.Email,
+
+                    }
+                }).OrderBy(u => u.Historial.Multijugador_PuntajeMaximo).ToList();
+
+                return listCuenta;
+
+
+            }
         }
 
         public Cuenta IniciarSesion(string usuario, string contrasenia)

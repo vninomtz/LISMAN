@@ -28,5 +28,12 @@ namespace Lisman {
             login.Show();
             this.Close();
         }
+
+        private void tbl_positions_Click(object sender, RoutedEventArgs e)
+        {
+            PositionsTable positions = new PositionsTable();
+            positions.Show();
+            this.Close();
+        }
     }
 }

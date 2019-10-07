@@ -8,7 +8,7 @@
         xmlns:local="clr-namespace:Lisman"
         mc:Ignorable="d"
         Title="LISMAN" Height="530" Width="410" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" 
-        Icon="C:\Users\Vik-t\Documents\CarreraUV\5to Semestre\Tecnologías para la Construcción\Proyecto\LISMAN\Lisman\Lisman\Resorces\img\icon_pacman.png">
+        Icon="Resorces/img/icon_pacman.png">
 
     <Grid>
         <Menu IsMainMenu="True"  HorizontalAlignment="Right" VerticalAlignment="Top">
@@ -38,7 +38,6 @@
             <Button
                 Name="btn_InicioSesion"
             Style="{StaticResource MaterialDesignRaisedAccentButton}"
-            ToolTip="Resource name: MaterialDesignRaisedAccentButton" 
             Content="{x:Static p:Resources.log_in}" HorizontalAlignment="Center" Width="174" Margin="-4,106,0,145" Height="Auto" Grid.Row="1" Click="btn_InicioSesion_Click" />
 
             <TextBlock

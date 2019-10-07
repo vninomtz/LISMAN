@@ -1,0 +1,48 @@
+﻿<Window x:Class="Lisman.PositionsTable"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:p="clr-namespace:Lisman.Properties"
+        xmlns:local="clr-namespace:Lisman"
+        mc:Ignorable="d"
+        Title="{x:Static p:Resources.positions_table}" Height="450" Width="800"
+        WindowStartupLocation="CenterScreen" 
+        Icon="Resorces\img\icon_pacman.png">
+    <Grid>
+        <Button
+                Style="{StaticResource MaterialDesignFlatButton}" Content="{x:Static p:Resources.go_back}"
+                ToolTip="MaterialDesignFlatButton" VerticalAlignment="Top" HorizontalAlignment="Left" Height="Auto" Click="Button_Click_Cancel" />
+        <DataGrid
+            x:Name="tbl_positions"
+          Margin="0,47,0,-39"
+          ItemsSource="{Binding Cuenta}"
+          CanUserSortColumns="True"
+          CanUserAddRows="False"
+          AutoGenerateColumns="False"
+          materialDesign:DataGridAssist.CellPadding="13 8 8 8"
+          materialDesign:DataGridAssist.ColumnHeaderPadding="8">
+            <DataGrid.Columns>
+                <DataGridTextColumn
+                  Binding="{Binding Usuario}"
+                  Header="{x:Static p:Resources.user}"
+                  IsReadOnly="True"/>
+                <DataGridTextColumn
+                  Binding="{Binding Historial.Historia_PuntajeMaximo}"
+                  Header="{x:Static p:Resources.max_score_history}"
+                  IsReadOnly="True"/>
+                <DataGridTextColumn
+                  Binding="{Binding Historial.Multijugador_PuntajeMaximo}"
+                  Header="{x:Static p:Resources.max_score_multiplayer}"
+                  IsReadOnly="True" />
+                <DataGridTextColumn
+                  Binding="{Binding Historial.Mult_PartidasGanadas}"
+                  Header="{x:Static p:Resources.multiplayer_games_won}"
+                  IsReadOnly="True"/>
+
+
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</Window>

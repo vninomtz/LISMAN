@@ -20,7 +20,7 @@
                 Style="{StaticResource MaterialDesignRaisedDarkButton}"
                 Height="Auto"
                 materialDesign:ButtonAssist.CornerRadius="5"
-                ToolTip="MaterialDesignRaisedLightButton with Round Corners"  Margin="0,100,0,299">
+                Margin="0,100,0,299">
                 <StackPanel Orientation="Horizontal">
                     <materialDesign:PackIcon Kind="Blinky" Height="24" Width="24"/>
                     <Separator Margin="5"/>
@@ -31,7 +31,7 @@
                 Style="{StaticResource MaterialDesignRaisedDarkButton}"
                 Height="Auto"
                 materialDesign:ButtonAssist.CornerRadius="5"
-                ToolTip="MaterialDesignRaisedLightButton with Round Corners" Margin="0,187,0,217">
+                Margin="0,187,0,217">
                 <StackPanel Orientation="Horizontal">
                     <materialDesign:PackIcon Kind="PersonGroup" Height="24" Width="24"/>
                     <Separator Margin="5"/>
@@ -39,10 +39,11 @@
                 </StackPanel>
             </Button>
             <Button
+                x:Name="btn_positionsTable"
                 Style="{StaticResource MaterialDesignRaisedDarkButton}"
                 Height="Auto"
                 materialDesign:ButtonAssist.CornerRadius="5"
-                ToolTip="MaterialDesignRaisedLightButton with Round Corners" Margin="0,269,0,134">
+               Margin="0,269,0,134" Click="tbl_positions_Click">
                 <StackPanel Orientation="Horizontal">
                     <materialDesign:PackIcon Kind="TableLarge" Height="24" Width="24"/>
                     <Separator Margin="5"/>
@@ -54,7 +55,7 @@
                 Style="{StaticResource MaterialDesignRaisedDarkButton}"
                 Height="Auto"
                 materialDesign:ButtonAssist.CornerRadius="5"
-                ToolTip="MaterialDesignRaisedLightButton with Round Corners" Margin="0,354,0,54" Click="Button_Click_Logout">
+                Margin="0,354,0,54" Click="Button_Click_Logout">
                 <StackPanel Orientation="Horizontal">
                     <materialDesign:PackIcon Kind="Logout" Height="24" Width="24"/>
                     <Separator Margin="2"/>

@@ -65,6 +65,11 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Connected Services\LismanService2\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
     <Compile Include="Connected Services\LismanService\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -72,6 +77,9 @@
     </Compile>
     <Compile Include="MainMenu.xaml.cs">
       <DependentUpon>MainMenu.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PositionsTable.xaml.cs">
+      <DependentUpon>PositionsTable.xaml</DependentUpon>
     </Compile>
     <Compile Include="UserRegister.xaml.cs">
       <DependentUpon>UserRegister.xaml</DependentUpon>
@@ -89,6 +97,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="MainMenu.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PositionsTable.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -124,6 +136,19 @@
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="Connected Services\LismanService2\item.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\LismanService2\item1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\LismanService2\item2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\LismanService2\Lisman.LismanService2.Cuenta.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\LismanService2\LismanService.wsdl" />
     <None Include="Connected Services\LismanService\item.xsd">
       <SubType>Designer</SubType>
     </None>
@@ -153,6 +178,7 @@
     <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <ItemGroup>
+    <WCFMetadataStorage Include="Connected Services\LismanService2\" />
     <WCFMetadataStorage Include="Connected Services\LismanService\" />
   </ItemGroup>
   <ItemGroup>
@@ -166,6 +192,21 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Connected Services\LismanService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\LismanService2\item.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\LismanService2\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\LismanService2\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\LismanService2\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>

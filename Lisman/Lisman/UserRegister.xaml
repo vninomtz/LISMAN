@@ -7,7 +7,7 @@
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         xmlns:local="clr-namespace:Lisman"
         mc:Ignorable="d"
-        Title="LISMAN" Height="600" Width="700" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" Icon="C:\Users\Vik-t\Documents\CarreraUV\5to Semestre\Tecnologías para la Construcción\Proyecto\LISMAN\Lisman\Lisman\Resorces\img\icon_pacman.png">
+        Title="LISMAN" Height="600" Width="700" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" Icon="Resorces\img\icon_pacman.png">
     <Grid>
 
         <TextBlock HorizontalAlignment="Center" VerticalAlignment="Top"
@@ -30,11 +30,11 @@
 
         <Button
                 Style="{StaticResource MaterialDesignFlatButton}" Content="{x:Static p:Resources.cancel}"
-                ToolTip="MaterialDesignFlatButton" Margin="288,491,286,33" RenderTransformOrigin="0.454,1.438" Height="Auto" Click="Button_Click_Cancel" />
+                Margin="288,491,286,33" RenderTransformOrigin="0.454,1.438" Height="Auto" Click="Button_Click_Cancel" />
         <Button
             x:Name="btn_save"
             Style="{StaticResource MaterialDesignRaisedAccentButton}"
-            ToolTip="Resource name: MaterialDesignRaisedAccentButton" Content="{x:Static p:Resources.save}" Margin="432,491,150,33" Height="Auto" Click="btn_save_Click" />
+             Content="{x:Static p:Resources.save}" Margin="432,491,150,33" Height="Auto" Click="btn_save_Click" />
 
     </Grid>
 </Window>

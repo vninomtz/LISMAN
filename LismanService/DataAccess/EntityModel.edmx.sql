@@ -2,7 +2,7 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, 2012 and Azure
 -- --------------------------------------------------
--- Date Created: 10/06/2019 13:04:02
+-- Date Created: 10/08/2019 15:42:43
 -- Generated from EDMX file: C:\Users\Vik-t\Documents\CarreraUV\5to Semestre\Tecnologías para la Construcción\Proyecto\LISMAN\LismanService\DataAccess\EntityModel.edmx
 -- --------------------------------------------------
 
@@ -69,67 +69,66 @@ GO
 -- Creating all tables
 -- --------------------------------------------------
 
--- Creating table 'JugadorSet'
-CREATE TABLE [dbo].[JugadorSet] (
+-- Creating table 'PlayerSet'
+CREATE TABLE [dbo].[PlayerSet] (
     [Id] int IDENTITY(1,1) NOT NULL,
-    [Nombre] nvarchar(max)  NOT NULL,
-    [Apellido] nvarchar(max)  NOT NULL,
+    [First_name] nvarchar(max)  NOT NULL,
+    [Last_name] nvarchar(max)  NOT NULL,
     [Email] nvarchar(max)  NOT NULL
 );
 GO
 
--- Creating table 'CuentaSet'
-CREATE TABLE [dbo].[CuentaSet] (
+-- Creating table 'AccountSet'
+CREATE TABLE [dbo].[AccountSet] (
     [Id] int IDENTITY(1,1) NOT NULL,
-    [Usuario] nvarchar(max)  NOT NULL,
-    [Contrasenia] nvarchar(max)  NOT NULL,
-    [key_confirmation] nvarchar(max)  NULL,
-    [fecha_registro] nvarchar(max)  NOT NULL,
-    [Jugador_Id] int  NOT NULL,
-    [Historial_Id] int  NOT NULL
+    [User] nvarchar(max)  NOT NULL,
+    [Password] nvarchar(max)  NOT NULL,
+    [Key_confirmation] nvarchar(max)  NULL,
+    [Registration_date] nvarchar(max)  NOT NULL,
+    [Player_Id] int  NOT NULL,
+    [Record_Id] int  NOT NULL
 );
 GO
 
--- Creating table 'HistorialSet'
-CREATE TABLE [dbo].[HistorialSet] (
+-- Creating table 'RecordSet'
+CREATE TABLE [dbo].[RecordSet] (
     [Id] int IDENTITY(1,1) NOT NULL,
-    [Multijugador_PuntajeMaximo] int  NULL,
-    [Historia_PuntajeMaximo] int  NULL,
-    [Mult_PartidasJugadas] int  NULL,
-    [Mult_PartidasGanadas] int  NULL
+    [Mult_best_score] int  NULL,
+    [Story_best_score] int  NULL,
+    [Mult_games_played] int  NULL,
+    [Mult_games_won] int  NULL
 );
 GO
 
--- Creating table 'PartidaSet'
-CREATE TABLE [dbo].[PartidaSet] (
+-- Creating table 'GameSet'
+CREATE TABLE [dbo].[GameSet] (
     [Id] int IDENTITY(1,1) NOT NULL,
-    [Fecha_creacion] datetime  NOT NULL
+    [Creation_date] datetime  NOT NULL
 );
 GO
 
 -- Creating table 'ChatSet'
 CREATE TABLE [dbo].[ChatSet] (
     [Id] int IDENTITY(1,1) NOT NULL,
-    [Fecha_Creacion] datetime  NOT NULL,
-    [Partida_Id] int  NOT NULL
+    [Creation_date] datetime  NOT NULL,
+    [Game_Id] int  NOT NULL
 );
 GO
 
--- Creating table 'MensajeSet'
-CREATE TABLE [dbo].[MensajeSet] (
+-- Creating table 'MessageSet'
+CREATE TABLE [dbo].[MessageSet] (
     [Id] int IDENTITY(1,1) NOT NULL,
-    [Texto] nvarchar(max)  NOT NULL,
-    [Fecha_creacion] datetime  NOT NULL,
-    [MAC] nvarchar(max)  NULL,
+    [Text] nvarchar(max)  NOT NULL,
+    [Creation_date] datetime  NOT NULL,
     [Chat_Id] int  NOT NULL,
-    [Cuenta_Id] int  NOT NULL
+    [Account_Id] int  NOT NULL
 );
 GO
 
 -- Creating table 'CuentaPartida'
 CREATE TABLE [dbo].[CuentaPartida] (
-    [Cuenta_Id] int  NOT NULL,
-    [Partida_Id] int  NOT NULL
+    [Account_Id] int  NOT NULL,
+    [CuentaPartida_Cuenta_Id] int  NOT NULL
 );
 GO
 
@@ -137,27 +136,27 @@ GO
 -- Creating all PRIMARY KEY constraints
 -- --------------------------------------------------
 
--- Creating primary key on [Id] in table 'JugadorSet'
-ALTER TABLE [dbo].[JugadorSet]
-ADD CONSTRAINT [PK_JugadorSet]
+-- Creating primary key on [Id] in table 'PlayerSet'
+ALTER TABLE [dbo].[PlayerSet]
+ADD CONSTRAINT [PK_PlayerSet]
     PRIMARY KEY CLUSTERED ([Id] ASC);
 GO
 
--- Creating primary key on [Id] in table 'CuentaSet'
-ALTER TABLE [dbo].[CuentaSet]
-ADD CONSTRAINT [PK_CuentaSet]
+-- Creating primary key on [Id] in table 'AccountSet'
+ALTER TABLE [dbo].[AccountSet]
+ADD CONSTRAINT [PK_AccountSet]
     PRIMARY KEY CLUSTERED ([Id] ASC);
 GO
 
--- Creating primary key on [Id] in table 'HistorialSet'
-ALTER TABLE [dbo].[HistorialSet]
-ADD CONSTRAINT [PK_HistorialSet]
+-- Creating primary key on [Id] in table 'RecordSet'
+ALTER TABLE [dbo].[RecordSet]
+ADD CONSTRAINT [PK_RecordSet]
     PRIMARY KEY CLUSTERED ([Id] ASC);
 GO
 
--- Creating primary key on [Id] in table 'PartidaSet'
-ALTER TABLE [dbo].[PartidaSet]
-ADD CONSTRAINT [PK_PartidaSet]
+-- Creating primary key on [Id] in table 'GameSet'
+ALTER TABLE [dbo].[GameSet]
+ADD CONSTRAINT [PK_GameSet]
     PRIMARY KEY CLUSTERED ([Id] ASC);
 GO
 
@@ -167,66 +166,66 @@ ADD CONSTRAINT [PK_ChatSet]
     PRIMARY KEY CLUSTERED ([Id] ASC);
 GO
 
--- Creating primary key on [Id] in table 'MensajeSet'
-ALTER TABLE [dbo].[MensajeSet]
-ADD CONSTRAINT [PK_MensajeSet]
+-- Creating primary key on [Id] in table 'MessageSet'
+ALTER TABLE [dbo].[MessageSet]
+ADD CONSTRAINT [PK_MessageSet]
     PRIMARY KEY CLUSTERED ([Id] ASC);
 GO
 
--- Creating primary key on [Cuenta_Id], [Partida_Id] in table 'CuentaPartida'
+-- Creating primary key on [Account_Id], [CuentaPartida_Cuenta_Id] in table 'CuentaPartida'
 ALTER TABLE [dbo].[CuentaPartida]
 ADD CONSTRAINT [PK_CuentaPartida]
-    PRIMARY KEY CLUSTERED ([Cuenta_Id], [Partida_Id] ASC);
+    PRIMARY KEY CLUSTERED ([Account_Id], [CuentaPartida_Cuenta_Id] ASC);
 GO
 
 -- --------------------------------------------------
 -- Creating all FOREIGN KEY constraints
 -- --------------------------------------------------
 
--- Creating foreign key on [Jugador_Id] in table 'CuentaSet'
-ALTER TABLE [dbo].[CuentaSet]
+-- Creating foreign key on [Player_Id] in table 'AccountSet'
+ALTER TABLE [dbo].[AccountSet]
 ADD CONSTRAINT [FK_CuentaUsuario]
-    FOREIGN KEY ([Jugador_Id])
-    REFERENCES [dbo].[JugadorSet]
+    FOREIGN KEY ([Player_Id])
+    REFERENCES [dbo].[PlayerSet]
         ([Id])
     ON DELETE NO ACTION ON UPDATE NO ACTION;
 GO
 
 -- Creating non-clustered index for FOREIGN KEY 'FK_CuentaUsuario'
 CREATE INDEX [IX_FK_CuentaUsuario]
-ON [dbo].[CuentaSet]
-    ([Jugador_Id]);
+ON [dbo].[AccountSet]
+    ([Player_Id]);
 GO
 
--- Creating foreign key on [Historial_Id] in table 'CuentaSet'
-ALTER TABLE [dbo].[CuentaSet]
+-- Creating foreign key on [Record_Id] in table 'AccountSet'
+ALTER TABLE [dbo].[AccountSet]
 ADD CONSTRAINT [FK_CuentaHistorial]
-    FOREIGN KEY ([Historial_Id])
-    REFERENCES [dbo].[HistorialSet]
+    FOREIGN KEY ([Record_Id])
+    REFERENCES [dbo].[RecordSet]
         ([Id])
     ON DELETE NO ACTION ON UPDATE NO ACTION;
 GO
 
 -- Creating non-clustered index for FOREIGN KEY 'FK_CuentaHistorial'
 CREATE INDEX [IX_FK_CuentaHistorial]
-ON [dbo].[CuentaSet]
-    ([Historial_Id]);
+ON [dbo].[AccountSet]
+    ([Record_Id]);
 GO
 
--- Creating foreign key on [Cuenta_Id] in table 'CuentaPartida'
+-- Creating foreign key on [Account_Id] in table 'CuentaPartida'
 ALTER TABLE [dbo].[CuentaPartida]
 ADD CONSTRAINT [FK_CuentaPartida_Cuenta]
-    FOREIGN KEY ([Cuenta_Id])
-    REFERENCES [dbo].[CuentaSet]
+    FOREIGN KEY ([Account_Id])
+    REFERENCES [dbo].[AccountSet]
         ([Id])
     ON DELETE NO ACTION ON UPDATE NO ACTION;
 GO
 
--- Creating foreign key on [Partida_Id] in table 'CuentaPartida'
+-- Creating foreign key on [CuentaPartida_Cuenta_Id] in table 'CuentaPartida'
 ALTER TABLE [dbo].[CuentaPartida]
 ADD CONSTRAINT [FK_CuentaPartida_Partida]
-    FOREIGN KEY ([Partida_Id])
-    REFERENCES [dbo].[PartidaSet]
+    FOREIGN KEY ([CuentaPartida_Cuenta_Id])
+    REFERENCES [dbo].[GameSet]
         ([Id])
     ON DELETE NO ACTION ON UPDATE NO ACTION;
 GO
@@ -234,14 +233,14 @@ GO
 -- Creating non-clustered index for FOREIGN KEY 'FK_CuentaPartida_Partida'
 CREATE INDEX [IX_FK_CuentaPartida_Partida]
 ON [dbo].[CuentaPartida]
-    ([Partida_Id]);
+    ([CuentaPartida_Cuenta_Id]);
 GO
 
--- Creating foreign key on [Partida_Id] in table 'ChatSet'
+-- Creating foreign key on [Game_Id] in table 'ChatSet'
 ALTER TABLE [dbo].[ChatSet]
 ADD CONSTRAINT [FK_ChatPartida]
-    FOREIGN KEY ([Partida_Id])
-    REFERENCES [dbo].[PartidaSet]
+    FOREIGN KEY ([Game_Id])
+    REFERENCES [dbo].[GameSet]
         ([Id])
     ON DELETE NO ACTION ON UPDATE NO ACTION;
 GO
@@ -249,11 +248,11 @@ GO
 -- Creating non-clustered index for FOREIGN KEY 'FK_ChatPartida'
 CREATE INDEX [IX_FK_ChatPartida]
 ON [dbo].[ChatSet]
-    ([Partida_Id]);
+    ([Game_Id]);
 GO
 
--- Creating foreign key on [Chat_Id] in table 'MensajeSet'
-ALTER TABLE [dbo].[MensajeSet]
+-- Creating foreign key on [Chat_Id] in table 'MessageSet'
+ALTER TABLE [dbo].[MessageSet]
 ADD CONSTRAINT [FK_ChatMensaje]
     FOREIGN KEY ([Chat_Id])
     REFERENCES [dbo].[ChatSet]
@@ -263,23 +262,23 @@ GO
 
 -- Creating non-clustered index for FOREIGN KEY 'FK_ChatMensaje'
 CREATE INDEX [IX_FK_ChatMensaje]
-ON [dbo].[MensajeSet]
+ON [dbo].[MessageSet]
     ([Chat_Id]);
 GO
 
--- Creating foreign key on [Cuenta_Id] in table 'MensajeSet'
-ALTER TABLE [dbo].[MensajeSet]
+-- Creating foreign key on [Account_Id] in table 'MessageSet'
+ALTER TABLE [dbo].[MessageSet]
 ADD CONSTRAINT [FK_CuentaMensaje]
-    FOREIGN KEY ([Cuenta_Id])
-    REFERENCES [dbo].[CuentaSet]
+    FOREIGN KEY ([Account_Id])
+    REFERENCES [dbo].[AccountSet]
         ([Id])
     ON DELETE NO ACTION ON UPDATE NO ACTION;
 GO
 
 -- Creating non-clustered index for FOREIGN KEY 'FK_CuentaMensaje'
 CREATE INDEX [IX_FK_CuentaMensaje]
-ON [dbo].[MensajeSet]
-    ([Cuenta_Id]);
+ON [dbo].[MessageSet]
+    ([Account_Id]);
 GO
 
 -- --------------------------------------------------

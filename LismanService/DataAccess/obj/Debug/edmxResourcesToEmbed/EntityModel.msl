@@ -1,43 +1,43 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
   <EntityContainerMapping StorageEntityContainer="EntityModelStoreContainer" CdmEntityContainer="EntityModelContainer">
-    <EntitySetMapping Name="JugadorSet">
-      <EntityTypeMapping TypeName="IsTypeOf(EntityModel.Jugador)">
-        <MappingFragment StoreEntitySet="JugadorSet">
+    <EntitySetMapping Name="PlayerSet">
+      <EntityTypeMapping TypeName="IsTypeOf(EntityModel.Player)">
+        <MappingFragment StoreEntitySet="PlayerSet">
           <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
-          <ScalarProperty Name="Apellido" ColumnName="Apellido" />
+          <ScalarProperty Name="First_name" ColumnName="First_name" />
+          <ScalarProperty Name="Last_name" ColumnName="Last_name" />
           <ScalarProperty Name="Email" ColumnName="Email" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="CuentaSet">
-      <EntityTypeMapping TypeName="IsTypeOf(EntityModel.Cuenta)">
-        <MappingFragment StoreEntitySet="CuentaSet">
+    <EntitySetMapping Name="AccountSet">
+      <EntityTypeMapping TypeName="IsTypeOf(EntityModel.Account)">
+        <MappingFragment StoreEntitySet="AccountSet">
           <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="Usuario" ColumnName="Usuario" />
-          <ScalarProperty Name="Contrasenia" ColumnName="Contrasenia" />
-          <ScalarProperty Name="key_confirmation" ColumnName="key_confirmation" />
-          <ScalarProperty Name="fecha_registro" ColumnName="fecha_registro" />
+          <ScalarProperty Name="User" ColumnName="User" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="Key_confirmation" ColumnName="Key_confirmation" />
+          <ScalarProperty Name="Registration_date" ColumnName="Registration_date" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="HistorialSet">
-      <EntityTypeMapping TypeName="IsTypeOf(EntityModel.Historial)">
-        <MappingFragment StoreEntitySet="HistorialSet">
+    <EntitySetMapping Name="RecordSet">
+      <EntityTypeMapping TypeName="IsTypeOf(EntityModel.Record)">
+        <MappingFragment StoreEntitySet="RecordSet">
           <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="Multijugador_PuntajeMaximo" ColumnName="Multijugador_PuntajeMaximo" />
-          <ScalarProperty Name="Historia_PuntajeMaximo" ColumnName="Historia_PuntajeMaximo" />
-          <ScalarProperty Name="Mult_PartidasJugadas" ColumnName="Mult_PartidasJugadas" />
-          <ScalarProperty Name="Mult_PartidasGanadas" ColumnName="Mult_PartidasGanadas" />
+          <ScalarProperty Name="Mult_best_score" ColumnName="Mult_best_score" />
+          <ScalarProperty Name="Story_best_score" ColumnName="Story_best_score" />
+          <ScalarProperty Name="Mult_games_played" ColumnName="Mult_games_played" />
+          <ScalarProperty Name="Mult_games_won" ColumnName="Mult_games_won" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="PartidaSet">
-      <EntityTypeMapping TypeName="IsTypeOf(EntityModel.Partida)">
-        <MappingFragment StoreEntitySet="PartidaSet">
+    <EntitySetMapping Name="GameSet">
+      <EntityTypeMapping TypeName="IsTypeOf(EntityModel.Game)">
+        <MappingFragment StoreEntitySet="GameSet">
           <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="Fecha_creacion" ColumnName="Fecha_creacion" />
+          <ScalarProperty Name="Creation_date" ColumnName="Creation_date" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -45,31 +45,30 @@
       <EntityTypeMapping TypeName="IsTypeOf(EntityModel.Chat)">
         <MappingFragment StoreEntitySet="ChatSet">
           <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="Fecha_Creacion" ColumnName="Fecha_Creacion" />
+          <ScalarProperty Name="Creation_date" ColumnName="Creation_date" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="MensajeSet">
-      <EntityTypeMapping TypeName="IsTypeOf(EntityModel.Mensaje)">
-        <MappingFragment StoreEntitySet="MensajeSet">
+    <EntitySetMapping Name="MessageSet">
+      <EntityTypeMapping TypeName="IsTypeOf(EntityModel.Message)">
+        <MappingFragment StoreEntitySet="MessageSet">
           <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="Texto" ColumnName="Texto" />
-          <ScalarProperty Name="Fecha_creacion" ColumnName="Fecha_creacion" />
-          <ScalarProperty Name="MAC" ColumnName="MAC" />
+          <ScalarProperty Name="Text" ColumnName="Text" />
+          <ScalarProperty Name="Creation_date" ColumnName="Creation_date" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <AssociationSetMapping Name="CuentaUsuario" TypeName="EntityModel.CuentaUsuario" StoreEntitySet="CuentaSet">
+    <AssociationSetMapping Name="CuentaUsuario" TypeName="EntityModel.CuentaUsuario" StoreEntitySet="AccountSet">
       <EndProperty Name="Usuario">
-        <ScalarProperty Name="Id" ColumnName="Jugador_Id" />
+        <ScalarProperty Name="Id" ColumnName="Player_Id" />
       </EndProperty>
       <EndProperty Name="Cuenta">
         <ScalarProperty Name="Id" ColumnName="Id" />
       </EndProperty>
     </AssociationSetMapping>
-    <AssociationSetMapping Name="CuentaHistorial" TypeName="EntityModel.CuentaHistorial" StoreEntitySet="CuentaSet">
+    <AssociationSetMapping Name="CuentaHistorial" TypeName="EntityModel.CuentaHistorial" StoreEntitySet="AccountSet">
       <EndProperty Name="Historial">
-        <ScalarProperty Name="Id" ColumnName="Historial_Id" />
+        <ScalarProperty Name="Id" ColumnName="Record_Id" />
       </EndProperty>
       <EndProperty Name="Cuenta">
         <ScalarProperty Name="Id" ColumnName="Id" />
@@ -77,21 +76,21 @@
     </AssociationSetMapping>
     <AssociationSetMapping Name="CuentaPartida" TypeName="EntityModel.CuentaPartida" StoreEntitySet="CuentaPartida">
       <EndProperty Name="Cuenta">
-        <ScalarProperty Name="Id" ColumnName="Cuenta_Id" />
+        <ScalarProperty Name="Id" ColumnName="Account_Id" />
       </EndProperty>
       <EndProperty Name="Partida">
-        <ScalarProperty Name="Id" ColumnName="Partida_Id" />
+        <ScalarProperty Name="Id" ColumnName="CuentaPartida_Cuenta_Id" />
       </EndProperty>
     </AssociationSetMapping>
     <AssociationSetMapping Name="ChatPartida" TypeName="EntityModel.ChatPartida" StoreEntitySet="ChatSet">
       <EndProperty Name="Partida">
-        <ScalarProperty Name="Id" ColumnName="Partida_Id" />
+        <ScalarProperty Name="Id" ColumnName="Game_Id" />
       </EndProperty>
       <EndProperty Name="Chat">
         <ScalarProperty Name="Id" ColumnName="Id" />
       </EndProperty>
     </AssociationSetMapping>
-    <AssociationSetMapping Name="ChatMensaje" TypeName="EntityModel.ChatMensaje" StoreEntitySet="MensajeSet">
+    <AssociationSetMapping Name="ChatMensaje" TypeName="EntityModel.ChatMensaje" StoreEntitySet="MessageSet">
       <EndProperty Name="Chat">
         <ScalarProperty Name="Id" ColumnName="Chat_Id" />
       </EndProperty>
@@ -99,9 +98,9 @@
         <ScalarProperty Name="Id" ColumnName="Id" />
       </EndProperty>
     </AssociationSetMapping>
-    <AssociationSetMapping Name="CuentaMensaje" TypeName="EntityModel.CuentaMensaje" StoreEntitySet="MensajeSet">
+    <AssociationSetMapping Name="CuentaMensaje" TypeName="EntityModel.CuentaMensaje" StoreEntitySet="MessageSet">
       <EndProperty Name="Cuenta">
-        <ScalarProperty Name="Id" ColumnName="Cuenta_Id" />
+        <ScalarProperty Name="Id" ColumnName="Account_Id" />
       </EndProperty>
       <EndProperty Name="Mensaje">
         <ScalarProperty Name="Id" ColumnName="Id" />

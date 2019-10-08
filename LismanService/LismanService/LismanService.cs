@@ -8,126 +8,108 @@ using System.Text;
 using DataAccess;
 
 namespace LismanService {
-    // NOTE: You can use the "Rename" command on the "Refactor" menu to change the class name "Service1" in both code and config file together.
-    public class LismanService : IUser, IPartida {
-        
-        public int AddCuenta(Cuenta cuenta)
+    // NOTE: You can use the "Rename" command on the "Refactor" menu to change the class name "AccountManager" in both code and config file together.
+    //[ServiceBehavior(InstanceContextMode = InstanceContextMode.PerSession)]
+    public class LismanService : IAccountManager {
+        public int AddAccount(Account account)
         {
-            using (var dataBase = new EntityModelContainer()) {
-                var cuentaGuardar = new DataAccess.Cuenta
-                {
-
-                    fecha_registro = cuenta.fecha_registro,
-                    Contrasenia = cuenta.Contrasenia,
-                    Usuario = cuenta.Usuario,
-                    Jugador = new DataAccess.Jugador
+            try {
+                using (var dataBase = new EntityModelContainer()) {
+                    var newAccount = new DataAccess.Account
                     {
-                        Nombre = cuenta.Jugador.Nombre,
-                        Apellido = cuenta.Jugador.Apellido,
-                        Email = cuenta.Jugador.Email,
-
-                    },
-                    Historial = new DataAccess.Historial
-                    {
-                        Historia_PuntajeMaximo = 0,
-                        Multijugador_PuntajeMaximo = 0,
-                        Mult_PartidasGanadas = 0,
-                        Mult_PartidasJugadas = 0
-                    }
-
-                };
-
-                
-                dataBase.CuentaSet.Add(cuentaGuardar);
-                try {
-                   
-                    return dataBase.SaveChanges();
-                    
-                }catch(DbEntityValidationException ex) {
-                    foreach (var EntityValidationErrors in ex.EntityValidationErrors) {
-                        foreach (var ValidationError in EntityValidationErrors.ValidationErrors) {
-                            Console.WriteLine("Property: " + ValidationError.PropertyName + "Error: " + ValidationError.ErrorMessage);
+                        User = account.User,
+                        Password = account.Password,
+                        Registration_date = account.Registration_date,
+                        Player = new DataAccess.Player
+                        {
+                            First_name = account.Player.First_name,
+                            Last_name = account.Player.Last_name,
+                            Email = account.Player.Email
+                        },
+                        Record = new DataAccess.Record
+                        {
+                            Mult_best_score = 0,
+                            Mult_games_played = 0,
+                            Mult_games_won = 0,
+                            Story_best_score = 0
                         }
+                    };
+                    try {
+                        dataBase.AccountSet.Add(newAccount);
+                        return dataBase.SaveChanges();
+
+                    }catch(DbEntityValidationException ex) {
+                        Console.WriteLine("Error: " + ex.Message);
+                        return -1;
                     }
-                    return -1;
                 }
+            }catch(Exception ex) {
+                Console.WriteLine("Error: " + ex.Message);
+                return -1;
             }
         }
 
-        public List<Cuenta> GetCuentas()
-        {
-            using (var dataBase = new EntityModelContainer()) {
-                var listCuenta = dataBase.CuentaSet.Select(u => new Cuenta {
-                    Id = u.Id,
-                    Contrasenia = u.Contrasenia,
-                    fecha_registro = u.fecha_registro,
-                    Usuario = u.Usuario,
-                    key_confirmation = u.key_confirmation,
-                    Historial = new Historial {
-                        Id = u.Historial.Id,
-                        Historia_PuntajeMaximo = u.Historial.Historia_PuntajeMaximo,
-                        Multijugador_PuntajeMaximo = u.Historial.Multijugador_PuntajeMaximo,
-                        Mult_PartidasGanadas = u.Historial.Mult_PartidasGanadas,
-                        Mult_PartidasJugadas = u.Historial.Mult_PartidasJugadas,
-                    },
-                    Jugador = new Jugador {
-                        Id = u.Jugador.Id,
-                        Nombre = u.Jugador.Nombre,
-                        Apellido = u.Jugador.Apellido,
-                        Email = u.Jugador.Email,
-
-                    }
-                }).OrderBy(u => u.Historial.Multijugador_PuntajeMaximo).ToList();
-
-                return listCuenta;
-
-
-            }
-        }
-
-        public Cuenta IniciarSesion(string usuario, string contrasenia)
-        {
-            using (var dataBase = new EntityModelContainer()) {
-                int existe = dataBase.CuentaSet.Where(u => u.Usuario == usuario & u.Contrasenia == contrasenia).Count();
-                if (existe > 0) {
-                    DataAccess.Cuenta cuenta = dataBase.CuentaSet.Where(u => u.Usuario == usuario & u.Contrasenia == contrasenia).FirstOrDefault();
-                    Cuenta cuentaBack = new Cuenta();
-                    cuentaBack.Id = cuenta.Id;
-                    cuentaBack.Usuario = cuenta.Usuario;
-                    cuentaBack.Contrasenia = cuenta.Contrasenia;
-                    cuentaBack.fecha_registro = cuenta.fecha_registro;
-                    cuentaBack.key_confirmation = cuenta.key_confirmation;
-                    
-                    cuentaBack.Jugador = new Jugador
-                        {
-                            Id = cuenta.Jugador.Id,
-                            Nombre = cuenta.Jugador.Nombre,
-                            Apellido = cuenta.Jugador.Apellido,
-                            Email = cuenta.Jugador.Email
-                            
-                            
-                        };
-                        cuentaBack.Historial = new Historial
-                        {
-                            Id = cuenta.Historial.Id,
-                            Historia_PuntajeMaximo = cuenta.Historial.Historia_PuntajeMaximo,
-                            Multijugador_PuntajeMaximo = cuenta.Historial.Multijugador_PuntajeMaximo,
-                            Mult_PartidasGanadas = cuenta.Historial.Mult_PartidasGanadas,
-                            Mult_PartidasJugadas = cuenta.Historial.Mult_PartidasJugadas
-                            
-                        };
-
-                    return cuentaBack;
-                } else {
-                    return null;
-                }
-
-            }
-        }
-
-        public int NewPartida()
+        public Account GetAccountById(int id)
         {
             throw new NotImplementedException();
+        }
+
+        public List<Account> GetAccounts()
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<Record> GetRecords()
+        {
+            try {
+                using (var dataBase = new EntityModelContainer()) {
+                    return dataBase.RecordSet.OrderBy(u => u.Story_best_score).Select(u => new Record
+                    {
+
+                        Id = u.Id,
+                        Mult_best_score = u.Mult_best_score,
+                        Mult_games_played = u.Mult_games_played,
+                        Mult_games_won = u.Mult_games_won,
+                        Story_best_score = u.Story_best_score,
+                        Account = new Account
+                        {
+                            Id = u.Id,
+                            User = u.Account.User,
+                            Password = u.Account.Password,
+                            Registration_date = u.Account.Registration_date,
+                            Key_confirmation = u.Account.Key_confirmation
+                        }
+                        
+                    }).ToList();
+                }
+            }catch(Exception ex) {
+                Console.WriteLine("Error: " + ex.Message);
+                return null;
+            }
+        }
+
+        public Account LoginAccount(string user, string password)
+        {
+            try {
+                using(var dataBase = new EntityModelContainer()) {
+                    int exists = dataBase.AccountSet.Where(u => u.User == user & u.Password == password).Count();
+                    if(exists > 0) {
+                        return dataBase.AccountSet.Where(u => u.User == user & u.Password == password).Select(u => new Account
+                        {
+                            Id = u.Id,
+                            User = u.User,
+                            Password = u.Password,
+                            Registration_date = u.Registration_date,
+                            Key_confirmation = u.Key_confirmation
+                        }).FirstOrDefault();
+                    } else {
+                        return null;
+                    }
+                }
+            }catch(Exception ex) {
+                Console.WriteLine("Error: " + ex.Message);
+                return null;
+            }
         }
     }
 }

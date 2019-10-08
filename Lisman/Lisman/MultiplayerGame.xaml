@@ -7,7 +7,7 @@
         xmlns:local="clr-namespace:Lisman"
         mc:Ignorable="d"
         Title="Game Multiplayer" Height="500" Width="1000" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" 
-        Topmost="True" Icon="Resorces/img/icon_pacman.png">
+        Topmost="True" Icon="Resources/img/icon_pacman.png">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="700*"/>
@@ -96,7 +96,7 @@
                 </StackPanel>
                 <StackPanel Grid.Row="1"  >
                     <StackPanel.Background>
-                        <ImageBrush ImageSource="Resorces/img/Laberinto.png"/>
+                        <ImageBrush ImageSource="Resources/img/Laberinto.png"/>
                     </StackPanel.Background>
                     <Grid Height="370">
                         <Rectangle HorizontalAlignment="Left" Height="14" VerticalAlignment="Top" Width="686"/>
@@ -143,7 +143,7 @@
             Content="Exit Game"
             VerticalAlignment="Top" 
             HorizontalAlignment="Right" 
-            FontSize="18"/>
+            FontSize="18" Click="btn_exitGame_Click"/>
 
         <TextBox Grid.Column="1" 
             Height="381"

@@ -21,5 +21,12 @@ namespace Lisman {
         {
             InitializeComponent();
         }
+
+        private void btn_exitGame_Click(object sender, RoutedEventArgs e)
+        {
+            MultijugadorHome homeMultijugador = new MultijugadorHome();
+            homeMultijugador.Show();
+            this.Close();
+        }
     }
 }

@@ -52,6 +52,9 @@ namespace Lisman {
                     };
                     if (cliente.AddCuenta(cuentaGuardar) != -1) {
                         MessageBox.Show("Se realizo el registro");
+                        MainWindow login = new MainWindow();
+                        login.Show();
+                        this.Close();
                     } else {
                         MessageBox.Show("Ocurrio un error al registrar");
 

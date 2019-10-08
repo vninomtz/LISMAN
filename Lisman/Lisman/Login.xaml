@@ -8,7 +8,7 @@
         xmlns:local="clr-namespace:Lisman"
         mc:Ignorable="d"
         Title="LISMAN" Height="530" Width="410" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" 
-        Icon="Resorces/img/icon_pacman.png">
+        Icon="Resources/img/icon_pacman.png">
 
     <Grid>
         <Menu IsMainMenu="True"  HorizontalAlignment="Right" VerticalAlignment="Top">

@@ -193,7 +193,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Resorces\img\icon_pacman.png" />
+    <Resource Include="Resources\img\icon_pacman.png" />
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Connected Services\" />
@@ -233,7 +233,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Resorces\img\Laberinto.png" />
+    <Resource Include="Resources\img\Laberinto.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

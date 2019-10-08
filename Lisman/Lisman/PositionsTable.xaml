@@ -9,11 +9,12 @@
         mc:Ignorable="d"
         Title="{x:Static p:Resources.positions_table}" Height="450" Width="800"
         WindowStartupLocation="CenterScreen" 
-        Icon="Resorces\img\icon_pacman.png">
+        Icon="Resources/img/icon_pacman.png">
     <Grid>
         <Button
                 Style="{StaticResource MaterialDesignFlatButton}" Content="{x:Static p:Resources.go_back}"
-                ToolTip="MaterialDesignFlatButton" VerticalAlignment="Top" HorizontalAlignment="Left" Height="Auto" Click="Button_Click_Cancel" />
+                ToolTip="MaterialDesignFlatButton" VerticalAlignment="Top" HorizontalAlignment="Left" 
+            Height="Auto" Click="Button_Click_Cancel" />
         <DataGrid
             x:Name="tbl_positions"
           Margin="0,47,0,-39"

@@ -8,7 +8,7 @@
         xmlns:local="clr-namespace:Lisman"
         mc:Ignorable="d"
          Title="{x:Static p:Resources.multiplayer_mode}" Height="500" Width="600" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" 
-        Topmost="True" Icon="Resorces/img/icon_pacman.png">
+        Topmost="True" Icon="Resources/img/icon_pacman.png">
     <Grid>
         <Button
             x:Name="btn_goBack"
@@ -27,10 +27,11 @@
             </StackPanel>
         </Button>
         <Button
+            x:Name="btn_joinGame"
                 Style="{StaticResource MaterialDesignRaisedDarkButton}"
                 Height="Auto"
                 materialDesign:ButtonAssist.CornerRadius="5"
-                Margin="90,264,69,139">
+                Margin="90,264,69,139" Click="btn_joinGame_Click">
             <StackPanel Orientation="Horizontal">
                 <materialDesign:PackIcon Kind="CloudSync" Height="37" Width="37"/>
                 <Separator Margin="5"/>

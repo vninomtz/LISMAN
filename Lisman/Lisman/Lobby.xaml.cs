@@ -21,5 +21,12 @@ namespace Lisman {
         {
             InitializeComponent();
         }
+
+        private void Button_Click_Cancel(object sender, RoutedEventArgs e)
+        {
+            MultijugadorHome homeMultiplayer = new MultijugadorHome();
+            homeMultiplayer.Show();
+            this.Close();
+        }
     }
 }

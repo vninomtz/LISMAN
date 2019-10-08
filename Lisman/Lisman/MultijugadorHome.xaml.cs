@@ -37,5 +37,12 @@ namespace Lisman {
             game.Show();
             this.Close();
         }
+
+        private void btn_joinGame_Click(object sender, RoutedEventArgs e)
+        {
+            Lobby lobby = new Lobby();
+            lobby.Show();
+            this.Close();
+        }
     }
 }

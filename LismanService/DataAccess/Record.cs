@@ -12,14 +12,14 @@ namespace DataAccess
     using System;
     using System.Collections.Generic;
     
-    public partial class Historial
+    public partial class Record
     {
         public int Id { get; set; }
-        public Nullable<int> Multijugador_PuntajeMaximo { get; set; }
-        public Nullable<int> Historia_PuntajeMaximo { get; set; }
-        public Nullable<int> Mult_PartidasJugadas { get; set; }
-        public Nullable<int> Mult_PartidasGanadas { get; set; }
+        public Nullable<int> Mult_best_score { get; set; }
+        public Nullable<int> Story_best_score { get; set; }
+        public Nullable<int> Mult_games_played { get; set; }
+        public Nullable<int> Mult_games_won { get; set; }
     
-        public virtual Cuenta Cuenta { get; set; }
+        public virtual Account Account { get; set; }
     }
 }

@@ -10,32 +10,33 @@
         Title="{x:Static p:Resources.title_main_menu}" Height="500" Width="600" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" 
         Topmost="True" Icon="Resorces/img/icon_pacman.png">
     <Grid>
-        <TextBlock HorizontalAlignment="Center" VerticalAlignment="Top"
-            Style="{StaticResource MaterialDesignDisplay3TextBlock}">
+        <TextBlock HorizontalAlignment="Center" VerticalAlignment="Top" Margin="10"
+            Style="{StaticResource MaterialDesignDisplay3TextBlock}" FontFamily="Gill Sans Ultra Bold">
           L I S M A N
         </TextBlock>
 
-        <Grid Width="240">
+        <Grid Width="350">
             <Button
                 Style="{StaticResource MaterialDesignRaisedDarkButton}"
                 Height="Auto"
                 materialDesign:ButtonAssist.CornerRadius="5"
                 Margin="0,100,0,299">
                 <StackPanel Orientation="Horizontal">
-                    <materialDesign:PackIcon Kind="Blinky" Height="24" Width="24"/>
+                    <materialDesign:PackIcon Kind="Blinky" Height="33" Width="33"/>
                     <Separator Margin="5"/>
-                    <TextBlock Text="{x:Static p:Resources.history_mode}" FontWeight="Bold" FontSize="18"/>
+                    <TextBlock Text="{x:Static p:Resources.history_mode}" FontWeight="Bold" FontSize="25"/>
                 </StackPanel>
             </Button>
             <Button
+                x:Name="btn_multiplayerMode"
                 Style="{StaticResource MaterialDesignRaisedDarkButton}"
                 Height="Auto"
                 materialDesign:ButtonAssist.CornerRadius="5"
-                Margin="0,187,0,217">
+                Margin="0,187,0,217" Click="btn_multiplayerMode_Click">
                 <StackPanel Orientation="Horizontal">
-                    <materialDesign:PackIcon Kind="PersonGroup" Height="24" Width="24"/>
+                    <materialDesign:PackIcon Kind="PersonGroup" Height="37" Width="37"/>
                     <Separator Margin="5"/>
-                    <TextBlock Text="{x:Static p:Resources.multiplayer_mode}" FontWeight="Bold" FontSize="18"/>
+                    <TextBlock Text="{x:Static p:Resources.multiplayer_mode}" FontWeight="Bold" FontSize="25"/>
                 </StackPanel>
             </Button>
             <Button
@@ -45,9 +46,9 @@
                 materialDesign:ButtonAssist.CornerRadius="5"
                Margin="0,269,0,134" Click="tbl_positions_Click">
                 <StackPanel Orientation="Horizontal">
-                    <materialDesign:PackIcon Kind="TableLarge" Height="24" Width="24"/>
+                    <materialDesign:PackIcon Kind="TableLarge" Height="30" Width="33"/>
                     <Separator Margin="5"/>
-                    <TextBlock Text="{x:Static p:Resources.positions_table}" FontWeight="Bold" FontSize="18"/>
+                    <TextBlock Text="{x:Static p:Resources.positions_table}" FontWeight="Bold" FontSize="25"/>
                 </StackPanel>
             </Button>
 
@@ -57,9 +58,9 @@
                 materialDesign:ButtonAssist.CornerRadius="5"
                 Margin="0,354,0,54" Click="Button_Click_Logout">
                 <StackPanel Orientation="Horizontal">
-                    <materialDesign:PackIcon Kind="Logout" Height="24" Width="24"/>
+                    <materialDesign:PackIcon Kind="Logout" Height="33" Width="33"/>
                     <Separator Margin="2"/>
-                    <TextBlock Text="{x:Static p:Resources.log_out}" FontWeight="Bold" FontSize="18"/>
+                    <TextBlock Text="{x:Static p:Resources.log_out}" FontWeight="Bold" FontSize="25"/>
                 </StackPanel>
             </Button>
         </Grid>

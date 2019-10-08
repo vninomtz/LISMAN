@@ -1,0 +1,41 @@
+﻿<Window x:Class="Lisman.MultijugadorHome"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:p="clr-namespace:Lisman.Properties"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:local="clr-namespace:Lisman"
+        mc:Ignorable="d"
+         Title="{x:Static p:Resources.multiplayer_mode}" Height="500" Width="600" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" 
+        Topmost="True" Icon="Resorces/img/icon_pacman.png">
+    <Grid>
+        <Button
+            x:Name="btn_goBack"
+                Style="{StaticResource MaterialDesignFlatButton}" Content="{x:Static p:Resources.go_back}"
+               VerticalAlignment="Top" HorizontalAlignment="Left" FontSize="25" Height="44" Click="btn_goBack_Click"  />
+        <Button
+            x:Name="btn_newGame"
+                Style="{StaticResource MaterialDesignRaisedDarkButton}"
+                Height="Auto"
+                materialDesign:ButtonAssist.CornerRadius="5"
+                Margin="90,110,69,293" Click="btn_newGame_Click" >
+            <StackPanel Orientation="Horizontal">
+                <materialDesign:PackIcon Kind="GamepadVariant" Height="39" Width="39"/>
+                <Separator Margin="5"/>
+                <TextBlock Text="{x:Static p:Resources.new_game}" FontWeight="Bold" FontSize="25"/>
+            </StackPanel>
+        </Button>
+        <Button
+                Style="{StaticResource MaterialDesignRaisedDarkButton}"
+                Height="Auto"
+                materialDesign:ButtonAssist.CornerRadius="5"
+                Margin="90,264,69,139">
+            <StackPanel Orientation="Horizontal">
+                <materialDesign:PackIcon Kind="CloudSync" Height="37" Width="37"/>
+                <Separator Margin="5"/>
+                <TextBlock Text="{x:Static p:Resources.join_game}" FontWeight="Bold" FontSize="25"/>
+            </StackPanel>
+        </Button>
+    </Grid>
+</Window>

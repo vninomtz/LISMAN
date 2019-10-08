@@ -1,0 +1,178 @@
+﻿<Window x:Class="Lisman.MultiplayerGame"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:local="clr-namespace:Lisman"
+        mc:Ignorable="d"
+        Title="Game Multiplayer" Height="500" Width="1000" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" 
+        Topmost="True" Icon="Resorces/img/icon_pacman.png">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="700*"/>
+            <ColumnDefinition Width="300*"/>
+        </Grid.ColumnDefinitions>
+        <StackPanel Grid.Column="0" Background="Black" >
+            <Grid >
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="50*"/>
+                    <RowDefinition Height="370" />
+                    <RowDefinition Height="50*" />
+                </Grid.RowDefinitions>
+                <StackPanel Grid.Row="0" Grid.ColumnSpan="2">
+                    <Grid Height="50">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="16.6" />
+                            <RowDefinition Height="16.6"/>
+                            <RowDefinition Height="16.6"/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="233" />
+                            <ColumnDefinition Width="233"/>
+                            <ColumnDefinition Width="233"/>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Grid.Column="0" Foreground="White"
+                                   Grid.Row="0"
+                                   HorizontalAlignment="Center" 
+                            Style="{StaticResource MaterialDesignBody2TextBlock}" >
+                          Jugador 2
+                        </TextBlock>
+                        <TextBlock Grid.Column="0" Foreground="White"
+                                   Grid.Row="1"
+                                   HorizontalAlignment="Center" 
+                            Style="{StaticResource MaterialDesignBody2TextBlock}"  >
+                         Puntaje
+                        </TextBlock>
+                        <TextBlock Grid.Column="0" Foreground="White"
+                                   Grid.Row="2"
+                                   HorizontalAlignment="Center" 
+                            Style="{StaticResource MaterialDesignBody2TextBlock}"  >
+                         Vidas
+                        </TextBlock>
+
+                        <TextBlock Grid.Column="1" Foreground="White"
+                                   Grid.Row="0"
+                                   HorizontalAlignment="Center" 
+                            Style="{StaticResource MaterialDesignBody2TextBlock}" >
+                          Jugador 3
+                        </TextBlock>
+                        <TextBlock Grid.Column="1" Foreground="White"
+                                   Grid.Row="1"
+                                   HorizontalAlignment="Center" 
+                            Style="{StaticResource MaterialDesignBody2TextBlock}"  >
+                         Puntaje
+                        </TextBlock>
+                        <TextBlock Grid.Column="1" Foreground="White"
+                                   Grid.Row="2"
+                                   HorizontalAlignment="Center" 
+                            Style="{StaticResource MaterialDesignBody2TextBlock}"  >
+                         Vidas
+                        </TextBlock>
+
+                        <TextBlock Grid.Column="2" Foreground="White"
+                                   Grid.Row="0"
+                                   HorizontalAlignment="Center" 
+                            Style="{StaticResource MaterialDesignBody2TextBlock}" >
+                          Jugador 3
+                        </TextBlock>
+                        <TextBlock Grid.Column="2" Foreground="White"
+                                   Grid.Row="1"
+                                   HorizontalAlignment="Center" 
+                            Style="{StaticResource MaterialDesignBody2TextBlock}"  >
+                         Puntaje
+                        </TextBlock>
+                        <TextBlock Grid.Column="2" Foreground="White"
+                                   Grid.Row="2"
+                                   HorizontalAlignment="Center" 
+                            Style="{StaticResource MaterialDesignBody2TextBlock}"  >
+                         Vidas
+                        </TextBlock>
+
+
+
+                    </Grid>
+                </StackPanel>
+                <StackPanel Grid.Row="1"  >
+                    <StackPanel.Background>
+                        <ImageBrush ImageSource="Resorces/img/Laberinto.png"/>
+                    </StackPanel.Background>
+                    <Grid Height="370">
+                        <Rectangle HorizontalAlignment="Left" Height="14" VerticalAlignment="Top" Width="686"/>
+
+                    </Grid>
+
+
+
+                </StackPanel>
+                <StackPanel Grid.Row="2" Height="50">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="233*"/>
+                            <ColumnDefinition Width="233*"/>
+                            <ColumnDefinition Width="233*"/>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Grid.Column="0" Foreground="White"
+                                   HorizontalAlignment="Center"
+                                   VerticalAlignment="Center"
+                                   Style="{StaticResource MaterialDesignBody2TextBlock}" >
+                         Vidas
+                        </TextBlock>
+                        <TextBlock Grid.Column="1" Foreground="White"
+                                   HorizontalAlignment="Center"
+                                   VerticalAlignment="Center"
+                                   Style="{StaticResource MaterialDesignBody2TextBlock}" >
+                         Puntaje
+                        </TextBlock>
+                        <TextBlock Grid.Column="2" Foreground="White"
+                                   HorizontalAlignment="Center"
+                                   VerticalAlignment="Center"
+                                   Style="{StaticResource MaterialDesignBody2TextBlock}" >
+                         Experiencias eduacativas
+                        </TextBlock>
+                    </Grid>
+                </StackPanel>
+
+            </Grid>
+        </StackPanel>
+        <Button
+            x:Name="btn_exitGame"
+            Grid.Column="1"
+                Style="{StaticResource MaterialDesignFlatButton}" 
+            Content="Exit Game"
+            VerticalAlignment="Top" 
+            HorizontalAlignment="Right" 
+            FontSize="18"/>
+
+        <TextBox Grid.Column="1" 
+            Height="381"
+            IsReadOnly="True"
+            TextWrapping="Wrap"
+            VerticalAlignment="Top"
+            AcceptsReturn="True"
+            VerticalScrollBarVisibility="Auto"
+            SpellCheck.IsEnabled="True"
+            materialDesign:HintAssist.Hint="Chat" Margin="0,48,0,0"/>
+
+        <TextBox Grid.Column="1" 
+                 x:Name="txt_message"
+                 VerticalAlignment="Bottom" 
+                 HorizontalAlignment="Left"
+                 materialDesign:HintAssist.Hint="Comment" 
+                 Width="255" Height="42" />
+        <Button Grid.Column="1"
+          Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}"
+                VerticalAlignment="Bottom"
+                HorizontalAlignment="Right" 
+                Height="30" Width="30" Margin="10,2">
+            <materialDesign:PackIcon
+            Kind="Send"
+            Height="20"
+            Width="20" />
+        </Button>
+
+
+    </Grid>
+
+</Window>

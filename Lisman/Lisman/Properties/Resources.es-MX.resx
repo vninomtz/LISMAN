@@ -135,6 +135,9 @@
   <data name="history_mode" xml:space="preserve">
     <value>Modo Historia</value>
   </data>
+  <data name="join_game" xml:space="preserve">
+    <value>Unirme a una Partida</value>
+  </data>
   <data name="language" xml:space="preserve">
     <value>Idioma</value>
   </data>
@@ -167,6 +170,9 @@
   </data>
   <data name="name" xml:space="preserve">
     <value>Nombres</value>
+  </data>
+  <data name="new_game" xml:space="preserve">
+    <value>Nueva Partida</value>
   </data>
   <data name="password" xml:space="preserve">
     <value>Contraseña</value>

@@ -35,5 +35,12 @@ namespace Lisman {
             positions.Show();
             this.Close();
         }
+
+        private void btn_multiplayerMode_Click(object sender, RoutedEventArgs e)
+        {
+            MultijugadorHome multijugador = new MultijugadorHome();
+            multijugador.Show();
+            this.Close();
+        }
     }
 }

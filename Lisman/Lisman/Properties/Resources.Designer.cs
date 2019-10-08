@@ -106,6 +106,15 @@ namespace Lisman.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Join a game.
+        /// </summary>
+        public static string join_game {
+            get {
+                return ResourceManager.GetString("join_game", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Language.
         /// </summary>
         public static string language {
@@ -201,6 +210,15 @@ namespace Lisman.Properties {
         public static string name {
             get {
                 return ResourceManager.GetString("name", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to New Game.
+        /// </summary>
+        public static string new_game {
+            get {
+                return ResourceManager.GetString("new_game", resourceCulture);
             }
         }
         

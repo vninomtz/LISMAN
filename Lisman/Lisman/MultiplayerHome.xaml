@@ -1,4 +1,4 @@
-﻿<Window x:Class="Lisman.MultijugadorHome"
+﻿<Window x:Class="Lisman.MultiplayerHome"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -11,15 +11,15 @@
         Topmost="True" Icon="Resources/img/icon_pacman.png">
     <Grid>
         <Button
-            x:Name="btn_goBack"
+            x:Name="button_goBack"
                 Style="{StaticResource MaterialDesignFlatButton}" Content="{x:Static p:Resources.go_back}"
-               VerticalAlignment="Top" HorizontalAlignment="Left" FontSize="25" Height="44" Click="btn_goBack_Click"  />
+               VerticalAlignment="Top" HorizontalAlignment="Left" FontSize="25" Height="44" Click="button_goBack_Click"  />
         <Button
-            x:Name="btn_newGame"
+            x:Name="button_newGame"
                 Style="{StaticResource MaterialDesignRaisedDarkButton}"
                 Height="Auto"
                 materialDesign:ButtonAssist.CornerRadius="5"
-                Margin="90,110,69,293" Click="btn_newGame_Click" >
+                Margin="90,110,69,293" Click="button_newGame_Click" >
             <StackPanel Orientation="Horizontal">
                 <materialDesign:PackIcon Kind="GamepadVariant" Height="39" Width="39"/>
                 <Separator Margin="5"/>
@@ -31,7 +31,7 @@
                 Style="{StaticResource MaterialDesignRaisedDarkButton}"
                 Height="Auto"
                 materialDesign:ButtonAssist.CornerRadius="5"
-                Margin="90,264,69,139" Click="btn_joinGame_Click">
+                Margin="90,264,69,139" Click="button_joinGame_Click">
             <StackPanel Orientation="Horizontal">
                 <materialDesign:PackIcon Kind="CloudSync" Height="37" Width="37"/>
                 <Separator Margin="5"/>

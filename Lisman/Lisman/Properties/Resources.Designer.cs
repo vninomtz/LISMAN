@@ -187,6 +187,96 @@ namespace Lisman.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Enter confirmation password please.
+        /// </summary>
+        public static string message_error_confirmation_password {
+            get {
+                return ResourceManager.GetString("message_error_confirmation_password", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Enter email please.
+        /// </summary>
+        public static string message_error_email {
+            get {
+                return ResourceManager.GetString("message_error_email", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Enter lastname please.
+        /// </summary>
+        public static string message_error_lastname {
+            get {
+                return ResourceManager.GetString("message_error_lastname", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Enter name please.
+        /// </summary>
+        public static string message_error_name {
+            get {
+                return ResourceManager.GetString("message_error_name", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Enter password please.
+        /// </summary>
+        public static string message_error_password {
+            get {
+                return ResourceManager.GetString("message_error_password", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Passwords cannot be different.
+        /// </summary>
+        public static string message_error_passwords_different {
+            get {
+                return ResourceManager.GetString("message_error_passwords_different", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Enter username please.
+        /// </summary>
+        public static string message_error_usename {
+            get {
+                return ResourceManager.GetString("message_error_usename", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Registration Failed.
+        /// </summary>
+        public static string message_registration_error {
+            get {
+                return ResourceManager.GetString("message_registration_error", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Successful Registration.
+        /// </summary>
+        public static string message_registration_successful {
+            get {
+                return ResourceManager.GetString("message_registration_successful", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Invalid username or password.
+        /// </summary>
+        public static string message_warning_login {
+            get {
+                return ResourceManager.GetString("message_warning_login", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Multiplayer Games Won.
         /// </summary>
         public static string multiplayer_games_won {

@@ -30,33 +30,35 @@ namespace Lisman {
             this.Close();
         }
 
-        private void btn_save_Click(object sender, RoutedEventArgs e)
+        private void button_save_Click(object sender, RoutedEventArgs e)
         {
-            if (ValidarDatos()) {
-                using (var cliente = new LismanService.UserClient()) {
-                    var cuentaGuardar = new LismanService.Cuenta
+            if (ValidateData()) {
+                using (var client = new LismanService.UserClient()) {
+                    var accountSave = new LismanService.Cuenta
                     {
-                        Usuario = txt_nombreUsuario.Text,
-                        Contrasenia = EncodePassword(txt_password.Password),
+                        Usuario = textField_userName.Text,
+                        Contrasenia = EncodePassword(passwordBox_password.Password),
                         fecha_registro = DateTime.Now.ToString(),
                         Jugador = new LismanService.Jugador
                         {
-                            Nombre = txt_nombre.Text,
-                            Apellido = txt_apellidos.Text,
-                            Email = txt_email.Text,
+                            Nombre = textField_name.Text,
+                            Apellido = textField_lastName.Text,
+                            Email = textField_email.Text,
                             
 
 
                         }
 
                     };
-                    if (cliente.AddCuenta(cuentaGuardar) != -1) {
-                        MessageBox.Show("Se realizo el registro");
+                    if (client.AddCuenta(accountSave) != -1) {
+                        var messageRegistrationSuccessful = Properties.Resources.message_registration_successful;
+                        MessageBox.Show(messageRegistrationSuccessful);
                         MainWindow login = new MainWindow();
                         login.Show();
                         this.Close();
                     } else {
-                        MessageBox.Show("Ocurrio un error al registrar");
+                        var messageRegistrationError = Properties.Resources.message_registration_error;
+                        MessageBox.Show(messageRegistrationError);
 
                     }
                 }
@@ -70,28 +72,35 @@ namespace Lisman {
         }
 
 
-        public Boolean ValidarDatos()
-        {
-            if (txt_nombre.Text == "") {
-                MessageBox.Show("Llenar el campo nombre, por favor");
+        public Boolean ValidateData() {
+            var messageError = "";
+            if (textField_name.Text == "") {
+                messageError = Properties.Resources.message_error_name;
+                MessageBox.Show(messageError);
                 return false;
-            } else if (txt_apellidos.Text == "") {
-                MessageBox.Show("Llenar el campo apellido, por favor");
+            } else if (textField_lastName.Text == "") {
+                messageError = Properties.Resources.message_error_lastname;
+                MessageBox.Show(messageError);
                 return false;
-            } else if (txt_email.Text == "") {
-                MessageBox.Show("Llenar el campo nombre email, por favor");
+            } else if (textField_email.Text == "") {
+                messageError = Properties.Resources.message_error_email;
+                MessageBox.Show(messageError);
                 return false;
-            } else if (txt_nombreUsuario.Text == "") {
-                MessageBox.Show("Llenar el campo usuario, por favor");
+            } else if (textField_userName.Text == "") {
+                messageError = Properties.Resources.message_error_usename;
+                MessageBox.Show(messageError);
                 return false;
-            } else if (txt_password.Password == "") {
-                MessageBox.Show("Llenar el campo contraseña, por favor");
+            } else if (passwordBox_password.Password == "") {
+                messageError = Properties.Resources.message_error_password;
+                MessageBox.Show(messageError);
                 return false;
-            } else if (txt_confPassword.Password == "") {
-                MessageBox.Show("Confirmar contraseña, por favor");
+            } else if (passwordBox_confirmPassword.Password == "") {
+                messageError = Properties.Resources.message_error_confirmation_password;
+                MessageBox.Show(messageError);
                 return false;
-            } else if (!txt_password.Password.Equals(txt_confPassword.Password)){
-                MessageBox.Show("La contraseña debe de ser igual");
+            } else if (!passwordBox_password.Password.Equals(passwordBox_confirmPassword.Password)){
+                messageError = Properties.Resources.message_error_passwords_different;
+                MessageBox.Show(messageError);
                 return false;
             }
 

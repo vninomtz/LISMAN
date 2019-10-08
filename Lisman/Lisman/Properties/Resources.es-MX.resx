@@ -162,6 +162,36 @@
   <data name="max_score_multiplayer" xml:space="preserve">
     <value>Puntaje Máximo Modo Multijugador</value>
   </data>
+  <data name="message_error_confirmation_password" xml:space="preserve">
+    <value>Ingresar la contraseña de confirmación por favor</value>
+  </data>
+  <data name="message_error_email" xml:space="preserve">
+    <value>Ingresar el email por favor</value>
+  </data>
+  <data name="message_error_lastname" xml:space="preserve">
+    <value>Ingresar el apellido por favor</value>
+  </data>
+  <data name="message_error_name" xml:space="preserve">
+    <value>Ingresar el nombre por favor </value>
+  </data>
+  <data name="message_error_password" xml:space="preserve">
+    <value>Ingresar la contraseña por favor</value>
+  </data>
+  <data name="message_error_passwords_different" xml:space="preserve">
+    <value>Las contraseñas no pueden ser diferentes</value>
+  </data>
+  <data name="message_error_usename" xml:space="preserve">
+    <value>Ingresar el nombre de usuario por favor</value>
+  </data>
+  <data name="message_registration_error" xml:space="preserve">
+    <value>Error al Registrar</value>
+  </data>
+  <data name="message_registration_successful" xml:space="preserve">
+    <value>Registro Exitoso</value>
+  </data>
+  <data name="message_warning_login" xml:space="preserve">
+    <value>Nombre de usuario o contraseña invalido</value>
+  </data>
   <data name="multiplayer_games_won" xml:space="preserve">
     <value>Juegos Multijugador Ganados</value>
   </data>
@@ -178,7 +208,7 @@
     <value>Contraseña</value>
   </data>
   <data name="positions_table" xml:space="preserve">
-    <value>Table de Posiciones</value>
+    <value>Tabla de Posiciones</value>
   </data>
   <data name="register" xml:space="preserve">
     <value>Registrarse</value>

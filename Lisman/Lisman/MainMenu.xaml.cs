@@ -29,18 +29,20 @@ namespace Lisman {
             this.Close();
         }
 
-        private void tbl_positions_Click(object sender, RoutedEventArgs e)
+        private void table_positions_Click(object sender, RoutedEventArgs e)
         {
             PositionsTable positions = new PositionsTable();
             positions.Show();
             this.Close();
         }
 
-        private void btn_multiplayerMode_Click(object sender, RoutedEventArgs e)
+        private void button_multiplayerMode_Click(object sender, RoutedEventArgs e)
         {
-            MultijugadorHome multijugador = new MultijugadorHome();
-            multijugador.Show();
+            MultiplayerHome multiplayerWindow = new MultiplayerHome();
+            multiplayerWindow.Show();
             this.Close();
         }
+
+       
     }
 }

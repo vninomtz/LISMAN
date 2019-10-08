@@ -24,14 +24,17 @@ namespace Lisman {
             InitializeComponent();
         }
 
-        public Boolean ValidarCampos()
+        public Boolean ValidateFields()
         {
-            if(txt_user.Text == "") {
-                MessageBox.Show("Por favor ingresar el usuario");
+            
+            if(textField_user.Text == "") {
+                var messageError = Properties.Resources.message_error_usename;
+                MessageBox.Show(messageError);
                 return false;
             }
-            if (psw_password.Password == "") {
-                MessageBox.Show("Por favor ingresar la contraseña");
+            if (passwordBox_password.Password == "") {
+                var messageError = Properties.Resources.message_error_password;
+                MessageBox.Show(messageError);
                 return false;
             }
             return true;
@@ -60,18 +63,19 @@ namespace Lisman {
             this.Close();
         }
 
-        private void btn_InicioSesion_Click(object sender, RoutedEventArgs e)
+        private void btn_login_Click(object sender, RoutedEventArgs e)
         {
-            if (ValidarCampos()) {
-                using (var cliente = new LismanService.UserClient()) {
+            if (ValidateFields()) {
+                using (var client = new LismanService.UserClient()) {
                     try {
-                        LismanService.Cuenta cuenta = cliente.IniciarSesion(txt_user.Text, EncodePassword(psw_password.Password));
-                        if (cuenta != null) {
+                        LismanService.Cuenta account = client.IniciarSesion(textField_user.Text, EncodePassword(passwordBox_password.Password));
+                        if (account != null) {
                             MainMenu mainMenu = new MainMenu();
                             mainMenu.Show();
                             this.Close();
                         } else {
-                            MessageBox.Show("Usuario o contraseña incorrecta, intente de nuevo");
+                            var messageWarningLogin = Properties.Resources.message_warning_login;
+                            MessageBox.Show(messageWarningLogin);
                         }
                     } catch(Exception ex) {
                         Console.WriteLine(ex.Message);
@@ -94,5 +98,7 @@ namespace Lisman {
             for (int i = 0; i < stream.Length; i++) sb.AppendFormat("{0:x2}", stream[i]);
             return sb.ToString();
         }
+
+        
     }
 }

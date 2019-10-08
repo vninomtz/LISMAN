@@ -24,7 +24,7 @@ namespace Lisman {
 
         private void Button_Click_Cancel(object sender, RoutedEventArgs e)
         {
-            MultijugadorHome homeMultiplayer = new MultijugadorHome();
+            MultiplayerHome homeMultiplayer = new MultiplayerHome();
             homeMultiplayer.Show();
             this.Close();
         }

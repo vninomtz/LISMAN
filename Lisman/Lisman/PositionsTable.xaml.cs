@@ -32,10 +32,10 @@ namespace Lisman {
 
         public void LoadTable()
         {
-            using (var cliente = new LismanService.UserClient()) {
+            using (var client = new LismanService.UserClient()) {
                 try {
-                    var listaCuentas = cliente.GetCuentas();
-                    tbl_positions.ItemsSource = listaCuentas;
+                    var listAccounts = client.GetCuentas();
+                    tbl_positions.ItemsSource = listAccounts;
                 } catch (Exception ex) {
                     MessageBox.Show("Error en la BD");
                 }

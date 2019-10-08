@@ -20,7 +20,7 @@
                 Style="{StaticResource MaterialDesignRaisedDarkButton}"
                 Height="Auto"
                 materialDesign:ButtonAssist.CornerRadius="5"
-                Margin="0,100,0,299">
+                Margin="0,100,0,299" >
                 <StackPanel Orientation="Horizontal">
                     <materialDesign:PackIcon Kind="Blinky" Height="33" Width="33"/>
                     <Separator Margin="5"/>
@@ -28,11 +28,11 @@
                 </StackPanel>
             </Button>
             <Button
-                x:Name="btn_multiplayerMode"
+                x:Name="button_multiplayerMode"
                 Style="{StaticResource MaterialDesignRaisedDarkButton}"
                 Height="Auto"
                 materialDesign:ButtonAssist.CornerRadius="5"
-                Margin="0,187,0,217" Click="btn_multiplayerMode_Click">
+                Margin="0,187,0,217" Click="button_multiplayerMode_Click">
                 <StackPanel Orientation="Horizontal">
                     <materialDesign:PackIcon Kind="PersonGroup" Height="37" Width="37"/>
                     <Separator Margin="5"/>
@@ -40,11 +40,11 @@
                 </StackPanel>
             </Button>
             <Button
-                x:Name="btn_positionsTable"
+                x:Name="button_positionsTable"
                 Style="{StaticResource MaterialDesignRaisedDarkButton}"
                 Height="Auto"
                 materialDesign:ButtonAssist.CornerRadius="5"
-               Margin="0,269,0,134" Click="tbl_positions_Click">
+               Margin="0,269,0,134" Click="table_positions_Click">
                 <StackPanel Orientation="Horizontal">
                     <materialDesign:PackIcon Kind="TableLarge" Height="30" Width="33"/>
                     <Separator Margin="5"/>

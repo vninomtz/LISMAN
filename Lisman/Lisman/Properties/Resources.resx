@@ -159,6 +159,36 @@
   <data name="max_score_multiplayer" xml:space="preserve">
     <value>Maximum Multiplayer Mode Score</value>
   </data>
+  <data name="message_error_confirmation_password" xml:space="preserve">
+    <value>Enter confirmation password please</value>
+  </data>
+  <data name="message_error_email" xml:space="preserve">
+    <value>Enter email please</value>
+  </data>
+  <data name="message_error_lastname" xml:space="preserve">
+    <value>Enter lastname please</value>
+  </data>
+  <data name="message_error_name" xml:space="preserve">
+    <value>Enter name please</value>
+  </data>
+  <data name="message_error_password" xml:space="preserve">
+    <value>Enter password please</value>
+  </data>
+  <data name="message_error_passwords_different" xml:space="preserve">
+    <value>Passwords cannot be different</value>
+  </data>
+  <data name="message_error_usename" xml:space="preserve">
+    <value>Enter username please</value>
+  </data>
+  <data name="message_registration_error" xml:space="preserve">
+    <value>Registration Failed</value>
+  </data>
+  <data name="message_registration_successful" xml:space="preserve">
+    <value>Successful Registration</value>
+  </data>
+  <data name="message_warning_login" xml:space="preserve">
+    <value>Invalid username or password</value>
+  </data>
   <data name="multiplayer_games_won" xml:space="preserve">
     <value>Multiplayer Games Won</value>
   </data>

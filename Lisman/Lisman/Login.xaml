@@ -26,8 +26,8 @@
             </MenuItem>
         </Menu>
 
-        <TextBox x:Name="txt_user" materialDesign:HintAssist.Hint="{x:Static p:Resources.user}" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="80,160,80,283" />
-        <PasswordBox x:Name="psw_password" materialDesign:HintAssist.Hint="{x:Static p:Resources.password}" Style="{StaticResource MaterialDesignFloatingHintPasswordBox}" Margin="80,223,80,227" />
+        <TextBox x:Name="textField_user" materialDesign:HintAssist.Hint="{x:Static p:Resources.user}" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="80,160,80,283" />
+        <PasswordBox x:Name="passwordBox_password" materialDesign:HintAssist.Hint="{x:Static p:Resources.password}" Style="{StaticResource MaterialDesignFloatingHintPasswordBox}" Margin="80,223,80,227" />
 
         <Grid Width="170">
             <Grid.RowDefinitions>
@@ -36,9 +36,9 @@
             </Grid.RowDefinitions>
             <materialDesign:PackIcon Kind="PacMan" Height="100" Width="100" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="35,38,35,0"/>
             <Button
-                Name="btn_InicioSesion"
+                Name="button_login"
             Style="{StaticResource MaterialDesignRaisedAccentButton}"
-            Content="{x:Static p:Resources.log_in}" HorizontalAlignment="Center" Width="174" Margin="-4,106,0,145" Height="Auto" Grid.Row="1" Click="btn_InicioSesion_Click" />
+            Content="{x:Static p:Resources.log_in}" HorizontalAlignment="Center" Width="174" Margin="-4,106,0,145" Height="Auto" Grid.Row="1" Click="btn_login_Click" />
 
             <TextBlock
                 Style="{StaticResource MaterialDesignSubheadingTextBlock}" Foreground="#DD0F46FF" 

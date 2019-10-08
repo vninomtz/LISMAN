@@ -16,29 +16,29 @@ namespace Lisman {
     /// <summary>
     /// Interaction logic for MultijugadorHome.xaml
     /// </summary>
-    public partial class MultijugadorHome : Window {
-        public MultijugadorHome()
+    public partial class MultiplayerHome : Window {
+        public MultiplayerHome()
         {
             InitializeComponent();
         }
 
         
 
-        private void btn_goBack_Click(object sender, RoutedEventArgs e)
+        private void button_goBack_Click(object sender, RoutedEventArgs e)
         {
             MainMenu menu = new MainMenu();
             menu.Show();
             this.Close();
         }
 
-        private void btn_newGame_Click(object sender, RoutedEventArgs e)
+        private void button_newGame_Click(object sender, RoutedEventArgs e)
         {
             MultiplayerGame game = new MultiplayerGame();
             game.Show();
             this.Close();
         }
 
-        private void btn_joinGame_Click(object sender, RoutedEventArgs e)
+        private void button_joinGame_Click(object sender, RoutedEventArgs e)
         {
             Lobby lobby = new Lobby();
             lobby.Show();

@@ -14,9 +14,9 @@
         <Button
                 Style="{StaticResource MaterialDesignFlatButton}" Content="{x:Static p:Resources.go_back}"
                 ToolTip="MaterialDesignFlatButton" VerticalAlignment="Top" HorizontalAlignment="Left" 
-            Height="Auto" Click="Button_Click_Cancel" />
+            Height="Auto" Click="Button_Click_go_back" />
         <DataGrid
-            x:Name="tbl_positions"
+            x:Name="table_positions"
           Margin="0,47,0,-39"
           ItemsSource="{Binding Cuenta}"
           CanUserSortColumns="True"

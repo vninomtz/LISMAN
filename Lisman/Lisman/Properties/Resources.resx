@@ -180,6 +180,9 @@
   <data name="message_error_usename" xml:space="preserve">
     <value>Enter username please</value>
   </data>
+  <data name="message_invalid_email" xml:space="preserve">
+    <value>Enter a valid email</value>
+  </data>
   <data name="message_registration_error" xml:space="preserve">
     <value>Registration Failed</value>
   </data>

@@ -183,6 +183,9 @@
   <data name="message_error_usename" xml:space="preserve">
     <value>Ingresar el nombre de usuario por favor</value>
   </data>
+  <data name="message_invalid_email" xml:space="preserve">
+    <value>Ingresar un email valido por favor</value>
+  </data>
   <data name="message_registration_error" xml:space="preserve">
     <value>Error al Registrar</value>
   </data>

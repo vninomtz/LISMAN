@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Mail;
 using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
@@ -33,24 +34,20 @@ namespace Lisman {
         private void button_save_Click(object sender, RoutedEventArgs e)
         {
             if (ValidateData()) {
-                using (var client = new LismanService.UserClient()) {
-                    var accountSave = new LismanService.Cuenta
+                using (var client = new LismanService.AccountManagerClient()) {
+                    var accountSave = new LismanService.Account
                     {
-                        Usuario = textField_userName.Text,
-                        Contrasenia = EncodePassword(passwordBox_password.Password),
-                        fecha_registro = DateTime.Now.ToString(),
-                        Jugador = new LismanService.Jugador
+                        User = textField_userName.Text,
+                        Password = EncodePassword(passwordBox_password.Password),
+                        Registration_date = DateTime.Now.ToString(),
+                        Player = new LismanService.Player
                         {
-                            Nombre = textField_name.Text,
-                            Apellido = textField_lastName.Text,
-                            Email = textField_email.Text,
-                            
-
-
+                            First_name = textField_name.Text,
+                            Last_name = textField_lastName.Text,
+                            Email = textField_email.Text,                      
                         }
-
                     };
-                    if (client.AddCuenta(accountSave) != -1) {
+                    if (client.AddAccount(accountSave) != -1) {
                         var messageRegistrationSuccessful = Properties.Resources.message_registration_successful;
                         MessageBox.Show(messageRegistrationSuccessful);
                         MainWindow login = new MainWindow();
@@ -59,18 +56,19 @@ namespace Lisman {
                     } else {
                         var messageRegistrationError = Properties.Resources.message_registration_error;
                         MessageBox.Show(messageRegistrationError);
-
                     }
                 }
-
-           
-
-                
-
-                
             }
         }
 
+        public bool IsValidEmail(string emailaddress) {
+            try {
+                MailAddress email = new MailAddress(emailaddress);
+                return true;
+            } catch (FormatException) {
+                return false;
+            }
+        }
 
         public Boolean ValidateData() {
             var messageError = "";
@@ -86,7 +84,11 @@ namespace Lisman {
                 messageError = Properties.Resources.message_error_email;
                 MessageBox.Show(messageError);
                 return false;
-            } else if (textField_userName.Text == "") {
+            } else if(!IsValidEmail(textField_email.Text)){
+                messageError = Properties.Resources.message_invalid_email;
+                MessageBox.Show(messageError);
+                return false;
+            }else if (textField_userName.Text == "") {
                 messageError = Properties.Resources.message_error_usename;
                 MessageBox.Show(messageError);
                 return false;
@@ -103,7 +105,6 @@ namespace Lisman {
                 MessageBox.Show(messageError);
                 return false;
             }
-
             return true;
         }
 

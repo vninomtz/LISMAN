@@ -23,7 +23,7 @@ namespace Lisman {
             LoadTable();
         }
 
-        private void Button_Click_Cancel(object sender, RoutedEventArgs e)
+        private void Button_Click_go_back(object sender, RoutedEventArgs e)
         {
             MainMenu menu = new MainMenu();
             menu.Show();
@@ -32,10 +32,10 @@ namespace Lisman {
 
         public void LoadTable()
         {
-            using (var client = new LismanService.UserClient()) {
+            using (var client = new LismanService.AccountManagerClient()) {
                 try {
-                    var listAccounts = client.GetCuentas();
-                    tbl_positions.ItemsSource = listAccounts;
+                    var listRecords = client.GetRecords();
+                    table_positions.ItemsSource = listRecords;
                 } catch (Exception ex) {
                     MessageBox.Show("Error en la BD");
                 }

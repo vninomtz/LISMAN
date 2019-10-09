@@ -1,44 +1,70 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
   <xs:import schemaLocation="http://localhost:8081/?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/LismanService" />
-  <xs:element name="AddCuenta">
+  <xs:element name="AddAccount">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/LismanService" minOccurs="0" name="cuenta" nillable="true" type="q1:Cuenta" />
+        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/LismanService" minOccurs="0" name="account" nillable="true" type="q1:Account" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="AddCuentaResponse">
+  <xs:element name="AddAccountResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element minOccurs="0" name="AddCuentaResult" type="xs:int" />
+        <xs:element minOccurs="0" name="AddAccountResult" type="xs:int" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="GetCuentas">
+  <xs:element name="GetAccounts">
     <xs:complexType>
       <xs:sequence />
     </xs:complexType>
   </xs:element>
-  <xs:element name="GetCuentasResponse">
+  <xs:element name="GetAccountsResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/LismanService" minOccurs="0" name="GetCuentasResult" nillable="true" type="q2:ArrayOfCuenta" />
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/LismanService" minOccurs="0" name="GetAccountsResult" nillable="true" type="q2:ArrayOfAccount" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="IniciarSesion">
+  <xs:element name="GetAccountById">
     <xs:complexType>
       <xs:sequence>
-        <xs:element minOccurs="0" name="usuario" nillable="true" type="xs:string" />
-        <xs:element minOccurs="0" name="contrasenia" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="id" type="xs:int" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="IniciarSesionResponse">
+  <xs:element name="GetAccountByIdResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/LismanService" minOccurs="0" name="IniciarSesionResult" nillable="true" type="q3:Cuenta" />
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/LismanService" minOccurs="0" name="GetAccountByIdResult" nillable="true" type="q3:Account" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="LoginAccount">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="user" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="password" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="LoginAccountResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/LismanService" minOccurs="0" name="LoginAccountResult" nillable="true" type="q4:Account" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetRecords">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetRecordsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/LismanService" minOccurs="0" name="GetRecordsResult" nillable="true" type="q5:ArrayOfRecord" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

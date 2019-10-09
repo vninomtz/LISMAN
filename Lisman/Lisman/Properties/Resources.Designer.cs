@@ -250,6 +250,15 @@ namespace Lisman.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Enter a valid email.
+        /// </summary>
+        public static string message_invalid_email {
+            get {
+                return ResourceManager.GetString("message_invalid_email", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Registration Failed.
         /// </summary>
         public static string message_registration_error {

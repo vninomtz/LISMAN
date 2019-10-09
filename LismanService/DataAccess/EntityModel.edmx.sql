@@ -2,13 +2,13 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, 2012 and Azure
 -- --------------------------------------------------
--- Date Created: 10/08/2019 15:42:43
+-- Date Created: 10/08/2019 19:29:04
 -- Generated from EDMX file: C:\Users\Vik-t\Documents\CarreraUV\5to Semestre\Tecnologías para la Construcción\Proyecto\LISMAN\LismanService\DataAccess\EntityModel.edmx
 -- --------------------------------------------------
 
 SET QUOTED_IDENTIFIER OFF;
 GO
-USE [LISMAN];
+USE [Lisman];
 GO
 IF SCHEMA_ID(N'dbo') IS NULL EXECUTE(N'CREATE SCHEMA [dbo]');
 GO
@@ -18,10 +18,10 @@ GO
 -- --------------------------------------------------
 
 IF OBJECT_ID(N'[dbo].[FK_CuentaUsuario]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[CuentaSet] DROP CONSTRAINT [FK_CuentaUsuario];
+    ALTER TABLE [dbo].[AccountSet] DROP CONSTRAINT [FK_CuentaUsuario];
 GO
 IF OBJECT_ID(N'[dbo].[FK_CuentaHistorial]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[CuentaSet] DROP CONSTRAINT [FK_CuentaHistorial];
+    ALTER TABLE [dbo].[AccountSet] DROP CONSTRAINT [FK_CuentaHistorial];
 GO
 IF OBJECT_ID(N'[dbo].[FK_CuentaPartida_Cuenta]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[CuentaPartida] DROP CONSTRAINT [FK_CuentaPartida_Cuenta];
@@ -33,33 +33,33 @@ IF OBJECT_ID(N'[dbo].[FK_ChatPartida]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[ChatSet] DROP CONSTRAINT [FK_ChatPartida];
 GO
 IF OBJECT_ID(N'[dbo].[FK_ChatMensaje]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[MensajeSet] DROP CONSTRAINT [FK_ChatMensaje];
+    ALTER TABLE [dbo].[MessageSet] DROP CONSTRAINT [FK_ChatMensaje];
 GO
 IF OBJECT_ID(N'[dbo].[FK_CuentaMensaje]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[MensajeSet] DROP CONSTRAINT [FK_CuentaMensaje];
+    ALTER TABLE [dbo].[MessageSet] DROP CONSTRAINT [FK_CuentaMensaje];
 GO
 
 -- --------------------------------------------------
 -- Dropping existing tables
 -- --------------------------------------------------
 
-IF OBJECT_ID(N'[dbo].[JugadorSet]', 'U') IS NOT NULL
-    DROP TABLE [dbo].[JugadorSet];
+IF OBJECT_ID(N'[dbo].[PlayerSet]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[PlayerSet];
 GO
-IF OBJECT_ID(N'[dbo].[CuentaSet]', 'U') IS NOT NULL
-    DROP TABLE [dbo].[CuentaSet];
+IF OBJECT_ID(N'[dbo].[AccountSet]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[AccountSet];
 GO
-IF OBJECT_ID(N'[dbo].[HistorialSet]', 'U') IS NOT NULL
-    DROP TABLE [dbo].[HistorialSet];
+IF OBJECT_ID(N'[dbo].[RecordSet]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[RecordSet];
 GO
-IF OBJECT_ID(N'[dbo].[PartidaSet]', 'U') IS NOT NULL
-    DROP TABLE [dbo].[PartidaSet];
+IF OBJECT_ID(N'[dbo].[GameSet]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[GameSet];
 GO
 IF OBJECT_ID(N'[dbo].[ChatSet]', 'U') IS NOT NULL
     DROP TABLE [dbo].[ChatSet];
 GO
-IF OBJECT_ID(N'[dbo].[MensajeSet]', 'U') IS NOT NULL
-    DROP TABLE [dbo].[MensajeSet];
+IF OBJECT_ID(N'[dbo].[MessageSet]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[MessageSet];
 GO
 IF OBJECT_ID(N'[dbo].[CuentaPartida]', 'U') IS NOT NULL
     DROP TABLE [dbo].[CuentaPartida];

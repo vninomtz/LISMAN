@@ -27,9 +27,6 @@ C:\Users\Vik-t\Documents\CarreraUV\5to Semestre\Tecnologías para la Construcci�
 C:\Users\Vik-t\Documents\CarreraUV\5to Semestre\Tecnologías para la Construcción\Proyecto\LISMAN\Lisman\Lisman\obj\Debug\MainMenu.baml
 C:\Users\Vik-t\Documents\CarreraUV\5to Semestre\Tecnologías para la Construcción\Proyecto\LISMAN\Lisman\Lisman\obj\Debug\PositionsTable.g.cs
 C:\Users\Vik-t\Documents\CarreraUV\5to Semestre\Tecnologías para la Construcción\Proyecto\LISMAN\Lisman\Lisman\obj\Debug\PositionsTable.baml
-C:\Users\Vik-t\Documents\CarreraUV\5to Semestre\Tecnologías para la Construcción\Proyecto\LISMAN\Lisman\Lisman\obj\Debug\Lisman.csprojAssemblyReference.cache
-C:\Users\Vik-t\Documents\CarreraUV\5to Semestre\Tecnologías para la Construcción\Proyecto\LISMAN\Lisman\Lisman\obj\Debug\MultijugadorHome.g.cs
-C:\Users\Vik-t\Documents\CarreraUV\5to Semestre\Tecnologías para la Construcción\Proyecto\LISMAN\Lisman\Lisman\obj\Debug\MultijugadorHome.baml
 C:\Users\Vik-t\Documents\CarreraUV\5to Semestre\Tecnologías para la Construcción\Proyecto\LISMAN\Lisman\Lisman\obj\Debug\Lobby.g.cs
 C:\Users\Vik-t\Documents\CarreraUV\5to Semestre\Tecnologías para la Construcción\Proyecto\LISMAN\Lisman\Lisman\obj\Debug\Lobby.baml
 C:\Users\Vik-t\Documents\CarreraUV\5to Semestre\Tecnologías para la Construcción\Proyecto\LISMAN\Lisman\Lisman\obj\Debug\MultiplayerGame.g.cs
@@ -70,5 +67,11 @@ C:\LISMAN\Lisman\Lisman\obj\Debug\Lisman.Properties.Resources.es-MX.resources
 C:\LISMAN\Lisman\Lisman\obj\Debug\Lisman.csproj.GenerateResource.cache
 C:\LISMAN\Lisman\Lisman\obj\Debug\es-MX\Lisman.resources.dll
 C:\LISMAN\Lisman\Lisman\obj\Debug\Lisman.csproj.CopyComplete
+<<<<<<< HEAD
 C:\LISMAN\Lisman\Lisman\bin\Debug\Logica.dll
 C:\LISMAN\Lisman\Lisman\bin\Debug\Logica.pdb
+=======
+C:\Users\Vik-t\Documents\CarreraUV\5to Semestre\Tecnologías para la Construcción\Proyecto\LISMAN\Lisman\Lisman\obj\Debug\MultiplayerHome.g.cs
+C:\Users\Vik-t\Documents\CarreraUV\5to Semestre\Tecnologías para la Construcción\Proyecto\LISMAN\Lisman\Lisman\obj\Debug\MultiplayerHome.baml
+C:\Users\Vik-t\Documents\CarreraUV\5to Semestre\Tecnologías para la Construcción\Proyecto\LISMAN\Lisman\Lisman\obj\Debug\Lisman.csprojAssemblyReference.cache
+>>>>>>> master

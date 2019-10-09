@@ -18,7 +18,7 @@
         <DataGrid
             x:Name="table_positions"
           Margin="0,47,0,-39"
-          ItemsSource="{Binding Cuenta}"
+          ItemsSource="{Binding Record}"
           CanUserSortColumns="True"
           CanUserAddRows="False"
           AutoGenerateColumns="False"
@@ -26,19 +26,19 @@
           materialDesign:DataGridAssist.ColumnHeaderPadding="8" >
             <DataGrid.Columns>
                 <DataGridTextColumn
-                  Binding="{Binding Usuario}"
+                  Binding="{Binding Account.User}"
                   Header="{x:Static p:Resources.user}"
                   IsReadOnly="True"/>
                 <DataGridTextColumn
-                  Binding="{Binding Historial.Historia_PuntajeMaximo}"
+                  Binding="{Binding Story_best_score}"
                   Header="{x:Static p:Resources.max_score_history}"
                   IsReadOnly="True"/>
                 <DataGridTextColumn
-                  Binding="{Binding Historial.Multijugador_PuntajeMaximo}"
+                  Binding="{Binding Mult_best_score}"
                   Header="{x:Static p:Resources.max_score_multiplayer}"
                   IsReadOnly="True" />
                 <DataGridTextColumn
-                  Binding="{Binding Historial.Mult_PartidasGanadas}"
+                  Binding="{Binding Mult_games_won}"
                   Header="{x:Static p:Resources.multiplayer_games_won}"
                   IsReadOnly="True"/>
 

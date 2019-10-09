@@ -78,7 +78,7 @@ namespace LismanService {
         {
             try {
                 using (var dataBase = new EntityModelContainer()) {
-                    return dataBase.RecordSet.OrderBy(u => u.Story_best_score).Select(u => new Record
+                    return dataBase.RecordSet.Select(u => new Record
                     {
 
                         Id = u.Id,
@@ -95,7 +95,7 @@ namespace LismanService {
                             Key_confirmation = u.Account.Key_confirmation
                         }
                         
-                    }).ToList();
+                    }).OrderByDescending(x => x.Story_best_score).ToList();
                 }
             }catch(Exception ex) {
                 Console.WriteLine("Error: " + ex.Message);

@@ -70,17 +70,32 @@ namespace Lisman {
             }
         }
 
-        public Boolean ValidateData() {
+        public bool ExistsEmail(String emailAdress) {
+            using (var client = new LismanService.AccountManagerClient()) {
+                return client.EmailExists(emailAdress);
+            }
+        }
+
+        public bool UserNameExists(String username) {
+
+            using (var client = new LismanService.AccountManagerClient()) {
+                return client.UserNameExists(username);
+            }
+        }
+
+        public bool ValidateData() {
             var messageError = "";
             if (textField_name.Text == "") {
                 messageError = Properties.Resources.message_error_name;
                 MessageBox.Show(messageError);
                 return false;
-            } else if (textField_lastName.Text == "") {
+            } 
+            if (textField_lastName.Text == "") {
                 messageError = Properties.Resources.message_error_lastname;
                 MessageBox.Show(messageError);
                 return false;
-            } else if (textField_email.Text == "") {
+            } 
+            if (textField_email.Text == "") {
                 messageError = Properties.Resources.message_error_email;
                 MessageBox.Show(messageError);
                 return false;
@@ -88,11 +103,21 @@ namespace Lisman {
                 messageError = Properties.Resources.message_invalid_email;
                 MessageBox.Show(messageError);
                 return false;
-            }else if (textField_userName.Text == "") {
+            } else if (ExistsEmail(textField_email.Text)) {
+                messageError = Properties.Resources.message_exists_email;
+                MessageBox.Show(messageError);
+                return false;
+            }
+            if (textField_userName.Text == "") {
                 messageError = Properties.Resources.message_error_usename;
                 MessageBox.Show(messageError);
                 return false;
-            } else if (passwordBox_password.Password == "") {
+            } else if (UserNameExists(textField_userName.Text)) {
+                messageError = Properties.Resources.message_exists_username;
+                MessageBox.Show(messageError);
+                return false;
+            }
+            if (passwordBox_password.Password == "") {
                 messageError = Properties.Resources.message_error_password;
                 MessageBox.Show(messageError);
                 return false;

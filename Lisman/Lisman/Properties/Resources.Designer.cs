@@ -250,6 +250,24 @@ namespace Lisman.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to This email is already registered please enter another.
+        /// </summary>
+        public static string message_exists_email {
+            get {
+                return ResourceManager.GetString("message_exists_email", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to This username already exists please enter antoher.
+        /// </summary>
+        public static string message_exists_username {
+            get {
+                return ResourceManager.GetString("message_exists_username", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Enter a valid email.
         /// </summary>
         public static string message_invalid_email {

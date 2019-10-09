@@ -20,6 +20,10 @@ namespace LismanService {
         Account LoginAccount(String user, String password);
         [OperationContract]
         List<Record> GetRecords();
+        [OperationContract]
+        bool UserNameExists(String username);
+        [OperationContract]
+        bool EmailExists(String emailAdress);
 
     }
 

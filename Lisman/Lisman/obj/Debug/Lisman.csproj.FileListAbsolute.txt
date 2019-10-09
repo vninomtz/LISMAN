@@ -70,3 +70,5 @@ C:\LISMAN\Lisman\Lisman\obj\Debug\Lisman.Properties.Resources.es-MX.resources
 C:\LISMAN\Lisman\Lisman\obj\Debug\Lisman.csproj.GenerateResource.cache
 C:\LISMAN\Lisman\Lisman\obj\Debug\es-MX\Lisman.resources.dll
 C:\LISMAN\Lisman\Lisman\obj\Debug\Lisman.csproj.CopyComplete
+C:\LISMAN\Lisman\Lisman\bin\Debug\Logica.dll
+C:\LISMAN\Lisman\Lisman\bin\Debug\Logica.pdb

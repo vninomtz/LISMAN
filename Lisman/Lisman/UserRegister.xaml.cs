@@ -31,33 +31,62 @@ namespace Lisman {
             this.Close();
         }
 
+        private void SendEmail(String destinationEmail,String token){
+            String originEmail = "lismanapp@gmail.com";
+            String passwordEmail = "#LismaN&1423";
+            String subjectEmail = Properties.Resources.subject_email;
+            String bodyEmail = Properties.Resources.body_email;
+            String url = "http://lismanweb.azurewebsites.net/Home/About?token=" + token;
+
+            MailMessage mailMessage = new MailMessage(originEmail,destinationEmail,subjectEmail,bodyEmail + "<br>" + url);
+            mailMessage.IsBodyHtml = true;
+
+            SmtpClient smtpClient = new SmtpClient("smtp.gmail.com");
+            smtpClient.EnableSsl = true;
+            smtpClient.UseDefaultCredentials = false;
+            smtpClient.Port = 587;
+            smtpClient.Credentials = new System.Net.NetworkCredential(originEmail,passwordEmail);
+
+            smtpClient.Send(mailMessage);
+            smtpClient.Dispose();
+
+
+
+        }
+
         private void button_save_Click(object sender, RoutedEventArgs e)
         {
             if (ValidateData()) {
-                using (var client = new LismanService.AccountManagerClient()) {
-                    var accountSave = new LismanService.Account
-                    {
-                        User = textField_userName.Text,
-                        Password = EncodePassword(passwordBox_password.Password),
-                        Registration_date = DateTime.Now.ToString(),
-                        Player = new LismanService.Player
-                        {
-                            First_name = textField_name.Text,
-                            Last_name = textField_lastName.Text,
-                            Email = textField_email.Text,                      
+                try {
+                    using (var client = new LismanService.AccountManagerClient()) {
+                        String token = EncodePassword(Guid.NewGuid().ToString());
+                        var accountSave = new LismanService.Account {
+                            User = textField_userName.Text,
+                            Password = EncodePassword(passwordBox_password.Password),
+                            Registration_date = DateTime.Now.ToString(),
+                            Key_confirmation = token,
+                            Player = new LismanService.Player {
+                                First_name = textField_name.Text,
+                                Last_name = textField_lastName.Text,
+                                Email = textField_email.Text,
+                            }
+                        };
+                        if (client.AddAccount(accountSave) != -1) {
+                            SendEmail(accountSave.Player.Email,token);
+                            var messageRegistrationSuccessful = Properties.Resources.message_registration_successful;
+                            MessageBox.Show(messageRegistrationSuccessful);
+                            MainWindow login = new MainWindow();
+                            login.Show();
+                            this.Close();
+                        } else {
+                            var messageRegistrationError = Properties.Resources.message_registration_error;
+                            MessageBox.Show(messageRegistrationError);
                         }
-                    };
-                    if (client.AddAccount(accountSave) != -1) {
-                        var messageRegistrationSuccessful = Properties.Resources.message_registration_successful;
-                        MessageBox.Show(messageRegistrationSuccessful);
-                        MainWindow login = new MainWindow();
-                        login.Show();
-                        this.Close();
-                    } else {
-                        var messageRegistrationError = Properties.Resources.message_registration_error;
-                        MessageBox.Show(messageRegistrationError);
                     }
+                } catch (Exception ex) {
+                    Console.WriteLine("Error: " + ex.Message);
                 }
+                
             }
         }
 
@@ -71,9 +100,15 @@ namespace Lisman {
         }
 
         public bool ExistsEmail(String emailAdress) {
-            using (var client = new LismanService.AccountManagerClient()) {
-                return client.EmailExists(emailAdress);
+            try {
+                using (var client = new LismanService.AccountManagerClient()) {
+                    return client.EmailExists(emailAdress);
+                }
+            } catch (Exception ex) {
+                Console.WriteLine("Error: " + ex.Message);
+                return false;
             }
+            
         }
 
         public bool UserNameExists(String username) {

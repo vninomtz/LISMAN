@@ -117,6 +117,10 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="body_email" xml:space="preserve">
+    <value>Hello, it's a pleasure that you want to register in the game.
+Click on the following link to confirm your email address and finish the process.</value>
+  </data>
   <data name="cancel" xml:space="preserve">
     <value>Cancel</value>
   </data>
@@ -159,6 +163,9 @@
   <data name="max_score_multiplayer" xml:space="preserve">
     <value>Maximum Multiplayer Mode Score</value>
   </data>
+  <data name="message_account_confirm" xml:space="preserve">
+    <value>To login you have to confirm your account</value>
+  </data>
   <data name="message_error_confirmation_password" xml:space="preserve">
     <value>Enter confirmation password please</value>
   </data>
@@ -193,7 +200,8 @@
     <value>Registration Failed</value>
   </data>
   <data name="message_registration_successful" xml:space="preserve">
-    <value>Successful Registration</value>
+    <value>Successful Registration.
+We have sent a confirmation email to your email please enter the link to complete the process.</value>
   </data>
   <data name="message_warning_login" xml:space="preserve">
     <value>Invalid username or password</value>
@@ -221,6 +229,9 @@
   </data>
   <data name="save" xml:space="preserve">
     <value>Save</value>
+  </data>
+  <data name="subject_email" xml:space="preserve">
+    <value>Confirmation email</value>
   </data>
   <data name="title_main_menu" xml:space="preserve">
     <value>Main Menu</value>

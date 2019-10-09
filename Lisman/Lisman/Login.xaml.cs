@@ -71,9 +71,15 @@ namespace Lisman {
                     try {
                         LismanService.Account account = client.LoginAccount(textField_user.Text, EncodePassword(passwordBox_password.Password));
                         if (account != null) {
-                            MainMenu mainMenu = new MainMenu();
-                            mainMenu.Show();
-                            this.Close();
+                            if (account.Key_confirmation == "" ) {
+                                MainMenu mainMenu = new MainMenu();
+                                mainMenu.Show();
+                                this.Close();
+                            } else {
+                                var messageAccountConfirm = Properties.Resources.message_account_confirm;
+                                MessageBox.Show(messageAccountConfirm);
+                            }
+                            
                         } else {
                             var messageWarningLogin = Properties.Resources.message_warning_login;
                             MessageBox.Show(messageWarningLogin);

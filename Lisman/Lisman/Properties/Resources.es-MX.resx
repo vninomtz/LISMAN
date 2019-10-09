@@ -117,6 +117,10 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="body_email" xml:space="preserve">
+    <value>Hola, es un placer que quieras registrarte en el juego.
+Haga clic en el siguiente enlace para confirmar su dirección de correo electrónico y finalizar el proceso.</value>
+  </data>
   <data name="cancel" xml:space="preserve">
     <value>Cancelar</value>
   </data>
@@ -162,6 +166,9 @@
   <data name="max_score_multiplayer" xml:space="preserve">
     <value>Puntaje Máximo Modo Multijugador</value>
   </data>
+  <data name="message_account_confirm" xml:space="preserve">
+    <value>Para iniciar sesión tienes que confirmar tu cuenta</value>
+  </data>
   <data name="message_error_confirmation_password" xml:space="preserve">
     <value>Ingresar la contraseña de confirmación por favor</value>
   </data>
@@ -193,7 +200,8 @@
     <value>Error al Registrar</value>
   </data>
   <data name="message_registration_successful" xml:space="preserve">
-    <value>Registro Exitoso</value>
+    <value>Registro Exitoso
+Hemos enviado un correo de confirmacion a su correo electronico por favor ingrese al link para concluir el proceso.</value>
   </data>
   <data name="message_warning_login" xml:space="preserve">
     <value>Nombre de usuario o contraseña invalido</value>
@@ -227,6 +235,9 @@
   </data>
   <data name="String1" xml:space="preserve">
     <value>Este nombre de usuario ya existe por favor ingresar otro</value>
+  </data>
+  <data name="subject_email" xml:space="preserve">
+    <value>Confirmación de correo electronico</value>
   </data>
   <data name="title_main_menu" xml:space="preserve">
     <value>Menu Principal</value>

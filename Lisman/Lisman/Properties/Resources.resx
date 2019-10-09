@@ -180,6 +180,12 @@
   <data name="message_error_usename" xml:space="preserve">
     <value>Enter username please</value>
   </data>
+  <data name="message_exists_email" xml:space="preserve">
+    <value>This email is already registered please enter another</value>
+  </data>
+  <data name="message_exists_username" xml:space="preserve">
+    <value>This username already exists please enter antoher</value>
+  </data>
   <data name="message_invalid_email" xml:space="preserve">
     <value>Enter a valid email</value>
   </data>

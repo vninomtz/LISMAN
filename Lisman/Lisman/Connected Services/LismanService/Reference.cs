@@ -421,6 +421,18 @@ namespace Lisman.LismanService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAccountManager/GetRecords", ReplyAction="http://tempuri.org/IAccountManager/GetRecordsResponse")]
         System.Threading.Tasks.Task<Lisman.LismanService.Record[]> GetRecordsAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAccountManager/UserNameExists", ReplyAction="http://tempuri.org/IAccountManager/UserNameExistsResponse")]
+        bool UserNameExists(string username);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAccountManager/UserNameExists", ReplyAction="http://tempuri.org/IAccountManager/UserNameExistsResponse")]
+        System.Threading.Tasks.Task<bool> UserNameExistsAsync(string username);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAccountManager/EmailExists", ReplyAction="http://tempuri.org/IAccountManager/EmailExistsResponse")]
+        bool EmailExists(string emailAdress);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAccountManager/EmailExists", ReplyAction="http://tempuri.org/IAccountManager/EmailExistsResponse")]
+        System.Threading.Tasks.Task<bool> EmailExistsAsync(string emailAdress);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -488,6 +500,22 @@ namespace Lisman.LismanService {
         
         public System.Threading.Tasks.Task<Lisman.LismanService.Record[]> GetRecordsAsync() {
             return base.Channel.GetRecordsAsync();
+        }
+        
+        public bool UserNameExists(string username) {
+            return base.Channel.UserNameExists(username);
+        }
+        
+        public System.Threading.Tasks.Task<bool> UserNameExistsAsync(string username) {
+            return base.Channel.UserNameExistsAsync(username);
+        }
+        
+        public bool EmailExists(string emailAdress) {
+            return base.Channel.EmailExists(emailAdress);
+        }
+        
+        public System.Threading.Tasks.Task<bool> EmailExistsAsync(string emailAdress) {
+            return base.Channel.EmailExistsAsync(emailAdress);
         }
     }
 }

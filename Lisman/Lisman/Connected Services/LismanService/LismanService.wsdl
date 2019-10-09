@@ -66,6 +66,18 @@
   <wsdl:message name="IAccountManager_GetRecords_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetRecordsResponse" />
   </wsdl:message>
+  <wsdl:message name="IAccountManager_UserNameExists_InputMessage">
+    <wsdl:part name="parameters" element="tns:UserNameExists" />
+  </wsdl:message>
+  <wsdl:message name="IAccountManager_UserNameExists_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UserNameExistsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAccountManager_EmailExists_InputMessage">
+    <wsdl:part name="parameters" element="tns:EmailExists" />
+  </wsdl:message>
+  <wsdl:message name="IAccountManager_EmailExists_OutputMessage">
+    <wsdl:part name="parameters" element="tns:EmailExistsResponse" />
+  </wsdl:message>
   <wsdl:portType name="IAccountManager">
     <wsdl:operation name="AddAccount">
       <wsdl:input wsaw:Action="http://tempuri.org/IAccountManager/AddAccount" message="tns:IAccountManager_AddAccount_InputMessage" />
@@ -86,6 +98,14 @@
     <wsdl:operation name="GetRecords">
       <wsdl:input wsaw:Action="http://tempuri.org/IAccountManager/GetRecords" message="tns:IAccountManager_GetRecords_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IAccountManager/GetRecordsResponse" message="tns:IAccountManager_GetRecords_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UserNameExists">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAccountManager/UserNameExists" message="tns:IAccountManager_UserNameExists_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAccountManager/UserNameExistsResponse" message="tns:IAccountManager_UserNameExists_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="EmailExists">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAccountManager/EmailExists" message="tns:IAccountManager_EmailExists_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAccountManager/EmailExistsResponse" message="tns:IAccountManager_EmailExists_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="NetTcpBinding_IAccountManager" type="tns:IAccountManager">
@@ -129,6 +149,24 @@
     </wsdl:operation>
     <wsdl:operation name="GetRecords">
       <soap12:operation soapAction="http://tempuri.org/IAccountManager/GetRecords" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UserNameExists">
+      <soap12:operation soapAction="http://tempuri.org/IAccountManager/UserNameExists" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EmailExists">
+      <soap12:operation soapAction="http://tempuri.org/IAccountManager/EmailExists" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>

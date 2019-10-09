@@ -49,6 +49,20 @@ namespace LismanService {
             }
         }
 
+        public bool EmailExists(string emailAdress) {
+            try {
+                using (var dataBase = new EntityModelContainer()) {
+                    int exists = dataBase.PlayerSet.Where(u => u.Email == emailAdress).Count();
+                    if (exists > 0) {
+                        return true;
+                    }
+                }
+            } catch (Exception ex) {
+                Console.WriteLine("Error: " + ex.Message);
+            }
+            return false;
+        }
+
         public Account GetAccountById(int id)
         {
             throw new NotImplementedException();
@@ -111,5 +125,20 @@ namespace LismanService {
                 return null;
             }
         }
+
+        public bool UserNameExists(string username) {
+            try {
+                using (var dataBase = new EntityModelContainer()) {
+                    int exists = dataBase.AccountSet.Where(u => u.User == username).Count();
+                    if (exists > 0) {
+                        return true;
+                    } 
+                }
+            } catch (Exception ex) {
+                Console.WriteLine("Error: " + ex.Message);            
+            }
+            return false;
+        }
+         
     }
 }

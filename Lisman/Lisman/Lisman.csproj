@@ -238,5 +238,11 @@
   <ItemGroup>
     <Resource Include="Resources\img\Laberinto.png" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Logica\Logica.csproj">
+      <Project>{761db705-0289-4518-bf10-465b8f8e3b00}</Project>
+      <Name>Logica</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

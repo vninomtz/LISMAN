@@ -20,6 +20,7 @@ namespace LismanService {
                         User = account.User,
                         Password = account.Password,
                         Registration_date = account.Registration_date,
+                        Key_confirmation = account.Key_confirmation,
                         Player = new DataAccess.Player
                         {
                             First_name = account.Player.First_name,

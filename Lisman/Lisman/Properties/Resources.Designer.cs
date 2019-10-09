@@ -61,6 +61,16 @@ namespace Lisman.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Hello, it&apos;s a pleasure that you want to register in the game.
+        ///Click on the following link to confirm your email address and finish the process..
+        /// </summary>
+        public static string body_email {
+            get {
+                return ResourceManager.GetString("body_email", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Cancel.
         /// </summary>
         public static string cancel {
@@ -187,6 +197,15 @@ namespace Lisman.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to To login you have to confirm your account.
+        /// </summary>
+        public static string message_account_confirm {
+            get {
+                return ResourceManager.GetString("message_account_confirm", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Enter confirmation password please.
         /// </summary>
         public static string message_error_confirmation_password {
@@ -287,6 +306,7 @@ namespace Lisman.Properties {
         
         /// <summary>
         ///   Looks up a localized string similar to Successful Registration.
+        ///We have sent a confirmation email to your email please enter the link to complete the process..
         /// </summary>
         public static string message_registration_successful {
             get {
@@ -372,6 +392,15 @@ namespace Lisman.Properties {
         public static string save {
             get {
                 return ResourceManager.GetString("save", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Confirmation email.
+        /// </summary>
+        public static string subject_email {
+            get {
+                return ResourceManager.GetString("subject_email", resourceCulture);
             }
         }
         

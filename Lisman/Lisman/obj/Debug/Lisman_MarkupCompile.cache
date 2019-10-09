@@ -12,9 +12,15 @@ DEBUG;TRACE
 C:\LISMAN\Lisman\Lisman\App.xaml
 7136942528
 
+<<<<<<< HEAD
 14-1374821535
 19-1978601337
 Lobby.xaml;Login.xaml;MainMenu.xaml;MultiplayerHome.xaml;MultiplayerGame.xaml;PositionsTable.xaml;UserRegister.xaml;
+=======
+1527659008
+19-220249514
+Lobby.xaml;Login.xaml;MainMenu.xaml;MultijugadorHome.xaml;MultiplayerGame.xaml;PositionsTable.xaml;UserRegister.xaml;
+>>>>>>> master
 
-False
+True
 

@@ -17,14 +17,14 @@ namespace DataAccess
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Chat()
         {
-            this.Mensaje = new HashSet<Mensaje>();
+            this.Message = new HashSet<Message>();
         }
     
         public int Id { get; set; }
-        public System.DateTime Fecha_Creacion { get; set; }
+        public System.DateTime Creation_date { get; set; }
     
-        public virtual Partida Partida { get; set; }
+        public virtual Game Game { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Mensaje> Mensaje { get; set; }
+        public virtual ICollection<Message> Message { get; set; }
     }
 }

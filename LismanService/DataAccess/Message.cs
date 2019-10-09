@@ -12,14 +12,13 @@ namespace DataAccess
     using System;
     using System.Collections.Generic;
     
-    public partial class Mensaje
+    public partial class Message
     {
         public int Id { get; set; }
-        public string Texto { get; set; }
-        public System.DateTime Fecha_creacion { get; set; }
-        public string MAC { get; set; }
+        public string Text { get; set; }
+        public System.DateTime Creation_date { get; set; }
     
         public virtual Chat Chat { get; set; }
-        public virtual Cuenta Cuenta { get; set; }
+        public virtual Account Account { get; set; }
     }
 }

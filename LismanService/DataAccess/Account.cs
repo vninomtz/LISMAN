@@ -12,19 +12,15 @@ namespace DataAccess
     using System;
     using System.Collections.Generic;
     
-    public partial class Partida
+    public partial class Account
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Partida()
-        {
-            this.Cuenta = new HashSet<Cuenta>();
-        }
-    
         public int Id { get; set; }
-        public System.DateTime Fecha_creacion { get; set; }
+        public string User { get; set; }
+        public string Password { get; set; }
+        public string Key_confirmation { get; set; }
+        public string Registration_date { get; set; }
     
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Cuenta> Cuenta { get; set; }
-        public virtual Chat Chat { get; set; }
+        public virtual Player Player { get; set; }
+        public virtual Record Record { get; set; }
     }
 }

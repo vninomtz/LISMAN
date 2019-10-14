@@ -26,8 +26,10 @@
             </MenuItem>
         </Menu>
 
-        <TextBox x:Name="textField_user" materialDesign:HintAssist.Hint="{x:Static p:Resources.user}" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="80,160,80,283" />
-        <PasswordBox x:Name="passwordBox_password" materialDesign:HintAssist.Hint="{x:Static p:Resources.password}" Style="{StaticResource MaterialDesignFloatingHintPasswordBox}" Margin="80,223,80,227" />
+        <TextBox x:Name="textField_user" materialDesign:HintAssist.Hint="{x:Static p:Resources.user}" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="80,160,80,283" 
+                 MaxLength="25"/>
+        <PasswordBox x:Name="passwordBox_password" materialDesign:HintAssist.Hint="{x:Static p:Resources.password}" Style="{StaticResource MaterialDesignFloatingHintPasswordBox}" Margin="80,223,80,227"
+                     MaxLength="16"/>
 
         <Grid Width="170">
             <Grid.RowDefinitions>

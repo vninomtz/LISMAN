@@ -296,6 +296,24 @@ namespace Lisman.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Enter valid last name please.
+        /// </summary>
+        public static string message_invalid_lastname {
+            get {
+                return ResourceManager.GetString("message_invalid_lastname", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Enter valid name please.
+        /// </summary>
+        public static string message_invalid_name {
+            get {
+                return ResourceManager.GetString("message_invalid_name", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Registration Failed.
         /// </summary>
         public static string message_registration_error {

@@ -196,6 +196,12 @@ Click on the following link to confirm your email address and finish the process
   <data name="message_invalid_email" xml:space="preserve">
     <value>Enter a valid email</value>
   </data>
+  <data name="message_invalid_lastname" xml:space="preserve">
+    <value>Enter valid last name please</value>
+  </data>
+  <data name="message_invalid_name" xml:space="preserve">
+    <value>Enter valid name please</value>
+  </data>
   <data name="message_registration_error" xml:space="preserve">
     <value>Registration Failed</value>
   </data>

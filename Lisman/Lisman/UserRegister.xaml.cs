@@ -4,6 +4,7 @@ using System.Linq;
 using System.Net.Mail;
 using System.Security.Cryptography;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -56,7 +57,7 @@ namespace Lisman {
 
         private void button_save_Click(object sender, RoutedEventArgs e)
         {
-            if (ValidateData()) {
+            if (validateEmptyFields() && ValidateData()) {
                 try {
                     using (var client = new LismanService.AccountManagerClient()) {
                         String token = EncodePassword(Guid.NewGuid().ToString());
@@ -91,12 +92,8 @@ namespace Lisman {
         }
 
         public bool IsValidEmail(string emailaddress) {
-            try {
-                MailAddress email = new MailAddress(emailaddress);
-                return true;
-            } catch (FormatException) {
-                return false;
-            }
+            Regex expressionEmail = new Regex(@"^[^\s@]+@[^\s@]+\.[^\s@]+$");
+            return expressionEmail.IsMatch(emailaddress);
         }
 
         public bool ExistsEmail(String emailAdress) {
@@ -112,58 +109,64 @@ namespace Lisman {
         }
 
         public bool UserNameExists(String username) {
-
-            using (var client = new LismanService.AccountManagerClient()) {
-                return client.UserNameExists(username);
+            try {
+                using (var client = new LismanService.AccountManagerClient()) {
+                    return client.UserNameExists(username);
+                }
+            } catch (Exception ex) {
+                Console.WriteLine("error" + ex.Message);
+                return false;
             }
+            
+            
+        }
+
+        public bool showErrorMessage(String errorMessage) {
+            MessageBox.Show(errorMessage);
+            return false;
+        }
+
+        public bool validateEmptyFields() {
+            if (textField_name.Text == string.Empty) {
+                return showErrorMessage(Properties.Resources.message_error_name);
+            }
+            if (textField_lastName.Text == string.Empty) {
+                return showErrorMessage(Properties.Resources.message_error_lastname);
+            }
+            if (textField_email.Text == string.Empty) {
+                return showErrorMessage(Properties.Resources.message_error_email);
+            }
+            if (textField_userName.Text == string.Empty) {
+                return showErrorMessage(Properties.Resources.message_error_usename);
+            }
+            if (passwordBox_password.Password == string.Empty) {
+                return showErrorMessage(Properties.Resources.message_error_password);
+            }
+            if (passwordBox_confirmPassword.Password == string.Empty) {
+                return showErrorMessage(Properties.Resources.message_error_confirmation_password);
+            }
+
+            return true;
         }
 
         public bool ValidateData() {
-            var messageError = "";
-            if (textField_name.Text == "") {
-                messageError = Properties.Resources.message_error_name;
-                MessageBox.Show(messageError);
-                return false;
-            } 
-            if (textField_lastName.Text == "") {
-                messageError = Properties.Resources.message_error_lastname;
-                MessageBox.Show(messageError);
-                return false;
-            } 
-            if (textField_email.Text == "") {
-                messageError = Properties.Resources.message_error_email;
-                MessageBox.Show(messageError);
-                return false;
-            } else if(!IsValidEmail(textField_email.Text)){
-                messageError = Properties.Resources.message_invalid_email;
-                MessageBox.Show(messageError);
-                return false;
+            Regex rg = new Regex(@"^[a-zA-ZÀ-ÿ\u00f1\u00d1]+(\s*[a-zA-ZÀ-ÿ\u00f1\u00d1]*)*[a-zA-ZÀ-ÿ\u00f1\u00d1 ]+$");
+            if (!rg.IsMatch(textField_name.Text)) {
+                return showErrorMessage(Properties.Resources.message_invalid_name);
+            }
+            if (!rg.IsMatch(textField_lastName.Text)) {
+               return showErrorMessage(Properties.Resources.message_invalid_lastname);
+            }
+             else if(!IsValidEmail(textField_email.Text)){
+                return showErrorMessage(Properties.Resources.message_invalid_email);
             } else if (ExistsEmail(textField_email.Text)) {
-                messageError = Properties.Resources.message_exists_email;
-                MessageBox.Show(messageError);
-                return false;
+                return showErrorMessage(Properties.Resources.message_exists_email);
             }
-            if (textField_userName.Text == "") {
-                messageError = Properties.Resources.message_error_usename;
-                MessageBox.Show(messageError);
-                return false;
-            } else if (UserNameExists(textField_userName.Text)) {
-                messageError = Properties.Resources.message_exists_username;
-                MessageBox.Show(messageError);
-                return false;
+            if (UserNameExists(textField_userName.Text)) {
+                 return showErrorMessage(Properties.Resources.message_exists_username);
             }
-            if (passwordBox_password.Password == "") {
-                messageError = Properties.Resources.message_error_password;
-                MessageBox.Show(messageError);
-                return false;
-            } else if (passwordBox_confirmPassword.Password == "") {
-                messageError = Properties.Resources.message_error_confirmation_password;
-                MessageBox.Show(messageError);
-                return false;
-            } else if (!passwordBox_password.Password.Equals(passwordBox_confirmPassword.Password)){
-                messageError = Properties.Resources.message_error_passwords_different;
-                MessageBox.Show(messageError);
-                return false;
+            if (!passwordBox_password.Password.Equals(passwordBox_confirmPassword.Password)){
+                return showErrorMessage(Properties.Resources.message_error_passwords_different);
             }
             return true;
         }

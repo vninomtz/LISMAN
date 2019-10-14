@@ -196,6 +196,12 @@ Haga clic en el siguiente enlace para confirmar su dirección de correo electró
   <data name="message_invalid_email" xml:space="preserve">
     <value>Ingresar un email valido por favor</value>
   </data>
+  <data name="message_invalid_lastname" xml:space="preserve">
+    <value>Ingresar un apellido valido por favor </value>
+  </data>
+  <data name="message_invalid_name" xml:space="preserve">
+    <value>Ingresar un nombre valido por favor</value>
+  </data>
   <data name="message_registration_error" xml:space="preserve">
     <value>Error al Registrar</value>
   </data>

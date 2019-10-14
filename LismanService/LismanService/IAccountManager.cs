@@ -16,16 +16,23 @@ namespace LismanService {
         List<Account> GetAccounts();
         [OperationContract]
         Account GetAccountById(int id);
-        [OperationContract]
-        Account LoginAccount(String user, String password);
+      
         [OperationContract]
         List<Record> GetRecords();
+      
+    }
+
+
+    [ServiceContract]
+    public interface ILoginManager {
+        [OperationContract]
+        Account LoginAccount(String user, String password);
         [OperationContract]
         bool UserNameExists(String username);
         [OperationContract]
         bool EmailExists(String emailAdress);
-
     }
+
 
     [DataContract]
     public partial class Account {

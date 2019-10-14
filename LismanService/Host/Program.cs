@@ -12,7 +12,7 @@ namespace Host {
             using(ServiceHost host = new ServiceHost(typeof(LismanService.LismanService))){
                 host.Open();
                 Console.WriteLine("Server is running... ");
-                Console.ReadLine();
+                Console.ReadKey();
             }
         }
     }

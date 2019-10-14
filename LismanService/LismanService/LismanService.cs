@@ -9,8 +9,8 @@ using DataAccess;
 
 namespace LismanService {
     // NOTE: You can use the "Rename" command on the "Refactor" menu to change the class name "AccountManager" in both code and config file together.
-    //[ServiceBehavior(InstanceContextMode = InstanceContextMode.PerSession)]
-    public class LismanService : IAccountManager {
+    [ServiceBehavior(InstanceContextMode = InstanceContextMode.PerSession)]
+    public partial class LismanService : IAccountManager {
         public int AddAccount(Account account)
         {
             try {
@@ -48,20 +48,6 @@ namespace LismanService {
                 Console.WriteLine("Error: " + ex.Message);
                 return -1;
             }
-        }
-
-        public bool EmailExists(string emailAdress) {
-            try {
-                using (var dataBase = new EntityModelContainer()) {
-                    int exists = dataBase.PlayerSet.Where(u => u.Email == emailAdress).Count();
-                    if (exists > 0) {
-                        return true;
-                    }
-                }
-            } catch (Exception ex) {
-                Console.WriteLine("Error: " + ex.Message);
-            }
-            return false;
         }
 
         public Account GetAccountById(int id)
@@ -103,43 +89,9 @@ namespace LismanService {
             }
         }
 
-        public Account LoginAccount(string user, string password)
+        public void test(string message)
         {
-            try {
-                using(var dataBase = new EntityModelContainer()) {
-                    int exists = dataBase.AccountSet.Where(u => u.User == user & u.Password == password).Count();
-                    if(exists > 0) {
-                        return dataBase.AccountSet.Where(u => u.User == user & u.Password == password).Select(u => new Account
-                        {
-                            Id = u.Id,
-                            User = u.User,
-                            Password = u.Password,
-                            Registration_date = u.Registration_date,
-                            Key_confirmation = u.Key_confirmation
-                        }).FirstOrDefault();
-                    } else {
-                        return null;
-                    }
-                }
-            }catch(Exception ex) {
-                Console.WriteLine("Error: " + ex.Message);
-                return null;
-            }
+            throw new NotImplementedException();
         }
-
-        public bool UserNameExists(string username) {
-            try {
-                using (var dataBase = new EntityModelContainer()) {
-                    int exists = dataBase.AccountSet.Where(u => u.User == username).Count();
-                    if (exists > 0) {
-                        return true;
-                    } 
-                }
-            } catch (Exception ex) {
-                Console.WriteLine("Error: " + ex.Message);            
-            }
-            return false;
-        }
-         
     }
 }

@@ -28,6 +28,8 @@ namespace LismanService {
         [OperationContract]
         Account LoginAccount(String user, String password);
         [OperationContract]
+        int LogoutAccount(String user);
+        [OperationContract]
         bool UserNameExists(String username);
         [OperationContract]
         bool EmailExists(String emailAdress);

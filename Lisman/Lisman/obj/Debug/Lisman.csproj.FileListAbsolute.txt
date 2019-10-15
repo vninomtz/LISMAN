@@ -75,3 +75,5 @@ C:\Users\Vik-t\Documents\CarreraUV\5to Semestre\Tecnologías para la Construcci�
 C:\Users\Vik-t\Documents\CarreraUV\5to Semestre\Tecnologías para la Construcción\Proyecto\LISMAN\Lisman\Lisman\obj\Debug\MultiplayerHome.baml
 C:\Users\Vik-t\Documents\CarreraUV\5to Semestre\Tecnologías para la Construcción\Proyecto\LISMAN\Lisman\Lisman\obj\Debug\Lisman.csprojAssemblyReference.cache
 >>>>>>> master
+C:\Users\Vik-t\Documents\CarreraUV\5to Semestre\Tecnologías para la Construcción\Proyecto\LISMAN\Lisman\Lisman\bin\Debug\Logica.dll
+C:\Users\Vik-t\Documents\CarreraUV\5to Semestre\Tecnologías para la Construcción\Proyecto\LISMAN\Lisman\Lisman\bin\Debug\Logica.pdb

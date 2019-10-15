@@ -14,12 +14,11 @@ namespace LismanService {
 
         public void CreateGame(string user)
         {
-            IGameManagerCallBack connection = null;
+            IGameManagerCallBack connection = OperationContext.Current.GetCallbackChannel<IGameManagerCallBack>(); ;
             if (!connectionUsers.ContainsKey(user)) {
-                connection = OperationContext.Current.GetCallbackChannel<IGameManagerCallBack>();
                 connectionUsers.Add(user, connection);
             } else {
-                connection = connectionUsers[user];
+                connectionUsers[user] = connection;
             }
 
             try {
@@ -27,7 +26,8 @@ namespace LismanService {
                     var newGame = new DataAccess.Game
                     {
                         Creation_date = DateTime.Now,
-                        Account = new List<DataAccess.Account>(),
+                        
+                        Members = new List<DataAccess.Account>(),
                         Chat = new DataAccess.Chat()
                     };
                     dataBase.GameSet.Add(newGame);
@@ -48,15 +48,14 @@ namespace LismanService {
 
         public void JoinGame(string user)
         {
-            IGameManagerCallBack connection = null;
+            IGameManagerCallBack connection = OperationContext.Current.GetCallbackChannel<IGameManagerCallBack>(); ;
             if (!connectionUsers.ContainsKey(user)) {
-                connection = OperationContext.Current.GetCallbackChannel<IGameManagerCallBack>();
                 connectionUsers.Add(user, connection);
             } else {
-                connection = connectionUsers[user];
+                connectionUsers[user] = connection;
             }
 
-            foreach(KeyValuePair<int, List<String>> games in listGamesOnline) {
+            foreach (KeyValuePair<int, List<String>> games in listGamesOnline) {
                 if(games.Value.Count < 4) {
                     games.Value.Add(user);
                     foreach(String usergame in games.Value){

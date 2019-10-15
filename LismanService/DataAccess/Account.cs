@@ -20,7 +20,7 @@ namespace DataAccess
         public string Key_confirmation { get; set; }
         public string Registration_date { get; set; }
     
-        public virtual Player Player { get; set; }
         public virtual Record Record { get; set; }
+        public virtual Player Player { get; set; }
     }
 }

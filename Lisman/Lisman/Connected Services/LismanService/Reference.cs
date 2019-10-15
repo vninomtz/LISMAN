@@ -410,29 +410,11 @@ namespace Lisman.LismanService {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAccountManager/GetAccountById", ReplyAction="http://tempuri.org/IAccountManager/GetAccountByIdResponse")]
         System.Threading.Tasks.Task<Lisman.LismanService.Account> GetAccountByIdAsync(int id);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAccountManager/LoginAccount", ReplyAction="http://tempuri.org/IAccountManager/LoginAccountResponse")]
-        Lisman.LismanService.Account LoginAccount(string user, string password);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAccountManager/LoginAccount", ReplyAction="http://tempuri.org/IAccountManager/LoginAccountResponse")]
-        System.Threading.Tasks.Task<Lisman.LismanService.Account> LoginAccountAsync(string user, string password);
-        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAccountManager/GetRecords", ReplyAction="http://tempuri.org/IAccountManager/GetRecordsResponse")]
         Lisman.LismanService.Record[] GetRecords();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAccountManager/GetRecords", ReplyAction="http://tempuri.org/IAccountManager/GetRecordsResponse")]
         System.Threading.Tasks.Task<Lisman.LismanService.Record[]> GetRecordsAsync();
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAccountManager/UserNameExists", ReplyAction="http://tempuri.org/IAccountManager/UserNameExistsResponse")]
-        bool UserNameExists(string username);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAccountManager/UserNameExists", ReplyAction="http://tempuri.org/IAccountManager/UserNameExistsResponse")]
-        System.Threading.Tasks.Task<bool> UserNameExistsAsync(string username);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAccountManager/EmailExists", ReplyAction="http://tempuri.org/IAccountManager/EmailExistsResponse")]
-        bool EmailExists(string emailAdress);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAccountManager/EmailExists", ReplyAction="http://tempuri.org/IAccountManager/EmailExistsResponse")]
-        System.Threading.Tasks.Task<bool> EmailExistsAsync(string emailAdress);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -486,20 +468,166 @@ namespace Lisman.LismanService {
             return base.Channel.GetAccountByIdAsync(id);
         }
         
-        public Lisman.LismanService.Account LoginAccount(string user, string password) {
-            return base.Channel.LoginAccount(user, password);
-        }
-        
-        public System.Threading.Tasks.Task<Lisman.LismanService.Account> LoginAccountAsync(string user, string password) {
-            return base.Channel.LoginAccountAsync(user, password);
-        }
-        
         public Lisman.LismanService.Record[] GetRecords() {
             return base.Channel.GetRecords();
         }
         
         public System.Threading.Tasks.Task<Lisman.LismanService.Record[]> GetRecordsAsync() {
             return base.Channel.GetRecordsAsync();
+        }
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="LismanService.IGameManager", CallbackContract=typeof(Lisman.LismanService.IGameManagerCallback))]
+    public interface IGameManager {
+        
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IGameManager/CreateGame")]
+        void CreateGame(string user);
+        
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IGameManager/CreateGame")]
+        System.Threading.Tasks.Task CreateGameAsync(string user);
+        
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IGameManager/JoinGame")]
+        void JoinGame(string user);
+        
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IGameManager/JoinGame")]
+        System.Threading.Tasks.Task JoinGameAsync(string user);
+        
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IGameManager/LeaveGame")]
+        void LeaveGame(string user, int game);
+        
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IGameManager/LeaveGame")]
+        System.Threading.Tasks.Task LeaveGameAsync(string user, int game);
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public interface IGameManagerCallback {
+        
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IGameManager/NotifyJoinedUser")]
+        void NotifyJoinedUser(string user);
+        
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IGameManager/NotifyJoined")]
+        void NotifyJoined(int game, string user);
+        
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IGameManager/NotifyErrorMessage")]
+        void NotifyErrorMessage(int error);
+        
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IGameManager/NotifyLeaveUser")]
+        void NotifyLeaveUser(string user);
+        
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IGameManager/NotifyGameCreated")]
+        void NotifyGameCreated(int message);
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public interface IGameManagerChannel : Lisman.LismanService.IGameManager, System.ServiceModel.IClientChannel {
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public partial class GameManagerClient : System.ServiceModel.DuplexClientBase<Lisman.LismanService.IGameManager>, Lisman.LismanService.IGameManager {
+        
+        public GameManagerClient(System.ServiceModel.InstanceContext callbackInstance) : 
+                base(callbackInstance) {
+        }
+        
+        public GameManagerClient(System.ServiceModel.InstanceContext callbackInstance, string endpointConfigurationName) : 
+                base(callbackInstance, endpointConfigurationName) {
+        }
+        
+        public GameManagerClient(System.ServiceModel.InstanceContext callbackInstance, string endpointConfigurationName, string remoteAddress) : 
+                base(callbackInstance, endpointConfigurationName, remoteAddress) {
+        }
+        
+        public GameManagerClient(System.ServiceModel.InstanceContext callbackInstance, string endpointConfigurationName, System.ServiceModel.EndpointAddress remoteAddress) : 
+                base(callbackInstance, endpointConfigurationName, remoteAddress) {
+        }
+        
+        public GameManagerClient(System.ServiceModel.InstanceContext callbackInstance, System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
+                base(callbackInstance, binding, remoteAddress) {
+        }
+        
+        public void CreateGame(string user) {
+            base.Channel.CreateGame(user);
+        }
+        
+        public System.Threading.Tasks.Task CreateGameAsync(string user) {
+            return base.Channel.CreateGameAsync(user);
+        }
+        
+        public void JoinGame(string user) {
+            base.Channel.JoinGame(user);
+        }
+        
+        public System.Threading.Tasks.Task JoinGameAsync(string user) {
+            return base.Channel.JoinGameAsync(user);
+        }
+        
+        public void LeaveGame(string user, int game) {
+            base.Channel.LeaveGame(user, game);
+        }
+        
+        public System.Threading.Tasks.Task LeaveGameAsync(string user, int game) {
+            return base.Channel.LeaveGameAsync(user, game);
+        }
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="LismanService.ILoginManager")]
+    public interface ILoginManager {
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILoginManager/LoginAccount", ReplyAction="http://tempuri.org/ILoginManager/LoginAccountResponse")]
+        Lisman.LismanService.Account LoginAccount(string user, string password);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILoginManager/LoginAccount", ReplyAction="http://tempuri.org/ILoginManager/LoginAccountResponse")]
+        System.Threading.Tasks.Task<Lisman.LismanService.Account> LoginAccountAsync(string user, string password);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILoginManager/UserNameExists", ReplyAction="http://tempuri.org/ILoginManager/UserNameExistsResponse")]
+        bool UserNameExists(string username);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILoginManager/UserNameExists", ReplyAction="http://tempuri.org/ILoginManager/UserNameExistsResponse")]
+        System.Threading.Tasks.Task<bool> UserNameExistsAsync(string username);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILoginManager/EmailExists", ReplyAction="http://tempuri.org/ILoginManager/EmailExistsResponse")]
+        bool EmailExists(string emailAdress);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILoginManager/EmailExists", ReplyAction="http://tempuri.org/ILoginManager/EmailExistsResponse")]
+        System.Threading.Tasks.Task<bool> EmailExistsAsync(string emailAdress);
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public interface ILoginManagerChannel : Lisman.LismanService.ILoginManager, System.ServiceModel.IClientChannel {
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public partial class LoginManagerClient : System.ServiceModel.ClientBase<Lisman.LismanService.ILoginManager>, Lisman.LismanService.ILoginManager {
+        
+        public LoginManagerClient() {
+        }
+        
+        public LoginManagerClient(string endpointConfigurationName) : 
+                base(endpointConfigurationName) {
+        }
+        
+        public LoginManagerClient(string endpointConfigurationName, string remoteAddress) : 
+                base(endpointConfigurationName, remoteAddress) {
+        }
+        
+        public LoginManagerClient(string endpointConfigurationName, System.ServiceModel.EndpointAddress remoteAddress) : 
+                base(endpointConfigurationName, remoteAddress) {
+        }
+        
+        public LoginManagerClient(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
+                base(binding, remoteAddress) {
+        }
+        
+        public Lisman.LismanService.Account LoginAccount(string user, string password) {
+            return base.Channel.LoginAccount(user, password);
+        }
+        
+        public System.Threading.Tasks.Task<Lisman.LismanService.Account> LoginAccountAsync(string user, string password) {
+            return base.Channel.LoginAccountAsync(user, password);
         }
         
         public bool UserNameExists(string username) {

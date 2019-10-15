@@ -66,7 +66,7 @@ namespace Lisman {
         private void btn_login_Click(object sender, RoutedEventArgs e)
         {
             if (ValidateFields()) {
-                using (var client = new LismanService.AccountManagerClient()){
+                using (var client = new LismanService.LoginManagerClient()){
                     
                     try {
                         LismanService.Account account = client.LoginAccount(textField_user.Text, EncodePassword(passwordBox_password.Password));

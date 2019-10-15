@@ -29,6 +29,64 @@
       </wsp:All>
     </wsp:ExactlyOne>
   </wsp:Policy>
+  <wsp:Policy wsu:Id="NetTcpBinding_IGameManager_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <msb:BinaryEncoding xmlns:msb="http://schemas.microsoft.com/ws/06/2004/mspolicy/netbinary1" />
+        <sp:TransportBinding xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <wsp:Policy>
+            <sp:TransportToken>
+              <wsp:Policy>
+                <msf:WindowsTransportSecurity xmlns:msf="http://schemas.microsoft.com/ws/2006/05/framing/policy">
+                  <msf:ProtectionLevel>EncryptAndSign</msf:ProtectionLevel>
+                </msf:WindowsTransportSecurity>
+              </wsp:Policy>
+            </sp:TransportToken>
+            <sp:AlgorithmSuite>
+              <wsp:Policy>
+                <sp:Basic256 />
+              </wsp:Policy>
+            </sp:AlgorithmSuite>
+            <sp:Layout>
+              <wsp:Policy>
+                <sp:Strict />
+              </wsp:Policy>
+            </sp:Layout>
+          </wsp:Policy>
+        </sp:TransportBinding>
+        <wsaw:UsingAddressing />
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="NetTcpBinding_ILoginManager_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <msb:BinaryEncoding xmlns:msb="http://schemas.microsoft.com/ws/06/2004/mspolicy/netbinary1" />
+        <sp:TransportBinding xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <wsp:Policy>
+            <sp:TransportToken>
+              <wsp:Policy>
+                <msf:WindowsTransportSecurity xmlns:msf="http://schemas.microsoft.com/ws/2006/05/framing/policy">
+                  <msf:ProtectionLevel>EncryptAndSign</msf:ProtectionLevel>
+                </msf:WindowsTransportSecurity>
+              </wsp:Policy>
+            </sp:TransportToken>
+            <sp:AlgorithmSuite>
+              <wsp:Policy>
+                <sp:Basic256 />
+              </wsp:Policy>
+            </sp:AlgorithmSuite>
+            <sp:Layout>
+              <wsp:Policy>
+                <sp:Strict />
+              </wsp:Policy>
+            </sp:Layout>
+          </wsp:Policy>
+        </sp:TransportBinding>
+        <wsaw:UsingAddressing />
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
   <wsdl:types>
     <xsd:schema targetNamespace="http://tempuri.org/Imports">
       <xsd:import schemaLocation="http://localhost:8081/?xsd=xsd0" namespace="http://tempuri.org/" />
@@ -54,28 +112,52 @@
   <wsdl:message name="IAccountManager_GetAccountById_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetAccountByIdResponse" />
   </wsdl:message>
-  <wsdl:message name="IAccountManager_LoginAccount_InputMessage">
-    <wsdl:part name="parameters" element="tns:LoginAccount" />
-  </wsdl:message>
-  <wsdl:message name="IAccountManager_LoginAccount_OutputMessage">
-    <wsdl:part name="parameters" element="tns:LoginAccountResponse" />
-  </wsdl:message>
   <wsdl:message name="IAccountManager_GetRecords_InputMessage">
     <wsdl:part name="parameters" element="tns:GetRecords" />
   </wsdl:message>
   <wsdl:message name="IAccountManager_GetRecords_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetRecordsResponse" />
   </wsdl:message>
-  <wsdl:message name="IAccountManager_UserNameExists_InputMessage">
+  <wsdl:message name="IGameManager_CreateGame_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateGame" />
+  </wsdl:message>
+  <wsdl:message name="IGameManager_JoinGame_InputMessage">
+    <wsdl:part name="parameters" element="tns:JoinGame" />
+  </wsdl:message>
+  <wsdl:message name="IGameManager_LeaveGame_InputMessage">
+    <wsdl:part name="parameters" element="tns:LeaveGame" />
+  </wsdl:message>
+  <wsdl:message name="IGameManager_NotifyJoinedUser_OutputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:NotifyJoinedUser" />
+  </wsdl:message>
+  <wsdl:message name="IGameManager_NotifyJoined_OutputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:NotifyJoined" />
+  </wsdl:message>
+  <wsdl:message name="IGameManager_NotifyErrorMessage_OutputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:NotifyErrorMessage" />
+  </wsdl:message>
+  <wsdl:message name="IGameManager_NotifyLeaveUser_OutputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:NotifyLeaveUser" />
+  </wsdl:message>
+  <wsdl:message name="IGameManager_NotifyGameCreated_OutputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:NotifyGameCreated" />
+  </wsdl:message>
+  <wsdl:message name="ILoginManager_LoginAccount_InputMessage">
+    <wsdl:part name="parameters" element="tns:LoginAccount" />
+  </wsdl:message>
+  <wsdl:message name="ILoginManager_LoginAccount_OutputMessage">
+    <wsdl:part name="parameters" element="tns:LoginAccountResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILoginManager_UserNameExists_InputMessage">
     <wsdl:part name="parameters" element="tns:UserNameExists" />
   </wsdl:message>
-  <wsdl:message name="IAccountManager_UserNameExists_OutputMessage">
+  <wsdl:message name="ILoginManager_UserNameExists_OutputMessage">
     <wsdl:part name="parameters" element="tns:UserNameExistsResponse" />
   </wsdl:message>
-  <wsdl:message name="IAccountManager_EmailExists_InputMessage">
+  <wsdl:message name="ILoginManager_EmailExists_InputMessage">
     <wsdl:part name="parameters" element="tns:EmailExists" />
   </wsdl:message>
-  <wsdl:message name="IAccountManager_EmailExists_OutputMessage">
+  <wsdl:message name="ILoginManager_EmailExists_OutputMessage">
     <wsdl:part name="parameters" element="tns:EmailExistsResponse" />
   </wsdl:message>
   <wsdl:portType name="IAccountManager">
@@ -91,21 +173,49 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IAccountManager/GetAccountById" message="tns:IAccountManager_GetAccountById_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IAccountManager/GetAccountByIdResponse" message="tns:IAccountManager_GetAccountById_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="LoginAccount">
-      <wsdl:input wsaw:Action="http://tempuri.org/IAccountManager/LoginAccount" message="tns:IAccountManager_LoginAccount_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IAccountManager/LoginAccountResponse" message="tns:IAccountManager_LoginAccount_OutputMessage" />
-    </wsdl:operation>
     <wsdl:operation name="GetRecords">
       <wsdl:input wsaw:Action="http://tempuri.org/IAccountManager/GetRecords" message="tns:IAccountManager_GetRecords_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IAccountManager/GetRecordsResponse" message="tns:IAccountManager_GetRecords_OutputMessage" />
     </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="IGameManager">
+    <wsdl:operation name="CreateGame">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGameManager/CreateGame" message="tns:IGameManager_CreateGame_InputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="JoinGame">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGameManager/JoinGame" message="tns:IGameManager_JoinGame_InputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="LeaveGame">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGameManager/LeaveGame" message="tns:IGameManager_LeaveGame_InputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="NotifyJoinedUser">
+      <wsdl:output wsaw:Action="http://tempuri.org/IGameManager/NotifyJoinedUser" message="tns:IGameManager_NotifyJoinedUser_OutputCallbackMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="NotifyJoined">
+      <wsdl:output wsaw:Action="http://tempuri.org/IGameManager/NotifyJoined" message="tns:IGameManager_NotifyJoined_OutputCallbackMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="NotifyErrorMessage">
+      <wsdl:output wsaw:Action="http://tempuri.org/IGameManager/NotifyErrorMessage" message="tns:IGameManager_NotifyErrorMessage_OutputCallbackMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="NotifyLeaveUser">
+      <wsdl:output wsaw:Action="http://tempuri.org/IGameManager/NotifyLeaveUser" message="tns:IGameManager_NotifyLeaveUser_OutputCallbackMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="NotifyGameCreated">
+      <wsdl:output wsaw:Action="http://tempuri.org/IGameManager/NotifyGameCreated" message="tns:IGameManager_NotifyGameCreated_OutputCallbackMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="ILoginManager">
+    <wsdl:operation name="LoginAccount">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILoginManager/LoginAccount" message="tns:ILoginManager_LoginAccount_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILoginManager/LoginAccountResponse" message="tns:ILoginManager_LoginAccount_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="UserNameExists">
-      <wsdl:input wsaw:Action="http://tempuri.org/IAccountManager/UserNameExists" message="tns:IAccountManager_UserNameExists_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IAccountManager/UserNameExistsResponse" message="tns:IAccountManager_UserNameExists_OutputMessage" />
+      <wsdl:input wsaw:Action="http://tempuri.org/ILoginManager/UserNameExists" message="tns:ILoginManager_UserNameExists_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILoginManager/UserNameExistsResponse" message="tns:ILoginManager_UserNameExists_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="EmailExists">
-      <wsdl:input wsaw:Action="http://tempuri.org/IAccountManager/EmailExists" message="tns:IAccountManager_EmailExists_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IAccountManager/EmailExistsResponse" message="tns:IAccountManager_EmailExists_OutputMessage" />
+      <wsdl:input wsaw:Action="http://tempuri.org/ILoginManager/EmailExists" message="tns:ILoginManager_EmailExists_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILoginManager/EmailExistsResponse" message="tns:ILoginManager_EmailExists_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="NetTcpBinding_IAccountManager" type="tns:IAccountManager">
@@ -138,15 +248,6 @@
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="LoginAccount">
-      <soap12:operation soapAction="http://tempuri.org/IAccountManager/LoginAccount" style="document" />
-      <wsdl:input>
-        <soap12:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap12:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
     <wsdl:operation name="GetRecords">
       <soap12:operation soapAction="http://tempuri.org/IAccountManager/GetRecords" style="document" />
       <wsdl:input>
@@ -156,8 +257,73 @@
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="NetTcpBinding_IGameManager" type="tns:IGameManager">
+    <wsp:PolicyReference URI="#NetTcpBinding_IGameManager_policy" />
+    <soap12:binding transport="http://schemas.microsoft.com/soap/tcp" />
+    <wsdl:operation name="CreateGame">
+      <soap12:operation soapAction="http://tempuri.org/IGameManager/CreateGame" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="JoinGame">
+      <soap12:operation soapAction="http://tempuri.org/IGameManager/JoinGame" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="LeaveGame">
+      <soap12:operation soapAction="http://tempuri.org/IGameManager/LeaveGame" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="NotifyJoinedUser">
+      <soap12:operation soapAction="http://tempuri.org/IGameManager/NotifyJoinedUser" style="document" />
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="NotifyJoined">
+      <soap12:operation soapAction="http://tempuri.org/IGameManager/NotifyJoined" style="document" />
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="NotifyErrorMessage">
+      <soap12:operation soapAction="http://tempuri.org/IGameManager/NotifyErrorMessage" style="document" />
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="NotifyLeaveUser">
+      <soap12:operation soapAction="http://tempuri.org/IGameManager/NotifyLeaveUser" style="document" />
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="NotifyGameCreated">
+      <soap12:operation soapAction="http://tempuri.org/IGameManager/NotifyGameCreated" style="document" />
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="NetTcpBinding_ILoginManager" type="tns:ILoginManager">
+    <wsp:PolicyReference URI="#NetTcpBinding_ILoginManager_policy" />
+    <soap12:binding transport="http://schemas.microsoft.com/soap/tcp" />
+    <wsdl:operation name="LoginAccount">
+      <soap12:operation soapAction="http://tempuri.org/ILoginManager/LoginAccount" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="UserNameExists">
-      <soap12:operation soapAction="http://tempuri.org/IAccountManager/UserNameExists" style="document" />
+      <soap12:operation soapAction="http://tempuri.org/ILoginManager/UserNameExists" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
@@ -166,7 +332,7 @@
       </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="EmailExists">
-      <soap12:operation soapAction="http://tempuri.org/IAccountManager/EmailExists" style="document" />
+      <soap12:operation soapAction="http://tempuri.org/ILoginManager/EmailExists" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
@@ -177,6 +343,24 @@
   </wsdl:binding>
   <wsdl:service name="LismanService">
     <wsdl:port name="NetTcpBinding_IAccountManager" binding="tns:NetTcpBinding_IAccountManager">
+      <soap12:address location="net.tcp://localhost:8091/CalculatorService" />
+      <wsa10:EndpointReference>
+        <wsa10:Address>net.tcp://localhost:8091/CalculatorService</wsa10:Address>
+        <Identity xmlns="http://schemas.xmlsoap.org/ws/2006/02/addressingidentity">
+          <Upn>ALANGONZALZ9AE0\alanglezh</Upn>
+        </Identity>
+      </wsa10:EndpointReference>
+    </wsdl:port>
+    <wsdl:port name="NetTcpBinding_IGameManager" binding="tns:NetTcpBinding_IGameManager">
+      <soap12:address location="net.tcp://localhost:8091/CalculatorService" />
+      <wsa10:EndpointReference>
+        <wsa10:Address>net.tcp://localhost:8091/CalculatorService</wsa10:Address>
+        <Identity xmlns="http://schemas.xmlsoap.org/ws/2006/02/addressingidentity">
+          <Upn>ALANGONZALZ9AE0\alanglezh</Upn>
+        </Identity>
+      </wsa10:EndpointReference>
+    </wsdl:port>
+    <wsdl:port name="NetTcpBinding_ILoginManager" binding="tns:NetTcpBinding_ILoginManager">
       <soap12:address location="net.tcp://localhost:8091/CalculatorService" />
       <wsa10:EndpointReference>
         <wsa10:Address>net.tcp://localhost:8091/CalculatorService</wsa10:Address>

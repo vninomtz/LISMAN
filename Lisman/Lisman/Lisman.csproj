@@ -65,11 +65,6 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Connected Services\LismanService2\Reference.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Compile>
     <Compile Include="Connected Services\LismanService\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -157,19 +152,6 @@
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <None Include="Connected Services\LismanService2\item.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Connected Services\LismanService2\item1.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Connected Services\LismanService2\item2.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Connected Services\LismanService2\Lisman.LismanService2.Cuenta.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Connected Services\LismanService2\LismanService.wsdl" />
     <None Include="Connected Services\LismanService\item.xsd">
       <SubType>Designer</SubType>
     </None>
@@ -202,7 +184,15 @@
     <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <ItemGroup>
-    <WCFMetadataStorage Include="Connected Services\LismanService2\" />
+    <Resource Include="Resources\img\Laberinto.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Logica\Logica.csproj">
+      <Project>{761db705-0289-4518-bf10-465b8f8e3b00}</Project>
+      <Name>Logica</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
     <WCFMetadataStorage Include="Connected Services\LismanService\" />
   </ItemGroup>
   <ItemGroup>
@@ -219,30 +209,6 @@
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Connected Services\LismanService2\item.disco" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Connected Services\LismanService2\configuration91.svcinfo" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Connected Services\LismanService2\configuration.svcinfo" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Connected Services\LismanService2\Reference.svcmap">
-      <Generator>WCF Proxy Generator</Generator>
-      <LastGenOutput>Reference.cs</LastGenOutput>
-    </None>
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Resources\img\Laberinto.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Logica\Logica.csproj">
-      <Project>{761db705-0289-4518-bf10-465b8f8e3b00}</Project>
-      <Name>Logica</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -98,7 +98,7 @@ namespace Lisman {
 
         public bool ExistsEmail(String emailAdress) {
             try {
-                using (var client = new LismanService.AccountManagerClient()) {
+                using (var client = new LismanService.LoginManagerClient()) {
                     return client.EmailExists(emailAdress);
                 }
             } catch (Exception ex) {
@@ -110,7 +110,7 @@ namespace Lisman {
 
         public bool UserNameExists(String username) {
             try {
-                using (var client = new LismanService.AccountManagerClient()) {
+                using (var client = new LismanService.LoginManagerClient()) {
                     return client.UserNameExists(username);
                 }
             } catch (Exception ex) {

@@ -20,6 +20,7 @@ namespace Lisman {
         public MultiplayerHome()
         {
             InitializeComponent();
+             
         }
 
         

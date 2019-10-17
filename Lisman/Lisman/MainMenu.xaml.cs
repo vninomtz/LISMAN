@@ -41,6 +41,7 @@ namespace Lisman {
             MultiplayerHome multiplayerWindow = new MultiplayerHome();
             multiplayerWindow.Show();
             this.Close();
+           
         }
 
        

@@ -60,8 +60,7 @@
     <Property Name="Password" Type="nvarchar(max)" Nullable="false" />
     <Property Name="Key_confirmation" Type="nvarchar(max)" Nullable="true" />
     <Property Name="Registration_date" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="AccountGameMembers_Account_Id" Type="int" Nullable="false" />
-    <Property Name="GameAccount_Account_Id" Type="int" Nullable="false" />
+    <Property Name="GameAccount_Account_Id" Type="int" Nullable="true" />
   </EntityType>
   <EntityType Name="RecordSet">
     <Key>
@@ -83,6 +82,7 @@
     <Property Name="Last_update" Type="datetime" Nullable="true" />
     <Property Name="Status" Type="bit" Nullable="false" />
     <Property Name="Game_over" Type="datetime" Nullable="true" />
+    <Property Name="GameCreator_Id" Type="int" Nullable="false" />
     <Property Name="Chat_Id" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="ChatSet">
@@ -131,19 +131,19 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="AccountGameMembers">
-    <End Role="Account" Type="EntityModel.Store.AccountSet" Multiplicity="*" />
-    <End Role="Game" Type="EntityModel.Store.GameSet" Multiplicity="1" />
+    <End Role="Account" Type="EntityModel.Store.AccountSet" Multiplicity="1" />
+    <End Role="Game" Type="EntityModel.Store.GameSet" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="Game">
+      <Principal Role="Account">
         <PropertyRef Name="Id" />
       </Principal>
-      <Dependent Role="Account">
-        <PropertyRef Name="AccountGameMembers_Account_Id" />
+      <Dependent Role="Game">
+        <PropertyRef Name="GameCreator_Id" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
   <Association Name="GameAccount">
-    <End Role="Game" Type="EntityModel.Store.GameSet" Multiplicity="1" />
+    <End Role="Game" Type="EntityModel.Store.GameSet" Multiplicity="0..1" />
     <End Role="Account" Type="EntityModel.Store.AccountSet" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Game">
@@ -309,10 +309,10 @@
         </Association>
         <Association Name="AccountGameMembers">
           <End Type="EntityModel.Account" Role="Account" Multiplicity="1" />
-          <End Type="EntityModel.Game" Role="Game" Multiplicity="1" />
+          <End Type="EntityModel.Game" Role="Game" Multiplicity="0..1" />
         </Association>
         <Association Name="GameAccount">
-          <End Type="EntityModel.Game" Role="Game" Multiplicity="1" />
+          <End Type="EntityModel.Game" Role="Game" Multiplicity="0..1" />
           <End Type="EntityModel.Account" Role="Account" Multiplicity="*" />
         </Association>
         <Association Name="GameChat">
@@ -409,11 +409,11 @@
         <ScalarProperty Name="Id" ColumnName="Id" />
       </EndProperty>
     </AssociationSetMapping>
-    <AssociationSetMapping Name="AccountGame" TypeName="EntityModel.AccountGameMembers" StoreEntitySet="AccountSet">
-      <EndProperty Name="Game">
-        <ScalarProperty Name="Id" ColumnName="AccountGameMembers_Account_Id" />
-      </EndProperty>
+    <AssociationSetMapping Name="AccountGame" TypeName="EntityModel.AccountGameMembers" StoreEntitySet="GameSet">
       <EndProperty Name="Account">
+        <ScalarProperty Name="Id" ColumnName="GameCreator_Id" />
+      </EndProperty>
+      <EndProperty Name="Game">
         <ScalarProperty Name="Id" ColumnName="Id" />
       </EndProperty>
     </AssociationSetMapping>
@@ -424,6 +424,7 @@
       <EndProperty Name="Account">
         <ScalarProperty Name="Id" ColumnName="Id" />
       </EndProperty>
+      <Condition ColumnName="GameAccount_Account_Id" IsNull="false" />
     </AssociationSetMapping>
     <AssociationSetMapping Name="GameChat" TypeName="EntityModel.GameChat" StoreEntitySet="GameSet">
       <EndProperty Name="Chat">

@@ -38,6 +38,9 @@
         <MappingFragment StoreEntitySet="GameSet">
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="Creation_date" ColumnName="Creation_date" />
+          <ScalarProperty Name="Last_update" ColumnName="Last_update" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="Game_over" ColumnName="Game_over" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -58,51 +61,60 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <AssociationSetMapping Name="CuentaUsuario" TypeName="EntityModel.CuentaUsuario" StoreEntitySet="AccountSet">
-      <EndProperty Name="Usuario">
-        <ScalarProperty Name="Id" ColumnName="Player_Id" />
-      </EndProperty>
-      <EndProperty Name="Cuenta">
-        <ScalarProperty Name="Id" ColumnName="Id" />
-      </EndProperty>
-    </AssociationSetMapping>
-    <AssociationSetMapping Name="CuentaHistorial" TypeName="EntityModel.CuentaHistorial" StoreEntitySet="AccountSet">
-      <EndProperty Name="Historial">
-        <ScalarProperty Name="Id" ColumnName="Record_Id" />
-      </EndProperty>
-      <EndProperty Name="Cuenta">
-        <ScalarProperty Name="Id" ColumnName="Id" />
-      </EndProperty>
-    </AssociationSetMapping>
-    <AssociationSetMapping Name="CuentaPartida" TypeName="EntityModel.CuentaPartida" StoreEntitySet="CuentaPartida">
-      <EndProperty Name="Cuenta">
+    <AssociationSetMapping Name="AccountRecord" TypeName="EntityModel.AccountRecord" StoreEntitySet="RecordSet">
+      <EndProperty Name="Account">
         <ScalarProperty Name="Id" ColumnName="Account_Id" />
       </EndProperty>
-      <EndProperty Name="Partida">
-        <ScalarProperty Name="Id" ColumnName="CuentaPartida_Cuenta_Id" />
-      </EndProperty>
-    </AssociationSetMapping>
-    <AssociationSetMapping Name="ChatPartida" TypeName="EntityModel.ChatPartida" StoreEntitySet="ChatSet">
-      <EndProperty Name="Partida">
-        <ScalarProperty Name="Id" ColumnName="Game_Id" />
-      </EndProperty>
-      <EndProperty Name="Chat">
+      <EndProperty Name="Record">
         <ScalarProperty Name="Id" ColumnName="Id" />
       </EndProperty>
     </AssociationSetMapping>
-    <AssociationSetMapping Name="ChatMensaje" TypeName="EntityModel.ChatMensaje" StoreEntitySet="MessageSet">
+    <AssociationSetMapping Name="AccountPlayer" TypeName="EntityModel.AccountPlayer" StoreEntitySet="PlayerSet">
+      <EndProperty Name="Account">
+        <ScalarProperty Name="Id" ColumnName="Account_Id" />
+      </EndProperty>
+      <EndProperty Name="Player">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="AccountGame" TypeName="EntityModel.AccountGameMembers" StoreEntitySet="GameSet">
+      <EndProperty Name="Account">
+        <ScalarProperty Name="Id" ColumnName="GameCreator_Id" />
+      </EndProperty>
+      <EndProperty Name="Game">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="GameAccount" TypeName="EntityModel.GameAccount" StoreEntitySet="AccountSet">
+      <EndProperty Name="Game">
+        <ScalarProperty Name="Id" ColumnName="GameAccount_Account_Id" />
+      </EndProperty>
+      <EndProperty Name="Account">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+      <Condition ColumnName="GameAccount_Account_Id" IsNull="false" />
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="GameChat" TypeName="EntityModel.GameChat" StoreEntitySet="GameSet">
       <EndProperty Name="Chat">
         <ScalarProperty Name="Id" ColumnName="Chat_Id" />
       </EndProperty>
-      <EndProperty Name="Mensaje">
+      <EndProperty Name="Game">
         <ScalarProperty Name="Id" ColumnName="Id" />
       </EndProperty>
     </AssociationSetMapping>
-    <AssociationSetMapping Name="CuentaMensaje" TypeName="EntityModel.CuentaMensaje" StoreEntitySet="MessageSet">
-      <EndProperty Name="Cuenta">
+    <AssociationSetMapping Name="ChatMessage" TypeName="EntityModel.ChatMessage" StoreEntitySet="MessageSet">
+      <EndProperty Name="Chat">
+        <ScalarProperty Name="Id" ColumnName="Chat_Id" />
+      </EndProperty>
+      <EndProperty Name="Message">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="AccountMessage" TypeName="EntityModel.AccountMessage" StoreEntitySet="MessageSet">
+      <EndProperty Name="Account">
         <ScalarProperty Name="Id" ColumnName="Account_Id" />
       </EndProperty>
-      <EndProperty Name="Mensaje">
+      <EndProperty Name="Message">
         <ScalarProperty Name="Id" ColumnName="Id" />
       </EndProperty>
     </AssociationSetMapping>

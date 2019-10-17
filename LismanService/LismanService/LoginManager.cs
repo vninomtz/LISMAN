@@ -25,9 +25,7 @@ namespace LismanService {
             return false;
         }
         public Account LoginAccount(string user, string password)
-        {
-            
-             
+        { 
             try {
                 using (var dataBase = new EntityModelContainer()) {
                     int exists = dataBase.AccountSet.Where(u => u.User == user & u.Password == password).Count();

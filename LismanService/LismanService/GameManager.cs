@@ -9,18 +9,11 @@ using DataAccess;
 
 namespace LismanService {
     public partial class LismanService : IGameManager {
-        Dictionary<String, IGameManagerCallBack> connectionUsers = new Dictionary<String, IGameManagerCallBack>();
+        Dictionary<String, IChatManagerCallBack> connectionUsers = new Dictionary<String, IChatManagerCallBack>();
         Dictionary<int, List<String>> listGamesOnline = new Dictionary<int,List<String>>();
 
-        public void CreateGame(string user)
+        public int CreateGame(string user)
         {
-            IGameManagerCallBack connection = OperationContext.Current.GetCallbackChannel<IGameManagerCallBack>(); ;
-            if (!connectionUsers.ContainsKey(user)) {
-                connectionUsers.Add(user, connection);
-            } else {
-                connectionUsers[user] = connection;
-            }
-
             try {
                 using (var dataBase = new EntityModelContainer()) {
                     var newGame = new DataAccess.Game
@@ -35,45 +28,30 @@ namespace LismanService {
                         var game = dataBase.GameSet.Where(u => u.Creation_date == newGame.Creation_date).FirstOrDefault();
                         var listPlayer = new List<String>();
                         listGamesOnline.Add(game.Id, listPlayer);
-                        connection.NotifyGameCreated(1);
+                        return game.Id;
                     } else {
-                        connection.NotifyGameCreated(-1);
+                        return -1;
                     }
                 }
             }catch(Exception ex) {
                 Console.WriteLine("Error: " + ex.Message);
-                connection.NotifyErrorMessage(-1);
+                return -1;
             }
         }
 
-        public void JoinGame(string user)
+        public int JoinGame(string user)
         {
-            IGameManagerCallBack connection = OperationContext.Current.GetCallbackChannel<IGameManagerCallBack>(); ;
-            if (!connectionUsers.ContainsKey(user)) {
-                connectionUsers.Add(user, connection);
-            } else {
-                connectionUsers[user] = connection;
-            }
-
             foreach (KeyValuePair<int, List<String>> games in listGamesOnline) {
                 if(games.Value.Count < 4) {
                     games.Value.Add(user);
-                    foreach(String usergame in games.Value){
-                        if(usergame != user) {
-                            IGameManagerCallBack connectionGameUser = connectionUsers[user];
-                            connectionGameUser.NotifyJoinedUser(user);
-                        } else {
-                            connection.NotifyJoined(games.Key, user);
-                        }
-                    }
-                    return;
+                    return games.Key;
                 }
             }
 
-            connection.NotifyErrorMessage(-2); 
+            return -1;
         }
 
-        public void LeaveGame(string user, int game)
+        public int LeaveGame(string user, int game)
         {
             throw new NotImplementedException();
         }

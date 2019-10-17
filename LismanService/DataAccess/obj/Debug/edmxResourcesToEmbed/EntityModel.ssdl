@@ -7,34 +7,33 @@
     <EntitySet Name="GameSet" EntityType="EntityModel.Store.GameSet" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="ChatSet" EntityType="EntityModel.Store.ChatSet" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="MessageSet" EntityType="EntityModel.Store.MessageSet" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="CuentaPartida" EntityType="EntityModel.Store.CuentaPartida" store:Type="Tables" Schema="dbo" />
-    <AssociationSet Name="CuentaUsuario" Association="EntityModel.Store.CuentaUsuario">
-      <End Role="Cuenta" EntitySet="AccountSet" />
-      <End Role="Usuario" EntitySet="PlayerSet" />
+    <AssociationSet Name="AccountRecord" Association="EntityModel.Store.AccountRecord">
+      <End Role="Account" EntitySet="AccountSet" />
+      <End Role="Record" EntitySet="RecordSet" />
     </AssociationSet>
-    <AssociationSet Name="CuentaHistorial" Association="EntityModel.Store.CuentaHistorial">
-      <End Role="Cuenta" EntitySet="AccountSet" />
-      <End Role="Historial" EntitySet="RecordSet" />
+    <AssociationSet Name="AccountPlayer" Association="EntityModel.Store.AccountPlayer">
+      <End Role="Account" EntitySet="AccountSet" />
+      <End Role="Player" EntitySet="PlayerSet" />
     </AssociationSet>
-    <AssociationSet Name="FK_CuentaPartida_Cuenta" Association="EntityModel.Store.FK_CuentaPartida_Cuenta">
-      <End Role="Cuenta" EntitySet="AccountSet" />
-      <End Role="CuentaPartida" EntitySet="CuentaPartida" />
+    <AssociationSet Name="AccountGame" Association="EntityModel.Store.AccountGameMembers">
+      <End Role="Account" EntitySet="AccountSet" />
+      <End Role="Game" EntitySet="GameSet" />
     </AssociationSet>
-    <AssociationSet Name="FK_CuentaPartida_Partida" Association="EntityModel.Store.FK_CuentaPartida_Partida">
-      <End Role="Partida" EntitySet="GameSet" />
-      <End Role="CuentaPartida" EntitySet="CuentaPartida" />
+    <AssociationSet Name="GameAccount" Association="EntityModel.Store.GameAccount">
+      <End Role="Game" EntitySet="GameSet" />
+      <End Role="Account" EntitySet="AccountSet" />
     </AssociationSet>
-    <AssociationSet Name="ChatPartida" Association="EntityModel.Store.ChatPartida">
+    <AssociationSet Name="GameChat" Association="EntityModel.Store.GameChat">
+      <End Role="Game" EntitySet="GameSet" />
       <End Role="Chat" EntitySet="ChatSet" />
-      <End Role="Partida" EntitySet="GameSet" />
     </AssociationSet>
-    <AssociationSet Name="ChatMensaje" Association="EntityModel.Store.ChatMensaje">
+    <AssociationSet Name="ChatMessage" Association="EntityModel.Store.ChatMessage">
       <End Role="Chat" EntitySet="ChatSet" />
-      <End Role="Mensaje" EntitySet="MessageSet" />
+      <End Role="Message" EntitySet="MessageSet" />
     </AssociationSet>
-    <AssociationSet Name="CuentaMensaje" Association="EntityModel.Store.CuentaMensaje">
-      <End Role="Cuenta" EntitySet="AccountSet" />
-      <End Role="Mensaje" EntitySet="MessageSet" />
+    <AssociationSet Name="AccountMessage" Association="EntityModel.Store.AccountMessage">
+      <End Role="Account" EntitySet="AccountSet" />
+      <End Role="Message" EntitySet="MessageSet" />
     </AssociationSet>
   </EntityContainer>
   <EntityType Name="PlayerSet">
@@ -45,6 +44,7 @@
     <Property Name="First_name" Type="nvarchar(max)" Nullable="false" />
     <Property Name="Last_name" Type="nvarchar(max)" Nullable="false" />
     <Property Name="Email" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Account_Id" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="AccountSet">
     <Key>
@@ -55,8 +55,7 @@
     <Property Name="Password" Type="nvarchar(max)" Nullable="false" />
     <Property Name="Key_confirmation" Type="nvarchar(max)" Nullable="true" />
     <Property Name="Registration_date" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="Player_Id" Type="int" Nullable="false" />
-    <Property Name="Record_Id" Type="int" Nullable="false" />
+    <Property Name="GameAccount_Account_Id" Type="int" Nullable="true" />
   </EntityType>
   <EntityType Name="RecordSet">
     <Key>
@@ -67,6 +66,7 @@
     <Property Name="Story_best_score" Type="int" Nullable="true" />
     <Property Name="Mult_games_played" Type="int" Nullable="true" />
     <Property Name="Mult_games_won" Type="int" Nullable="true" />
+    <Property Name="Account_Id" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="GameSet">
     <Key>
@@ -74,6 +74,11 @@
     </Key>
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Creation_date" Type="datetime" Nullable="false" />
+    <Property Name="Last_update" Type="datetime" Nullable="true" />
+    <Property Name="Status" Type="bit" Nullable="false" />
+    <Property Name="Game_over" Type="datetime" Nullable="true" />
+    <Property Name="GameCreator_Id" Type="int" Nullable="false" />
+    <Property Name="Chat_Id" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="ChatSet">
     <Key>
@@ -81,7 +86,6 @@
     </Key>
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Creation_date" Type="datetime" Nullable="false" />
-    <Property Name="Game_Id" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="MessageSet">
     <Key>
@@ -93,95 +97,91 @@
     <Property Name="Chat_Id" Type="int" Nullable="false" />
     <Property Name="Account_Id" Type="int" Nullable="false" />
   </EntityType>
-  <EntityType Name="CuentaPartida">
-    <Key>
-      <PropertyRef Name="Account_Id" />
-      <PropertyRef Name="CuentaPartida_Cuenta_Id" />
-    </Key>
-    <Property Name="Account_Id" Type="int" Nullable="false" />
-    <Property Name="CuentaPartida_Cuenta_Id" Type="int" Nullable="false" />
-  </EntityType>
-  <Association Name="CuentaUsuario">
-    <End Role="Cuenta" Type="EntityModel.Store.AccountSet" Multiplicity="*" />
-    <End Role="Usuario" Type="EntityModel.Store.PlayerSet" Multiplicity="1" />
+  <Association Name="AccountRecord">
+    <End Role="Account" Type="EntityModel.Store.AccountSet" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Record" Type="EntityModel.Store.RecordSet" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="Usuario">
+      <Principal Role="Account">
         <PropertyRef Name="Id" />
       </Principal>
-      <Dependent Role="Cuenta">
-        <PropertyRef Name="Player_Id" />
+      <Dependent Role="Record">
+        <PropertyRef Name="Account_Id" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="CuentaHistorial">
-    <End Role="Cuenta" Type="EntityModel.Store.AccountSet" Multiplicity="*" />
-    <End Role="Historial" Type="EntityModel.Store.RecordSet" Multiplicity="1" />
+  <Association Name="AccountPlayer">
+    <End Role="Account" Type="EntityModel.Store.AccountSet" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Player" Type="EntityModel.Store.PlayerSet" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="Historial">
+      <Principal Role="Account">
         <PropertyRef Name="Id" />
       </Principal>
-      <Dependent Role="Cuenta">
-        <PropertyRef Name="Record_Id" />
+      <Dependent Role="Player">
+        <PropertyRef Name="Account_Id" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="ChatPartida">
-    <End Role="Chat" Type="EntityModel.Store.ChatSet" Multiplicity="*" />
-    <End Role="Partida" Type="EntityModel.Store.GameSet" Multiplicity="1" />
+  <Association Name="AccountGameMembers">
+    <End Role="Account" Type="EntityModel.Store.AccountSet" Multiplicity="1" />
+    <End Role="Game" Type="EntityModel.Store.GameSet" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="Partida">
+      <Principal Role="Account">
         <PropertyRef Name="Id" />
       </Principal>
-      <Dependent Role="Chat">
-        <PropertyRef Name="Game_Id" />
+      <Dependent Role="Game">
+        <PropertyRef Name="GameCreator_Id" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="ChatMensaje">
+  <Association Name="GameAccount">
+    <End Role="Game" Type="EntityModel.Store.GameSet" Multiplicity="0..1" />
+    <End Role="Account" Type="EntityModel.Store.AccountSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Game">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Account">
+        <PropertyRef Name="GameAccount_Account_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="GameChat">
+    <End Role="Game" Type="EntityModel.Store.GameSet" Multiplicity="*" />
     <End Role="Chat" Type="EntityModel.Store.ChatSet" Multiplicity="1" />
-    <End Role="Mensaje" Type="EntityModel.Store.MessageSet" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Chat">
         <PropertyRef Name="Id" />
       </Principal>
-      <Dependent Role="Mensaje">
+      <Dependent Role="Game">
         <PropertyRef Name="Chat_Id" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="CuentaMensaje">
-    <End Role="Cuenta" Type="EntityModel.Store.AccountSet" Multiplicity="1" />
-    <End Role="Mensaje" Type="EntityModel.Store.MessageSet" Multiplicity="*" />
+  <Association Name="ChatMessage">
+    <End Role="Chat" Type="EntityModel.Store.ChatSet" Multiplicity="1" />
+    <End Role="Message" Type="EntityModel.Store.MessageSet" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="Cuenta">
+      <Principal Role="Chat">
         <PropertyRef Name="Id" />
       </Principal>
-      <Dependent Role="Mensaje">
-        <PropertyRef Name="Account_Id" />
+      <Dependent Role="Message">
+        <PropertyRef Name="Chat_Id" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_CuentaPartida_Cuenta">
-    <End Role="Cuenta" Type="EntityModel.Store.AccountSet" Multiplicity="1" />
-    <End Role="CuentaPartida" Type="EntityModel.Store.CuentaPartida" Multiplicity="*" />
+  <Association Name="AccountMessage">
+    <End Role="Account" Type="EntityModel.Store.AccountSet" Multiplicity="1" />
+    <End Role="Message" Type="EntityModel.Store.MessageSet" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="Cuenta">
+      <Principal Role="Account">
         <PropertyRef Name="Id" />
       </Principal>
-      <Dependent Role="CuentaPartida">
+      <Dependent Role="Message">
         <PropertyRef Name="Account_Id" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_CuentaPartida_Partida">
-    <End Role="CuentaPartida" Type="EntityModel.Store.CuentaPartida" Multiplicity="*" />
-    <End Role="Partida" Type="EntityModel.Store.GameSet" Multiplicity="1" />
-    <ReferentialConstraint>
-      <Principal Role="Partida">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="CuentaPartida">
-        <PropertyRef Name="CuentaPartida_Cuenta_Id" />
       </Dependent>
     </ReferentialConstraint>
   </Association>

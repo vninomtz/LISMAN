@@ -55,6 +55,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="GameManager.cs" />
+    <Compile Include="IChatManager.cs" />
     <Compile Include="IGameManager.cs" />
     <Compile Include="LismanService.cs" />
     <Compile Include="IAccountManager.cs" />

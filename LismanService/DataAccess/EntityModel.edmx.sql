@@ -2,7 +2,7 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, 2012 and Azure
 -- --------------------------------------------------
--- Date Created: 10/15/2019 10:39:11
+-- Date Created: 10/17/2019 11:53:56
 -- Generated from EDMX file: C:\Users\Vik-t\Documents\CarreraUV\5to Semestre\Tecnologías para la Construcción\Proyecto\LISMAN\LismanService\DataAccess\EntityModel.edmx
 -- --------------------------------------------------
 
@@ -24,7 +24,7 @@ IF OBJECT_ID(N'[dbo].[FK_AccountPlayer]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[PlayerSet] DROP CONSTRAINT [FK_AccountPlayer];
 GO
 IF OBJECT_ID(N'[dbo].[FK_AccountGameMembers]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[AccountSet] DROP CONSTRAINT [FK_AccountGameMembers];
+    ALTER TABLE [dbo].[GameSet] DROP CONSTRAINT [FK_AccountGameMembers];
 GO
 IF OBJECT_ID(N'[dbo].[FK_GameAccount]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[AccountSet] DROP CONSTRAINT [FK_GameAccount];
@@ -83,8 +83,7 @@ CREATE TABLE [dbo].[AccountSet] (
     [Password] nvarchar(max)  NOT NULL,
     [Key_confirmation] nvarchar(max)  NULL,
     [Registration_date] nvarchar(max)  NOT NULL,
-    [AccountGameMembers_Account_Id] int  NOT NULL,
-    [GameAccount_Account_Id] int  NOT NULL
+    [GameAccount_Account_Id] int  NULL
 );
 GO
 
@@ -106,6 +105,7 @@ CREATE TABLE [dbo].[GameSet] (
     [Last_update] datetime  NULL,
     [Status] bit  NOT NULL,
     [Game_over] datetime  NULL,
+    [GameCreator_Id] int  NOT NULL,
     [Chat_Id] int  NOT NULL
 );
 GO
@@ -201,19 +201,19 @@ ON [dbo].[PlayerSet]
     ([Account_Id]);
 GO
 
--- Creating foreign key on [AccountGameMembers_Account_Id] in table 'AccountSet'
-ALTER TABLE [dbo].[AccountSet]
+-- Creating foreign key on [GameCreator_Id] in table 'GameSet'
+ALTER TABLE [dbo].[GameSet]
 ADD CONSTRAINT [FK_AccountGameMembers]
-    FOREIGN KEY ([AccountGameMembers_Account_Id])
-    REFERENCES [dbo].[GameSet]
+    FOREIGN KEY ([GameCreator_Id])
+    REFERENCES [dbo].[AccountSet]
         ([Id])
     ON DELETE NO ACTION ON UPDATE NO ACTION;
 GO
 
 -- Creating non-clustered index for FOREIGN KEY 'FK_AccountGameMembers'
 CREATE INDEX [IX_FK_AccountGameMembers]
-ON [dbo].[AccountSet]
-    ([AccountGameMembers_Account_Id]);
+ON [dbo].[GameSet]
+    ([GameCreator_Id]);
 GO
 
 -- Creating foreign key on [GameAccount_Account_Id] in table 'AccountSet'

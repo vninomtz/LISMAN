@@ -60,10 +60,24 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="CreateGameResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="CreateGameResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
   <xs:element name="JoinGame">
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" name="user" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="JoinGameResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="JoinGameResult" type="xs:int" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -75,39 +89,10 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="NotifyJoinedUser">
+  <xs:element name="LeaveGameResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element minOccurs="0" name="user" nillable="true" type="xs:string" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="NotifyJoined">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="game" type="xs:int" />
-        <xs:element minOccurs="0" name="user" nillable="true" type="xs:string" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="NotifyErrorMessage">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="error" type="xs:int" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="NotifyLeaveUser">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="user" nillable="true" type="xs:string" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="NotifyGameCreated">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="message" type="xs:int" />
+        <xs:element minOccurs="0" name="LeaveGameResult" type="xs:int" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -123,6 +108,20 @@
     <xs:complexType>
       <xs:sequence>
         <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/LismanService" minOccurs="0" name="LoginAccountResult" nillable="true" type="q5:Account" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="LogoutAccount">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="user" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="LogoutAccountResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="LogoutAccountResult" type="xs:int" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

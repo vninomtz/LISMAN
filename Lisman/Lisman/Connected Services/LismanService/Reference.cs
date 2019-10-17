@@ -478,45 +478,26 @@ namespace Lisman.LismanService {
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="LismanService.IGameManager", CallbackContract=typeof(Lisman.LismanService.IGameManagerCallback))]
+    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="LismanService.IGameManager")]
     public interface IGameManager {
         
-        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IGameManager/CreateGame")]
-        void CreateGame(string user);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGameManager/CreateGame", ReplyAction="http://tempuri.org/IGameManager/CreateGameResponse")]
+        int CreateGame(string user);
         
-        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IGameManager/CreateGame")]
-        System.Threading.Tasks.Task CreateGameAsync(string user);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGameManager/CreateGame", ReplyAction="http://tempuri.org/IGameManager/CreateGameResponse")]
+        System.Threading.Tasks.Task<int> CreateGameAsync(string user);
         
-        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IGameManager/JoinGame")]
-        void JoinGame(string user);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGameManager/JoinGame", ReplyAction="http://tempuri.org/IGameManager/JoinGameResponse")]
+        int JoinGame(string user);
         
-        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IGameManager/JoinGame")]
-        System.Threading.Tasks.Task JoinGameAsync(string user);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGameManager/JoinGame", ReplyAction="http://tempuri.org/IGameManager/JoinGameResponse")]
+        System.Threading.Tasks.Task<int> JoinGameAsync(string user);
         
-        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IGameManager/LeaveGame")]
-        void LeaveGame(string user, int game);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGameManager/LeaveGame", ReplyAction="http://tempuri.org/IGameManager/LeaveGameResponse")]
+        int LeaveGame(string user, int game);
         
-        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IGameManager/LeaveGame")]
-        System.Threading.Tasks.Task LeaveGameAsync(string user, int game);
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public interface IGameManagerCallback {
-        
-        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IGameManager/NotifyJoinedUser")]
-        void NotifyJoinedUser(string user);
-        
-        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IGameManager/NotifyJoined")]
-        void NotifyJoined(int game, string user);
-        
-        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IGameManager/NotifyErrorMessage")]
-        void NotifyErrorMessage(int error);
-        
-        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IGameManager/NotifyLeaveUser")]
-        void NotifyLeaveUser(string user);
-        
-        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IGameManager/NotifyGameCreated")]
-        void NotifyGameCreated(int message);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGameManager/LeaveGame", ReplyAction="http://tempuri.org/IGameManager/LeaveGameResponse")]
+        System.Threading.Tasks.Task<int> LeaveGameAsync(string user, int game);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -525,49 +506,48 @@ namespace Lisman.LismanService {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class GameManagerClient : System.ServiceModel.DuplexClientBase<Lisman.LismanService.IGameManager>, Lisman.LismanService.IGameManager {
+    public partial class GameManagerClient : System.ServiceModel.ClientBase<Lisman.LismanService.IGameManager>, Lisman.LismanService.IGameManager {
         
-        public GameManagerClient(System.ServiceModel.InstanceContext callbackInstance) : 
-                base(callbackInstance) {
+        public GameManagerClient() {
         }
         
-        public GameManagerClient(System.ServiceModel.InstanceContext callbackInstance, string endpointConfigurationName) : 
-                base(callbackInstance, endpointConfigurationName) {
+        public GameManagerClient(string endpointConfigurationName) : 
+                base(endpointConfigurationName) {
         }
         
-        public GameManagerClient(System.ServiceModel.InstanceContext callbackInstance, string endpointConfigurationName, string remoteAddress) : 
-                base(callbackInstance, endpointConfigurationName, remoteAddress) {
+        public GameManagerClient(string endpointConfigurationName, string remoteAddress) : 
+                base(endpointConfigurationName, remoteAddress) {
         }
         
-        public GameManagerClient(System.ServiceModel.InstanceContext callbackInstance, string endpointConfigurationName, System.ServiceModel.EndpointAddress remoteAddress) : 
-                base(callbackInstance, endpointConfigurationName, remoteAddress) {
+        public GameManagerClient(string endpointConfigurationName, System.ServiceModel.EndpointAddress remoteAddress) : 
+                base(endpointConfigurationName, remoteAddress) {
         }
         
-        public GameManagerClient(System.ServiceModel.InstanceContext callbackInstance, System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
-                base(callbackInstance, binding, remoteAddress) {
+        public GameManagerClient(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
+                base(binding, remoteAddress) {
         }
         
-        public void CreateGame(string user) {
-            base.Channel.CreateGame(user);
+        public int CreateGame(string user) {
+            return base.Channel.CreateGame(user);
         }
         
-        public System.Threading.Tasks.Task CreateGameAsync(string user) {
+        public System.Threading.Tasks.Task<int> CreateGameAsync(string user) {
             return base.Channel.CreateGameAsync(user);
         }
         
-        public void JoinGame(string user) {
-            base.Channel.JoinGame(user);
+        public int JoinGame(string user) {
+            return base.Channel.JoinGame(user);
         }
         
-        public System.Threading.Tasks.Task JoinGameAsync(string user) {
+        public System.Threading.Tasks.Task<int> JoinGameAsync(string user) {
             return base.Channel.JoinGameAsync(user);
         }
         
-        public void LeaveGame(string user, int game) {
-            base.Channel.LeaveGame(user, game);
+        public int LeaveGame(string user, int game) {
+            return base.Channel.LeaveGame(user, game);
         }
         
-        public System.Threading.Tasks.Task LeaveGameAsync(string user, int game) {
+        public System.Threading.Tasks.Task<int> LeaveGameAsync(string user, int game) {
             return base.Channel.LeaveGameAsync(user, game);
         }
     }
@@ -581,6 +561,12 @@ namespace Lisman.LismanService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILoginManager/LoginAccount", ReplyAction="http://tempuri.org/ILoginManager/LoginAccountResponse")]
         System.Threading.Tasks.Task<Lisman.LismanService.Account> LoginAccountAsync(string user, string password);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILoginManager/LogoutAccount", ReplyAction="http://tempuri.org/ILoginManager/LogoutAccountResponse")]
+        int LogoutAccount(string user);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILoginManager/LogoutAccount", ReplyAction="http://tempuri.org/ILoginManager/LogoutAccountResponse")]
+        System.Threading.Tasks.Task<int> LogoutAccountAsync(string user);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILoginManager/UserNameExists", ReplyAction="http://tempuri.org/ILoginManager/UserNameExistsResponse")]
         bool UserNameExists(string username);
@@ -628,6 +614,14 @@ namespace Lisman.LismanService {
         
         public System.Threading.Tasks.Task<Lisman.LismanService.Account> LoginAccountAsync(string user, string password) {
             return base.Channel.LoginAccountAsync(user, password);
+        }
+        
+        public int LogoutAccount(string user) {
+            return base.Channel.LogoutAccount(user);
+        }
+        
+        public System.Threading.Tasks.Task<int> LogoutAccountAsync(string user) {
+            return base.Channel.LogoutAccountAsync(user);
         }
         
         public bool UserNameExists(string username) {

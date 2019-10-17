@@ -9,7 +9,6 @@ using DataAccess;
 
 namespace LismanService {
     public partial class LismanService : IGameManager {
-        Dictionary<String, IChatManagerCallBack> connectionUsers = new Dictionary<String, IChatManagerCallBack>();
         Dictionary<int, List<String>> listGamesOnline = new Dictionary<int,List<String>>();
 
         public int CreateGame(string user)

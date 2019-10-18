@@ -63,15 +63,21 @@ namespace Lisman {
 
         public void SendMessage() {
             Random rd = new Random(999);
-            Message message = new Message {
-                Id = rd.Next(),
-                Creation_date = DateTime.Now,
-                Text = textBox_message.Text,
-                Account = SingletonAccount.getSingletonAccount()
-            };
+            if (textBox_message.Text != String.Empty) {
+                Message message = new Message {
 
-            client.SendMessage(message, idGame);
-            textBox_message.Text = String.Empty;
+                    Id = rd.Next(),
+                    Creation_date = DateTime.Now,
+                    Text = textBox_message.Text,
+                    Account = SingletonAccount.getSingletonAccount()
+                };
+
+                client.SendMessage(message, idGame);
+                textBox_message.Text = String.Empty;
+            }
+            
+
+            
         }
 
         private void button_send_Click(object sender, RoutedEventArgs e)
@@ -82,7 +88,7 @@ namespace Lisman {
 
         public void NotifyNumberPlayers(int numberPlayers)
         {
-            textBlock_number_players.Text = "4/" + numberPlayers;
+            textBlock_number_players.Text =  numberPlayers + " / 4";
         }
 
 

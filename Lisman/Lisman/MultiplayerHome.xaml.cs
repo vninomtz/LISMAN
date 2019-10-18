@@ -37,7 +37,7 @@ namespace Lisman {
             LismanService.GameManagerClient client = new LismanService.GameManagerClient();
             int idGame = client.CreateGame(SingletonAccount.getSingletonAccount().User);
             if(idGame > 0) {
-                Lobby lobby = new Lobby();
+                Lobby lobby = new Lobby(idGame);
                 lobby.Show();
                 this.Close();
             }
@@ -49,7 +49,7 @@ namespace Lisman {
             LismanService.GameManagerClient client = new LismanService.GameManagerClient();
             int idGame = client.JoinGame(SingletonAccount.getSingletonAccount().User);
             if(idGame > 0) {
-                Lobby lobby = new Lobby();
+                Lobby lobby = new Lobby(idGame);
                 lobby.Show();
                 this.Close();
             }

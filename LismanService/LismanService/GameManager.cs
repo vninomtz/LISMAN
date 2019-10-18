@@ -11,7 +11,7 @@ using System.Data.Entity.Validation;
 
 namespace LismanService {
     public partial class LismanService : IGameManager {
-        Dictionary<int, List<String>> listGamesOnline = new Dictionary<int,List<String>>();
+       static Dictionary<int, List<String>> listGamesOnline = new Dictionary<int,List<String>>();
 
         public int CreateGame(string user)
         {
@@ -20,6 +20,7 @@ namespace LismanService {
             int idgame = random.Next(999);
             var listPlayer = new List<String>();
             listGamesOnline.Add(idgame, listPlayer);
+            listGamesOnline[idgame].Add(user);
             return idgame;
             /*Account account = GetAccountByUser(user);
             try {

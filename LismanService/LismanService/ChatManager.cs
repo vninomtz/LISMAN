@@ -7,7 +7,7 @@ using System.ServiceModel;
 
 namespace LismanService {
     public partial class LismanService : IChatManager {
-        Dictionary<String, IChatManagerCallBack> connectionChatService = new Dictionary<String, IChatManagerCallBack>();
+        static Dictionary<String, IChatManagerCallBack> connectionChatService = new Dictionary<String, IChatManagerCallBack>();
 
         public void JoinChat(string user, int idgame)
         {
@@ -18,19 +18,25 @@ namespace LismanService {
                 connectionChatService.Add(user, connection);
             }
 
+
             foreach (var userGame in listGamesOnline[idgame]) {
-                if(userGame != user) {
+                connectionChatService[userGame].NotifyNumberPlayers(listGamesOnline[idgame].Count);
+                if (userGame != user) {
                     connectionChatService[userGame].NotifyJoinedPlayer(user);
+
                 }
+                
             }
+
+            
         }
 
         public void SendMessage(Message message, int idgame)
         {
             foreach (var userGame in listGamesOnline[idgame]) {
-                if (userGame != message.Account.User) {
+              
                     connectionChatService[userGame].NotifyMessage(message);
-                }
+                
             }
         }
     }

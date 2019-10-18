@@ -14,7 +14,7 @@
             Style="{StaticResource MaterialDesignDisplay3TextBlock}" FontFamily="Lato Black" FontSize="36" Margin="42,27,392,0" Height="43" Width="324"/>
         <TextBlock HorizontalAlignment="Center" VerticalAlignment="Top"  Text="Jugadores encontrados"
             Style="{StaticResource MaterialDesignDisplay3TextBlock}" FontFamily="Lato Black" FontSize="25" Width="272" Margin="94,86,392,0" Height="30"/>
-        <TextBlock HorizontalAlignment="Center" VerticalAlignment="Top"  Text="4 / 0"
+        <TextBlock x:Name="textBlock_number_players" HorizontalAlignment="Center" VerticalAlignment="Top"  Text="4 / 0"
             Style="{StaticResource MaterialDesignDisplay3TextBlock}" FontFamily="Lato Black" FontSize="25" Width="64" RenderTransformOrigin="0.471,1.343" Margin="187,121,507,0" Height="30"/>
 
         <ProgressBar
@@ -35,6 +35,7 @@
             FontSize="18" Click="btn_exitGame_Click"  Width="114"/>
 
         <TextBox 
+            x:Name="textBox_chat"
             Height="350"
             IsReadOnly="True"
             TextWrapping="Wrap"
@@ -46,20 +47,22 @@
             materialDesign:HintAssist.Hint="Chat" Margin="0,34,0,35" Width="263"/>
 
         <TextBox 
-                 x:Name="txt_message"
+                 x:Name="textBox_message"
                  VerticalAlignment="Bottom" 
                  HorizontalAlignment="Right"
                  materialDesign:HintAssist.Hint="Comment" 
                  Width="218" Height="37" Margin="0,0,45,0"  />
         <Button 
+            x:Name="button_send"
           Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}"
-                VerticalAlignment="Bottom"
-                HorizontalAlignment="Right" 
-                Height="30" Width="30" >
+                VerticalAlignment="Top"
+                HorizontalAlignment="Left" 
+                Height="30" Width="30" Margin="728,389,0,0" Click="button_send_Click" >
             <materialDesign:PackIcon
             Kind="Send"
             Height="20"
             Width="20" />
         </Button>
+        <TextBlock x:Name="textBlock_name_player" HorizontalAlignment="Left" Margin="495,6,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="21" Width="101"/>
     </Grid>
 </Window>

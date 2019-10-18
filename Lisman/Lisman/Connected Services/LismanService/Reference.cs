@@ -670,6 +670,9 @@ namespace Lisman.LismanService {
         
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IChatManager/NotifyJoinedPlayer")]
         void NotifyJoinedPlayer(string user);
+        
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IChatManager/NotifyNumberPlayers")]
+        void NotifyNumberPlayers(int numberPlayers);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]

@@ -126,6 +126,13 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="NotifyNumberPlayers">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="numberPlayers" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
   <xs:element name="LoginAccount">
     <xs:complexType>
       <xs:sequence>

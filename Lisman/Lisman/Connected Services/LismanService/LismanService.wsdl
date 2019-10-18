@@ -177,6 +177,9 @@
   <wsdl:message name="IChatManager_NotifyJoinedPlayer_OutputCallbackMessage">
     <wsdl:part name="parameters" element="tns:NotifyJoinedPlayer" />
   </wsdl:message>
+  <wsdl:message name="IChatManager_NotifyNumberPlayers_OutputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:NotifyNumberPlayers" />
+  </wsdl:message>
   <wsdl:message name="ILoginManager_LoginAccount_InputMessage">
     <wsdl:part name="parameters" element="tns:LoginAccount" />
   </wsdl:message>
@@ -245,6 +248,9 @@
     </wsdl:operation>
     <wsdl:operation name="NotifyJoinedPlayer">
       <wsdl:output wsaw:Action="http://tempuri.org/IChatManager/NotifyJoinedPlayer" message="tns:IChatManager_NotifyJoinedPlayer_OutputCallbackMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="NotifyNumberPlayers">
+      <wsdl:output wsaw:Action="http://tempuri.org/IChatManager/NotifyNumberPlayers" message="tns:IChatManager_NotifyNumberPlayers_OutputCallbackMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:portType name="ILoginManager">
@@ -359,6 +365,12 @@
     </wsdl:operation>
     <wsdl:operation name="NotifyJoinedPlayer">
       <soap12:operation soapAction="http://tempuri.org/IChatManager/NotifyJoinedPlayer" style="document" />
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="NotifyNumberPlayers">
+      <soap12:operation soapAction="http://tempuri.org/IChatManager/NotifyNumberPlayers" style="document" />
       <wsdl:output>
         <soap12:body use="literal" />
       </wsdl:output>

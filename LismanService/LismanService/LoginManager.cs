@@ -39,8 +39,8 @@ namespace LismanService {
                             Key_confirmation = u.Key_confirmation
                         }).FirstOrDefault();
                         if(newAccount != null) {
-                            if (!connectionUsers.ContainsKey(user)) {
-                                connectionUsers.Add(user, null);
+                            if (!connectionChatService.ContainsKey(user)) {
+                                connectionChatService.Add(user, null);
                             }
                             Console.WriteLine("User: {0} Connected at: {1}", newAccount.User, DateTime.Now);
                             
@@ -58,8 +58,8 @@ namespace LismanService {
 
         public int LogoutAccount(string user)
         {
-            if (connectionUsers.ContainsKey(user)) {
-                connectionUsers.Remove(user); 
+            if (connectionChatService.ContainsKey(user)) {
+                connectionChatService.Remove(user); 
             }
             return 1;
         }
@@ -77,6 +77,26 @@ namespace LismanService {
                 Console.WriteLine("Error: " + ex.Message);
             }
             return false;
+        }
+
+
+        public Account GetAccountByUser(string user)
+        {
+            try {
+                using (var dataBase = new EntityModelContainer()) {
+                    return dataBase.AccountSet.Where(u => u.User == user).Select(u => new Account
+                    {
+                        Id = u.Id,
+                        User = u.User,
+                        Password = u.Password,
+                        Registration_date = u.Registration_date,
+                        
+                    }).FirstOrDefault();
+                }
+            }catch(Exception ex) {
+                Console.WriteLine("Error: " + ex.Message);
+                return null;
+            }
         }
     }
 }

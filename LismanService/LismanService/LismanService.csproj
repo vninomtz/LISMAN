@@ -54,6 +54,7 @@
     <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ChatManager.cs" />
     <Compile Include="GameManager.cs" />
     <Compile Include="IChatManager.cs" />
     <Compile Include="IGameManager.cs" />

@@ -34,16 +34,27 @@ namespace Lisman {
 
         private void button_newGame_Click(object sender, RoutedEventArgs e)
         {
-            MultiplayerGame game = new MultiplayerGame();
-            game.Show();
-            this.Close();
+            LismanService.GameManagerClient client = new LismanService.GameManagerClient();
+            int idGame = client.CreateGame(SingletonAccount.getSingletonAccount().User);
+            if(idGame > 0) {
+                Lobby lobby = new Lobby();
+                lobby.Show();
+                this.Close();
+            }
+            
         }
 
         private void button_joinGame_Click(object sender, RoutedEventArgs e)
         {
-            Lobby lobby = new Lobby();
-            lobby.Show();
-            this.Close();
+            LismanService.GameManagerClient client = new LismanService.GameManagerClient();
+            int idGame = client.JoinGame(SingletonAccount.getSingletonAccount().User);
+            if(idGame > 0) {
+                Lobby lobby = new Lobby();
+                lobby.Show();
+                this.Close();
+            }
+
+           
         }
     }
 }

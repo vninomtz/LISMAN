@@ -58,6 +58,35 @@
       </wsp:All>
     </wsp:ExactlyOne>
   </wsp:Policy>
+  <wsp:Policy wsu:Id="NetTcpBinding_IChatManager_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <msb:BinaryEncoding xmlns:msb="http://schemas.microsoft.com/ws/06/2004/mspolicy/netbinary1" />
+        <sp:TransportBinding xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <wsp:Policy>
+            <sp:TransportToken>
+              <wsp:Policy>
+                <msf:WindowsTransportSecurity xmlns:msf="http://schemas.microsoft.com/ws/2006/05/framing/policy">
+                  <msf:ProtectionLevel>EncryptAndSign</msf:ProtectionLevel>
+                </msf:WindowsTransportSecurity>
+              </wsp:Policy>
+            </sp:TransportToken>
+            <sp:AlgorithmSuite>
+              <wsp:Policy>
+                <sp:Basic256 />
+              </wsp:Policy>
+            </sp:AlgorithmSuite>
+            <sp:Layout>
+              <wsp:Policy>
+                <sp:Strict />
+              </wsp:Policy>
+            </sp:Layout>
+          </wsp:Policy>
+        </sp:TransportBinding>
+        <wsaw:UsingAddressing />
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
   <wsp:Policy wsu:Id="NetTcpBinding_ILoginManager_policy">
     <wsp:ExactlyOne>
       <wsp:All>
@@ -136,6 +165,18 @@
   <wsdl:message name="IGameManager_LeaveGame_OutputMessage">
     <wsdl:part name="parameters" element="tns:LeaveGameResponse" />
   </wsdl:message>
+  <wsdl:message name="IChatManager_SendMessage_InputMessage">
+    <wsdl:part name="parameters" element="tns:SendMessage" />
+  </wsdl:message>
+  <wsdl:message name="IChatManager_JoinChat_InputMessage">
+    <wsdl:part name="parameters" element="tns:JoinChat" />
+  </wsdl:message>
+  <wsdl:message name="IChatManager_NotifyMessage_OutputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:NotifyMessage" />
+  </wsdl:message>
+  <wsdl:message name="IChatManager_NotifyJoinedPlayer_OutputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:NotifyJoinedPlayer" />
+  </wsdl:message>
   <wsdl:message name="ILoginManager_LoginAccount_InputMessage">
     <wsdl:part name="parameters" element="tns:LoginAccount" />
   </wsdl:message>
@@ -190,6 +231,20 @@
     <wsdl:operation name="LeaveGame">
       <wsdl:input wsaw:Action="http://tempuri.org/IGameManager/LeaveGame" message="tns:IGameManager_LeaveGame_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IGameManager/LeaveGameResponse" message="tns:IGameManager_LeaveGame_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="IChatManager">
+    <wsdl:operation name="SendMessage">
+      <wsdl:input wsaw:Action="http://tempuri.org/IChatManager/SendMessage" message="tns:IChatManager_SendMessage_InputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="JoinChat">
+      <wsdl:input wsaw:Action="http://tempuri.org/IChatManager/JoinChat" message="tns:IChatManager_JoinChat_InputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="NotifyMessage">
+      <wsdl:output wsaw:Action="http://tempuri.org/IChatManager/NotifyMessage" message="tns:IChatManager_NotifyMessage_OutputCallbackMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="NotifyJoinedPlayer">
+      <wsdl:output wsaw:Action="http://tempuri.org/IChatManager/NotifyJoinedPlayer" message="tns:IChatManager_NotifyJoinedPlayer_OutputCallbackMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:portType name="ILoginManager">
@@ -281,6 +336,34 @@
       </wsdl:output>
     </wsdl:operation>
   </wsdl:binding>
+  <wsdl:binding name="NetTcpBinding_IChatManager" type="tns:IChatManager">
+    <wsp:PolicyReference URI="#NetTcpBinding_IChatManager_policy" />
+    <soap12:binding transport="http://schemas.microsoft.com/soap/tcp" />
+    <wsdl:operation name="SendMessage">
+      <soap12:operation soapAction="http://tempuri.org/IChatManager/SendMessage" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="JoinChat">
+      <soap12:operation soapAction="http://tempuri.org/IChatManager/JoinChat" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="NotifyMessage">
+      <soap12:operation soapAction="http://tempuri.org/IChatManager/NotifyMessage" style="document" />
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="NotifyJoinedPlayer">
+      <soap12:operation soapAction="http://tempuri.org/IChatManager/NotifyJoinedPlayer" style="document" />
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
   <wsdl:binding name="NetTcpBinding_ILoginManager" type="tns:ILoginManager">
     <wsp:PolicyReference URI="#NetTcpBinding_ILoginManager_policy" />
     <soap12:binding transport="http://schemas.microsoft.com/soap/tcp" />
@@ -327,7 +410,7 @@
       <wsa10:EndpointReference>
         <wsa10:Address>net.tcp://localhost:8091/CalculatorService</wsa10:Address>
         <Identity xmlns="http://schemas.xmlsoap.org/ws/2006/02/addressingidentity">
-          <Upn>ALANGONZALZ9AE0\alanglezh</Upn>
+          <Upn>VICTORNIÑOPC\Vik-t</Upn>
         </Identity>
       </wsa10:EndpointReference>
     </wsdl:port>
@@ -336,7 +419,16 @@
       <wsa10:EndpointReference>
         <wsa10:Address>net.tcp://localhost:8091/CalculatorService</wsa10:Address>
         <Identity xmlns="http://schemas.xmlsoap.org/ws/2006/02/addressingidentity">
-          <Upn>ALANGONZALZ9AE0\alanglezh</Upn>
+          <Upn>VICTORNIÑOPC\Vik-t</Upn>
+        </Identity>
+      </wsa10:EndpointReference>
+    </wsdl:port>
+    <wsdl:port name="NetTcpBinding_IChatManager" binding="tns:NetTcpBinding_IChatManager">
+      <soap12:address location="net.tcp://localhost:8091/CalculatorService" />
+      <wsa10:EndpointReference>
+        <wsa10:Address>net.tcp://localhost:8091/CalculatorService</wsa10:Address>
+        <Identity xmlns="http://schemas.xmlsoap.org/ws/2006/02/addressingidentity">
+          <Upn>VICTORNIÑOPC\Vik-t</Upn>
         </Identity>
       </wsa10:EndpointReference>
     </wsdl:port>
@@ -345,7 +437,7 @@
       <wsa10:EndpointReference>
         <wsa10:Address>net.tcp://localhost:8091/CalculatorService</wsa10:Address>
         <Identity xmlns="http://schemas.xmlsoap.org/ws/2006/02/addressingidentity">
-          <Upn>ALANGONZALZ9AE0\alanglezh</Upn>
+          <Upn>VICTORNIÑOPC\Vik-t</Upn>
         </Identity>
       </wsa10:EndpointReference>
     </wsdl:port>

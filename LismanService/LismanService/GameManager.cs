@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 using System.ServiceModel;
 using System.Runtime.Serialization;
 using DataAccess;
+using System.Data.Entity.Validation;
+
 
 namespace LismanService {
     public partial class LismanService : IGameManager {
@@ -13,13 +15,25 @@ namespace LismanService {
 
         public int CreateGame(string user)
         {
+            Random random = new Random();
+
+            int idgame = random.Next(999);
+            var listPlayer = new List<String>();
+            listGamesOnline.Add(idgame, listPlayer);
+            return idgame;
+            /*Account account = GetAccountByUser(user);
             try {
                 using (var dataBase = new EntityModelContainer()) {
                     var newGame = new DataAccess.Game
                     {
+                        GameCreator = new DataAccess.Account { 
+                            Id = account.Id,
+                            User = account.User,
+                            Password = account.Password,
+                            Registration_date = account.Registration_date
+                        },
+                        Status = false,
                         Creation_date = DateTime.Now,
-                        
-                        Members = new List<DataAccess.Account>(),
                         Chat = new DataAccess.Chat()
                     };
                     dataBase.GameSet.Add(newGame);
@@ -32,10 +46,17 @@ namespace LismanService {
                         return -1;
                     }
                 }
-            }catch(Exception ex) {
-                Console.WriteLine("Error: " + ex.Message);
+            }catch(DbEntityValidationException e) {
+                foreach (var eve in e.EntityValidationErrors) {
+                    Console.WriteLine("Entity of type \"{0}\" in state \"{1}\" has the following validation errors:",
+                        eve.Entry.Entity.GetType().Name, eve.Entry.State);
+                    foreach (var ve in eve.ValidationErrors) {
+                        Console.WriteLine("- Property: \"{0}\", Error: \"{1}\"",
+                            ve.PropertyName, ve.ErrorMessage);
+                    }
+                }
                 return -1;
-            }
+            }*/
         }
 
         public int JoinGame(string user)

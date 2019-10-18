@@ -9,3 +9,14 @@ C:\LISMAN\LismanService\DataAccess\obj\Debug\DataAccess.csprojAssemblyReference.
 C:\LISMAN\LismanService\DataAccess\obj\Debug\DataAccess.csproj.CopyComplete
 C:\LISMAN\LismanService\DataAccess\obj\Debug\DataAccess.dll
 C:\LISMAN\LismanService\DataAccess\obj\Debug\DataAccess.pdb
+C:\Users\Vik-t\Documents\CarreraUV\5to Semestre\Tecnologías para la Construcción\Proyecto\LISMAN\LismanService\DataAccess\bin\Debug\DataAccess.dll.config
+C:\Users\Vik-t\Documents\CarreraUV\5to Semestre\Tecnologías para la Construcción\Proyecto\LISMAN\LismanService\DataAccess\bin\Debug\DataAccess.dll
+C:\Users\Vik-t\Documents\CarreraUV\5to Semestre\Tecnologías para la Construcción\Proyecto\LISMAN\LismanService\DataAccess\bin\Debug\DataAccess.pdb
+C:\Users\Vik-t\Documents\CarreraUV\5to Semestre\Tecnologías para la Construcción\Proyecto\LISMAN\LismanService\DataAccess\bin\Debug\EntityFramework.dll
+C:\Users\Vik-t\Documents\CarreraUV\5to Semestre\Tecnologías para la Construcción\Proyecto\LISMAN\LismanService\DataAccess\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Vik-t\Documents\CarreraUV\5to Semestre\Tecnologías para la Construcción\Proyecto\LISMAN\LismanService\DataAccess\bin\Debug\EntityFramework.xml
+C:\Users\Vik-t\Documents\CarreraUV\5to Semestre\Tecnologías para la Construcción\Proyecto\LISMAN\LismanService\DataAccess\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Vik-t\Documents\CarreraUV\5to Semestre\Tecnologías para la Construcción\Proyecto\LISMAN\LismanService\DataAccess\obj\Debug\DataAccess.csprojAssemblyReference.cache
+C:\Users\Vik-t\Documents\CarreraUV\5to Semestre\Tecnologías para la Construcción\Proyecto\LISMAN\LismanService\DataAccess\obj\Debug\DataAccess.csproj.CopyComplete
+C:\Users\Vik-t\Documents\CarreraUV\5to Semestre\Tecnologías para la Construcción\Proyecto\LISMAN\LismanService\DataAccess\obj\Debug\DataAccess.dll
+C:\Users\Vik-t\Documents\CarreraUV\5to Semestre\Tecnologías para la Construcción\Proyecto\LISMAN\LismanService\DataAccess\obj\Debug\DataAccess.pdb

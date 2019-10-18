@@ -96,6 +96,36 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="SendMessage">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/LismanService" minOccurs="0" name="message" nillable="true" type="q5:Message" />
+        <xs:element minOccurs="0" name="Game" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="JoinChat">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="user" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="idgame" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="NotifyMessage">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/LismanService" minOccurs="0" name="message" nillable="true" type="q6:Message" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="NotifyJoinedPlayer">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="user" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
   <xs:element name="LoginAccount">
     <xs:complexType>
       <xs:sequence>
@@ -107,7 +137,7 @@
   <xs:element name="LoginAccountResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/LismanService" minOccurs="0" name="LoginAccountResult" nillable="true" type="q5:Account" />
+        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/LismanService" minOccurs="0" name="LoginAccountResult" nillable="true" type="q7:Account" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

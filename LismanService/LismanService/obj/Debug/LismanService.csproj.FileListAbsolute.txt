@@ -1,17 +1,3 @@
-C:\Users\Vik-t\Documents\CarreraUV\5to Semestre\Tecnologías para la Construcción\Proyecto\LISMAN\LismanService\LismanService\bin\Debug\LismanService.dll.config
-C:\Users\Vik-t\Documents\CarreraUV\5to Semestre\Tecnologías para la Construcción\Proyecto\LISMAN\LismanService\LismanService\bin\Debug\LismanService.dll
-C:\Users\Vik-t\Documents\CarreraUV\5to Semestre\Tecnologías para la Construcción\Proyecto\LISMAN\LismanService\LismanService\bin\Debug\LismanService.pdb
-C:\Users\Vik-t\Documents\CarreraUV\5to Semestre\Tecnologías para la Construcción\Proyecto\LISMAN\LismanService\LismanService\obj\Debug\LismanService.csprojAssemblyReference.cache
-C:\Users\Vik-t\Documents\CarreraUV\5to Semestre\Tecnologías para la Construcción\Proyecto\LISMAN\LismanService\LismanService\obj\Debug\LismanService.dll
-C:\Users\Vik-t\Documents\CarreraUV\5to Semestre\Tecnologías para la Construcción\Proyecto\LISMAN\LismanService\LismanService\obj\Debug\LismanService.pdb
-C:\Users\Vik-t\Documents\CarreraUV\5to Semestre\Tecnologías para la Construcción\Proyecto\LISMAN\LismanService\LismanService\bin\Debug\DataAccess.dll
-C:\Users\Vik-t\Documents\CarreraUV\5to Semestre\Tecnologías para la Construcción\Proyecto\LISMAN\LismanService\LismanService\bin\Debug\EntityFramework.dll
-C:\Users\Vik-t\Documents\CarreraUV\5to Semestre\Tecnologías para la Construcción\Proyecto\LISMAN\LismanService\LismanService\bin\Debug\EntityFramework.SqlServer.dll
-C:\Users\Vik-t\Documents\CarreraUV\5to Semestre\Tecnologías para la Construcción\Proyecto\LISMAN\LismanService\LismanService\bin\Debug\DataAccess.pdb
-C:\Users\Vik-t\Documents\CarreraUV\5to Semestre\Tecnologías para la Construcción\Proyecto\LISMAN\LismanService\LismanService\bin\Debug\DataAccess.dll.config
-C:\Users\Vik-t\Documents\CarreraUV\5to Semestre\Tecnologías para la Construcción\Proyecto\LISMAN\LismanService\LismanService\bin\Debug\EntityFramework.xml
-C:\Users\Vik-t\Documents\CarreraUV\5to Semestre\Tecnologías para la Construcción\Proyecto\LISMAN\LismanService\LismanService\bin\Debug\EntityFramework.SqlServer.xml
-C:\Users\Vik-t\Documents\CarreraUV\5to Semestre\Tecnologías para la Construcción\Proyecto\LISMAN\LismanService\LismanService\obj\Debug\LismanService.csproj.CopyComplete
 C:\LISMAN\LismanService\LismanService\bin\Debug\LismanService.dll.config
 C:\LISMAN\LismanService\LismanService\bin\Debug\LismanService.dll
 C:\LISMAN\LismanService\LismanService\bin\Debug\LismanService.pdb

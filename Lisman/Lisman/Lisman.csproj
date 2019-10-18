@@ -85,6 +85,7 @@
     <Compile Include="PositionsTable.xaml.cs">
       <DependentUpon>PositionsTable.xaml</DependentUpon>
     </Compile>
+    <Compile Include="SingletonAccount.cs" />
     <Compile Include="UserRegister.xaml.cs">
       <DependentUpon>UserRegister.xaml</DependentUpon>
     </Compile>

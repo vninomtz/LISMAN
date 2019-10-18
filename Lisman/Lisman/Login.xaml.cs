@@ -72,6 +72,7 @@ namespace Lisman {
                         LismanService.Account account = client.LoginAccount(textField_user.Text, EncodePassword(passwordBox_password.Password));
                         if (account != null) {
                             if (account.Key_confirmation == "" ) {
+                                SingletonAccount.setSingletonAccount(account);
                                 MainMenu mainMenu = new MainMenu();
                                 mainMenu.Show();
                                 this.Close();

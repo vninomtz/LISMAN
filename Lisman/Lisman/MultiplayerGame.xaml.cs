@@ -22,11 +22,6 @@ namespace Lisman {
             InitializeComponent();
         }
 
-        private void btn_exitGame_Click(object sender, RoutedEventArgs e)
-        {
-            MultiplayerHome homeMultiplayer = new MultiplayerHome();
-            homeMultiplayer.Show();
-            this.Close();
-        }
+        
     }
 }

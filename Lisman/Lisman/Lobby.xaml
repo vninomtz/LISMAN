@@ -7,23 +7,59 @@
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         xmlns:local="clr-namespace:Lisman"
         mc:Ignorable="d"
-        Title="Lobby" Height="450" Width="668" Background="White" >
-    <Grid>
-        <TextBlock HorizontalAlignment="Center" VerticalAlignment="Top" Margin="164,22,164,0" Text="Buscando Jugadores"
-            Style="{StaticResource MaterialDesignDisplay3TextBlock}" FontFamily="Lato Black" FontSize="36"/>
-        <TextBlock HorizontalAlignment="Center" VerticalAlignment="Top" Margin="156,83,232,0" Text="Jugadores encontrados"
-            Style="{StaticResource MaterialDesignDisplay3TextBlock}" FontFamily="Lato Black" FontSize="25" Width="272"/>
-        <TextBlock HorizontalAlignment="Center" VerticalAlignment="Top" Margin="432,83,164,0" Text="4 / 0"
-            Style="{StaticResource MaterialDesignDisplay3TextBlock}" FontFamily="Lato Black" FontSize="25" Width="64"/>
+        Title="Lobby" Height="450" Width="766.13" Background="White" >
+    <Grid  HorizontalAlignment="Left" >
+
+        <TextBlock HorizontalAlignment="Center" VerticalAlignment="Top" Text="Buscando Jugadores"
+            Style="{StaticResource MaterialDesignDisplay3TextBlock}" FontFamily="Lato Black" FontSize="36" Margin="42,27,392,0" Height="43" Width="324"/>
+        <TextBlock HorizontalAlignment="Center" VerticalAlignment="Top"  Text="Jugadores encontrados"
+            Style="{StaticResource MaterialDesignDisplay3TextBlock}" FontFamily="Lato Black" FontSize="25" Width="272" Margin="94,86,392,0" Height="30"/>
+        <TextBlock HorizontalAlignment="Center" VerticalAlignment="Top"  Text="4 / 0"
+            Style="{StaticResource MaterialDesignDisplay3TextBlock}" FontFamily="Lato Black" FontSize="25" Width="64" RenderTransformOrigin="0.471,1.343" Margin="187,121,507,0" Height="30"/>
 
         <ProgressBar
           Style="{StaticResource MaterialDesignCircularProgressBar}"
-            
           Value="35"
-          IsIndeterminate="True"  Margin="258,184,252,85" Width="150" Height="150" />
+          IsIndeterminate="True" Width="Auto" Height="Auto" Margin="116,234,507,35"   />
         <Button
                 Style="{StaticResource MaterialDesignFlatButton}" Content="{x:Static p:Resources.go_back}"
                 ToolTip="MaterialDesignFlatButton" VerticalAlignment="Top" HorizontalAlignment="Left" 
-            Height="Auto" Click="Button_Click_Cancel" />
+            Height="27" Click="Button_Click_Cancel" Width="84" />
+
+        <Button
+            x:Name="btn_exitGame"
+                Style="{StaticResource MaterialDesignFlatButton}" 
+            Content="Exit Game"
+            VerticalAlignment="Top" 
+            HorizontalAlignment="Right" 
+            FontSize="18" Click="btn_exitGame_Click"  Width="114"/>
+
+        <TextBox 
+            Height="350"
+            IsReadOnly="True"
+            TextWrapping="Wrap"
+            VerticalAlignment="Center"
+            HorizontalAlignment="Right"
+            AcceptsReturn="True"
+            VerticalScrollBarVisibility="Auto"
+            SpellCheck.IsEnabled="True"
+            materialDesign:HintAssist.Hint="Chat" Margin="0,34,0,35" Width="263"/>
+
+        <TextBox 
+                 x:Name="txt_message"
+                 VerticalAlignment="Bottom" 
+                 HorizontalAlignment="Right"
+                 materialDesign:HintAssist.Hint="Comment" 
+                 Width="218" Height="37" Margin="0,0,45,0"  />
+        <Button 
+          Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}"
+                VerticalAlignment="Bottom"
+                HorizontalAlignment="Right" 
+                Height="30" Width="30" >
+            <materialDesign:PackIcon
+            Kind="Send"
+            Height="20"
+            Width="20" />
+        </Button>
     </Grid>
 </Window>

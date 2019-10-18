@@ -56,32 +56,40 @@ namespace Lisman {
 
         public void NotifyJoinedPlayer(string user)
         {
-            textBox_chat.Text += "\nThe User " + user + "is joined to the Game";
+            textBox_chat.Text += "\nThe User " + user + " joined the Game";
 
             
         }
 
-        private void button_send_Click(object sender, RoutedEventArgs e)
-        {
+        public void SendMessage() {
             Random rd = new Random(999);
-            Message message = new Message
-            {
+            Message message = new Message {
                 Id = rd.Next(),
                 Creation_date = DateTime.Now,
                 Text = textBox_message.Text,
                 Account = SingletonAccount.getSingletonAccount()
             };
 
-            client.SendMessage(message,idGame);
+            client.SendMessage(message, idGame);
             textBox_message.Text = String.Empty;
- 
-            
+        }
+
+        private void button_send_Click(object sender, RoutedEventArgs e)
+        {
+            SendMessage();
         }
 
 
         public void NotifyNumberPlayers(int numberPlayers)
         {
             textBlock_number_players.Text = "4/" + numberPlayers;
+        }
+
+
+        public void On_key_Down_Handler(object sender, KeyEventArgs e) {
+            if (e.Key == Key.Return) {
+                SendMessage();
+            }
         }
     }
 }

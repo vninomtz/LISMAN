@@ -63,15 +63,27 @@ namespace Lisman {
             this.Close();
         }
 
-        private void btn_login_Click(object sender, RoutedEventArgs e)
-        {
+        public void On_key_Down_Handler(object sender, KeyEventArgs e) {
+            if (e.Key == Key.Return) {
+                LoginUser();
+            }
+            
+        }
+
+
+        private void btn_login_Click(object sender, RoutedEventArgs e) {
+            LoginUser();         
+        }
+
+
+        public void LoginUser() {
             if (ValidateFields()) {
-                using (var client = new LismanService.LoginManagerClient()){
-                    
+                using (var client = new LismanService.LoginManagerClient()) {
+
                     try {
                         LismanService.Account account = client.LoginAccount(textField_user.Text, EncodePassword(passwordBox_password.Password));
                         if (account != null) {
-                            if (account.Key_confirmation == "" ) {
+                            if (account.Key_confirmation == "") {
                                 SingletonAccount.setSingletonAccount(account);
                                 MainMenu mainMenu = new MainMenu();
                                 mainMenu.Show();
@@ -80,19 +92,17 @@ namespace Lisman {
                                 var messageAccountConfirm = Properties.Resources.message_account_confirm;
                                 MessageBox.Show(messageAccountConfirm);
                             }
-                            
+
                         } else {
                             var messageWarningLogin = Properties.Resources.message_warning_login;
                             MessageBox.Show(messageWarningLogin);
                         }
-                    } catch(Exception ex) {
+                    } catch (Exception ex) {
                         Console.WriteLine(ex.Message);
                     }
-                    
-                    
+
+
                 }
-
-
             }
         }
 

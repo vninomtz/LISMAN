@@ -48,6 +48,7 @@
 
         <TextBox 
                  x:Name="textBox_message"
+                KeyDown="On_key_Down_Handler"
                  VerticalAlignment="Bottom" 
                  HorizontalAlignment="Right"
                  materialDesign:HintAssist.Hint="Comment" 

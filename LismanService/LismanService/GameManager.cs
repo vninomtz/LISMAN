@@ -74,7 +74,15 @@ namespace LismanService {
 
         public int LeaveGame(string user, int game)
         {
-            throw new NotImplementedException();
+            var gameUser = listGamesOnline[game];
+            foreach (var userGame in gameUser) {
+                    gameUser.Remove(user);
+                return 1;
+                
+            }
+            
+
+            return -1;
         }
     }
 }

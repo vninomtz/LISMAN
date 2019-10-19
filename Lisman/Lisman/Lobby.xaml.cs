@@ -22,7 +22,7 @@ namespace Lisman {
         InstanceContext instance = null;
         LismanService.ChatManagerClient client = null;
         int idGame;
-        int numberPlayers;
+        
         public Lobby(int idGame)
         {
             InitializeComponent();
@@ -44,6 +44,9 @@ namespace Lisman {
 
         private void btn_exitGame_Click(object sender, RoutedEventArgs e) {
             MultiplayerHome homeMultiplayer = new MultiplayerHome();
+            LismanService.GameManagerClient clientGame = new LismanService.GameManagerClient();
+            clientGame.LeaveGame(SingletonAccount.getSingletonAccount().User, idGame);
+            client.LeaveChat(SingletonAccount.getSingletonAccount().User, idGame);
             homeMultiplayer.Show();
             this.Close();
         }
@@ -96,6 +99,10 @@ namespace Lisman {
             if (e.Key == Key.Return) {
                 SendMessage();
             }
+        }
+
+        public void NotifyLeftPlayer(string user) {
+            textBox_chat.Text += "\nThe User " + user + " left the Game";
         }
     }
 }

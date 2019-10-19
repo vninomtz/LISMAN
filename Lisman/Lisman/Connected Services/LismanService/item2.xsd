@@ -112,6 +112,14 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="LeaveChat">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="user" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="idgame" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
   <xs:element name="NotifyMessage">
     <xs:complexType>
       <xs:sequence>
@@ -130,6 +138,13 @@
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" name="numberPlayers" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="NotifyLeftPlayer">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="user" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

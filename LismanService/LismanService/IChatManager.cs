@@ -13,8 +13,10 @@ namespace LismanService {
         void SendMessage(Message message, int Game);
         [OperationContract(IsOneWay = true)]
         void JoinChat(String user, int idgame);
+        [OperationContract(IsOneWay = true)]
+        void LeaveChat(String user, int idgame);
 
-        
+
 
 
 
@@ -28,6 +30,8 @@ namespace LismanService {
         void NotifyJoinedPlayer(String user);
         [OperationContract(IsOneWay = true)]
         void NotifyNumberPlayers(int numberPlayers);
+        [OperationContract(IsOneWay = true)]
+        void NotifyLeftPlayer(String user);
     }
 
     [DataContract]

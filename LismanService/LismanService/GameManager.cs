@@ -74,15 +74,13 @@ namespace LismanService {
 
         public int LeaveGame(string user, int game)
         {
-            var gameUser = listGamesOnline[game];
-            foreach (var userGame in gameUser) {
-                    gameUser.Remove(user);
-                return 1;
-                
+            int isDelete = 1; 
+            var listGameUserNames = listGamesOnline[game];
+                listGameUserNames.Remove(user);
+                if (listGameUserNames.Count == 0) {
+                    listGamesOnline.Remove(game);
             }
-            
-
-            return -1;
+            return isDelete;
         }
     }
 }

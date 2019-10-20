@@ -59,7 +59,7 @@ namespace Lisman {
 
         public void NotifyJoinedPlayer(string user)
         {
-            textBox_chat.Text += "\nThe User " + user + " joined the Game";
+            textBox_chat.Text += user + Properties.Resources.joined_game;
 
             
         }
@@ -102,7 +102,7 @@ namespace Lisman {
         }
 
         public void NotifyLeftPlayer(string user) {
-            textBox_chat.Text += "\nThe User " + user + " left the Game";
+            textBox_chat.Text += user + Properties.Resources.left_game;
         }
     }
 }

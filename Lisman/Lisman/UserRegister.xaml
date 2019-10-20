@@ -16,17 +16,23 @@
                    Text="{x:Static p:Resources.title_user_register}" Margin="162,0,84,0" Width="448" />
 
 
-        <TextBox x:Name="textField_name" materialDesign:HintAssist.Hint="{x:Static p:Resources.name}" Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+        <TextBox x:Name="textField_name" materialDesign:HintAssist.Hint="{x:Static p:Resources.name}"
+                 KeyDown="On_key_Down_Handler" Style="{StaticResource MaterialDesignFloatingHintTextBox}"
                   Width="370" Margin="162,77,162,443" MaxLength="25"/>
-        <TextBox x:Name="textField_lastName" materialDesign:HintAssist.Hint="{x:Static p:Resources.last_name}" Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
+        <TextBox x:Name="textField_lastName" materialDesign:HintAssist.Hint="{x:Static p:Resources.last_name}" 
+                 KeyDown="On_key_Down_Handler" Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
                   Width="370" Margin="162,147,162,373" MaxLength="35"/>
-        <TextBox x:Name="textField_email" materialDesign:HintAssist.Hint="{x:Static p:Resources.email}" Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+        <TextBox x:Name="textField_email" materialDesign:HintAssist.Hint="{x:Static p:Resources.email}" 
+                  KeyDown="On_key_Down_Handler" Style="{StaticResource MaterialDesignFloatingHintTextBox}"
                   Width="370" Margin="162,217,162,303" MaxLength="35"/>
-        <TextBox x:Name="textField_userName" materialDesign:HintAssist.Hint="{x:Static p:Resources.user}" Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+        <TextBox x:Name="textField_userName" materialDesign:HintAssist.Hint="{x:Static p:Resources.user}" 
+                  KeyDown="On_key_Down_Handler" Style="{StaticResource MaterialDesignFloatingHintTextBox}"
                   Width="370" Margin="162,287,162,233" MaxLength="25"/>
-        <PasswordBox x:Name="passwordBox_password" materialDesign:HintAssist.Hint="{x:Static p:Resources.password}" Style="{StaticResource MaterialDesignFloatingHintPasswordBox}"
+        <PasswordBox x:Name="passwordBox_password" materialDesign:HintAssist.Hint="{x:Static p:Resources.password}"
+                     KeyDown="On_key_Down_Handler" Style="{StaticResource MaterialDesignFloatingHintPasswordBox}"
                   Width="370" Margin="162,357,162,163" MaxLength="16"/>
-        <PasswordBox x:Name="passwordBox_confirmPassword" materialDesign:HintAssist.Hint="{x:Static p:Resources.confirm_pass}" Style="{StaticResource MaterialDesignFloatingHintPasswordBox}"
+        <PasswordBox x:Name="passwordBox_confirmPassword" materialDesign:HintAssist.Hint="{x:Static p:Resources.confirm_pass}" 
+                     KeyDown="On_key_Down_Handler" Style="{StaticResource MaterialDesignFloatingHintPasswordBox}"
                   Width="370" Margin="162,427,162,93" MaxLength="16"/>
 
         <Button

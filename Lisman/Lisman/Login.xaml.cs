@@ -63,8 +63,8 @@ namespace Lisman {
             this.Close();
         }
 
-        public void On_key_Down_Handler(object sender, KeyEventArgs e) {
-            if (e.Key == Key.Return) {
+        public void On_key_Down_Handler(object sender, KeyEventArgs inputKey) {
+            if (inputKey.Key == Key.Return) {
                 LoginUser();
             }
             

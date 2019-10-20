@@ -125,6 +125,15 @@ namespace Lisman.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to  joined the game.
+        /// </summary>
+        public static string joined_game {
+            get {
+                return ResourceManager.GetString("joined_game", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Language.
         /// </summary>
         public static string language {
@@ -157,6 +166,15 @@ namespace Lisman.Properties {
         public static string last_name {
             get {
                 return ResourceManager.GetString("last_name", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to  left the game.
+        /// </summary>
+        public static string left_game {
+            get {
+                return ResourceManager.GetString("left_game", resourceCulture);
             }
         }
         
@@ -310,6 +328,15 @@ namespace Lisman.Properties {
         public static string message_invalid_name {
             get {
                 return ResourceManager.GetString("message_invalid_name", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to No games available.
+        /// </summary>
+        public static string message_nogames_found {
+            get {
+                return ResourceManager.GetString("message_nogames_found", resourceCulture);
             }
         }
         

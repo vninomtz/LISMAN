@@ -139,6 +139,9 @@ Haga clic en el siguiente enlace para confirmar su dirección de correo electró
   <data name="history_mode" xml:space="preserve">
     <value>Modo Historia</value>
   </data>
+  <data name="joined_game" xml:space="preserve">
+    <value> se unió al juego </value>
+  </data>
   <data name="join_game" xml:space="preserve">
     <value>Unirme a una Partida</value>
   </data>
@@ -153,6 +156,9 @@ Haga clic en el siguiente enlace para confirmar su dirección de correo electró
   </data>
   <data name="last_name" xml:space="preserve">
     <value>Apellidos</value>
+  </data>
+  <data name="left_game" xml:space="preserve">
+    <value> dejó el juego</value>
   </data>
   <data name="log_in" xml:space="preserve">
     <value>Iniciar Sesión</value>
@@ -201,6 +207,9 @@ Haga clic en el siguiente enlace para confirmar su dirección de correo electró
   </data>
   <data name="message_invalid_name" xml:space="preserve">
     <value>Ingresar un nombre valido por favor</value>
+  </data>
+  <data name="message_nogames_found" xml:space="preserve">
+    <value>No hay juegos disponibles</value>
   </data>
   <data name="message_registration_error" xml:space="preserve">
     <value>Error al Registrar</value>

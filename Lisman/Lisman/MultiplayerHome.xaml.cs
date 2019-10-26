@@ -52,6 +52,8 @@ namespace Lisman {
                 Lobby lobby = new Lobby(idGame);
                 lobby.Show();
                 this.Close();
+            } else {
+                MessageBox.Show(Properties.Resources.message_nogames_found);
             }
 
            

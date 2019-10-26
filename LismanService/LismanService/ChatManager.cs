@@ -32,15 +32,13 @@ namespace LismanService {
         }
 
         public void LeaveChat(string user, int idgame) {
-            foreach (var userGame in listGamesOnline[idgame]) {
-                connectionChatService[userGame].NotifyNumberPlayers(listGamesOnline[idgame].Count);
-
-            }
-            foreach (var userGame in listGamesOnline[idgame]) {
-             
+                foreach (var userGame in listGamesOnline[idgame]) {
+                    connectionChatService[userGame].NotifyNumberPlayers(listGamesOnline[idgame].Count);
+                }
+                foreach (var userGame in listGamesOnline[idgame]) {
                     connectionChatService[userGame].NotifyLeftPlayer(user);
             }
-        }
+       
 
         public void SendMessage(Message message, int idgame)
         {

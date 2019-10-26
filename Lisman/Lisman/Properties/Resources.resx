@@ -136,6 +136,9 @@ Click on the following link to confirm your email address and finish the process
   <data name="history_mode" xml:space="preserve">
     <value>History Mode</value>
   </data>
+  <data name="joined_game" xml:space="preserve">
+    <value> joined the game</value>
+  </data>
   <data name="join_game" xml:space="preserve">
     <value>Join a game</value>
   </data>
@@ -150,6 +153,9 @@ Click on the following link to confirm your email address and finish the process
   </data>
   <data name="last_name" xml:space="preserve">
     <value>Last Name</value>
+  </data>
+  <data name="left_game" xml:space="preserve">
+    <value> left the game</value>
   </data>
   <data name="log_in" xml:space="preserve">
     <value>Log In</value>
@@ -201,6 +207,9 @@ Click on the following link to confirm your email address and finish the process
   </data>
   <data name="message_invalid_name" xml:space="preserve">
     <value>Enter valid name please</value>
+  </data>
+  <data name="message_nogames_found" xml:space="preserve">
+    <value>No games available</value>
   </data>
   <data name="message_registration_error" xml:space="preserve">
     <value>Registration Failed</value>

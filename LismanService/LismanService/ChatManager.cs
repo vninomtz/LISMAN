@@ -32,11 +32,20 @@ namespace LismanService {
         }
 
         public void LeaveChat(string user, int idgame) {
+            try {
                 foreach (var userGame in listGamesOnline[idgame]) {
                     connectionChatService[userGame].NotifyNumberPlayers(listGamesOnline[idgame].Count);
                 }
                 foreach (var userGame in listGamesOnline[idgame]) {
                     connectionChatService[userGame].NotifyLeftPlayer(user);
+<<<<<<< HEAD
+=======
+                }
+            } catch (KeyNotFoundException) {
+            }   
+
+
+>>>>>>> master
             }
        
 

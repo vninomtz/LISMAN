@@ -38,21 +38,37 @@ namespace LismanService {
                 }
                 foreach (var userGame in listGamesOnline[idgame]) {
                     connectionChatService[userGame].NotifyLeftPlayer(user);
+<<<<<<< HEAD
                 }
             } catch (KeyNotFoundException) {
             }   
 
 
             }
+=======
+
+
+                }
+            } catch (KeyNotFoundException) {
+            }
+
+
+
+        }
+>>>>>>> branch-victor
        
 
         public void SendMessage(Message message, int idgame)
         {
-
-            foreach (var userGame in listGamesOnline[idgame]) {
-                    
+            foreach (var userGame in listGamesOnline[idgame]) {           
                     connectionChatService[userGame].NotifyMessage(message);
-                
+            }
+        }
+
+        public void StartGame(string user, int idgame)
+        {
+            foreach(var userGame in listGamesOnline[idgame]) {
+                connectionChatService[userGame].InitGame();
             }
         }
     }

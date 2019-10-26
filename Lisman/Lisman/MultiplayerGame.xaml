@@ -6,134 +6,77 @@
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         xmlns:local="clr-namespace:Lisman"
         mc:Ignorable="d"
-        Title="Game Multiplayer" Height="800" Width="800" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" 
+        Title="Game Multiplayer" Height="700" Width="1000" ResizeMode="CanMinimize" WindowStartupLocation="CenterScreen" 
         Topmost="True" Icon="Resources/img/icon_pacman.png">
-    <Grid>
-
-        <StackPanel Grid.Column="0" Background="Black" >
-            <Grid >
-
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="50*"/>
-                    <RowDefinition Height="370" />
-                    <RowDefinition Height="50*" />
-                </Grid.RowDefinitions>
-                <StackPanel Grid.Row="0" Grid.ColumnSpan="2">
-                    <Grid Height="50">
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="16.6" />
-                            <RowDefinition Height="16.6"/>
-                            <RowDefinition Height="16.6"/>
-                        </Grid.RowDefinitions>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="233" />
-                            <ColumnDefinition Width="233"/>
-                            <ColumnDefinition Width="233"/>
-                        </Grid.ColumnDefinitions>
-                        <TextBlock Grid.Column="0" Foreground="White"
-                                   Grid.Row="0"
-                                   HorizontalAlignment="Center" 
-                            Style="{StaticResource MaterialDesignBody2TextBlock}" >
-                          Jugador 2
-                        </TextBlock>
-                        <TextBlock Grid.Column="0" Foreground="White"
-                                   Grid.Row="1"
-                                   HorizontalAlignment="Center" 
-                            Style="{StaticResource MaterialDesignBody2TextBlock}"  >
-                         Puntaje
-                        </TextBlock>
-                        <TextBlock Grid.Column="0" Foreground="White"
-                                   Grid.Row="2"
-                                   HorizontalAlignment="Center" 
-                            Style="{StaticResource MaterialDesignBody2TextBlock}"  >
-                         Vidas
-                        </TextBlock>
-
-                        <TextBlock Grid.Column="1" Foreground="White"
-                                   Grid.Row="0"
-                                   HorizontalAlignment="Center" 
-                            Style="{StaticResource MaterialDesignBody2TextBlock}" >
-                          Jugador 3
-                        </TextBlock>
-                        <TextBlock Grid.Column="1" Foreground="White"
-                                   Grid.Row="1"
-                                   HorizontalAlignment="Center" 
-                            Style="{StaticResource MaterialDesignBody2TextBlock}"  >
-                         Puntaje
-                        </TextBlock>
-                        <TextBlock Grid.Column="1" Foreground="White"
-                                   Grid.Row="2"
-                                   HorizontalAlignment="Center" 
-                            Style="{StaticResource MaterialDesignBody2TextBlock}"  >
-                         Vidas
-                        </TextBlock>
-
-                        <TextBlock Grid.Column="2" Foreground="White"
-                                   Grid.Row="0"
-                                   HorizontalAlignment="Center" 
-                            Style="{StaticResource MaterialDesignBody2TextBlock}" >
-                          Jugador 3
-                        </TextBlock>
-                        <TextBlock Grid.Column="2" Foreground="White"
-                                   Grid.Row="1"
-                                   HorizontalAlignment="Center" 
-                            Style="{StaticResource MaterialDesignBody2TextBlock}"  >
-                         Puntaje
-                        </TextBlock>
-                        <TextBlock Grid.Column="2" Foreground="White"
-                                   Grid.Row="2"
-                                   HorizontalAlignment="Center" 
-                            Style="{StaticResource MaterialDesignBody2TextBlock}"  >
-                         Vidas
-                        </TextBlock>
+    <Grid MaxHeight="700" MaxWidth="1000">
 
 
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="700*"/>
+            <ColumnDefinition Width="300*"/>
+        </Grid.ColumnDefinitions>
 
-                    </Grid>
-                </StackPanel>
-                <StackPanel Grid.Row="1" Margin="0,0,0,-274" Grid.RowSpan="2"  >
-                    <StackPanel.Background>
-                        <ImageBrush ImageSource="Resources/img/Laberinto.png"/>
-                    </StackPanel.Background>
-                    <Grid Height="370">
-                        <Rectangle HorizontalAlignment="Left" Height="14" VerticalAlignment="Top" Width="686"/>
+        <Grid Grid.Column="0" x:Name="Matriz">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="35*" />
+                <RowDefinition Height="35*"/>
+                <RowDefinition Height="35*"/>
+                <RowDefinition Height="35*"/>
+                <RowDefinition Height="35*"/>
+                <RowDefinition Height="35*"/>
+                <RowDefinition Height="35*"/>
+                <RowDefinition Height="35*"/>
+                <RowDefinition Height="35*"/>
+                <RowDefinition Height="35*"/>
+                <RowDefinition Height="35*"/>
+                <RowDefinition Height="35*"/>
+                <RowDefinition Height="35*"/>
+                <RowDefinition Height="35*"/>
+                <RowDefinition Height="35*"/>
+                <RowDefinition Height="35*"/>
+                <RowDefinition Height="35*"/>
+                <RowDefinition Height="35*"/>
+                <RowDefinition Height="35*"/>
+                <RowDefinition Height="35*"/>
+                <RowDefinition Height="35*"/>
+                <RowDefinition Height="35*"/>
+                <RowDefinition Height="35*"/>
+                <RowDefinition Height="35*"/>
+                <RowDefinition Height="35*"/>
+            </Grid.RowDefinitions>
 
-                    </Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="35*"/>
+                <ColumnDefinition Width="35*"/>
+                <ColumnDefinition Width="35*"/>
+                <ColumnDefinition Width="35*"/>
+                <ColumnDefinition Width="35*"/>
+                <ColumnDefinition Width="35*"/>
+                <ColumnDefinition Width="35*"/>
+                <ColumnDefinition Width="35*"/>
+                <ColumnDefinition Width="35*"/>
+                <ColumnDefinition Width="35*"/>
+                <ColumnDefinition Width="35*"/>
+                <ColumnDefinition Width="35*"/>
+                <ColumnDefinition Width="35*"/>
+                <ColumnDefinition Width="35*"/>
+                <ColumnDefinition Width="35*"/>
+                <ColumnDefinition Width="35*"/>
+                <ColumnDefinition Width="35*"/>
+                <ColumnDefinition Width="35*"/>
+                <ColumnDefinition Width="35*"/>
+                <ColumnDefinition Width="35*"/>
+                <ColumnDefinition Width="35*"/>
+                <ColumnDefinition Width="35*"/>
+                <ColumnDefinition Width="35*"/>
+                <ColumnDefinition Width="35*"/>
+                <ColumnDefinition Width="35*"/>
+            </Grid.ColumnDefinitions>
 
+            <Image x:Name="Pacman" Grid.Row="0" Grid.Column="0" Source="Resources/img/icon_pacman.png"></Image>
 
-
-                </StackPanel>
-                <StackPanel Grid.Row="2" Height="50">
-                    <Grid>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="233*"/>
-                            <ColumnDefinition Width="233*"/>
-                            <ColumnDefinition Width="233*"/>
-                        </Grid.ColumnDefinitions>
-                        <TextBlock Grid.Column="0" Foreground="White"
-                                   HorizontalAlignment="Center"
-                                   VerticalAlignment="Center"
-                                   Style="{StaticResource MaterialDesignBody2TextBlock}" Margin="112,524,187,-525" >
-                         Vidas
-                        </TextBlock>
-                        <TextBlock Grid.Column="1" Foreground="White"
-                                   HorizontalAlignment="Center"
-                                   VerticalAlignment="Center"
-                                   Style="{StaticResource MaterialDesignBody2TextBlock}" Margin="105,524,182,-525" >
-                         Puntaje
-                        </TextBlock>
-                        <TextBlock Grid.Column="2" Foreground="White"
-                                   HorizontalAlignment="Center"
-                                   VerticalAlignment="Center"
-                                   Style="{StaticResource MaterialDesignBody2TextBlock}" Margin="55,524,130,-525" >
-                         Experiencias eduacativas
-                        </TextBlock>
-                    </Grid>
-                </StackPanel>
-
-            </Grid>
-        </StackPanel>
-
+        </Grid>
+        <Button Content="Iniciar Pacman" Grid.Column="1" HorizontalAlignment="Left" Margin="124,134,0,0" VerticalAlignment="Top" Width="132" Click="Button_Click"/>
 
     </Grid>
 

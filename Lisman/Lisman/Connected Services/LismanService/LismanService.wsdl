@@ -174,6 +174,9 @@
   <wsdl:message name="IChatManager_LeaveChat_InputMessage">
     <wsdl:part name="parameters" element="tns:LeaveChat" />
   </wsdl:message>
+  <wsdl:message name="IChatManager_StartGame_InputMessage">
+    <wsdl:part name="parameters" element="tns:StartGame" />
+  </wsdl:message>
   <wsdl:message name="IChatManager_NotifyMessage_OutputCallbackMessage">
     <wsdl:part name="parameters" element="tns:NotifyMessage" />
   </wsdl:message>
@@ -185,6 +188,9 @@
   </wsdl:message>
   <wsdl:message name="IChatManager_NotifyLeftPlayer_OutputCallbackMessage">
     <wsdl:part name="parameters" element="tns:NotifyLeftPlayer" />
+  </wsdl:message>
+  <wsdl:message name="IChatManager_InitGame_OutputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:InitGame" />
   </wsdl:message>
   <wsdl:message name="ILoginManager_LoginAccount_InputMessage">
     <wsdl:part name="parameters" element="tns:LoginAccount" />
@@ -252,6 +258,9 @@
     <wsdl:operation name="LeaveChat">
       <wsdl:input wsaw:Action="http://tempuri.org/IChatManager/LeaveChat" message="tns:IChatManager_LeaveChat_InputMessage" />
     </wsdl:operation>
+    <wsdl:operation name="StartGame">
+      <wsdl:input wsaw:Action="http://tempuri.org/IChatManager/StartGame" message="tns:IChatManager_StartGame_InputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="NotifyMessage">
       <wsdl:output wsaw:Action="http://tempuri.org/IChatManager/NotifyMessage" message="tns:IChatManager_NotifyMessage_OutputCallbackMessage" />
     </wsdl:operation>
@@ -263,6 +272,9 @@
     </wsdl:operation>
     <wsdl:operation name="NotifyLeftPlayer">
       <wsdl:output wsaw:Action="http://tempuri.org/IChatManager/NotifyLeftPlayer" message="tns:IChatManager_NotifyLeftPlayer_OutputCallbackMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="InitGame">
+      <wsdl:output wsaw:Action="http://tempuri.org/IChatManager/InitGame" message="tns:IChatManager_InitGame_OutputCallbackMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:portType name="ILoginManager">
@@ -375,6 +387,12 @@
         <soap12:body use="literal" />
       </wsdl:input>
     </wsdl:operation>
+    <wsdl:operation name="StartGame">
+      <soap12:operation soapAction="http://tempuri.org/IChatManager/StartGame" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
     <wsdl:operation name="NotifyMessage">
       <soap12:operation soapAction="http://tempuri.org/IChatManager/NotifyMessage" style="document" />
       <wsdl:output>
@@ -395,6 +413,12 @@
     </wsdl:operation>
     <wsdl:operation name="NotifyLeftPlayer">
       <soap12:operation soapAction="http://tempuri.org/IChatManager/NotifyLeftPlayer" style="document" />
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InitGame">
+      <soap12:operation soapAction="http://tempuri.org/IChatManager/InitGame" style="document" />
       <wsdl:output>
         <soap12:body use="literal" />
       </wsdl:output>
@@ -446,7 +470,7 @@
       <wsa10:EndpointReference>
         <wsa10:Address>net.tcp://localhost:8091/CalculatorService</wsa10:Address>
         <Identity xmlns="http://schemas.xmlsoap.org/ws/2006/02/addressingidentity">
-          <Upn>ALANGONZALZ9AE0\alanglezh</Upn>
+          <Upn>VICTORNIÑOPC\Vik-t</Upn>
         </Identity>
       </wsa10:EndpointReference>
     </wsdl:port>
@@ -455,7 +479,7 @@
       <wsa10:EndpointReference>
         <wsa10:Address>net.tcp://localhost:8091/CalculatorService</wsa10:Address>
         <Identity xmlns="http://schemas.xmlsoap.org/ws/2006/02/addressingidentity">
-          <Upn>ALANGONZALZ9AE0\alanglezh</Upn>
+          <Upn>VICTORNIÑOPC\Vik-t</Upn>
         </Identity>
       </wsa10:EndpointReference>
     </wsdl:port>
@@ -464,7 +488,7 @@
       <wsa10:EndpointReference>
         <wsa10:Address>net.tcp://localhost:8091/CalculatorService</wsa10:Address>
         <Identity xmlns="http://schemas.xmlsoap.org/ws/2006/02/addressingidentity">
-          <Upn>ALANGONZALZ9AE0\alanglezh</Upn>
+          <Upn>VICTORNIÑOPC\Vik-t</Upn>
         </Identity>
       </wsa10:EndpointReference>
     </wsdl:port>
@@ -473,7 +497,7 @@
       <wsa10:EndpointReference>
         <wsa10:Address>net.tcp://localhost:8091/CalculatorService</wsa10:Address>
         <Identity xmlns="http://schemas.xmlsoap.org/ws/2006/02/addressingidentity">
-          <Upn>ALANGONZALZ9AE0\alanglezh</Upn>
+          <Upn>VICTORNIÑOPC\Vik-t</Upn>
         </Identity>
       </wsa10:EndpointReference>
     </wsdl:port>

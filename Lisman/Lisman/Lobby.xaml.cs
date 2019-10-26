@@ -19,9 +19,11 @@ namespace Lisman {
     /// Interaction logic for Lobby.xaml
     /// </summary>
     public partial class Lobby : Window, LismanService.IChatManagerCallback {
+        int COMPLETEPLAYERS = 4;
         InstanceContext instance = null;
         LismanService.ChatManagerClient client = null;
         int idGame;
+
         
         public Lobby(int idGame)
         {
@@ -31,6 +33,7 @@ namespace Lisman {
             client = new ChatManagerClient(instance);
             client.JoinChat(SingletonAccount.getSingletonAccount().User, idGame);
             textBlock_name_player.Text = SingletonAccount.getSingletonAccount().User;
+            btn_startGame.IsEnabled = false;
             
 
         }
@@ -91,6 +94,9 @@ namespace Lisman {
 
         public void NotifyNumberPlayers(int numberPlayers)
         {
+            if(numberPlayers == COMPLETEPLAYERS) {
+                btn_startGame.IsEnabled = true;
+            }
             textBlock_number_players.Text =  numberPlayers + " / 4";
         }
 
@@ -103,6 +109,18 @@ namespace Lisman {
 
         public void NotifyLeftPlayer(string user) {
             textBox_chat.Text += "\nThe User " + user + " left the Game";
+        }
+
+        private void btn_startGame_Click(object sender, RoutedEventArgs e)
+        {
+            client.StartGame(SingletonAccount.getSingletonAccount().User, idGame);
+        }
+
+        public void InitGame()
+        {
+            MultiplayerGame game = new MultiplayerGame(idGame);
+            game.Show();
+            this.Close();
         }
     }
 }

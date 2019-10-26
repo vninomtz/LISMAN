@@ -11,17 +11,36 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.Windows.Threading;
 
 namespace Lisman {
     /// <summary>
     /// Interaction logic for MultiplayerGame.xaml
     /// </summary>
     public partial class MultiplayerGame : Window {
-        public MultiplayerGame()
+        int idgame;
+        int count = 0;
+        
+        public MultiplayerGame(int idgame)
         {
             InitializeComponent();
+            this.idgame = idgame;
+            DispatcherTimer dispatcherTimer = new DispatcherTimer();
+            dispatcherTimer.Tick +=  new EventHandler(Moverpacman);
+            dispatcherTimer.Interval = new TimeSpan(0, 0, 0, 0, 500);
+            dispatcherTimer.Start();
         }
 
-        
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            count = 0;
+        }
+
+        private void Moverpacman(object sender, EventArgs e)
+        {
+            count += 1;
+            Grid.SetRow(Pacman, 0);
+            Grid.SetColumn(Pacman, count);
+        } 
     }
 }

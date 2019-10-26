@@ -666,6 +666,12 @@ namespace Lisman.LismanService {
         
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IChatManager/LeaveChat")]
         System.Threading.Tasks.Task LeaveChatAsync(string user, int idgame);
+        
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IChatManager/StartGame")]
+        void StartGame(string user, int idgame);
+        
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IChatManager/StartGame")]
+        System.Threading.Tasks.Task StartGameAsync(string user, int idgame);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -682,6 +688,9 @@ namespace Lisman.LismanService {
         
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IChatManager/NotifyLeftPlayer")]
         void NotifyLeftPlayer(string user);
+        
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IChatManager/InitGame")]
+        void InitGame();
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -734,6 +743,14 @@ namespace Lisman.LismanService {
         
         public System.Threading.Tasks.Task LeaveChatAsync(string user, int idgame) {
             return base.Channel.LeaveChatAsync(user, idgame);
+        }
+        
+        public void StartGame(string user, int idgame) {
+            base.Channel.StartGame(user, idgame);
+        }
+        
+        public System.Threading.Tasks.Task StartGameAsync(string user, int idgame) {
+            return base.Channel.StartGameAsync(user, idgame);
         }
     }
     

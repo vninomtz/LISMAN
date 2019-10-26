@@ -58,6 +58,7 @@
     <Compile Include="GameManager.cs" />
     <Compile Include="IChatManager.cs" />
     <Compile Include="IGameManager.cs" />
+    <Compile Include="IMultiplayerManager.cs" />
     <Compile Include="LismanService.cs" />
     <Compile Include="IAccountManager.cs" />
     <Compile Include="LoginManager.cs" />

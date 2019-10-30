@@ -109,8 +109,6 @@ namespace Lisman {
 
         public void NotifyLeftPlayer(string user) {
             textBox_chat.Text += user + Properties.Resources.left_game;
-<<<<<<< HEAD
-=======
         }
 
         private void btn_startGame_Click(object sender, RoutedEventArgs e)
@@ -123,7 +121,6 @@ namespace Lisman {
             MultiplayerGame game = new MultiplayerGame(idGame);
             game.Show();
             this.Close();
->>>>>>> branch-victor
         }
     }
 }

@@ -6,7 +6,7 @@
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         xmlns:local="clr-namespace:Lisman"
         mc:Ignorable="d"
-        Title="Game Multiplayer" Height="700" Width="1000" ResizeMode="CanMinimize" WindowStartupLocation="CenterScreen" 
+        Title="Game Multiplayer" Height="700" Width="1000" ResizeMode="CanMinimize" WindowStartupLocation="CenterScreen" KeyDown="Matriz_KeyDown" 
         Topmost="True" Icon="Resources/img/icon_pacman.png">
     <Grid MaxHeight="700" MaxWidth="1000">
 
@@ -16,7 +16,7 @@
             <ColumnDefinition Width="300*"/>
         </Grid.ColumnDefinitions>
 
-        <Grid Grid.Column="0" x:Name="Matriz">
+        <Grid Grid.Column="0" x:Name="Matriz" >
             <Grid.RowDefinitions>
                 <RowDefinition Height="35*" />
                 <RowDefinition Height="35*"/>
@@ -73,7 +73,7 @@
                 <ColumnDefinition Width="35*"/>
             </Grid.ColumnDefinitions>
 
-            <Image x:Name="Pacman" Grid.Row="0" Grid.Column="0" Source="Resources/img/icon_pacman.png"></Image>
+            <Image x:Name="Pacman"  Grid.Row="0" Grid.Column="0" Source="Resources/img/icon_pacman.png"></Image>
 
         </Grid>
         <Button Content="Iniciar Pacman" Grid.Column="1" HorizontalAlignment="Left" Margin="124,134,0,0" VerticalAlignment="Top" Width="132" Click="Button_Click"/>

@@ -38,14 +38,6 @@ namespace LismanService {
                 }
                 foreach (var userGame in listGamesOnline[idgame]) {
                     connectionChatService[userGame].NotifyLeftPlayer(user);
-<<<<<<< HEAD
-                }
-            } catch (KeyNotFoundException) {
-            }   
-
-
-            }
-=======
 
 
                 }
@@ -55,7 +47,6 @@ namespace LismanService {
 
 
         }
->>>>>>> branch-victor
        
 
         public void SendMessage(Message message, int idgame)
@@ -67,7 +58,17 @@ namespace LismanService {
 
         public void StartGame(string user, int idgame)
         {
-            foreach(var userGame in listGamesOnline[idgame]) {
+            if (!multiplayerGameInformation.ContainsKey(idgame))
+            {
+                Game informationGame = new Game
+                {
+                    gameMap = GAMEMAP,
+                    
+                };
+                multiplayerGameInformation.Add(idgame, informationGame);
+            }
+            foreach (var userGame in listGamesOnline[idgame]) {
+                
                 connectionChatService[userGame].InitGame();
             }
         }

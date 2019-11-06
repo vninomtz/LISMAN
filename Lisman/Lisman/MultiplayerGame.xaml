@@ -5,6 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         xmlns:local="clr-namespace:Lisman"
+        xmlns:gif="http://wpfanimatedgif.codeplex.com"
         mc:Ignorable="d"
         Title="Game Multiplayer" Height="700" Width="1000" ResizeMode="CanMinimize" WindowStartupLocation="CenterScreen" KeyDown="Matriz_KeyDown" 
         Topmost="True" Icon="Resources/img/icon_pacman.png">
@@ -16,67 +17,69 @@
             <ColumnDefinition Width="300*"/>
         </Grid.ColumnDefinitions>
 
-        <Grid Grid.Column="0" x:Name="Matriz" >
+        <Grid Grid.Column="0" x:Name="Matriz"  Background="Black">
             <Grid.RowDefinitions>
-                <RowDefinition Height="35*" />
-                <RowDefinition Height="35*"/>
-                <RowDefinition Height="35*"/>
-                <RowDefinition Height="35*"/>
-                <RowDefinition Height="35*"/>
-                <RowDefinition Height="35*"/>
-                <RowDefinition Height="35*"/>
-                <RowDefinition Height="35*"/>
-                <RowDefinition Height="35*"/>
-                <RowDefinition Height="35*"/>
-                <RowDefinition Height="35*"/>
-                <RowDefinition Height="35*"/>
-                <RowDefinition Height="35*"/>
-                <RowDefinition Height="35*"/>
-                <RowDefinition Height="35*"/>
-                <RowDefinition Height="35*"/>
-                <RowDefinition Height="35*"/>
-                <RowDefinition Height="35*"/>
-                <RowDefinition Height="35*"/>
-                <RowDefinition Height="35*"/>
-                <RowDefinition Height="35*"/>
-                <RowDefinition Height="35*"/>
-                <RowDefinition Height="35*"/>
-                <RowDefinition Height="35*"/>
-                <RowDefinition Height="35*"/>
+                <RowDefinition  Height="29.16*"/>
+                <RowDefinition Height="29.16*"/>
+                <RowDefinition Height="29.16*"/>
+                <RowDefinition Height="29.16*"/>
+                <RowDefinition Height="29.16*"/>
+                <RowDefinition Height="29.16*"/>
+                <RowDefinition Height="29.16*"/>
+                <RowDefinition Height="29.16*"/>
+                <RowDefinition Height="29.16*"/>
+                <RowDefinition Height="29.16*"/>
+                <RowDefinition Height="29.16*"/>
+                <RowDefinition Height="29.16*"/>
+                <RowDefinition Height="29.16*"/>
+                <RowDefinition Height="29.16*"/>
+                <RowDefinition Height="29.16*"/>
+                <RowDefinition Height="29.16*"/>
+                <RowDefinition Height="29.16*"/>
+                <RowDefinition Height="29.16*"/>
+                <RowDefinition Height="29.16*"/>
+                <RowDefinition Height="29.16*"/>
+                <RowDefinition Height="29.16*"/>
+                <RowDefinition Height="29.16*"/>
+                <RowDefinition Height="29.16*"/>
+                <RowDefinition Height="29.16*"/>
             </Grid.RowDefinitions>
 
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="35*"/>
-                <ColumnDefinition Width="35*"/>
-                <ColumnDefinition Width="35*"/>
-                <ColumnDefinition Width="35*"/>
-                <ColumnDefinition Width="35*"/>
-                <ColumnDefinition Width="35*"/>
-                <ColumnDefinition Width="35*"/>
-                <ColumnDefinition Width="35*"/>
-                <ColumnDefinition Width="35*"/>
-                <ColumnDefinition Width="35*"/>
-                <ColumnDefinition Width="35*"/>
-                <ColumnDefinition Width="35*"/>
-                <ColumnDefinition Width="35*"/>
-                <ColumnDefinition Width="35*"/>
-                <ColumnDefinition Width="35*"/>
-                <ColumnDefinition Width="35*"/>
-                <ColumnDefinition Width="35*"/>
-                <ColumnDefinition Width="35*"/>
-                <ColumnDefinition Width="35*"/>
-                <ColumnDefinition Width="35*"/>
-                <ColumnDefinition Width="35*"/>
-                <ColumnDefinition Width="35*"/>
-                <ColumnDefinition Width="35*"/>
-                <ColumnDefinition Width="35*"/>
-                <ColumnDefinition Width="35*"/>
+                <ColumnDefinition Width="29.16*"/>
+                <ColumnDefinition Width="29.16*"/>
+                <ColumnDefinition Width="29.16*"/>
+                <ColumnDefinition Width="29.16*"/>
+                <ColumnDefinition Width="29.16*"/>
+                <ColumnDefinition Width="29.16*"/>
+                <ColumnDefinition Width="29.16*"/>
+                <ColumnDefinition Width="29.16*"/>
+                <ColumnDefinition Width="29.16*"/>
+                <ColumnDefinition Width="29.16*"/>
+                <ColumnDefinition Width="29.16*"/>
+                <ColumnDefinition Width="29.16*"/>
+                <ColumnDefinition Width="29.16*"/>
+                <ColumnDefinition Width="29.16*"/>
+                <ColumnDefinition Width="29.16*"/>
+                <ColumnDefinition Width="29.16*"/>
+                <ColumnDefinition Width="29.16*"/>
+                <ColumnDefinition Width="29.16*"/>
+                <ColumnDefinition Width="29.16*"/>
+                <ColumnDefinition Width="29.16*"/>
+                <ColumnDefinition Width="29.16*"/>
+                <ColumnDefinition Width="29.16*"/>
+                <ColumnDefinition Width="29.16*"/>
+                <ColumnDefinition Width="29.16*"/>
             </Grid.ColumnDefinitions>
 
-            <Image x:Name="Pacman"  Grid.Row="0" Grid.Column="0" Source="Resources/img/icon_pacman.png"></Image>
+            <Image x:Name="Pacman" gif:ImageBehavior.RepeatBehavior="1000x" 
+                   Grid.Row="1" Grid.Column="1" gif:ImageBehavior.AnimatedSource="Resources/img/Pacman.gif"></Image>
+            <Image x:Name="Wall" Source="Resources/img/Muro.png" Grid.Row="0" Grid.Column="0"/>
+            <StackPanel Grid.Row="0" Grid.Column="1" Background="Blue"/>
 
         </Grid>
         <Button Content="Iniciar Pacman" Grid.Column="1" HorizontalAlignment="Left" Margin="124,134,0,0" VerticalAlignment="Top" Width="132" Click="Button_Click"/>
+        
 
     </Grid>
 

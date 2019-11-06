@@ -26,3 +26,6 @@ C:\Users\Vik-t\Documents\CarreraUV\5to Semestre\Tecnologías para la Construcci�
 C:\Users\Vik-t\Documents\CarreraUV\5to Semestre\Tecnologías para la Construcción\Proyecto\LISMAN\LismanService\LismanService\obj\Debug\LismanService.csproj.CopyComplete
 C:\Users\Vik-t\Documents\CarreraUV\5to Semestre\Tecnologías para la Construcción\Proyecto\LISMAN\LismanService\LismanService\obj\Debug\LismanService.dll
 C:\Users\Vik-t\Documents\CarreraUV\5to Semestre\Tecnologías para la Construcción\Proyecto\LISMAN\LismanService\LismanService\obj\Debug\LismanService.pdb
+C:\LISMAN\LismanService\LismanService\bin\Debug\log4net.config
+C:\LISMAN\LismanService\LismanService\bin\Debug\log4net.dll
+C:\LISMAN\LismanService\LismanService\bin\Debug\log4net.xml

@@ -32,3 +32,6 @@ C:\Users\Vik-t\Documents\CarreraUV\5to Semestre\Tecnologías para la Construcci�
 C:\Users\Vik-t\Documents\CarreraUV\5to Semestre\Tecnologías para la Construcción\Proyecto\LISMAN\LismanService\Host\obj\Debug\Host.csproj.CopyComplete
 C:\Users\Vik-t\Documents\CarreraUV\5to Semestre\Tecnologías para la Construcción\Proyecto\LISMAN\LismanService\Host\obj\Debug\Host.exe
 C:\Users\Vik-t\Documents\CarreraUV\5to Semestre\Tecnologías para la Construcción\Proyecto\LISMAN\LismanService\Host\obj\Debug\Host.pdb
+C:\LISMAN\LismanService\Host\bin\Debug\log4net.config
+C:\LISMAN\LismanService\Host\bin\Debug\log4net.dll
+C:\LISMAN\LismanService\Host\bin\Debug\log4net.xml

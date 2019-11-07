@@ -470,7 +470,11 @@
       <wsa10:EndpointReference>
         <wsa10:Address>net.tcp://localhost:8091/CalculatorService</wsa10:Address>
         <Identity xmlns="http://schemas.xmlsoap.org/ws/2006/02/addressingidentity">
+<<<<<<< HEAD
           <Upn>ALANGONZALZ9AE0\alanglezh</Upn>
+=======
+          <Upn>DESKTOP-VICTOR\victorniño</Upn>
+>>>>>>> master
         </Identity>
       </wsa10:EndpointReference>
     </wsdl:port>
@@ -479,7 +483,11 @@
       <wsa10:EndpointReference>
         <wsa10:Address>net.tcp://localhost:8091/CalculatorService</wsa10:Address>
         <Identity xmlns="http://schemas.xmlsoap.org/ws/2006/02/addressingidentity">
+<<<<<<< HEAD
           <Upn>ALANGONZALZ9AE0\alanglezh</Upn>
+=======
+          <Upn>DESKTOP-VICTOR\victorniño</Upn>
+>>>>>>> master
         </Identity>
       </wsa10:EndpointReference>
     </wsdl:port>
@@ -488,7 +496,11 @@
       <wsa10:EndpointReference>
         <wsa10:Address>net.tcp://localhost:8091/CalculatorService</wsa10:Address>
         <Identity xmlns="http://schemas.xmlsoap.org/ws/2006/02/addressingidentity">
+<<<<<<< HEAD
           <Upn>ALANGONZALZ9AE0\alanglezh</Upn>
+=======
+          <Upn>DESKTOP-VICTOR\victorniño</Upn>
+>>>>>>> master
         </Identity>
       </wsa10:EndpointReference>
     </wsdl:port>
@@ -497,7 +509,11 @@
       <wsa10:EndpointReference>
         <wsa10:Address>net.tcp://localhost:8091/CalculatorService</wsa10:Address>
         <Identity xmlns="http://schemas.xmlsoap.org/ws/2006/02/addressingidentity">
+<<<<<<< HEAD
           <Upn>ALANGONZALZ9AE0\alanglezh</Upn>
+=======
+          <Upn>DESKTOP-VICTOR\victorniño</Upn>
+>>>>>>> master
         </Identity>
       </wsa10:EndpointReference>
     </wsdl:port>

@@ -58,7 +58,17 @@ namespace LismanService {
 
         public void StartGame(string user, int idgame)
         {
-            foreach(var userGame in listGamesOnline[idgame]) {
+            if (!multiplayerGameInformation.ContainsKey(idgame))
+            {
+                Game informationGame = new Game
+                {
+                    gameMap = GAMEMAP,
+                    
+                };
+                multiplayerGameInformation.Add(idgame, informationGame);
+            }
+            foreach (var userGame in listGamesOnline[idgame]) {
+                
                 connectionChatService[userGame].InitGame();
             }
         }

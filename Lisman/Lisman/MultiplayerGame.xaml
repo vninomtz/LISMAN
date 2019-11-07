@@ -5,8 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         xmlns:local="clr-namespace:Lisman"
+        xmlns:gif="http://wpfanimatedgif.codeplex.com"
         mc:Ignorable="d"
-        Title="Game Multiplayer" Height="700" Width="1000" ResizeMode="CanMinimize" WindowStartupLocation="CenterScreen" 
+        Title="Game Multiplayer" Height="700" Width="1000" ResizeMode="CanMinimize" WindowStartupLocation="CenterScreen" KeyDown="Matriz_KeyDown" 
         Topmost="True" Icon="Resources/img/icon_pacman.png">
     <Grid MaxHeight="700" MaxWidth="1000">
 
@@ -16,67 +17,350 @@
             <ColumnDefinition Width="300*"/>
         </Grid.ColumnDefinitions>
 
-        <Grid Grid.Column="0" x:Name="Matriz">
+        <Grid Grid.Column="0" x:Name="Matriz"  Background="BlueViolet">
             <Grid.RowDefinitions>
-                <RowDefinition Height="35*" />
-                <RowDefinition Height="35*"/>
-                <RowDefinition Height="35*"/>
-                <RowDefinition Height="35*"/>
-                <RowDefinition Height="35*"/>
-                <RowDefinition Height="35*"/>
-                <RowDefinition Height="35*"/>
-                <RowDefinition Height="35*"/>
-                <RowDefinition Height="35*"/>
-                <RowDefinition Height="35*"/>
-                <RowDefinition Height="35*"/>
-                <RowDefinition Height="35*"/>
-                <RowDefinition Height="35*"/>
-                <RowDefinition Height="35*"/>
-                <RowDefinition Height="35*"/>
-                <RowDefinition Height="35*"/>
-                <RowDefinition Height="35*"/>
-                <RowDefinition Height="35*"/>
-                <RowDefinition Height="35*"/>
-                <RowDefinition Height="35*"/>
-                <RowDefinition Height="35*"/>
-                <RowDefinition Height="35*"/>
-                <RowDefinition Height="35*"/>
-                <RowDefinition Height="35*"/>
-                <RowDefinition Height="35*"/>
+                <RowDefinition Height="30.43*"/>
+                <RowDefinition Height="30.43*"/>
+                <RowDefinition Height="30.43*"/>
+                <RowDefinition Height="30.43*"/>
+                <RowDefinition Height="30.43*"/>
+                <RowDefinition Height="30.43*"/>
+                <RowDefinition Height="30.43*"/>
+                <RowDefinition Height="30.43*"/>
+                <RowDefinition Height="30.43*"/>
+                <RowDefinition Height="30.43*"/>
+                <RowDefinition Height="30.43*"/>
+                <RowDefinition Height="30.43*"/>
+                <RowDefinition Height="30.43*"/>
+                <RowDefinition Height="30.43*"/>
+                <RowDefinition Height="30.43*"/>
+                <RowDefinition Height="30.43*"/>
+                <RowDefinition Height="30.43*"/>
+                <RowDefinition Height="30.43*"/>
+                <RowDefinition Height="30.43*"/>
+                <RowDefinition Height="30.43*"/>
+                <RowDefinition Height="30.43*"/>
+                <RowDefinition Height="30.43*"/>
+                <RowDefinition Height="30.43*"/>
+
             </Grid.RowDefinitions>
 
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="35*"/>
-                <ColumnDefinition Width="35*"/>
-                <ColumnDefinition Width="35*"/>
-                <ColumnDefinition Width="35*"/>
-                <ColumnDefinition Width="35*"/>
-                <ColumnDefinition Width="35*"/>
-                <ColumnDefinition Width="35*"/>
-                <ColumnDefinition Width="35*"/>
-                <ColumnDefinition Width="35*"/>
-                <ColumnDefinition Width="35*"/>
-                <ColumnDefinition Width="35*"/>
-                <ColumnDefinition Width="35*"/>
-                <ColumnDefinition Width="35*"/>
-                <ColumnDefinition Width="35*"/>
-                <ColumnDefinition Width="35*"/>
-                <ColumnDefinition Width="35*"/>
-                <ColumnDefinition Width="35*"/>
-                <ColumnDefinition Width="35*"/>
-                <ColumnDefinition Width="35*"/>
-                <ColumnDefinition Width="35*"/>
-                <ColumnDefinition Width="35*"/>
-                <ColumnDefinition Width="35*"/>
-                <ColumnDefinition Width="35*"/>
-                <ColumnDefinition Width="35*"/>
-                <ColumnDefinition Width="35*"/>
+                <ColumnDefinition Width="29.16*"/>
+                <ColumnDefinition Width="29.16*"/>
+                <ColumnDefinition Width="29.16*"/>
+                <ColumnDefinition Width="29.16*"/>
+                <ColumnDefinition Width="29.16*"/>
+                <ColumnDefinition Width="29.16*"/>
+                <ColumnDefinition Width="29.16*"/>
+                <ColumnDefinition Width="29.16*"/>
+                <ColumnDefinition Width="29.16*"/>
+                <ColumnDefinition Width="29.16*"/>
+                <ColumnDefinition Width="29.16*"/>
+                <ColumnDefinition Width="29.16*"/>
+                <ColumnDefinition Width="29.16*"/>
+                <ColumnDefinition Width="29.16*"/>
+                <ColumnDefinition Width="29.16*"/>
+                <ColumnDefinition Width="29.16*"/>
+                <ColumnDefinition Width="29.16*"/>
+                <ColumnDefinition Width="29.16*"/>
+                <ColumnDefinition Width="29.16*"/>
+                <ColumnDefinition Width="29.16*"/>
+                <ColumnDefinition Width="29.16*"/>
+                <ColumnDefinition Width="29.16*"/>
+                <ColumnDefinition Width="29.16*"/>
+                <ColumnDefinition Width="29.16*"/>
             </Grid.ColumnDefinitions>
 
-            <Image x:Name="Pacman" Grid.Row="0" Grid.Column="0" Source="Resources/img/icon_pacman.png"></Image>
+            <Image x:Name="LismanYellow" gif:ImageBehavior.RepeatBehavior="1000x" 
+                   Grid.Row="1" Grid.Column="1" gif:ImageBehavior.AnimatedSource="Resources/img/Pacman.gif" 
+                   Margin="0,3,0,26" Grid.RowSpan="2" Panel.ZIndex="1"></Image>
+            <Image x:Name="LismanBlue" Source="Resources/img/lisman_Red.png" Grid.Row="1" Grid.Column="22"
+                   Panel.ZIndex="1"/>
+            <Image x:Name="LismanTurquoise" Source="Resources/img/lisman_Turquoise.png" Grid.Row="21" Grid.Column="1"
+                   Panel.ZIndex="1"/>
+            <Image x:Name="LismanGreen" Source="Resources/img/lisman_Green.png" Grid.Row="21" Grid.Column="22"
+                   Panel.ZIndex="1"/>
+
+            <StackPanel Grid.Row="1" Grid.Column="1" Background="Black"/>
+            <StackPanel Grid.Row="1" Grid.Column="2" Background="Black"/>
+            <StackPanel Grid.Row="1" Grid.Column="3" Background="Black"/>
+            <StackPanel Grid.Row="1" Grid.Column="4" Background="Black"/>
+            <StackPanel Grid.Row="1" Grid.Column="5" Background="Black"/>
+            <StackPanel Grid.Row="1" Grid.Column="6" Background="Black"/>
+            <StackPanel Grid.Row="1" Grid.Column="7" Background="Black"/>
+            <StackPanel Grid.Row="1" Grid.Column="8" Background="Black"/>
+            <StackPanel Grid.Row="1" Grid.Column="9" Background="Black"/>
+            <StackPanel Grid.Row="1" Grid.Column="10" Background="Black"/>
+            <StackPanel Grid.Row="1" Grid.Column="13" Background="Black"/>
+            <StackPanel Grid.Row="1" Grid.Column="14" Background="Black"/>
+            <StackPanel Grid.Row="1" Grid.Column="15" Background="Black"/>
+            <StackPanel Grid.Row="1" Grid.Column="16" Background="Black"/>
+            <StackPanel Grid.Row="1" Grid.Column="17" Background="Black"/>
+            <StackPanel Grid.Row="1" Grid.Column="18" Background="Black"/>
+            <StackPanel Grid.Row="1" Grid.Column="19" Background="Black"/>
+            <StackPanel Grid.Row="1" Grid.Column="20" Background="Black"/>
+            <StackPanel Grid.Row="1" Grid.Column="21" Background="Black"/>
+            <StackPanel Grid.Row="1" Grid.Column="22" Background="Black"/>
+
+            <StackPanel Grid.Row="2" Grid.Column="1" Background="Black"/>
+            <StackPanel Grid.Row="2" Grid.Column="5" Background="Black"/>
+            <StackPanel Grid.Row="2" Grid.Column="10" Background="Black"/>
+            <StackPanel Grid.Row="2" Grid.Column="13" Background="Black"/>
+            <StackPanel Grid.Row="2" Grid.Column="18" Background="Black"/>
+            <StackPanel Grid.Row="2" Grid.Column="22" Background="Black"/>
+
+
+            <StackPanel Grid.Row="3" Grid.Column="1" Background="Black"/>
+            <StackPanel Grid.Row="3" Grid.Column="5" Background="Black"/>
+            <StackPanel Grid.Row="3" Grid.Column="10" Background="Black"/>
+            <StackPanel Grid.Row="3" Grid.Column="13" Background="Black"/>
+            <StackPanel Grid.Row="3" Grid.Column="18" Background="Black"/>
+            <StackPanel Grid.Row="3" Grid.Column="22" Background="Black"/>
+
+            <StackPanel Grid.Row="4" Grid.Column="1" Background="Black"/>
+            <StackPanel Grid.Row="4" Grid.Column="5" Background="Black"/>
+            <StackPanel Grid.Row="4" Grid.Column="10" Background="Black"/>
+            <StackPanel Grid.Row="4" Grid.Column="13" Background="Black"/>
+            <StackPanel Grid.Row="4" Grid.Column="18" Background="Black"/>
+            <StackPanel Grid.Row="4" Grid.Column="22" Background="Black"/>
+
+            <StackPanel Grid.Row="5" Grid.Column="1" Background="Black"/>
+            <StackPanel Grid.Row="5" Grid.Column="2" Background="Black"/>
+            <StackPanel Grid.Row="5" Grid.Column="3" Background="Black"/>
+            <StackPanel Grid.Row="5" Grid.Column="4" Background="Black"/>
+            <StackPanel Grid.Row="5" Grid.Column="5" Background="Black"/>
+            <StackPanel Grid.Row="5" Grid.Column="6" Background="Black"/>
+            <StackPanel Grid.Row="5" Grid.Column="7" Background="Black"/>
+            <StackPanel Grid.Row="5" Grid.Column="8" Background="Black"/>
+            <StackPanel Grid.Row="5" Grid.Column="9" Background="Black"/>
+            <StackPanel Grid.Row="5" Grid.Column="10" Background="Black"/>
+            <StackPanel Grid.Row="5" Grid.Column="11" Background="Black"/>
+            <StackPanel Grid.Row="5" Grid.Column="12" Background="Black"/>
+            <StackPanel Grid.Row="5" Grid.Column="13" Background="Black"/>
+            <StackPanel Grid.Row="5" Grid.Column="14" Background="Black"/>
+            <StackPanel Grid.Row="5" Grid.Column="15" Background="Black"/>
+            <StackPanel Grid.Row="5" Grid.Column="16" Background="Black"/>
+            <StackPanel Grid.Row="5" Grid.Column="17" Background="Black"/>
+            <StackPanel Grid.Row="5" Grid.Column="18" Background="Black"/>
+            <StackPanel Grid.Row="5" Grid.Column="19" Background="Black"/>
+            <StackPanel Grid.Row="5" Grid.Column="20" Background="Black"/>
+            <StackPanel Grid.Row="5" Grid.Column="21" Background="Black"/>
+            <StackPanel Grid.Row="5" Grid.Column="22" Background="Black"/>
+
+            <StackPanel Grid.Row="6" Grid.Column="1" Background="Black"/>
+            <StackPanel Grid.Row="6" Grid.Column="5" Background="Black"/>
+            <StackPanel Grid.Row="6" Grid.Column="7" Background="Black"/>
+            <StackPanel Grid.Row="6" Grid.Column="10" Background="Black"/>
+            <StackPanel Grid.Row="6" Grid.Column="13" Background="Black"/>
+            <StackPanel Grid.Row="6" Grid.Column="16" Background="Black"/>
+            <StackPanel Grid.Row="6" Grid.Column="18" Background="Black"/>
+            <StackPanel Grid.Row="6" Grid.Column="22" Background="Black"/>
+
+            <StackPanel Grid.Row="7" Grid.Column="1" Background="Black"/>
+            <StackPanel Grid.Row="7" Grid.Column="2" Background="Black"/>
+            <StackPanel Grid.Row="7" Grid.Column="3" Background="Black"/>
+            <StackPanel Grid.Row="7" Grid.Column="4" Background="Black"/>
+            <StackPanel Grid.Row="7" Grid.Column="5" Background="Black"/>
+
+            <StackPanel Grid.Row="7" Grid.Column="7" Background="Black"/>
+            <StackPanel Grid.Row="7" Grid.Column="8" Background="Black"/>
+            <StackPanel Grid.Row="7" Grid.Column="9" Background="Black"/>
+            <StackPanel Grid.Row="7" Grid.Column="10" Background="Black"/>
+            <StackPanel Grid.Row="7" Grid.Column="13" Background="Black"/>
+            <StackPanel Grid.Row="7" Grid.Column="14" Background="Black"/>
+            <StackPanel Grid.Row="7" Grid.Column="15" Background="Black"/>
+            <StackPanel Grid.Row="7" Grid.Column="16" Background="Black"/>
+
+            <StackPanel Grid.Row="7" Grid.Column="18" Background="Black"/>
+            <StackPanel Grid.Row="7" Grid.Column="19" Background="Black"/>
+            <StackPanel Grid.Row="7" Grid.Column="20" Background="Black"/>
+            <StackPanel Grid.Row="7" Grid.Column="21" Background="Black"/>
+            <StackPanel Grid.Row="7" Grid.Column="22" Background="Black"/>
+
+            <StackPanel Grid.Row="8" Grid.Column="5" Background="Black"/>
+            <StackPanel Grid.Row="8" Grid.Column="10" Background="Black"/>
+            <StackPanel Grid.Row="8" Grid.Column="13" Background="Black"/>
+            <StackPanel Grid.Row="8" Grid.Column="18" Background="Black"/>
+
+            <StackPanel Grid.Row="9" Grid.Column="5" Background="Black"/>
+            <StackPanel Grid.Row="9" Grid.Column="7" Background="Black"/>
+            <StackPanel Grid.Row="9" Grid.Column="8" Background="Black"/>
+            <StackPanel Grid.Row="9" Grid.Column="9" Background="Black"/>
+            <StackPanel Grid.Row="9" Grid.Column="10" Background="Black"/>
+            <StackPanel Grid.Row="9" Grid.Column="11" Background="Black"/>
+            <StackPanel Grid.Row="9" Grid.Column="12" Background="Black"/>
+            <StackPanel Grid.Row="9" Grid.Column="13" Background="Black"/>
+            <StackPanel Grid.Row="9" Grid.Column="14" Background="Black"/>
+            <StackPanel Grid.Row="9" Grid.Column="15" Background="Black"/>
+            <StackPanel Grid.Row="9" Grid.Column="16" Background="Black"/>
+            <StackPanel Grid.Row="9" Grid.Column="18" Background="Black"/>
+
+            <StackPanel Grid.Row="10" Grid.Column="5" Background="Black"/>
+            <StackPanel Grid.Row="10" Grid.Column="7" Background="Black"/>
+            <StackPanel Grid.Row="10" Grid.Column="11" Background="Black"/>
+            <StackPanel Grid.Row="10" Grid.Column="12" Background="Black"/>
+            <StackPanel Grid.Row="10" Grid.Column="16" Background="Black"/>
+            <StackPanel Grid.Row="10" Grid.Column="18" Background="Black"/>
+
+            <StackPanel Grid.Row="11" Grid.Column="0" Background="Black"/>
+            <StackPanel Grid.Row="11" Grid.Column="1" Background="Black"/>
+            <StackPanel Grid.Row="11" Grid.Column="2" Background="Black"/>
+            <StackPanel Grid.Row="11" Grid.Column="3" Background="Black"/>
+            <StackPanel Grid.Row="11" Grid.Column="4" Background="Black"/>
+            <StackPanel Grid.Row="11" Grid.Column="5" Background="Black"/>
+            <StackPanel Grid.Row="11" Grid.Column="6" Background="Black"/>
+            <StackPanel Grid.Row="11" Grid.Column="7" Background="Black"/>
+            <StackPanel Grid.Row="11" Grid.Column="16" Background="Black"/>
+            <StackPanel Grid.Row="11" Grid.Column="17" Background="Black"/>
+            <StackPanel Grid.Row="11" Grid.Column="18" Background="Black"/>
+            <StackPanel Grid.Row="11" Grid.Column="19" Background="Black"/>
+
+            <StackPanel Grid.Row="11" Grid.Column="20" Background="Black"/>
+            <StackPanel Grid.Row="11" Grid.Column="21" Background="Black"/>
+            <StackPanel Grid.Row="11" Grid.Column="22" Background="Black"/>
+            <StackPanel Grid.Row="11" Grid.Column="23" Background="Black"/>
+
+            <StackPanel Grid.Row="12" Grid.Column="5" Background="Black"/>
+            <StackPanel Grid.Row="12" Grid.Column="7" Background="Black"/>
+            <StackPanel Grid.Row="12" Grid.Column="16" Background="Black"/>
+            <StackPanel Grid.Row="12" Grid.Column="18" Background="Black"/>
+
+            <StackPanel Grid.Row="13" Grid.Column="5" Background="Black"/>
+            <StackPanel Grid.Row="13" Grid.Column="7" Background="Black"/>
+            <StackPanel Grid.Row="13" Grid.Column="8" Background="Black"/>
+            <StackPanel Grid.Row="13" Grid.Column="9" Background="Black"/>
+            <StackPanel Grid.Row="13" Grid.Column="10" Background="Black"/>
+            <StackPanel Grid.Row="13" Grid.Column="11" Background="Black"/>
+            <StackPanel Grid.Row="13" Grid.Column="12" Background="Black"/>
+            <StackPanel Grid.Row="13" Grid.Column="13" Background="Black"/>
+            <StackPanel Grid.Row="13" Grid.Column="14" Background="Black"/>
+            <StackPanel Grid.Row="13" Grid.Column="15" Background="Black"/>
+            <StackPanel Grid.Row="13" Grid.Column="16" Background="Black"/>
+            <StackPanel Grid.Row="13" Grid.Column="18" Background="Black"/>
+
+            <StackPanel Grid.Row="14" Grid.Column="5" Background="Black"/>
+            <StackPanel Grid.Row="14" Grid.Column="7" Background="Black"/>
+            <StackPanel Grid.Row="14" Grid.Column="16" Background="Black"/>
+            <StackPanel Grid.Row="14" Grid.Column="18" Background="Black"/>
+
+
+            <StackPanel Grid.Row="15" Grid.Column="1" Background="Black"/>
+            <StackPanel Grid.Row="15" Grid.Column="2" Background="Black"/>
+            <StackPanel Grid.Row="15" Grid.Column="3" Background="Black"/>
+            <StackPanel Grid.Row="15" Grid.Column="4" Background="Black"/>
+            <StackPanel Grid.Row="15" Grid.Column="5" Background="Black"/>
+            <StackPanel Grid.Row="15" Grid.Column="6" Background="Black"/>
+            <StackPanel Grid.Row="15" Grid.Column="7" Background="Black"/>
+            <StackPanel Grid.Row="15" Grid.Column="8" Background="Black"/>
+            <StackPanel Grid.Row="15" Grid.Column="9" Background="Black"/>
+            <StackPanel Grid.Row="15" Grid.Column="10" Background="Black"/>
+            <StackPanel Grid.Row="15" Grid.Column="13" Background="Black"/>
+            <StackPanel Grid.Row="15" Grid.Column="14" Background="Black"/>
+            <StackPanel Grid.Row="15" Grid.Column="15" Background="Black"/>
+            <StackPanel Grid.Row="15" Grid.Column="16" Background="Black"/>
+            <StackPanel Grid.Row="15" Grid.Column="17" Background="Black"/>
+            <StackPanel Grid.Row="15" Grid.Column="18" Background="Black"/>
+            <StackPanel Grid.Row="15" Grid.Column="19" Background="Black"/>
+            <StackPanel Grid.Row="15" Grid.Column="20" Background="Black"/>
+            <StackPanel Grid.Row="15" Grid.Column="21" Background="Black"/>
+            <StackPanel Grid.Row="15" Grid.Column="22" Background="Black"/>
+
+            <StackPanel Grid.Row="16" Grid.Column="1" Background="Black"/>
+            <StackPanel Grid.Row="16" Grid.Column="5" Background="Black"/>
+            <StackPanel Grid.Row="16" Grid.Column="10" Background="Black"/>
+            <StackPanel Grid.Row="16" Grid.Column="13" Background="Black"/>
+            <StackPanel Grid.Row="16" Grid.Column="18" Background="Black"/>
+            <StackPanel Grid.Row="16" Grid.Column="22" Background="Black"/>
+
+            <StackPanel Grid.Row="17" Grid.Column="1" Background="Black"/>
+            <StackPanel Grid.Row="17" Grid.Column="2" Background="Black"/>
+            <StackPanel Grid.Row="17" Grid.Column="3" Background="Black"/>
+
+            <StackPanel Grid.Row="17" Grid.Column="5" Background="Black"/>
+            <StackPanel Grid.Row="17" Grid.Column="6" Background="Black"/>
+            <StackPanel Grid.Row="17" Grid.Column="7" Background="Black"/>
+            <StackPanel Grid.Row="17" Grid.Column="8" Background="Black"/>
+            <StackPanel Grid.Row="17" Grid.Column="9" Background="Black"/>
+            <StackPanel Grid.Row="17" Grid.Column="10" Background="Black"/>
+            <StackPanel Grid.Row="17" Grid.Column="11" Background="Black"/>
+            <StackPanel Grid.Row="17" Grid.Column="12" Background="Black"/>
+            <StackPanel Grid.Row="17" Grid.Column="13" Background="Black"/>
+            <StackPanel Grid.Row="17" Grid.Column="14" Background="Black"/>
+            <StackPanel Grid.Row="17" Grid.Column="15" Background="Black"/>
+            <StackPanel Grid.Row="17" Grid.Column="16" Background="Black"/>
+            <StackPanel Grid.Row="17" Grid.Column="17" Background="Black"/>
+            <StackPanel Grid.Row="17" Grid.Column="18" Background="Black"/>
+
+            <StackPanel Grid.Row="17" Grid.Column="20" Background="Black"/>
+            <StackPanel Grid.Row="17" Grid.Column="21" Background="Black"/>
+            <StackPanel Grid.Row="17" Grid.Column="22" Background="Black"/>
+
+            <StackPanel Grid.Row="18" Grid.Column="3" Background="Black"/>
+            <StackPanel Grid.Row="18" Grid.Column="5" Background="Black"/>
+            <StackPanel Grid.Row="18" Grid.Column="7" Background="Black"/>
+
+            <StackPanel Grid.Row="18" Grid.Column="16" Background="Black"/>
+            <StackPanel Grid.Row="18" Grid.Column="18" Background="Black"/>
+            <StackPanel Grid.Row="18" Grid.Column="20" Background="Black"/>
+
+            <StackPanel Grid.Row="19" Grid.Column="1" Background="Black"/>
+            <StackPanel Grid.Row="19" Grid.Column="2" Background="Black"/>
+            <StackPanel Grid.Row="19" Grid.Column="3" Background="Black"/>
+            <StackPanel Grid.Row="19" Grid.Column="4" Background="Black"/>
+            <StackPanel Grid.Row="19" Grid.Column="5" Background="Black"/>
+
+            <StackPanel Grid.Row="19" Grid.Column="7" Background="Black"/>
+            <StackPanel Grid.Row="19" Grid.Column="8" Background="Black"/>
+            <StackPanel Grid.Row="19" Grid.Column="9" Background="Black"/>
+            <StackPanel Grid.Row="19" Grid.Column="10" Background="Black"/>
+            <StackPanel Grid.Row="19" Grid.Column="13" Background="Black"/>
+            <StackPanel Grid.Row="19" Grid.Column="14" Background="Black"/>
+            <StackPanel Grid.Row="19" Grid.Column="15" Background="Black"/>
+            <StackPanel Grid.Row="19" Grid.Column="16" Background="Black"/>
+            <StackPanel Grid.Row="19" Grid.Column="18" Background="Black"/>
+            <StackPanel Grid.Row="19" Grid.Column="19" Background="Black"/>
+            <StackPanel Grid.Row="19" Grid.Column="20" Background="Black"/>
+            <StackPanel Grid.Row="19" Grid.Column="21" Background="Black"/>
+            <StackPanel Grid.Row="19" Grid.Column="22" Background="Black"/>
+
+            <StackPanel Grid.Row="20" Grid.Column="1" Background="Black"/>
+            <StackPanel Grid.Row="20" Grid.Column="10" Background="Black"/>
+
+            <StackPanel Grid.Row="20" Grid.Column="13" Background="Black"/>
+            <StackPanel Grid.Row="20" Grid.Column="22" Background="Black"/>
+            <StackPanel Grid.Row="20" Grid.Column="13" Background="Black"/>
+
+
+            <StackPanel Grid.Row="21" Grid.Column="1" Background="Black"/>
+            <StackPanel Grid.Row="21" Grid.Column="2" Background="Black"/>
+            <StackPanel Grid.Row="21" Grid.Column="3" Background="Black"/>
+            <StackPanel Grid.Row="21" Grid.Column="4" Background="Black"/>
+            <StackPanel Grid.Row="21" Grid.Column="5" Background="Black"/>
+            <StackPanel Grid.Row="21" Grid.Column="6" Background="Black"/>
+            <StackPanel Grid.Row="21" Grid.Column="7" Background="Black"/>
+            <StackPanel Grid.Row="21" Grid.Column="8" Background="Black"/>
+            <StackPanel Grid.Row="21" Grid.Column="9" Background="Black"/>
+            <StackPanel Grid.Row="21" Grid.Column="10" Background="Black"/>
+            <StackPanel Grid.Row="21" Grid.Column="11" Background="Black"/>
+            <StackPanel Grid.Row="21" Grid.Column="12" Background="Black"/>
+            <StackPanel Grid.Row="21" Grid.Column="13" Background="Black"/>
+            <StackPanel Grid.Row="21" Grid.Column="14" Background="Black"/>
+            <StackPanel Grid.Row="21" Grid.Column="15" Background="Black"/>
+            <StackPanel Grid.Row="21" Grid.Column="16" Background="Black"/>
+            <StackPanel Grid.Row="21" Grid.Column="17" Background="Black"/>
+            <StackPanel Grid.Row="21" Grid.Column="18" Background="Black"/>
+            <StackPanel Grid.Row="21" Grid.Column="19" Background="Black"/>
+            <StackPanel Grid.Row="21" Grid.Column="20" Background="Black"/>
+            <StackPanel Grid.Row="21" Grid.Column="21" Background="Black"/>
+            <StackPanel Grid.Row="21" Grid.Column="22" Background="Black"/>
+
+
+
 
         </Grid>
         <Button Content="Iniciar Pacman" Grid.Column="1" HorizontalAlignment="Left" Margin="124,134,0,0" VerticalAlignment="Top" Width="132" Click="Button_Click"/>
+
 
     </Grid>
 

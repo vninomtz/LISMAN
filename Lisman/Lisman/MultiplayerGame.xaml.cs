@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -19,11 +20,11 @@ namespace Lisman {
     /// </summary>
     public partial class MultiplayerGame : Window {
         int idgame;
-        int[,] gameMap = new int[24,24];
+        int[,] gameMap = new int[24,23];
        
 
-        int X = 0;
-        int Y = 0;
+        int X = 1;
+        int Y = 1;
         DispatcherTimer runLeft = new DispatcherTimer();
         DispatcherTimer runUp = new DispatcherTimer();
         DispatcherTimer runRight = new DispatcherTimer();
@@ -34,64 +35,88 @@ namespace Lisman {
             this.idgame = idgame;
             
             runLeft.Tick +=  new EventHandler(RunLeft);
-            runLeft.Interval = new TimeSpan(0, 0, 0, 0, 500);
+            runLeft.Interval = new TimeSpan(0, 0, 0, 0, 300);
             //runLeft.Start();
 
             
             runUp.Tick += new EventHandler(RunUp);
-            runUp.Interval = new TimeSpan(0, 0, 0, 0, 500);
+            runUp.Interval = new TimeSpan(0, 0, 0, 0,300);
            // runUp.Start();
 
             
             runRight.Tick += new EventHandler(RunRight);
-            runRight.Interval = new TimeSpan(0, 0, 0, 0, 500);
+            runRight.Interval = new TimeSpan(0, 0, 0, 0, 300);
             //runRight.Start();
 
             
             runDown.Tick += new EventHandler(RunDown);
-            runDown.Interval = new TimeSpan(0, 0, 0, 0, 500);
+            runDown.Interval = new TimeSpan(0, 0, 0, 0, 300);
             //runDown.Start();
 
             MatrizGame();
-            PrintMap();
+            //PrintMap();
         }
 
-        public void MatrizGame()
-        {
-            for (int i = 0; i < 24; i++)
-            {
-                gameMap[0, i] = 1;
-            }
-            for (int i = 0; i < 24; i++)
-            {
-                gameMap[i, 0] = 1;
-            }
-        }
-        public void PrintMap()
-        {
-            for(int i = 0; i < 24; i++)
-            {
-                for(int j = 0; j < 24; j++)
-                {
-                    if (gameMap[i, j] == 1)
-                    {
-                        /*Image wall = new Image();
+        public void MatrizGame() {
+            using (StreamReader sr = new StreamReader("C:/LISMAN/Lisman/Lisman/Resources/Map.txt")) {
+                
+
+           
+                for (int i = 0; i <= 23; i++) {
+                    for (int j = 0; j <= 22; j++) {
+                        int caracter = sr.Read();
+                        if (caracter != -1) {
+
+                            if (caracter == 48) {
+                                gameMap[i,j] = 0;
+                            }
+
+                            if (caracter == 49) {
+                                gameMap[i,j] = 1;
+                            }
+
+                            if (caracter == 51) {
+                                gameMap[i,j] = 3;
+                            }
+
+                            if (caracter == 52) {
+                                gameMap[i,j] = 4;
+                            }
+
+                            if (caracter == 53) {
+                                gameMap[i,j] = 5;
+                            }
+
+                            if (caracter == 54) {
+                                gameMap[i,j] = 6;
+                            }
+                            if (caracter == 56) {
+                                gameMap[i,j] = 8;
+                            }
+                        }
+
+                        Console.Write("[{0}]", gameMap[i, j]);
                         
-                        BitmapImage myBitmapImage = new BitmapImage();
-                        myBitmapImage.BeginInit();
-                        myBitmapImage.UriSource = new Uri("C:/Users/Vik-t/Documents/Software Engineering/5to Semestre/Tecnologías para la Construcción/Proyecto/LISMAN/Lisman/Lisman/Resources/img/Muro.png");
-                       
-                        myBitmapImage.EndInit();
-                        wall.Source = myBitmapImage;*/
-                        StackPanel backGround = new StackPanel();
-                        backGround.Background = Brushes.Blue;
-                        Grid.SetRow(backGround, i);
-                        Grid.SetColumn(backGround, j);
-                    }
+                        
+
+                    
                 }
+                    Console.WriteLine();
             }
         }
+            
+            
+        }
 
+        public bool canMove(int onX, int onY) {
+            //Console.WriteLine("Mover a: [{0},{1}]= {2}",onX,onY,gameMap[onX,onY]);
+
+            if (gameMap[onX,onY] == 0 ){
+                return false;
+            } else {
+                return true;
+            }               
+        }
 
         public void StopLisman()
         {
@@ -106,42 +131,71 @@ namespace Lisman {
             runRight.Start();
         }
         private void RunLeft(object sender, EventArgs e)
-        {   
-            if(X > 0) {
-                X -= 1;
+        {
+            if(X==0 && Y == 11) {
+                X = 23;
+                Y = 11;
+                Grid.SetColumn(LismanYellow, X);
+                Grid.SetRow(LismanYellow, Y);
+                return;
             }
+            if (canMove(X-1,Y)){
+                if (X > 0) {
+                    X -= 1;
+                    Grid.SetColumn(LismanYellow, X);
+                    Grid.SetRow(LismanYellow, Y );
 
-            Grid.SetColumn(Pacman, X);
-            Grid.SetRow(Pacman, Y);
+                }
+            } else {
+                StopLisman();
+            }
             
+    
         }
         private void RunUp(object sender, EventArgs e)
         {
-            if (Y > 0) {
+           
+            if (canMove(X,Y-1)) {
                 Y -= 1;
+                Grid.SetColumn(LismanYellow, X);
+                Grid.SetRow(LismanYellow, Y);
+            } else {
+                StopLisman();
             }
 
-            Grid.SetColumn(Pacman, X);
-            Grid.SetRow(Pacman, Y);
+            
         }
         private void RunRight(object sender, EventArgs e)
         {
-            if (X < 26) {
+            if (X == 23 && Y == 11) {
+                X = 0;
+                Y = 11;
+                Grid.SetColumn(LismanYellow, X);
+                Grid.SetRow(LismanYellow, Y);
+                return;
+            }
+            if (canMove(X+1,Y)) {
                 X += 1;
+                Grid.SetColumn(LismanYellow, X);
+                Grid.SetRow(LismanYellow, Y);
+            } else {
+                StopLisman();
             }
 
-            Grid.SetColumn(Pacman, X);
-            Grid.SetRow(Pacman, Y);
+
         }
 
         private void RunDown(object sender, EventArgs e)
         {
-            if (Y < 26) {
+            if (canMove(X,Y+1)) {
                 Y += 1;
+                Grid.SetColumn(LismanYellow, X);
+                Grid.SetRow(LismanYellow, Y);
+            } else {
+                StopLisman();
             }
 
-            Grid.SetColumn(Pacman, X);
-            Grid.SetRow(Pacman, Y);
+
             //RotateTransform downTransform = new RotateTransform(90);
             //Pacman.RenderTransform = downTransform;
         }

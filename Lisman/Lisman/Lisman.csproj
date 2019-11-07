@@ -220,5 +220,14 @@
   <ItemGroup>
     <Resource Include="Resources\img\Muro.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Map.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\img\lisman_Green.png" />
+    <Resource Include="Resources\img\lisman_Red.png" />
+    <Resource Include="Resources\img\lisman_Turquoise.png" />
+    <Resource Include="Resources\img\lisman_Yellow.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

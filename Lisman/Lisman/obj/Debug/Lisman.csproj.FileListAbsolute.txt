@@ -114,3 +114,5 @@ C:\Users\Vik-t\Documents\Software Engineering\5to Semestre\Tecnologías para la 
 C:\Users\Vik-t\Documents\Software Engineering\5to Semestre\Tecnologías para la Construcción\Proyecto\LISMAN\Lisman\Lisman\obj\Debug\Lisman.pdb
 C:\Users\Vik-t\Documents\Software Engineering\5to Semestre\Tecnologías para la Construcción\Proyecto\LISMAN\Lisman\Lisman\bin\Debug\WpfAnimatedGif.dll
 C:\Users\Vik-t\Documents\Software Engineering\5to Semestre\Tecnologías para la Construcción\Proyecto\LISMAN\Lisman\Lisman\bin\Debug\WpfAnimatedGif.xml
+C:\LISMAN\Lisman\Lisman\bin\Debug\WpfAnimatedGif.dll
+C:\LISMAN\Lisman\Lisman\bin\Debug\WpfAnimatedGif.xml

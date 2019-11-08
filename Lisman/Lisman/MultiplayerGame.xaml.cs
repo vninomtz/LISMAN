@@ -18,7 +18,9 @@ namespace Lisman {
     /// <summary>
     /// Interaction logic for MultiplayerGame.xaml
     /// </summary>
-    public partial class MultiplayerGame : Window {
+
+    public partial class MultiplayerGame : Window{
+
         int idgame;
         int[,] gameMap = new int[24,23];
 
@@ -153,7 +155,6 @@ namespace Lisman {
                     X -= 1;
                     Grid.SetColumn(lismanPlayer, X);
                     Grid.SetRow(lismanPlayer, Y );
-
                 }
             } else {
                 StopLisman();

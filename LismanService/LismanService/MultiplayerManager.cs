@@ -10,10 +10,13 @@ namespace LismanService
     public partial class LismanService : IMultiplayerManager
     {
         static int[,] GAMEMAP = new int[24, 24];
-        static int LISMANYELLOW = 100;
-        static int LISMANBLUE = 200;
-        static int LISMANRED = 300;
-        static int LISMANGREEN = 400;
+
+        static int LISMANYELLOW = 3;
+        static int LISMANBLUE = 4;
+        static int LISMANRED = 5;
+        static int LISMANGREEN = 6;
+
+
 
         static Dictionary<String, IMultiplayerManagerCallBack> connectionGameService = new Dictionary<String, IMultiplayerManagerCallBack>();
         static Dictionary<int, Game> multiplayerGameInformation = new Dictionary<int, Game>(); 

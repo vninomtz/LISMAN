@@ -218,4 +218,28 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="JoinMultiplayerGame">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="user" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="idgame" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PrintPlayer">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="user" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="life" type="xs:int" />
+        <xs:element minOccurs="0" name="score" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="NotifyColorPlayer">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="colorPlayer" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
 </xs:schema>

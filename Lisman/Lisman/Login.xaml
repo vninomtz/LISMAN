@@ -26,7 +26,7 @@
             </MenuItem>
         </Menu>
 
-        <TextBox x:Name="textField_user" materialDesign:HintAssist.Hint="{x:Static p:Resources.user}" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="80,160,80,283" 
+        <TextBox x:Name="textField_user" KeyDown="On_key_Down_Handler" materialDesign:HintAssist.Hint="{x:Static p:Resources.user}" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="80,160,80,283" 
                  MaxLength="25"/>
         <PasswordBox x:Name="passwordBox_password" KeyDown="On_key_Down_Handler" materialDesign:HintAssist.Hint="{x:Static p:Resources.password}" Style="{StaticResource MaterialDesignFloatingHintPasswordBox}" Margin="80,223,80,227"
                      MaxLength="16"/>

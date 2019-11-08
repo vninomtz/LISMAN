@@ -32,29 +32,44 @@ namespace LismanService {
         }
 
         public void LeaveChat(string user, int idgame) {
-            foreach (var userGame in listGamesOnline[idgame]) {
-                connectionChatService[userGame].NotifyNumberPlayers(listGamesOnline[idgame].Count);
-
-            }
-            foreach (var userGame in listGamesOnline[idgame]) {
-             
+            try {
+                foreach (var userGame in listGamesOnline[idgame]) {
+                    connectionChatService[userGame].NotifyNumberPlayers(listGamesOnline[idgame].Count);
+                }
+                foreach (var userGame in listGamesOnline[idgame]) {
                     connectionChatService[userGame].NotifyLeftPlayer(user);
 
-           
 
-
-
-
+                }
+            } catch (KeyNotFoundException) {
             }
+
+
+
         }
+       
 
         public void SendMessage(Message message, int idgame)
         {
-
-            foreach (var userGame in listGamesOnline[idgame]) {
-                    
+            foreach (var userGame in listGamesOnline[idgame]) {           
                     connectionChatService[userGame].NotifyMessage(message);
+            }
+        }
+
+        public void StartGame(string user, int idgame)
+        {
+            if (!multiplayerGameInformation.ContainsKey(idgame))
+            {
+                Game informationGame = new Game
+                {
+                    gameMap = GAMEMAP,
+                    
+                };
+                multiplayerGameInformation.Add(idgame, informationGame);
+            }
+            foreach (var userGame in listGamesOnline[idgame]) {
                 
+                connectionChatService[userGame].InitGame();
             }
         }
     }

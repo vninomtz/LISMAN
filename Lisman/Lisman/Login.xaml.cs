@@ -42,9 +42,12 @@ namespace Lisman {
 
         private void Hyperlink_Click(object sender, RoutedEventArgs e)
         {
-            UserRegister userRegister = new UserRegister();
-            userRegister.Show();
-            this.Close();
+           MultiplayerGame game = new MultiplayerGame(1);
+           game.Show();
+           this.Close();
+             //UserRegister userRegister = new UserRegister();
+             //userRegister.Show();
+            // this.Close();
         }
 
         private void MenuItem_Click_Spanish(object sender, RoutedEventArgs e)
@@ -63,8 +66,8 @@ namespace Lisman {
             this.Close();
         }
 
-        public void On_key_Down_Handler(object sender, KeyEventArgs e) {
-            if (e.Key == Key.Return) {
+        public void On_key_Down_Handler(object sender, KeyEventArgs inputKey) {
+            if (inputKey.Key == Key.Return) {
                 LoginUser();
             }
             

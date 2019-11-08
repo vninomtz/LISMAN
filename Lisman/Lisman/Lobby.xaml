@@ -11,7 +11,7 @@
     <Grid  >
 
         <TextBlock HorizontalAlignment="Left" VerticalAlignment="Top" Text="Buscando Jugadores"
-            Style="{StaticResource MaterialDesignDisplay3TextBlock}" FontFamily="Lato Black" FontSize="36" Margin="32,27,402,0" Height="43" Width="324"/>
+            Style="{StaticResource MaterialDesignDisplay3TextBlock}" FontFamily="Lato Black" FontSize="36" Margin="32,27,0,0" Height="43" Width="344"/>
         <TextBlock HorizontalAlignment="Left" VerticalAlignment="Top"  Text="Jugadores encontrados"
             Style="{StaticResource MaterialDesignDisplay3TextBlock}" FontFamily="Lato Black" FontSize="25" Width="272" Height="30" Margin="61,75,425,0"/>
         <TextBlock x:Name="textBlock_number_players" HorizontalAlignment="Left" VerticalAlignment="Top"  Text="0 / 4"
@@ -65,5 +65,14 @@
             Width="20" />
         </Button>
         <TextBlock x:Name="textBlock_name_player" HorizontalAlignment="Left" Margin="495,6,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="21" Width="101"/>
+
+        <Button
+            x:Name="btn_startGame"
+            Style="{StaticResource MaterialDesignRaisedAccentButton}"
+             Content="Start Game" 
+            VerticalAlignment="Bottom"
+            HorizontalAlignment="Center"
+            Margin="20"
+            Height="35"  Width="130" Click="btn_startGame_Click" />
     </Grid>
 </Window>

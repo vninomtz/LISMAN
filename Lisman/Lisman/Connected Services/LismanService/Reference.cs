@@ -666,6 +666,12 @@ namespace Lisman.LismanService {
         
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IChatManager/LeaveChat")]
         System.Threading.Tasks.Task LeaveChatAsync(string user, int idgame);
+        
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IChatManager/StartGame")]
+        void StartGame(string user, int idgame);
+        
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IChatManager/StartGame")]
+        System.Threading.Tasks.Task StartGameAsync(string user, int idgame);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -682,6 +688,9 @@ namespace Lisman.LismanService {
         
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IChatManager/NotifyLeftPlayer")]
         void NotifyLeftPlayer(string user);
+        
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IChatManager/InitGame")]
+        void InitGame();
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -734,6 +743,14 @@ namespace Lisman.LismanService {
         
         public System.Threading.Tasks.Task LeaveChatAsync(string user, int idgame) {
             return base.Channel.LeaveChatAsync(user, idgame);
+        }
+        
+        public void StartGame(string user, int idgame) {
+            base.Channel.StartGame(user, idgame);
+        }
+        
+        public System.Threading.Tasks.Task StartGameAsync(string user, int idgame) {
+            return base.Channel.StartGameAsync(user, idgame);
         }
     }
     
@@ -823,6 +840,64 @@ namespace Lisman.LismanService {
         
         public System.Threading.Tasks.Task<bool> EmailExistsAsync(string emailAdress) {
             return base.Channel.EmailExistsAsync(emailAdress);
+        }
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="LismanService.IMultiplayerManager", CallbackContract=typeof(Lisman.LismanService.IMultiplayerManagerCallback))]
+    public interface IMultiplayerManager {
+        
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IMultiplayerManager/JoinMultiplayerGame")]
+        void JoinMultiplayerGame(string user, int idgame);
+        
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IMultiplayerManager/JoinMultiplayerGame")]
+        System.Threading.Tasks.Task JoinMultiplayerGameAsync(string user, int idgame);
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public interface IMultiplayerManagerCallback {
+        
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IMultiplayerManager/PrintPlayer")]
+        void PrintPlayer(string user, int life, int score);
+        
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IMultiplayerManager/NotifyColorPlayer")]
+        void NotifyColorPlayer(int colorPlayer);
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public interface IMultiplayerManagerChannel : Lisman.LismanService.IMultiplayerManager, System.ServiceModel.IClientChannel {
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public partial class MultiplayerManagerClient : System.ServiceModel.DuplexClientBase<Lisman.LismanService.IMultiplayerManager>, Lisman.LismanService.IMultiplayerManager {
+        
+        public MultiplayerManagerClient(System.ServiceModel.InstanceContext callbackInstance) : 
+                base(callbackInstance) {
+        }
+        
+        public MultiplayerManagerClient(System.ServiceModel.InstanceContext callbackInstance, string endpointConfigurationName) : 
+                base(callbackInstance, endpointConfigurationName) {
+        }
+        
+        public MultiplayerManagerClient(System.ServiceModel.InstanceContext callbackInstance, string endpointConfigurationName, string remoteAddress) : 
+                base(callbackInstance, endpointConfigurationName, remoteAddress) {
+        }
+        
+        public MultiplayerManagerClient(System.ServiceModel.InstanceContext callbackInstance, string endpointConfigurationName, System.ServiceModel.EndpointAddress remoteAddress) : 
+                base(callbackInstance, endpointConfigurationName, remoteAddress) {
+        }
+        
+        public MultiplayerManagerClient(System.ServiceModel.InstanceContext callbackInstance, System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
+                base(callbackInstance, binding, remoteAddress) {
+        }
+        
+        public void JoinMultiplayerGame(string user, int idgame) {
+            base.Channel.JoinMultiplayerGame(user, idgame);
+        }
+        
+        public System.Threading.Tasks.Task JoinMultiplayerGameAsync(string user, int idgame) {
+            return base.Channel.JoinMultiplayerGameAsync(user, idgame);
         }
     }
 }

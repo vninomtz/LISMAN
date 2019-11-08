@@ -59,6 +59,9 @@
     <Reference Include="WindowsBase" />
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
+    <Reference Include="WpfAnimatedGif, Version=1.4.18.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\WpfAnimatedGif.1.4.18\lib\net\WpfAnimatedGif.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <ApplicationDefinition Include="App.xaml">
@@ -192,6 +195,21 @@
       <Project>{761db705-0289-4518-bf10-465b8f8e3b00}</Project>
       <Name>Logica</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\img\Pacman.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\img\Muro.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Map.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\img\lisman_Green.png" />
+    <Resource Include="Resources\img\lisman_Red.png" />
+    <Resource Include="Resources\img\lisman_Turquoise.png" />
+    <Resource Include="Resources\img\lisman_Yellow.png" />
   </ItemGroup>
   <ItemGroup>
     <WCFMetadataStorage Include="Connected Services\LismanService\" />

@@ -55,8 +55,7 @@ namespace Lisman {
 
         }
 
-        private void button_save_Click(object sender, RoutedEventArgs e)
-        {
+        public void SaveData() {
             if (validateEmptyFields() && ValidateData()) {
                 try {
                     using (var client = new LismanService.AccountManagerClient()) {
@@ -73,7 +72,7 @@ namespace Lisman {
                             }
                         };
                         if (client.AddAccount(accountSave) != -1) {
-                            SendEmail(accountSave.Player.Email,token);
+                            SendEmail(accountSave.Player.Email, token);
                             var messageRegistrationSuccessful = Properties.Resources.message_registration_successful;
                             MessageBox.Show(messageRegistrationSuccessful);
                             MainWindow login = new MainWindow();
@@ -87,7 +86,18 @@ namespace Lisman {
                 } catch (Exception ex) {
                     Console.WriteLine("Error: " + ex.Message);
                 }
-                
+
+            }
+        }
+
+        private void button_save_Click(object sender, RoutedEventArgs e)
+        {
+            SaveData();
+        }
+
+        public void On_key_Down_Handler(object sender, KeyEventArgs inputKey) {
+            if (inputKey.Key == Key.Return) {
+                SaveData();
             }
         }
 

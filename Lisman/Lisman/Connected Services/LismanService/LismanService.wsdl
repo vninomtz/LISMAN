@@ -116,6 +116,35 @@
       </wsp:All>
     </wsp:ExactlyOne>
   </wsp:Policy>
+  <wsp:Policy wsu:Id="NetTcpBinding_IMultiplayerManager_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <msb:BinaryEncoding xmlns:msb="http://schemas.microsoft.com/ws/06/2004/mspolicy/netbinary1" />
+        <sp:TransportBinding xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <wsp:Policy>
+            <sp:TransportToken>
+              <wsp:Policy>
+                <msf:WindowsTransportSecurity xmlns:msf="http://schemas.microsoft.com/ws/2006/05/framing/policy">
+                  <msf:ProtectionLevel>EncryptAndSign</msf:ProtectionLevel>
+                </msf:WindowsTransportSecurity>
+              </wsp:Policy>
+            </sp:TransportToken>
+            <sp:AlgorithmSuite>
+              <wsp:Policy>
+                <sp:Basic256 />
+              </wsp:Policy>
+            </sp:AlgorithmSuite>
+            <sp:Layout>
+              <wsp:Policy>
+                <sp:Strict />
+              </wsp:Policy>
+            </sp:Layout>
+          </wsp:Policy>
+        </sp:TransportBinding>
+        <wsaw:UsingAddressing />
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
   <wsdl:types>
     <xsd:schema targetNamespace="http://tempuri.org/Imports">
       <xsd:import schemaLocation="http://localhost:8081/?xsd=xsd0" namespace="http://tempuri.org/" />
@@ -174,6 +203,9 @@
   <wsdl:message name="IChatManager_LeaveChat_InputMessage">
     <wsdl:part name="parameters" element="tns:LeaveChat" />
   </wsdl:message>
+  <wsdl:message name="IChatManager_StartGame_InputMessage">
+    <wsdl:part name="parameters" element="tns:StartGame" />
+  </wsdl:message>
   <wsdl:message name="IChatManager_NotifyMessage_OutputCallbackMessage">
     <wsdl:part name="parameters" element="tns:NotifyMessage" />
   </wsdl:message>
@@ -185,6 +217,9 @@
   </wsdl:message>
   <wsdl:message name="IChatManager_NotifyLeftPlayer_OutputCallbackMessage">
     <wsdl:part name="parameters" element="tns:NotifyLeftPlayer" />
+  </wsdl:message>
+  <wsdl:message name="IChatManager_InitGame_OutputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:InitGame" />
   </wsdl:message>
   <wsdl:message name="ILoginManager_LoginAccount_InputMessage">
     <wsdl:part name="parameters" element="tns:LoginAccount" />
@@ -209,6 +244,15 @@
   </wsdl:message>
   <wsdl:message name="ILoginManager_EmailExists_OutputMessage">
     <wsdl:part name="parameters" element="tns:EmailExistsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMultiplayerManager_JoinMultiplayerGame_InputMessage">
+    <wsdl:part name="parameters" element="tns:JoinMultiplayerGame" />
+  </wsdl:message>
+  <wsdl:message name="IMultiplayerManager_PrintPlayer_OutputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:PrintPlayer" />
+  </wsdl:message>
+  <wsdl:message name="IMultiplayerManager_NotifyColorPlayer_OutputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:NotifyColorPlayer" />
   </wsdl:message>
   <wsdl:portType name="IAccountManager">
     <wsdl:operation name="AddAccount">
@@ -252,6 +296,9 @@
     <wsdl:operation name="LeaveChat">
       <wsdl:input wsaw:Action="http://tempuri.org/IChatManager/LeaveChat" message="tns:IChatManager_LeaveChat_InputMessage" />
     </wsdl:operation>
+    <wsdl:operation name="StartGame">
+      <wsdl:input wsaw:Action="http://tempuri.org/IChatManager/StartGame" message="tns:IChatManager_StartGame_InputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="NotifyMessage">
       <wsdl:output wsaw:Action="http://tempuri.org/IChatManager/NotifyMessage" message="tns:IChatManager_NotifyMessage_OutputCallbackMessage" />
     </wsdl:operation>
@@ -263,6 +310,9 @@
     </wsdl:operation>
     <wsdl:operation name="NotifyLeftPlayer">
       <wsdl:output wsaw:Action="http://tempuri.org/IChatManager/NotifyLeftPlayer" message="tns:IChatManager_NotifyLeftPlayer_OutputCallbackMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="InitGame">
+      <wsdl:output wsaw:Action="http://tempuri.org/IChatManager/InitGame" message="tns:IChatManager_InitGame_OutputCallbackMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:portType name="ILoginManager">
@@ -281,6 +331,17 @@
     <wsdl:operation name="EmailExists">
       <wsdl:input wsaw:Action="http://tempuri.org/ILoginManager/EmailExists" message="tns:ILoginManager_EmailExists_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/ILoginManager/EmailExistsResponse" message="tns:ILoginManager_EmailExists_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="IMultiplayerManager">
+    <wsdl:operation name="JoinMultiplayerGame">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMultiplayerManager/JoinMultiplayerGame" message="tns:IMultiplayerManager_JoinMultiplayerGame_InputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="PrintPlayer">
+      <wsdl:output wsaw:Action="http://tempuri.org/IMultiplayerManager/PrintPlayer" message="tns:IMultiplayerManager_PrintPlayer_OutputCallbackMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="NotifyColorPlayer">
+      <wsdl:output wsaw:Action="http://tempuri.org/IMultiplayerManager/NotifyColorPlayer" message="tns:IMultiplayerManager_NotifyColorPlayer_OutputCallbackMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="NetTcpBinding_IAccountManager" type="tns:IAccountManager">
@@ -375,6 +436,12 @@
         <soap12:body use="literal" />
       </wsdl:input>
     </wsdl:operation>
+    <wsdl:operation name="StartGame">
+      <soap12:operation soapAction="http://tempuri.org/IChatManager/StartGame" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
     <wsdl:operation name="NotifyMessage">
       <soap12:operation soapAction="http://tempuri.org/IChatManager/NotifyMessage" style="document" />
       <wsdl:output>
@@ -395,6 +462,12 @@
     </wsdl:operation>
     <wsdl:operation name="NotifyLeftPlayer">
       <soap12:operation soapAction="http://tempuri.org/IChatManager/NotifyLeftPlayer" style="document" />
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InitGame">
+      <soap12:operation soapAction="http://tempuri.org/IChatManager/InitGame" style="document" />
       <wsdl:output>
         <soap12:body use="literal" />
       </wsdl:output>
@@ -440,13 +513,35 @@
       </wsdl:output>
     </wsdl:operation>
   </wsdl:binding>
+  <wsdl:binding name="NetTcpBinding_IMultiplayerManager" type="tns:IMultiplayerManager">
+    <wsp:PolicyReference URI="#NetTcpBinding_IMultiplayerManager_policy" />
+    <soap12:binding transport="http://schemas.microsoft.com/soap/tcp" />
+    <wsdl:operation name="JoinMultiplayerGame">
+      <soap12:operation soapAction="http://tempuri.org/IMultiplayerManager/JoinMultiplayerGame" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="PrintPlayer">
+      <soap12:operation soapAction="http://tempuri.org/IMultiplayerManager/PrintPlayer" style="document" />
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="NotifyColorPlayer">
+      <soap12:operation soapAction="http://tempuri.org/IMultiplayerManager/NotifyColorPlayer" style="document" />
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
   <wsdl:service name="LismanService">
     <wsdl:port name="NetTcpBinding_IAccountManager" binding="tns:NetTcpBinding_IAccountManager">
       <soap12:address location="net.tcp://localhost:8091/CalculatorService" />
       <wsa10:EndpointReference>
         <wsa10:Address>net.tcp://localhost:8091/CalculatorService</wsa10:Address>
         <Identity xmlns="http://schemas.xmlsoap.org/ws/2006/02/addressingidentity">
-          <Upn>ALANGONZALZ9AE0\alanglezh</Upn>
+          <Upn>DESKTOP-VICTOR\victorniño</Upn>
         </Identity>
       </wsa10:EndpointReference>
     </wsdl:port>
@@ -455,7 +550,7 @@
       <wsa10:EndpointReference>
         <wsa10:Address>net.tcp://localhost:8091/CalculatorService</wsa10:Address>
         <Identity xmlns="http://schemas.xmlsoap.org/ws/2006/02/addressingidentity">
-          <Upn>ALANGONZALZ9AE0\alanglezh</Upn>
+          <Upn>DESKTOP-VICTOR\victorniño</Upn>
         </Identity>
       </wsa10:EndpointReference>
     </wsdl:port>
@@ -464,7 +559,7 @@
       <wsa10:EndpointReference>
         <wsa10:Address>net.tcp://localhost:8091/CalculatorService</wsa10:Address>
         <Identity xmlns="http://schemas.xmlsoap.org/ws/2006/02/addressingidentity">
-          <Upn>ALANGONZALZ9AE0\alanglezh</Upn>
+          <Upn>DESKTOP-VICTOR\victorniño</Upn>
         </Identity>
       </wsa10:EndpointReference>
     </wsdl:port>
@@ -473,7 +568,16 @@
       <wsa10:EndpointReference>
         <wsa10:Address>net.tcp://localhost:8091/CalculatorService</wsa10:Address>
         <Identity xmlns="http://schemas.xmlsoap.org/ws/2006/02/addressingidentity">
-          <Upn>ALANGONZALZ9AE0\alanglezh</Upn>
+          <Upn>DESKTOP-VICTOR\victorniño</Upn>
+        </Identity>
+      </wsa10:EndpointReference>
+    </wsdl:port>
+    <wsdl:port name="NetTcpBinding_IMultiplayerManager" binding="tns:NetTcpBinding_IMultiplayerManager">
+      <soap12:address location="net.tcp://localhost:8091/CalculatorService" />
+      <wsa10:EndpointReference>
+        <wsa10:Address>net.tcp://localhost:8091/CalculatorService</wsa10:Address>
+        <Identity xmlns="http://schemas.xmlsoap.org/ws/2006/02/addressingidentity">
+          <Upn>DESKTOP-VICTOR\victorniño</Upn>
         </Identity>
       </wsa10:EndpointReference>
     </wsdl:port>

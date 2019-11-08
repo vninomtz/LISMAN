@@ -211,6 +211,10 @@
             <StackPanel Grid.Row="11" Grid.Column="5" Background="Black"/>
             <StackPanel Grid.Row="11" Grid.Column="6" Background="Black"/>
             <StackPanel Grid.Row="11" Grid.Column="7" Background="Black"/>
+            <StackPanel Grid.Row="11" Grid.Column="10" Background="Black"/>
+            <StackPanel Grid.Row="11" Grid.Column="11" Background="Black"/>
+            <StackPanel Grid.Row="11" Grid.Column="12" Background="Black"/>
+            <StackPanel Grid.Row="11" Grid.Column="13" Background="Black"/>
             <StackPanel Grid.Row="11" Grid.Column="16" Background="Black"/>
             <StackPanel Grid.Row="11" Grid.Column="17" Background="Black"/>
             <StackPanel Grid.Row="11" Grid.Column="18" Background="Black"/>

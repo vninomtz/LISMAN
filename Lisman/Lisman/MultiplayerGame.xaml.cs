@@ -58,9 +58,12 @@ namespace Lisman {
         }
 
         public void MatrizGame() {
-            using (StreamReader sr = new StreamReader("C:/LISMAN/Lisman/Lisman/Resources/Map.txt")) {
-                
 
+            String parentDirectory = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName;
+            using (StreamReader sr = new StreamReader(parentDirectory+ "/Resources/Map.txt")) {
+                
+            
+              
            
                 for (int i = 0; i <= 23; i++) {
                     for (int j = 0; j <= 22; j++) {

@@ -21,8 +21,8 @@ namespace Lisman {
     public partial class MultiplayerGame : Window {
         int idgame;
         int[,] gameMap = new int[24,23];
-       
 
+        Image lismanPlayer = null;
         int X = 1;
         int Y = 1;
         DispatcherTimer runLeft = new DispatcherTimer();
@@ -54,6 +54,7 @@ namespace Lisman {
             //runDown.Start();
 
             MatrizGame();
+            NotifyColor();
             //PrintMap();
         }
 
@@ -111,6 +112,10 @@ namespace Lisman {
             
         }
 
+        public void NotifyColor() {
+            lismanPlayer = LismanYellow;
+        }
+
         public bool canMove(int onX, int onY) {
             //Console.WriteLine("Mover a: [{0},{1}]= {2}",onX,onY,gameMap[onX,onY]);
 
@@ -135,18 +140,19 @@ namespace Lisman {
         }
         private void RunLeft(object sender, EventArgs e)
         {
+            
             if(X==0 && Y == 11) {
                 X = 23;
                 Y = 11;
-                Grid.SetColumn(LismanYellow, X);
-                Grid.SetRow(LismanYellow, Y);
+                Grid.SetColumn(lismanPlayer, X);
+                Grid.SetRow(lismanPlayer, Y);
                 return;
             }
             if (canMove(X-1,Y)){
                 if (X > 0) {
                     X -= 1;
-                    Grid.SetColumn(LismanYellow, X);
-                    Grid.SetRow(LismanYellow, Y );
+                    Grid.SetColumn(lismanPlayer, X);
+                    Grid.SetRow(lismanPlayer, Y );
 
                 }
             } else {
@@ -160,8 +166,8 @@ namespace Lisman {
            
             if (canMove(X,Y-1)) {
                 Y -= 1;
-                Grid.SetColumn(LismanYellow, X);
-                Grid.SetRow(LismanYellow, Y);
+                Grid.SetColumn(lismanPlayer, X);
+                Grid.SetRow(lismanPlayer, Y);
             } else {
                 StopLisman();
             }
@@ -173,14 +179,14 @@ namespace Lisman {
             if (X == 23 && Y == 11) {
                 X = 0;
                 Y = 11;
-                Grid.SetColumn(LismanYellow, X);
-                Grid.SetRow(LismanYellow, Y);
+                Grid.SetColumn(lismanPlayer, X);
+                Grid.SetRow(lismanPlayer, Y);
                 return;
             }
             if (canMove(X+1,Y)) {
                 X += 1;
-                Grid.SetColumn(LismanYellow, X);
-                Grid.SetRow(LismanYellow, Y);
+                Grid.SetColumn(lismanPlayer, X);
+                Grid.SetRow(lismanPlayer, Y);
             } else {
                 StopLisman();
             }
@@ -192,8 +198,8 @@ namespace Lisman {
         {
             if (canMove(X,Y+1)) {
                 Y += 1;
-                Grid.SetColumn(LismanYellow, X);
-                Grid.SetRow(LismanYellow, Y);
+                Grid.SetColumn(lismanPlayer, X);
+                Grid.SetRow(lismanPlayer, Y);
             } else {
                 StopLisman();
             }

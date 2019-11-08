@@ -1,14 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.ServiceModel;
 using System.Text;
 using System.Threading.Tasks;
-using System.ServiceModel;
 
 namespace LismanService
 {
     public partial class LismanService : IMultiplayerManager
     {
+
         static int[,] GAMEMAP = new int[24, 24];
 
         static int LISMANYELLOW = 3;
@@ -19,7 +20,7 @@ namespace LismanService
 
 
         static Dictionary<String, IMultiplayerManagerCallBack> connectionGameService = new Dictionary<String, IMultiplayerManagerCallBack>();
-        static Dictionary<int, Game> multiplayerGameInformation = new Dictionary<int, Game>(); 
+        static Dictionary<int, Game> multiplayerGameInformation = new Dictionary<int, Game>();
         public void JoinMultiplayerGame(string user, int idgame)
         {
             var connection = OperationContext.Current.GetCallbackChannel<IMultiplayerManagerCallBack>();
@@ -35,7 +36,7 @@ namespace LismanService
 
             switch (index)
             {
-                case 0: 
+                case 0:
                     multiplayerGameInformation[idgame].lismanYellow = user;
                     connectionGameService[user].NotifyColorPlayer(LISMANYELLOW);
                     break;
@@ -53,6 +54,5 @@ namespace LismanService
                     break;
             }
         }
-
     }
 }

@@ -133,6 +133,9 @@ Haga clic en el siguiente enlace para confirmar su dirección de correo electró
   <data name="english" xml:space="preserve">
     <value>Inglés</value>
   </data>
+  <data name="exit_game" xml:space="preserve">
+    <value>Salir del Juego</value>
+  </data>
   <data name="go_back" xml:space="preserve">
     <value>Regresar</value>
   </data>

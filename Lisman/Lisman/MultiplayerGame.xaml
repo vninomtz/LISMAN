@@ -3,6 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:p="clr-namespace:Lisman.Properties"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         xmlns:local="clr-namespace:Lisman"
         xmlns:gif="http://wpfanimatedgif.codeplex.com"
@@ -72,14 +73,14 @@
                 <ColumnDefinition Width="29.16*"/>
             </Grid.ColumnDefinitions>
 
-            <Image x:Name="LismanYellow" gif:ImageBehavior.RepeatBehavior="1000x" 
+            <Image x:Name="LismanYellowImage" gif:ImageBehavior.RepeatBehavior="1000x" 
                    Grid.Row="1" Grid.Column="1" gif:ImageBehavior.AnimatedSource="Resources/img/Pacman.gif" 
                    Margin="0,3,0,26" Grid.RowSpan="2" Panel.ZIndex="1"></Image>
-            <Image x:Name="LismanRed" Source="Resources/img/lisman_Red.png" Grid.Row="1" Grid.Column="22"
+            <Image x:Name="LismanRedImage" Source="Resources/img/lisman_Red.png" Grid.Row="1" Grid.Column="22"
                    Panel.ZIndex="1"/>
-            <Image x:Name="LismanTurquoise" Source="Resources/img/lisman_Turquoise.png" Grid.Row="21" Grid.Column="1"
+            <Image x:Name="LismanTurquoiseImage" Source="Resources/img/lisman_Turquoise.png" Grid.Row="21" Grid.Column="1"
                    Panel.ZIndex="1"/>
-            <Image x:Name="LismanGreen" Source="Resources/img/lisman_Green.png" Grid.Row="21" Grid.Column="22"
+            <Image x:Name="LismanGreenImage" Source="Resources/img/lisman_Green.png" Grid.Row="21" Grid.Column="22"
                    Panel.ZIndex="1"/>
 
             <Image x:Name="ImgCoin"  Grid.Row="5" Grid.Column="1"
@@ -366,8 +367,34 @@
 
 
         </Grid>
-        <Button Content="Iniciar Pacman" Grid.Column="1" HorizontalAlignment="Left" Margin="124,134,0,0" VerticalAlignment="Top" Width="132" Click="Button_Click"/>
-
+        <Button Content="{x:Static p:Resources.exit_game}" Grid.Column="1" HorizontalAlignment="Left" Margin="156,10,0,0" VerticalAlignment="Top" Width="132" Click="Button_Click"/>
+        <TextBlock x:Name="UserLismanYellow"  HorizontalAlignment="Left" VerticalAlignment="Top"  
+                    Text="Usuario1"
+            Style="{StaticResource MaterialDesignDisplay3TextBlock}" 
+                   FontFamily="Lato Black" FontSize="20" Width="100"  
+                   Margin="10,55,0,0" Height="30"
+                   Grid.Column="1" FontWeight="Bold" Background="#FFE8FF06" Foreground="#FF211E1E"/>
+        <Separator Grid.Column="1" HorizontalAlignment="Left" Height="10" Margin="10,177,0,0" VerticalAlignment="Top" Width="278"/>
+        <TextBlock x:Name="UserLismanRed"  HorizontalAlignment="Left" VerticalAlignment="Top"  
+                    Text="Usuario2"
+            Style="{StaticResource MaterialDesignDisplay3TextBlock}" 
+            FontFamily="Lato Black" FontSize="20" Width="100"  
+            Margin="10,201,0,0" Height="30"
+            Grid.Column="1" Background="#FFEE1010" FontWeight="Bold"/>
+        <Separator Grid.Column="1" HorizontalAlignment="Left" Height="10" Margin="5,326,0,0" VerticalAlignment="Top" Width="278"/>
+        <TextBlock x:Name="UserLismanBlue"  HorizontalAlignment="Left" VerticalAlignment="Top"  
+                    Text="Usuario3"
+            Style="{StaticResource MaterialDesignDisplay3TextBlock}" 
+            FontFamily="Lato Black" FontSize="20" Width="100"  
+            Margin="10,365,0,0" Height="30"
+            Grid.Column="1" Background="#FF17F0B5" FontWeight="Bold"/>
+        <Separator Grid.Column="1" HorizontalAlignment="Left" Height="10" Margin="5,495,0,0" VerticalAlignment="Top" Width="278"/>
+        <TextBlock x:Name="UserLismanGreen"  HorizontalAlignment="Left" VerticalAlignment="Top"  
+                    Text="Usuario4"
+            Style="{StaticResource MaterialDesignDisplay3TextBlock}" 
+            FontFamily="Lato Black" FontSize="20" Width="100"  
+            Margin="10,532,0,0" Height="30"
+            Grid.Column="1" FontWeight="Bold" Background="#FF4BEE0E"/>
 
     </Grid>
 

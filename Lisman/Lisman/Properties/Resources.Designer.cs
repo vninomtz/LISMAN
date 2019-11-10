@@ -98,6 +98,15 @@ namespace Lisman.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Exit Game.
+        /// </summary>
+        public static string exit_game {
+            get {
+                return ResourceManager.GetString("exit_game", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Go Back.
         /// </summary>
         public static string go_back {

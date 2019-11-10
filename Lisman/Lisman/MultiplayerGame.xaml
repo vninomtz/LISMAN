@@ -82,6 +82,9 @@
             <Image x:Name="LismanGreen" Source="Resources/img/lisman_Green.png" Grid.Row="21" Grid.Column="22"
                    Panel.ZIndex="1"/>
 
+            <Image x:Name="ImgCoin"  Grid.Row="5" Grid.Column="1"
+                   Panel.ZIndex="1"/>
+
             <StackPanel Grid.Row="1" Grid.Column="1" Background="Black"/>
             <StackPanel Grid.Row="1" Grid.Column="2" Background="Black"/>
             <StackPanel Grid.Row="1" Grid.Column="3" Background="Black"/>
@@ -106,7 +109,7 @@
             <StackPanel Grid.Row="2" Grid.Column="1" Background="Black"/>
             <StackPanel Grid.Row="2" Grid.Column="5" Background="Black"/>
             <StackPanel Grid.Row="2" Grid.Column="10" Background="Black"/>
-            <StackPanel Grid.Row="2" Grid.Column="13" Background="Black"/>
+            <StackPanel x:Name="panel_2_13" Grid.Row="2" Grid.Column="13" Background="Black"/>
             <StackPanel Grid.Row="2" Grid.Column="18" Background="Black"/>
             <StackPanel Grid.Row="2" Grid.Column="22" Background="Black"/>
 
@@ -120,13 +123,13 @@
 
             <StackPanel Grid.Row="4" Grid.Column="1" Background="Black"/>
             <StackPanel Grid.Row="4" Grid.Column="5" Background="Black"/>
-            <StackPanel Grid.Row="4" Grid.Column="10" Background="Black"/>
+            <StackPanel x:Name="panel_4_10" Grid.Row="4" Grid.Column="10" Background="Black"/>
             <StackPanel Grid.Row="4" Grid.Column="13" Background="Black"/>
             <StackPanel Grid.Row="4" Grid.Column="18" Background="Black"/>
             <StackPanel Grid.Row="4" Grid.Column="22" Background="Black"/>
 
             <StackPanel Grid.Row="5" Grid.Column="1" Background="Black"/>
-            <StackPanel Grid.Row="5" Grid.Column="2" Background="Black"/>
+            <StackPanel x:Name="panel_5_2" Grid.Row="5" Grid.Column="2" Background="Black"/>
             <StackPanel Grid.Row="5" Grid.Column="3" Background="Black"/>
             <StackPanel Grid.Row="5" Grid.Column="4" Background="Black"/>
             <StackPanel Grid.Row="5" Grid.Column="5" Background="Black"/>
@@ -172,7 +175,7 @@
             <StackPanel Grid.Row="7" Grid.Column="15" Background="Black"/>
             <StackPanel Grid.Row="7" Grid.Column="16" Background="Black"/>
 
-            <StackPanel Grid.Row="7" Grid.Column="18" Background="Black"/>
+            <StackPanel x:Name="panel_7_7" Grid.Row="7" Grid.Column="18" Background="Black"/>
             <StackPanel Grid.Row="7" Grid.Column="19" Background="Black"/>
             <StackPanel Grid.Row="7" Grid.Column="20" Background="Black"/>
             <StackPanel Grid.Row="7" Grid.Column="21" Background="Black"/>
@@ -188,7 +191,7 @@
             <StackPanel Grid.Row="9" Grid.Column="8" Background="Black"/>
             <StackPanel Grid.Row="9" Grid.Column="9" Background="Black"/>
             <StackPanel Grid.Row="9" Grid.Column="10" Background="Black"/>
-            <StackPanel Grid.Row="9" Grid.Column="11" Background="Black"/>
+            <StackPanel x:Name="panel_9_9" Grid.Row="9" Grid.Column="11" Background="Black"/>
             <StackPanel Grid.Row="9" Grid.Column="12" Background="Black"/>
             <StackPanel Grid.Row="9" Grid.Column="13" Background="Black"/>
             <StackPanel Grid.Row="9" Grid.Column="14" Background="Black"/>
@@ -208,7 +211,7 @@
             <StackPanel Grid.Row="11" Grid.Column="2" Background="Black"/>
             <StackPanel Grid.Row="11" Grid.Column="3" Background="Black"/>
             <StackPanel Grid.Row="11" Grid.Column="4" Background="Black"/>
-            <StackPanel Grid.Row="11" Grid.Column="5" Background="Black"/>
+            <StackPanel x:Name="panel_11_5" Grid.Row="11" Grid.Column="5" Background="Black"/>
             <StackPanel Grid.Row="11" Grid.Column="6" Background="Black"/>
             <StackPanel Grid.Row="11" Grid.Column="7" Background="Black"/>
             <StackPanel Grid.Row="11" Grid.Column="10" Background="Brown"/>
@@ -217,7 +220,7 @@
             <StackPanel Grid.Row="11" Grid.Column="13" Background="Brown"/>
             <StackPanel Grid.Row="11" Grid.Column="16" Background="Black"/>
             <StackPanel Grid.Row="11" Grid.Column="17" Background="Black"/>
-            <StackPanel Grid.Row="11" Grid.Column="18" Background="Black"/>
+            <StackPanel x:Name="panel_11_18" Grid.Row="11" Grid.Column="18" Background="Black"/>
             <StackPanel Grid.Row="11" Grid.Column="19" Background="Black"/>
 
             <StackPanel Grid.Row="11" Grid.Column="20" Background="Black"/>
@@ -236,7 +239,7 @@
             <StackPanel Grid.Row="13" Grid.Column="9" Background="Black"/>
             <StackPanel Grid.Row="13" Grid.Column="10" Background="Black"/>
             <StackPanel Grid.Row="13" Grid.Column="11" Background="Black"/>
-            <StackPanel Grid.Row="13" Grid.Column="12" Background="Black"/>
+            <StackPanel x:Name="panel_13_12" Grid.Row="13" Grid.Column="12" Background="Black"/>
             <StackPanel Grid.Row="13" Grid.Column="13" Background="Black"/>
             <StackPanel Grid.Row="13" Grid.Column="14" Background="Black"/>
             <StackPanel Grid.Row="13" Grid.Column="15" Background="Black"/>
@@ -268,9 +271,9 @@
             <StackPanel Grid.Row="15" Grid.Column="19" Background="Black"/>
             <StackPanel Grid.Row="15" Grid.Column="20" Background="Black"/>
             <StackPanel Grid.Row="15" Grid.Column="21" Background="Black"/>
-            <StackPanel Grid.Row="15" Grid.Column="22" Background="Black"/>
+            <StackPanel x:Name="panel_15_22" Grid.Row="15" Grid.Column="22" Background="Black"/>
 
-            <StackPanel Grid.Row="16" Grid.Column="1" Background="Black"/>
+            <StackPanel x:Name="panel_16_1" Grid.Row="16" Grid.Column="1" Background="Black"/>
             <StackPanel Grid.Row="16" Grid.Column="5" Background="Black"/>
             <StackPanel Grid.Row="16" Grid.Column="10" Background="Black"/>
             <StackPanel Grid.Row="16" Grid.Column="13" Background="Black"/>
@@ -288,7 +291,7 @@
             <StackPanel Grid.Row="17" Grid.Column="9" Background="Black"/>
             <StackPanel Grid.Row="17" Grid.Column="10" Background="Black"/>
             <StackPanel Grid.Row="17" Grid.Column="11" Background="Black"/>
-            <StackPanel Grid.Row="17" Grid.Column="12" Background="Black"/>
+            <StackPanel x:Name="panel_12_12" Grid.Row="17" Grid.Column="12" Background="Black"/>
             <StackPanel Grid.Row="17" Grid.Column="13" Background="Black"/>
             <StackPanel Grid.Row="17" Grid.Column="14" Background="Black"/>
             <StackPanel Grid.Row="17" Grid.Column="15" Background="Black"/>
@@ -347,7 +350,7 @@
             <StackPanel Grid.Row="21" Grid.Column="9" Background="Black"/>
             <StackPanel Grid.Row="21" Grid.Column="10" Background="Black"/>
             <StackPanel Grid.Row="21" Grid.Column="11" Background="Black"/>
-            <StackPanel Grid.Row="21" Grid.Column="12" Background="Black"/>
+            <StackPanel x:Name="panel_21_12" Grid.Row="21" Grid.Column="12" Background="Black"/>
             <StackPanel Grid.Row="21" Grid.Column="13" Background="Black"/>
             <StackPanel Grid.Row="21" Grid.Column="14" Background="Black"/>
             <StackPanel Grid.Row="21" Grid.Column="15" Background="Black"/>

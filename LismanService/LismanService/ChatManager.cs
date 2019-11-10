@@ -60,11 +60,13 @@ namespace LismanService {
         {
             if (!multiplayerGameInformation.ContainsKey(idgame))
             {
+
                 Game informationGame = new Game
                 {
                     gameMap = GAMEMAP,
-                    
-                };
+                    lismanUsers = new Dictionary<string, int>()
+
+            };
                 multiplayerGameInformation.Add(idgame, informationGame);
             }
             foreach (var userGame in listGamesOnline[idgame]) {

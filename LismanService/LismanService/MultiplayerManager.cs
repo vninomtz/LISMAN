@@ -37,21 +37,29 @@ namespace LismanService
             switch (index)
             {
                 case 0:
-                    multiplayerGameInformation[idgame].lismanYellow = user;
+                    multiplayerGameInformation[idgame].lismanUsers.Add(user, LISMANYELLOW);
                     connectionGameService[user].NotifyColorPlayer(LISMANYELLOW);
                     break;
                 case 1:
-                    multiplayerGameInformation[idgame].lismanBlue = user;
+                    multiplayerGameInformation[idgame].lismanUsers.Add(user, LISMANBLUE);
                     connectionGameService[user].NotifyColorPlayer(LISMANBLUE);
                     break;
                 case 2:
-                    multiplayerGameInformation[idgame].lismanRed = user;
+                    multiplayerGameInformation[idgame].lismanUsers.Add(user, LISMANRED);
                     connectionGameService[user].NotifyColorPlayer(LISMANRED);
                     break;
                 case 3:
-                    multiplayerGameInformation[idgame].lismanGreen = user;
+                    multiplayerGameInformation[idgame].lismanUsers.Add(user, LISMANGREEN);
                     connectionGameService[user].NotifyColorPlayer(LISMANGREEN);
                     break;
+            }
+        }
+
+        public void MoveLisman(int idgame,String user, int initialPositionX, int initialPositionY, int finalPositionX, int finalPositionY)
+        {
+            foreach (var userGame in listGamesOnline[idgame])
+            {
+                connectionGameService[userGame].NotifyLismanMoved(multiplayerGameInformation[idgame].lismanUsers[user], finalPositionX, finalPositionY);
             }
         }
     }

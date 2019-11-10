@@ -154,19 +154,17 @@ namespace Lisman {
             if(X==0 && Y == 11) {
                 X = 23;
                 Y = 11;
-                Grid.SetColumn(lismanPlayerImage, X);
-                Grid.SetRow(lismanPlayerImage, Y);
+                //Grid.SetColumn(lismanPlayerImage, X);
+                //Grid.SetRow(lismanPlayerImage, Y);
+                MoveLismanInMap(0, 0, X, Y);
                 return;
             }
             if (canMove(X-1,Y)){
                 if (X > 0) {
                     X -= 1;
-
-
-                    Grid.SetColumn(lismanPlayerImage, X);
-                    Grid.SetRow(lismanPlayerImage, Y );
-                    
-
+                    //Grid.SetColumn(lismanPlayerImage, X);
+                    //Grid.SetRow(lismanPlayerImage, Y );
+                    MoveLismanInMap(0, 0, X, Y);
 
                 }
             } else {
@@ -180,8 +178,9 @@ namespace Lisman {
            
             if (canMove(X,Y-1)) {
                 Y -= 1;
-                Grid.SetColumn(lismanPlayerImage, X);
-                Grid.SetRow(lismanPlayerImage, Y);
+                //Grid.SetColumn(lismanPlayerImage, X);
+                //Grid.SetRow(lismanPlayerImage, Y);
+                MoveLismanInMap(0, 0, X, Y);
             } else {
                 StopLisman();
             }
@@ -193,14 +192,16 @@ namespace Lisman {
             if (X == 23 && Y == 11) {
                 X = 0;
                 Y = 11;
-                Grid.SetColumn(lismanPlayerImage, X);
-                Grid.SetRow(lismanPlayerImage, Y);
+                //Grid.SetColumn(lismanPlayerImage, X);
+                //Grid.SetRow(lismanPlayerImage, Y);
+                MoveLismanInMap(0, 0, X, Y);
                 return;
             }
             if (canMove(X+1,Y)) {
                 X += 1;
-                Grid.SetColumn(lismanPlayerImage, X);
-                Grid.SetRow(lismanPlayerImage, Y);
+                //Grid.SetColumn(lismanPlayerImage, X);
+                //Grid.SetRow(lismanPlayerImage, Y);
+                MoveLismanInMap(0, 0, X, Y);
             } else {
                 StopLisman();
             }
@@ -212,15 +213,17 @@ namespace Lisman {
         {
             if (canMove(X,Y+1)) {
                 Y += 1;
-                Grid.SetColumn(lismanPlayerImage, X);
-                Grid.SetRow(lismanPlayerImage, Y);
+                //Grid.SetColumn(lismanPlayerImage, X);
+                //Grid.SetRow(lismanPlayerImage, Y);
+                MoveLismanInMap(0,0,X,Y);
             } else {
                 StopLisman();
             }
+        }
 
-
-            //RotateTransform downTransform = new RotateTransform(90);
-            //Pacman.RenderTransform = downTransform;
+        public void MoveLismanInMap(int initialPositionX, int initialPositionY, int finalPositionX, int finalPositionY)
+        {
+            client.MoveLisman(this.idgame, SingletonAccount.getSingletonAccount().User, initialPositionX, initialPositionY, finalPositionX, finalPositionY);
         }
 
         private void Matriz_KeyDown(object sender, KeyEventArgs e)
@@ -265,17 +268,47 @@ namespace Lisman {
             {
                 case LISMANYELLOW:
                     lismanPlayerImage = LismanYellowImage;
+                    X = 1;
+                    Y = 1;
                     break;
                 case LISMANRED:
                     lismanPlayerImage = LismanRedImage;
+                    X = 22;
+                    Y = 1;
                     break;
                 case LISMANBLUE:
                     lismanPlayerImage = LismanTurquoiseImage;
+                    X = 1;
+                    Y = 21;
                     break;
                 case LISMANGREEN:
                     lismanPlayerImage = LismanGreenImage;
+                    X = 22;
+                    Y = 21;
                     break;
             }
+        }
+
+        public void NotifyLismanMoved(int colorPlayer, int positionX, int positionY)
+        {
+            Image lismanImageMoved = null;
+            switch (colorPlayer)
+            {
+                case LISMANYELLOW:
+                    lismanImageMoved = LismanYellowImage;
+                    break;
+                case LISMANRED:
+                    lismanImageMoved = LismanRedImage;
+                    break;
+                case LISMANBLUE:
+                    lismanImageMoved = LismanTurquoiseImage;
+                    break;
+                case LISMANGREEN:
+                    lismanImageMoved = LismanGreenImage;
+                    break;
+            }
+            Grid.SetColumn(lismanImageMoved, positionX);
+            Grid.SetRow(lismanImageMoved, positionY);
         }
     }
 }

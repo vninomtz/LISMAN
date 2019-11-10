@@ -7,7 +7,7 @@
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         xmlns:local="clr-namespace:Lisman"
         mc:Ignorable="d"
-        Title="{x:Static p:Resources.title_main_menu}" Height="500" Width="600" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" 
+        Title="{x:Static p:Resources.title_main_menu}" Height="500" Width="600" ResizeMode="CanMinimize" WindowStartupLocation="CenterScreen" 
         Topmost="True" Icon="Resources/img/icon_pacman.png">
     <Grid>
         <TextBlock HorizontalAlignment="Center" VerticalAlignment="Top" Margin="10"

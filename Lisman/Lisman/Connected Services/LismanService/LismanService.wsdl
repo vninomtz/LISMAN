@@ -248,11 +248,17 @@
   <wsdl:message name="IMultiplayerManager_JoinMultiplayerGame_InputMessage">
     <wsdl:part name="parameters" element="tns:JoinMultiplayerGame" />
   </wsdl:message>
+  <wsdl:message name="IMultiplayerManager_MoveLisman_InputMessage">
+    <wsdl:part name="parameters" element="tns:MoveLisman" />
+  </wsdl:message>
   <wsdl:message name="IMultiplayerManager_PrintPlayer_OutputCallbackMessage">
     <wsdl:part name="parameters" element="tns:PrintPlayer" />
   </wsdl:message>
   <wsdl:message name="IMultiplayerManager_NotifyColorPlayer_OutputCallbackMessage">
     <wsdl:part name="parameters" element="tns:NotifyColorPlayer" />
+  </wsdl:message>
+  <wsdl:message name="IMultiplayerManager_NotifyLismanMoved_OutputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:NotifyLismanMoved" />
   </wsdl:message>
   <wsdl:portType name="IAccountManager">
     <wsdl:operation name="AddAccount">
@@ -337,11 +343,17 @@
     <wsdl:operation name="JoinMultiplayerGame">
       <wsdl:input wsaw:Action="http://tempuri.org/IMultiplayerManager/JoinMultiplayerGame" message="tns:IMultiplayerManager_JoinMultiplayerGame_InputMessage" />
     </wsdl:operation>
+    <wsdl:operation name="MoveLisman">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMultiplayerManager/MoveLisman" message="tns:IMultiplayerManager_MoveLisman_InputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="PrintPlayer">
       <wsdl:output wsaw:Action="http://tempuri.org/IMultiplayerManager/PrintPlayer" message="tns:IMultiplayerManager_PrintPlayer_OutputCallbackMessage" />
     </wsdl:operation>
     <wsdl:operation name="NotifyColorPlayer">
       <wsdl:output wsaw:Action="http://tempuri.org/IMultiplayerManager/NotifyColorPlayer" message="tns:IMultiplayerManager_NotifyColorPlayer_OutputCallbackMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="NotifyLismanMoved">
+      <wsdl:output wsaw:Action="http://tempuri.org/IMultiplayerManager/NotifyLismanMoved" message="tns:IMultiplayerManager_NotifyLismanMoved_OutputCallbackMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="NetTcpBinding_IAccountManager" type="tns:IAccountManager">
@@ -522,6 +534,12 @@
         <soap12:body use="literal" />
       </wsdl:input>
     </wsdl:operation>
+    <wsdl:operation name="MoveLisman">
+      <soap12:operation soapAction="http://tempuri.org/IMultiplayerManager/MoveLisman" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
     <wsdl:operation name="PrintPlayer">
       <soap12:operation soapAction="http://tempuri.org/IMultiplayerManager/PrintPlayer" style="document" />
       <wsdl:output>
@@ -530,6 +548,12 @@
     </wsdl:operation>
     <wsdl:operation name="NotifyColorPlayer">
       <soap12:operation soapAction="http://tempuri.org/IMultiplayerManager/NotifyColorPlayer" style="document" />
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="NotifyLismanMoved">
+      <soap12:operation soapAction="http://tempuri.org/IMultiplayerManager/NotifyLismanMoved" style="document" />
       <wsdl:output>
         <soap12:body use="literal" />
       </wsdl:output>

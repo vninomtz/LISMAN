@@ -130,6 +130,9 @@ Click on the following link to confirm your email address and finish the process
   <data name="email" xml:space="preserve">
     <value>e-mail</value>
   </data>
+  <data name="exit_game" xml:space="preserve">
+    <value>Exit Game</value>
+  </data>
   <data name="go_back" xml:space="preserve">
     <value>Go Back</value>
   </data>

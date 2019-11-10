@@ -7,7 +7,7 @@
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         xmlns:local="clr-namespace:Lisman"
         mc:Ignorable="d"
-        Title="Lobby" Height="450" Width="772.363" Background="White"  ResizeMode="NoResize">
+        Title="Lobby" Height="450" Width="772.363" Background="White"  ResizeMode="CanMinimize">
     <Grid  >
 
         <TextBlock HorizontalAlignment="Left" VerticalAlignment="Top" Text="Buscando Jugadores"
@@ -15,7 +15,7 @@
         <TextBlock HorizontalAlignment="Left" VerticalAlignment="Top"  Text="Jugadores encontrados"
             Style="{StaticResource MaterialDesignDisplay3TextBlock}" FontFamily="Lato Black" FontSize="25" Width="272" Height="30" Margin="61,75,425,0"/>
         <TextBlock x:Name="textBlock_number_players" HorizontalAlignment="Left" VerticalAlignment="Top"  Text="0 / 4"
-            Style="{StaticResource MaterialDesignDisplay3TextBlock}" FontFamily="Lato Black" FontSize="25" Width="64" RenderTransformOrigin="0.471,1.343" Margin="153,110,541,0" Height="30"/>
+            Style="{StaticResource MaterialDesignDisplay3TextBlock}" FontFamily="Lato Black" FontSize="25" Width="64"  Margin="153,110,541,0" Height="30"/>
 
         <ProgressBar
           Style="{StaticResource MaterialDesignCircularProgressBar}"

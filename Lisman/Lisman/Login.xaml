@@ -7,7 +7,7 @@
         xmlns:p="clr-namespace:Lisman.Properties"
         xmlns:local="clr-namespace:Lisman"
         mc:Ignorable="d"
-        Title="LISMAN" Height="530" Width="410" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" 
+        Title="LISMAN" Height="530" Width="410" ResizeMode="CanMinimize" WindowStartupLocation="CenterScreen" 
         Icon="Resources/img/icon_pacman.png">
 
     <Grid>

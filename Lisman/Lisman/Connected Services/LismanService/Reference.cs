@@ -852,6 +852,12 @@ namespace Lisman.LismanService {
         
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IMultiplayerManager/JoinMultiplayerGame")]
         System.Threading.Tasks.Task JoinMultiplayerGameAsync(string user, int idgame);
+        
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IMultiplayerManager/MoveLisman")]
+        void MoveLisman(int idGame, string user, int initialPositionX, int initialPositionY, int finalPositionX, int finalPositionY);
+        
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IMultiplayerManager/MoveLisman")]
+        System.Threading.Tasks.Task MoveLismanAsync(int idGame, string user, int initialPositionX, int initialPositionY, int finalPositionX, int finalPositionY);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -862,6 +868,9 @@ namespace Lisman.LismanService {
         
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IMultiplayerManager/NotifyColorPlayer")]
         void NotifyColorPlayer(int colorPlayer);
+        
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IMultiplayerManager/NotifyLismanMoved")]
+        void NotifyLismanMoved(int colorPlayer, int positionX, int positionY);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -898,6 +907,14 @@ namespace Lisman.LismanService {
         
         public System.Threading.Tasks.Task JoinMultiplayerGameAsync(string user, int idgame) {
             return base.Channel.JoinMultiplayerGameAsync(user, idgame);
+        }
+        
+        public void MoveLisman(int idGame, string user, int initialPositionX, int initialPositionY, int finalPositionX, int finalPositionY) {
+            base.Channel.MoveLisman(idGame, user, initialPositionX, initialPositionY, finalPositionX, finalPositionY);
+        }
+        
+        public System.Threading.Tasks.Task MoveLismanAsync(int idGame, string user, int initialPositionX, int initialPositionY, int finalPositionX, int finalPositionY) {
+            return base.Channel.MoveLismanAsync(idGame, user, initialPositionX, initialPositionY, finalPositionX, finalPositionY);
         }
     }
 }

@@ -371,30 +371,120 @@
         <TextBlock x:Name="UserLismanYellow"  HorizontalAlignment="Left" VerticalAlignment="Top"  
                     Text="Usuario1"
             Style="{StaticResource MaterialDesignDisplay3TextBlock}" 
-                   FontFamily="Lato Black" FontSize="20" Width="100"  
-                   Margin="10,55,0,0" Height="30"
+                   FontFamily="Lato Black" FontSize="20" Width="298"  
+                   Margin="0,55,0,0" Height="30"
                    Grid.Column="1" FontWeight="Bold" Background="#FFE8FF06" Foreground="#FF211E1E"/>
+
+
         <Separator Grid.Column="1" HorizontalAlignment="Left" Height="10" Margin="10,177,0,0" VerticalAlignment="Top" Width="278"/>
         <TextBlock x:Name="UserLismanRed"  HorizontalAlignment="Left" VerticalAlignment="Top"  
                     Text="Usuario2"
             Style="{StaticResource MaterialDesignDisplay3TextBlock}" 
-            FontFamily="Lato Black" FontSize="20" Width="100"  
-            Margin="10,201,0,0" Height="30"
+            FontFamily="Lato Black" FontSize="20" Width="298"  
+            Margin="0,201,0,0" Height="30"
             Grid.Column="1" Background="#FFEE1010" FontWeight="Bold"/>
         <Separator Grid.Column="1" HorizontalAlignment="Left" Height="10" Margin="5,326,0,0" VerticalAlignment="Top" Width="278"/>
         <TextBlock x:Name="UserLismanBlue"  HorizontalAlignment="Left" VerticalAlignment="Top"  
                     Text="Usuario3"
             Style="{StaticResource MaterialDesignDisplay3TextBlock}" 
-            FontFamily="Lato Black" FontSize="20" Width="100"  
-            Margin="10,365,0,0" Height="30"
+            FontFamily="Lato Black" FontSize="20" Width="298"  
+            Margin="0,365,0,0" Height="30"
             Grid.Column="1" Background="#FF17F0B5" FontWeight="Bold"/>
         <Separator Grid.Column="1" HorizontalAlignment="Left" Height="10" Margin="5,495,0,0" VerticalAlignment="Top" Width="278"/>
         <TextBlock x:Name="UserLismanGreen"  HorizontalAlignment="Left" VerticalAlignment="Top"  
                     Text="Usuario4"
             Style="{StaticResource MaterialDesignDisplay3TextBlock}" 
-            FontFamily="Lato Black" FontSize="20" Width="100"  
-            Margin="10,532,0,0" Height="30"
+            FontFamily="Lato Black" FontSize="20" Width="298"  
+            Margin="0,532,0,0" Height="30"
             Grid.Column="1" FontWeight="Bold" Background="#FF4BEE0E"/>
+        <TextBlock x:Name="UserLismanYellowLifes"  HorizontalAlignment="Left" VerticalAlignment="Top"  
+            Text="Lifes"
+            Style="{StaticResource MaterialDesignDisplay3TextBlock}" 
+            FontFamily="Lato Black" FontSize="20" Width="74"  
+            Margin="118,100,0,0" Height="30"
+            Grid.Column="1" FontWeight="Bold"  />
+        <TextBlock x:Name="UserLismanYellowScore"  HorizontalAlignment="Left" VerticalAlignment="Top"  
+            Text="Score"
+            Style="{StaticResource MaterialDesignDisplay3TextBlock}" 
+            FontFamily="Lato Black" FontSize="20" Width="74"  
+            Margin="118,134,0,0" Height="30"
+            Grid.Column="1" FontWeight="Bold"  />
+        <TextBlock x:Name="UserLismanRedLifes"  HorizontalAlignment="Left" VerticalAlignment="Top"  
+            Text="Lifes"
+            Style="{StaticResource MaterialDesignDisplay3TextBlock}" 
+            FontFamily="Lato Black" FontSize="20" Width="74"  
+            Margin="118,260,0,0" Height="30"
+            Grid.Column="1" FontWeight="Bold"  />
+        <TextBlock x:Name="UserLismanRedScore"  HorizontalAlignment="Left" VerticalAlignment="Top"  
+            Text="Score"
+            Style="{StaticResource MaterialDesignDisplay3TextBlock}" 
+            FontFamily="Lato Black" FontSize="20" Width="74"  
+            Margin="118,294,0,0" Height="30"
+            Grid.Column="1" FontWeight="Bold"  />
+        <TextBlock x:Name="UserLismanBlueLifes"  HorizontalAlignment="Left" VerticalAlignment="Top"  
+            Text="Lifes"
+            Style="{StaticResource MaterialDesignDisplay3TextBlock}" 
+            FontFamily="Lato Black" FontSize="20" Width="74"  
+            Margin="118,416,0,0" Height="30"
+            Grid.Column="1" FontWeight="Bold"  />
+        <TextBlock x:Name="UserLismanBlueScore"  HorizontalAlignment="Left" VerticalAlignment="Top"  
+            Text="Score"
+            Style="{StaticResource MaterialDesignDisplay3TextBlock}" 
+            FontFamily="Lato Black" FontSize="20" Width="74"  
+            Margin="118,452,0,0" Height="30"
+            Grid.Column="1" FontWeight="Bold"  />
+        <TextBlock x:Name="UserLismanGreenLifes"  HorizontalAlignment="Left" VerticalAlignment="Top"  
+            Text="Lifes"
+            Style="{StaticResource MaterialDesignDisplay3TextBlock}" 
+            FontFamily="Lato Black" FontSize="20" Width="74"  
+            Margin="118,580,0,0" Height="30"
+            Grid.Column="1" FontWeight="Bold"  />
+        <TextBlock x:Name="UserLismanGreenScore"  HorizontalAlignment="Left" VerticalAlignment="Top"  
+            Text="Score"
+            Style="{StaticResource MaterialDesignDisplay3TextBlock}" 
+            FontFamily="Lato Black" FontSize="20" Width="74"  
+            Margin="118,614,0,0" Height="30"
+            Grid.Column="1" FontWeight="Bold"  />
+        <TextBlock   HorizontalAlignment="Left" VerticalAlignment="Top"
+            Style="{StaticResource MaterialDesignDisplay3TextBlock}" 
+            FontFamily="Lato Black" FontSize="20" Width="74"  
+            Margin="10,100,0,0" Height="30"
+            Grid.Column="1" FontWeight="Bold"  ><Run Text="Lifes"/><Run Text=":"/></TextBlock>
+        <TextBlock HorizontalAlignment="Left" VerticalAlignment="Top"
+            Style="{StaticResource MaterialDesignDisplay3TextBlock}" 
+            FontFamily="Lato Black" FontSize="20" Width="74"  
+            Margin="10,134,0,0" Height="30"
+            Grid.Column="1" FontWeight="Bold"  ><Run Text="Score"/><Run Text=":"/></TextBlock>
+        <TextBlock HorizontalAlignment="Left" VerticalAlignment="Top"
+            Style="{StaticResource MaterialDesignDisplay3TextBlock}" 
+            FontFamily="Lato Black" FontSize="20" Width="74"  
+            Margin="10,260,0,0" Height="30"
+            Grid.Column="1" FontWeight="Bold"  ><Run Text="Lifes"/><Run Text=":"/></TextBlock>
+        <TextBlock HorizontalAlignment="Left" VerticalAlignment="Top"
+            Style="{StaticResource MaterialDesignDisplay3TextBlock}" 
+            FontFamily="Lato Black" FontSize="20" Width="74"  
+            Margin="10,294,0,0" Height="30"
+            Grid.Column="1" FontWeight="Bold"  ><Run Text="Score"/><Run Text=":"/></TextBlock>
+        <TextBlock  HorizontalAlignment="Left" VerticalAlignment="Top"
+            Style="{StaticResource MaterialDesignDisplay3TextBlock}" 
+            FontFamily="Lato Black" FontSize="20" Width="74"  
+            Margin="10,416,0,0" Height="30"
+            Grid.Column="1" FontWeight="Bold"  ><Run Text="Lifes"/><Run Text=":"/></TextBlock>
+        <TextBlock  HorizontalAlignment="Left" VerticalAlignment="Top"
+            Style="{StaticResource MaterialDesignDisplay3TextBlock}" 
+            FontFamily="Lato Black" FontSize="20" Width="74"  
+            Margin="10,452,0,0" Height="30"
+            Grid.Column="1" FontWeight="Bold"  ><Run Text="Score"/><Run Text=":"/></TextBlock>
+        <TextBlock HorizontalAlignment="Left" VerticalAlignment="Top"
+            Style="{StaticResource MaterialDesignDisplay3TextBlock}" 
+            FontFamily="Lato Black" FontSize="20" Width="74"  
+            Margin="10,580,0,0" Height="30"
+            Grid.Column="1" FontWeight="Bold"  ><Run Text="Lifes"/><Run Text=":"/></TextBlock>
+        <TextBlock  HorizontalAlignment="Left" VerticalAlignment="Top"
+            Style="{StaticResource MaterialDesignDisplay3TextBlock}" 
+            FontFamily="Lato Black" FontSize="20" Width="74"  
+            Margin="10,614,0,0" Height="30"
+            Grid.Column="1" FontWeight="Bold"  ><Run Text="Score"/><Run Text=":"/></TextBlock>
 
     </Grid>
 

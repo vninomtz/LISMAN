@@ -206,6 +206,9 @@
     <None Include="Connected Services\LismanService\item2.xsd">
       <SubType>Designer</SubType>
     </None>
+    <None Include="Connected Services\LismanService\item3.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Connected Services\LismanService\Lisman.LismanService.Account.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>

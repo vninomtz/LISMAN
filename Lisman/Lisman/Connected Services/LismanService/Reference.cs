@@ -481,6 +481,99 @@ namespace Lisman.LismanService {
         }
     }
     
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="InformationPlayer", Namespace="http://schemas.datacontract.org/2004/07/LismanService")]
+    [System.SerializableAttribute()]
+    public partial class InformationPlayer : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int colorLismanField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private bool hasPowerField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int lifesLismanField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int scoreLismanField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int colorLisman {
+            get {
+                return this.colorLismanField;
+            }
+            set {
+                if ((this.colorLismanField.Equals(value) != true)) {
+                    this.colorLismanField = value;
+                    this.RaisePropertyChanged("colorLisman");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public bool hasPower {
+            get {
+                return this.hasPowerField;
+            }
+            set {
+                if ((this.hasPowerField.Equals(value) != true)) {
+                    this.hasPowerField = value;
+                    this.RaisePropertyChanged("hasPower");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int lifesLisman {
+            get {
+                return this.lifesLismanField;
+            }
+            set {
+                if ((this.lifesLismanField.Equals(value) != true)) {
+                    this.lifesLismanField = value;
+                    this.RaisePropertyChanged("lifesLisman");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int scoreLisman {
+            get {
+                return this.scoreLismanField;
+            }
+            set {
+                if ((this.scoreLismanField.Equals(value) != true)) {
+                    this.scoreLismanField = value;
+                    this.RaisePropertyChanged("scoreLisman");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="LismanService.IAccountManager")]
     public interface IAccountManager {
@@ -863,11 +956,11 @@ namespace Lisman.LismanService {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     public interface IMultiplayerManagerCallback {
         
-        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IMultiplayerManager/PrintPlayer")]
-        void PrintPlayer(string user, int life, int score);
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IMultiplayerManager/PrintInformationPlayers")]
+        void PrintInformationPlayers(System.Collections.Generic.Dictionary<string, Lisman.LismanService.InformationPlayer> listPlayers);
         
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IMultiplayerManager/NotifyColorPlayer")]
-        void NotifyColorPlayer(int colorPlayer);
+        void NotifyColorPlayer(int colorPlayer, string user);
         
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IMultiplayerManager/NotifyLismanMoved")]
         void NotifyLismanMoved(int colorPlayer, int positionX, int positionY);

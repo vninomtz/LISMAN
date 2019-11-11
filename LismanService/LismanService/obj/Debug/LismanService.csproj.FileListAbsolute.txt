@@ -1,3 +1,4 @@
+﻿
 C:\LISMAN\LismanService\LismanService\bin\Debug\LismanService.dll.config
 C:\LISMAN\LismanService\LismanService\bin\Debug\LismanService.dll
 C:\LISMAN\LismanService\LismanService\bin\Debug\LismanService.pdb
@@ -46,3 +47,7 @@ C:\Users\Vik-t\Documents\Software Engineering\5to Semestre\Tecnologías para la 
 C:\Users\Vik-t\Documents\Software Engineering\5to Semestre\Tecnologías para la Construcción\Proyecto\LISMAN\LismanService\LismanService\bin\Debug\EntityFramework.SqlServer.xml
 C:\Users\Vik-t\Documents\Software Engineering\5to Semestre\Tecnologías para la Construcción\Proyecto\LISMAN\LismanService\LismanService\obj\Debug\LismanService.csproj.CopyComplete
 C:\Users\Vik-t\Documents\Software Engineering\5to Semestre\Tecnologías para la Construcción\Proyecto\LISMAN\LismanService\LismanService\bin\Debug\log4net.xml
+C:\Users\Vik-t\Documents\Software Engineering\5to Semestre\Tecnologías para la Construcción\Proyecto\LISMAN\LismanService\LismanService\obj\Debug\LismanService.csproj.CopyComplete
+C:\Users\Vik-t\Documents\Software Engineering\5to Semestre\Tecnologías para la Construcción\Proyecto\LISMAN\LismanService\LismanService\obj\Debug\LismanService.dll
+C:\Users\Vik-t\Documents\Software Engineering\5to Semestre\Tecnologías para la Construcción\Proyecto\LISMAN\LismanService\LismanService\obj\Debug\LismanService.pdb
+C:\Users\Vik-t\Documents\Software Engineering\5to Semestre\Tecnologías para la Construcción\Proyecto\LISMAN\LismanService\LismanService\obj\Debug\LismanService.csprojAssemblyReference.cache

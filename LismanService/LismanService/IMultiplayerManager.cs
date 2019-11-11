@@ -15,9 +15,9 @@ namespace LismanService {
     [ServiceContract]
     public  interface IMultiplayerManagerCallBack {
         [OperationContract(IsOneWay = true)]
-        void PrintPlayer(String user, int life, int score);
+        void PrintInformationPlayers(Dictionary<String,InformationPlayer> listPlayers);
         [OperationContract(IsOneWay = true)]
-        void NotifyColorPlayer(int colorPlayer);
+        void NotifyColorPlayer(int colorPlayer, String user);
         [OperationContract(IsOneWay = true)]
         void NotifyLismanMoved(int colorPlayer, int positionX, int positionY);
 
@@ -31,8 +31,21 @@ namespace LismanService {
         [DataMember]
         public int[,] gameMap  { get; set; }
         [DataMember]
-        public Dictionary<String, int> lismanUsers { get; set; }
+        public Dictionary<String, InformationPlayer> lismanUsers { get; set; }
         
+    }
+
+    [DataContract]
+    public class InformationPlayer
+    {
+        [DataMember]
+        public int colorLisman { get; set; }
+        [DataMember]
+        public int lifesLisman { get; set; }
+        [DataMember]
+        public int scoreLisman { get; set; }
+        [DataMember]
+        public bool hasPower { get; set; }
     }
         
 }

@@ -24,8 +24,8 @@ namespace Lisman {
         int idgame;
         int[,] gameMap = new int[24,23];
         const int LISMANYELLOW = 3;
-        const int LISMANBLUE = 4;
-        const int LISMANRED = 5;
+        const int LISMANRED = 4;
+        const int LISMANBLUE = 5;        
         const int LISMANGREEN = 6;
         Image lismanPlayerImage = null;
         int X = 1;
@@ -255,12 +255,7 @@ namespace Lisman {
             }
         }
 
-        public void PrintPlayer(string user, int life, int score)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void NotifyColorPlayer(int colorPlayer)
+        public void NotifyColorPlayer(int colorPlayer, String user)
         {
             switch (colorPlayer)
             {
@@ -268,21 +263,25 @@ namespace Lisman {
                     lismanPlayerImage = LismanYellowImage;
                     X = 1;
                     Y = 1;
+                    UserLismanYellow.Text = user;
                     break;
                 case LISMANRED:
                     lismanPlayerImage = LismanRedImage;
                     X = 22;
                     Y = 1;
+                    UserLismanRed.Text = user;
                     break;
                 case LISMANBLUE:
                     lismanPlayerImage = LismanTurquoiseImage;
                     X = 1;
                     Y = 21;
+                    UserLismanBlue.Text = user;
                     break;
                 case LISMANGREEN:
                     lismanPlayerImage = LismanGreenImage;
                     X = 22;
                     Y = 21;
+                    UserLismanGreen.Text = user;
                     break;
             }
         }
@@ -307,6 +306,37 @@ namespace Lisman {
             }
             Grid.SetColumn(lismanImageMoved, positionX);
             Grid.SetRow(lismanImageMoved, positionY);
+        }
+
+        public void PrintInformationPlayers(Dictionary<string, InformationPlayer> listPlayers)
+        {
+            foreach (KeyValuePair<String, InformationPlayer> player in listPlayers)
+            {
+                int colorPlayer = player.Value.colorLisman;
+                switch (colorPlayer)
+                {
+                    case LISMANYELLOW:
+                        UserLismanYellow.Text =player.Key;
+                        UserLismanYellowLifes.Text = player.Value.lifesLisman.ToString();
+                        UserLismanYellowScore.Text = player.Value.scoreLisman.ToString();
+                        break;
+                    case LISMANRED:
+                        UserLismanRed.Text = player.Key;
+                        UserLismanRedLifes.Text = player.Value.lifesLisman.ToString();
+                        UserLismanRedScore.Text = player.Value.scoreLisman.ToString();
+                        break;
+                    case LISMANBLUE:
+                        UserLismanBlue.Text = player.Key;
+                        UserLismanBlueLifes.Text = player.Value.lifesLisman.ToString();
+                        UserLismanBlueScore.Text = player.Value.scoreLisman.ToString();
+                        break;
+                    case LISMANGREEN:
+                        UserLismanGreen.Text = player.Key;
+                        UserLismanGreenLifes.Text = player.Value.lifesLisman.ToString();
+                        UserLismanGreenScore.Text = player.Value.scoreLisman.ToString();
+                        break;
+                }
+            }
         }
     }
 }

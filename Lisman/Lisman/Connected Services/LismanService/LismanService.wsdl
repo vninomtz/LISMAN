@@ -150,6 +150,7 @@
       <xsd:import schemaLocation="http://localhost:8081/?xsd=xsd0" namespace="http://tempuri.org/" />
       <xsd:import schemaLocation="http://localhost:8081/?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
       <xsd:import schemaLocation="http://localhost:8081/?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/LismanService" />
+      <xsd:import schemaLocation="http://localhost:8081/?xsd=xsd3" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
     </xsd:schema>
   </wsdl:types>
   <wsdl:message name="IAccountManager_AddAccount_InputMessage">
@@ -251,8 +252,8 @@
   <wsdl:message name="IMultiplayerManager_MoveLisman_InputMessage">
     <wsdl:part name="parameters" element="tns:MoveLisman" />
   </wsdl:message>
-  <wsdl:message name="IMultiplayerManager_PrintPlayer_OutputCallbackMessage">
-    <wsdl:part name="parameters" element="tns:PrintPlayer" />
+  <wsdl:message name="IMultiplayerManager_PrintInformationPlayers_OutputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:PrintInformationPlayers" />
   </wsdl:message>
   <wsdl:message name="IMultiplayerManager_NotifyColorPlayer_OutputCallbackMessage">
     <wsdl:part name="parameters" element="tns:NotifyColorPlayer" />
@@ -346,8 +347,8 @@
     <wsdl:operation name="MoveLisman">
       <wsdl:input wsaw:Action="http://tempuri.org/IMultiplayerManager/MoveLisman" message="tns:IMultiplayerManager_MoveLisman_InputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="PrintPlayer">
-      <wsdl:output wsaw:Action="http://tempuri.org/IMultiplayerManager/PrintPlayer" message="tns:IMultiplayerManager_PrintPlayer_OutputCallbackMessage" />
+    <wsdl:operation name="PrintInformationPlayers">
+      <wsdl:output wsaw:Action="http://tempuri.org/IMultiplayerManager/PrintInformationPlayers" message="tns:IMultiplayerManager_PrintInformationPlayers_OutputCallbackMessage" />
     </wsdl:operation>
     <wsdl:operation name="NotifyColorPlayer">
       <wsdl:output wsaw:Action="http://tempuri.org/IMultiplayerManager/NotifyColorPlayer" message="tns:IMultiplayerManager_NotifyColorPlayer_OutputCallbackMessage" />
@@ -540,8 +541,8 @@
         <soap12:body use="literal" />
       </wsdl:input>
     </wsdl:operation>
-    <wsdl:operation name="PrintPlayer">
-      <soap12:operation soapAction="http://tempuri.org/IMultiplayerManager/PrintPlayer" style="document" />
+    <wsdl:operation name="PrintInformationPlayers">
+      <soap12:operation soapAction="http://tempuri.org/IMultiplayerManager/PrintInformationPlayers" style="document" />
       <wsdl:output>
         <soap12:body use="literal" />
       </wsdl:output>

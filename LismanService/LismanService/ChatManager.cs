@@ -60,19 +60,52 @@ namespace LismanService {
         {
             if (!multiplayerGameInformation.ContainsKey(idgame))
             {
-
                 Game informationGame = new Game
                 {
                     gameMap = GAMEMAP,
-                    lismanUsers = new Dictionary<string, int>()
+                    lismanUsers = new Dictionary<string, InformationPlayer>()
 
             };
                 multiplayerGameInformation.Add(idgame, informationGame);
             }
             foreach (var userGame in listGamesOnline[idgame]) {
-                
-                connectionChatService[userGame].InitGame();
+
+                if (AssignColorPlayer(idgame, userGame))
+                {
+                    connectionChatService[userGame].InitGame();
+                }
+               
             }
+        }
+
+        private bool AssignColorPlayer(int idgame, String user)
+        {
+            InformationPlayer infoPlayer = new InformationPlayer();
+            int index = listGamesOnline[idgame].FindIndex(u => u == user);
+            bool result = false;
+            switch (index)
+            {
+                case 0:
+                    infoPlayer.colorLisman = LISMANYELLOW;
+                    break;
+                case 1:
+                    infoPlayer.colorLisman = LISMANBLUE;
+                    break;
+                case 2:
+                    infoPlayer.colorLisman = LISMANRED;
+                    break;
+                case 3:
+                    infoPlayer.colorLisman = LISMANGREEN;
+                    break;
+            }
+            multiplayerGameInformation[idgame].lismanUsers.Add(user, infoPlayer);
+
+            if (multiplayerGameInformation[idgame].lismanUsers[user].colorLisman != 0)
+            {
+                result = true;
+            }
+            
+            return result;
         }
     }
 }

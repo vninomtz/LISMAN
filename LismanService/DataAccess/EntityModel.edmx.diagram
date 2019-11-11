@@ -7,7 +7,7 @@
       <Diagram DiagramId="85235708d8c1429aa1eaf3de1bbe4433" Name="Diagram1" >
         <EntityTypeShape EntityType="EntityModel.Player" Width="1.5" PointX="0.5" PointY="0.5" />
         <EntityTypeShape EntityType="EntityModel.Account" Width="1.5" PointX="2.875" PointY="0.5" />
-        <EntityTypeShape EntityType="EntityModel.Record" Width="2.375" PointX="5.75" PointY="0.625" />
+        <EntityTypeShape EntityType="EntityModel.Record" Width="2.375" PointX="5.875" PointY="0.625" />
         <EntityTypeShape EntityType="EntityModel.Game" Width="1.5" PointX="6.625" PointY="3.125" />
         <EntityTypeShape EntityType="EntityModel.Chat" Width="1.5" PointX="4" PointY="4.25" />
         <EntityTypeShape EntityType="EntityModel.Message" Width="1.5" PointX="0.75" PointY="3.875" />

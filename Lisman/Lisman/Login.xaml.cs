@@ -42,12 +42,9 @@ namespace Lisman {
 
         private void Hyperlink_Click(object sender, RoutedEventArgs e)
         {
-           MultiplayerGame game = new MultiplayerGame(1);
-           game.Show();
+           UserRegister userRegister = new UserRegister();
+           userRegister.Show();
            this.Close();
-             //UserRegister userRegister = new UserRegister();
-             //userRegister.Show();
-            // this.Close();
         }
 
         private void MenuItem_Click_Spanish(object sender, RoutedEventArgs e)

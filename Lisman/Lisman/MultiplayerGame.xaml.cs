@@ -27,9 +27,8 @@ namespace Lisman {
 
         int[,] gameMap = new int[24, 23];
 
-        Image lismanPlayer = null;
+       
 
-        int[,] gameMap = new int[24,23];
         const int LISMANYELLOW = 3;
         const int LISMANBLUE = 4;
         const int LISMANRED = 5;
@@ -68,7 +67,16 @@ namespace Lisman {
             instace = new InstanceContext(this);
             this.idgame = idgame;
             client = new MultiplayerManagerClient(instace);
-            client.JoinMultiplayerGame(SingletonAccount.getSingletonAccount().User, idgame);
+            try
+            {
+                client.JoinMultiplayerGame(SingletonAccount.getSingletonAccount().User, idgame);
+            }
+            catch (Exception ex)
+            {
+                Logger.log.Error(ex);
+                
+            }
+            
 
             runLeft.Tick +=  new EventHandler(RunLeft);
             runLeft.Interval = new TimeSpan(0, 0, 0, 0, 300);
@@ -80,11 +88,8 @@ namespace Lisman {
             runDown.Interval = new TimeSpan(0, 0, 0, 0, 300);
             
             MatrizGame();
-            DrawPills();
-            
-
-            
-
+            DrawPills();        
+                        
         }
 
         public void MatrizGame() {

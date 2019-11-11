@@ -10,7 +10,7 @@ using System.ServiceModel;
 
 namespace LismanService {
     public partial class LismanService : ILoginManager {
-        private static readonly log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
+        
 
         public bool EmailExists(string emailAdress)
         {
@@ -22,7 +22,7 @@ namespace LismanService {
                     }
                 }
             } catch (Exception ex) {
-                Console.WriteLine("Error: " + ex.Message);
+                Logger.log.Error(ex);
             }
             return false;
         }
@@ -53,9 +53,7 @@ namespace LismanService {
                     }
                 }
             } catch (Exception ex) {
-                Console.WriteLine("Error: " + ex.Message);
-                log.Info("Ocurrio un error " + ex.Message);
-
+                Logger.log.Error(ex.Message);
                 return null;
             }
         }
@@ -78,7 +76,7 @@ namespace LismanService {
                     }
                 }
             } catch (Exception ex) {
-                Console.WriteLine("Error: " + ex.Message);
+                Logger.log.Error(ex);
             }
             return false;
         }
@@ -98,7 +96,7 @@ namespace LismanService {
                     }).FirstOrDefault();
                 }
             }catch(Exception ex) {
-                Console.WriteLine("Error: " + ex.Message);
+                Logger.log.Error(ex);
                 return null;
             }
         }

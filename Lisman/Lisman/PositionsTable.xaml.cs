@@ -37,7 +37,7 @@ namespace Lisman {
                     var listRecords = client.GetRecords();
                     table_positions.ItemsSource = listRecords;
                 } catch (Exception ex) {
-                    MessageBox.Show("Error en la BD" + ex.Message);
+                    Logger.log.Error("Function loadTable, "+ ex);
                 }
             }
         }

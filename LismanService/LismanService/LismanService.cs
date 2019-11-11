@@ -40,12 +40,12 @@ namespace LismanService {
                         return dataBase.SaveChanges();
 
                     }catch(DbEntityValidationException ex) {
-                        Console.WriteLine("Error: " + ex.Message);
+                        Logger.log.Error(ex);
                         return -1;
                     }
                 }
             }catch(Exception ex) {
-                Console.WriteLine("Error: " + ex.Message);
+                Logger.log.Error(ex);
                 return -1;
             }
         }
@@ -84,7 +84,7 @@ namespace LismanService {
                     }).OrderByDescending(x => x.Story_best_score).ToList();
                 }
             }catch(Exception ex) {
-                Console.WriteLine("Error: " + ex.Message);
+                Logger.log.Error(ex);
                 return null;
             }
         }

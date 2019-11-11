@@ -84,7 +84,8 @@ namespace Lisman {
                         }
                     }
                 } catch (Exception ex) {
-                    Console.WriteLine("Error: " + ex.Message);
+                    Logger.log.Error("Function SaveData, " + ex);
+                        
                 }
 
             }
@@ -112,7 +113,7 @@ namespace Lisman {
                     return client.EmailExists(emailAdress);
                 }
             } catch (Exception ex) {
-                Console.WriteLine("Error: " + ex.Message);
+                Logger.log.Error("Function ExistEmail," + ex);
                 return false;
             }
             
@@ -124,7 +125,7 @@ namespace Lisman {
                     return client.UserNameExists(username);
                 }
             } catch (Exception ex) {
-                Console.WriteLine("error" + ex.Message);
+                Logger.log.Error("Function UserNameExists, " + ex);
                 return false;
             }
             

@@ -41,10 +41,9 @@ namespace LismanService {
 
 
                 }
-            } catch (KeyNotFoundException) {
+            } catch (KeyNotFoundException ex) {
+                Logger.log.Error("Function LeaveChat, " + ex);
             }
-
-
 
         }
        

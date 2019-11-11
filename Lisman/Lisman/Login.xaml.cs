@@ -99,9 +99,11 @@ namespace Lisman {
                         } else {
                             var messageWarningLogin = Properties.Resources.message_warning_login;
                             MessageBox.Show(messageWarningLogin);
+
+                            Logger.log.Warn("Login Failed, user: " + textField_user.Text);
                         }
                     } catch (Exception ex) {
-                        Console.WriteLine(ex.Message);
+                        Logger.log.Error("Function LoginUser, " + ex);
                     }
 
 

@@ -32,34 +32,26 @@ C:\Users\Vik-t\Documents\CarreraUV\5to Semestre\Tecnologías para la Construcci�
 C:\Users\Vik-t\Documents\CarreraUV\5to Semestre\Tecnologías para la Construcción\Proyecto\LISMAN\LismanService\Host\obj\Debug\Host.csproj.CopyComplete
 C:\Users\Vik-t\Documents\CarreraUV\5to Semestre\Tecnologías para la Construcción\Proyecto\LISMAN\LismanService\Host\obj\Debug\Host.exe
 C:\Users\Vik-t\Documents\CarreraUV\5to Semestre\Tecnologías para la Construcción\Proyecto\LISMAN\LismanService\Host\obj\Debug\Host.pdb
-
 C:\LISMAN\LismanService\Host\bin\Debug\log4net.config
 C:\LISMAN\LismanService\Host\bin\Debug\log4net.dll
 C:\LISMAN\LismanService\Host\bin\Debug\log4net.xml
-
 C:\Users\Vik-t\Documents\Software Engineering\5to Semestre\Tecnologías para la Construcción\Proyecto\LISMAN\LismanService\Host\bin\Debug\log4net.config
-
 C:\Users\Vik-t\Documents\Software Engineering\5to Semestre\Tecnologías para la Construcción\Proyecto\LISMAN\LismanService\Host\bin\Debug\Host.exe.config
 C:\Users\Vik-t\Documents\Software Engineering\5to Semestre\Tecnologías para la Construcción\Proyecto\LISMAN\LismanService\Host\bin\Debug\Host.exe
 C:\Users\Vik-t\Documents\Software Engineering\5to Semestre\Tecnologías para la Construcción\Proyecto\LISMAN\LismanService\Host\bin\Debug\Host.pdb
 C:\Users\Vik-t\Documents\Software Engineering\5to Semestre\Tecnologías para la Construcción\Proyecto\LISMAN\LismanService\Host\bin\Debug\EntityFramework.dll
 C:\Users\Vik-t\Documents\Software Engineering\5to Semestre\Tecnologías para la Construcción\Proyecto\LISMAN\LismanService\Host\bin\Debug\EntityFramework.SqlServer.dll
 C:\Users\Vik-t\Documents\Software Engineering\5to Semestre\Tecnologías para la Construcción\Proyecto\LISMAN\LismanService\Host\bin\Debug\LismanService.dll
-
 C:\Users\Vik-t\Documents\Software Engineering\5to Semestre\Tecnologías para la Construcción\Proyecto\LISMAN\LismanService\Host\bin\Debug\log4net.dll
-
 C:\Users\Vik-t\Documents\Software Engineering\5to Semestre\Tecnologías para la Construcción\Proyecto\LISMAN\LismanService\Host\bin\Debug\DataAccess.dll
 C:\Users\Vik-t\Documents\Software Engineering\5to Semestre\Tecnologías para la Construcción\Proyecto\LISMAN\LismanService\Host\bin\Debug\LismanService.pdb
 C:\Users\Vik-t\Documents\Software Engineering\5to Semestre\Tecnologías para la Construcción\Proyecto\LISMAN\LismanService\Host\bin\Debug\LismanService.dll.config
 C:\Users\Vik-t\Documents\Software Engineering\5to Semestre\Tecnologías para la Construcción\Proyecto\LISMAN\LismanService\Host\bin\Debug\EntityFramework.xml
 C:\Users\Vik-t\Documents\Software Engineering\5to Semestre\Tecnologías para la Construcción\Proyecto\LISMAN\LismanService\Host\bin\Debug\EntityFramework.SqlServer.xml
-
 C:\Users\Vik-t\Documents\Software Engineering\5to Semestre\Tecnologías para la Construcción\Proyecto\LISMAN\LismanService\Host\bin\Debug\log4net.xml
-
 C:\Users\Vik-t\Documents\Software Engineering\5to Semestre\Tecnologías para la Construcción\Proyecto\LISMAN\LismanService\Host\bin\Debug\DataAccess.pdb
 C:\Users\Vik-t\Documents\Software Engineering\5to Semestre\Tecnologías para la Construcción\Proyecto\LISMAN\LismanService\Host\bin\Debug\DataAccess.dll.config
 C:\Users\Vik-t\Documents\Software Engineering\5to Semestre\Tecnologías para la Construcción\Proyecto\LISMAN\LismanService\Host\obj\Debug\Host.csprojAssemblyReference.cache
 C:\Users\Vik-t\Documents\Software Engineering\5to Semestre\Tecnologías para la Construcción\Proyecto\LISMAN\LismanService\Host\obj\Debug\Host.csproj.CopyComplete
 C:\Users\Vik-t\Documents\Software Engineering\5to Semestre\Tecnologías para la Construcción\Proyecto\LISMAN\LismanService\Host\obj\Debug\Host.exe
 C:\Users\Vik-t\Documents\Software Engineering\5to Semestre\Tecnologías para la Construcción\Proyecto\LISMAN\LismanService\Host\obj\Debug\Host.pdb
-

@@ -64,6 +64,7 @@
     <Compile Include="IMultiplayerManager.cs" />
     <Compile Include="LismanService.cs" />
     <Compile Include="IAccountManager.cs" />
+    <Compile Include="Logger.cs" />
     <Compile Include="LoginManager.cs" />
     <Compile Include="MultiplayerManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

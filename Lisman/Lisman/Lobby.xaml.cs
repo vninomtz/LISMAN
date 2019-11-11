@@ -62,7 +62,7 @@ namespace Lisman {
 
         public void NotifyJoinedPlayer(string user)
         {
-            textBox_chat.Text += user + Properties.Resources.joined_game;
+            textBox_chat.Text += "\n" + user + Properties.Resources.joined_game;
 
             
         }

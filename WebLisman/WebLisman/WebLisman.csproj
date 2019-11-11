@@ -148,6 +148,9 @@
     <Content Include="Scripts\bootstrap.min.js" />
     <None Include="Properties\PublishProfiles\LismanWeb - FTP.pubxml" />
     <None Include="Properties\PublishProfiles\LismanWeb - Web Deploy.pubxml" />
+    <None Include="Properties\PublishProfiles\WebLisman - FTP.pubxml" />
+    <None Include="Properties\PublishProfiles\WebLisman - ReadOnly - FTP.pubxml" />
+    <None Include="Properties\PublishProfiles\WebLisman - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />

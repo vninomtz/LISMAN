@@ -37,7 +37,9 @@ namespace Lisman {
             String passwordEmail = "#LismaN&1423";
             String subjectEmail = Properties.Resources.subject_email;
             String bodyEmail = Properties.Resources.body_email;
-            String url = "http://lismanweb.azurewebsites.net/Home/About?token=" + token;
+            String url = " http://weblisman.azurewebsites.net/Home/About?token=" + token;
+       
+
 
             MailMessage mailMessage = new MailMessage(originEmail,destinationEmail,subjectEmail,bodyEmail + "<br>" + url);
             mailMessage.IsBodyHtml = true;

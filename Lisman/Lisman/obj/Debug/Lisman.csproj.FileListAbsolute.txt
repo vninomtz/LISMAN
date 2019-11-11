@@ -74,6 +74,7 @@ C:\LISMAN\Lisman\Lisman\obj\Debug\es-MX\Lisman.resources.dll
 C:\LISMAN\Lisman\Lisman\obj\Debug\Lisman.csproj.CopyComplete
 C:\LISMAN\Lisman\Lisman\obj\Debug\Lisman.exe
 C:\LISMAN\Lisman\Lisman\obj\Debug\Lisman.pdb
+
 C:\Users\Vik-t\Documents\Software Engineering\5to Semestre\Tecnologías para la Construcción\Proyecto\LISMAN\Lisman\Lisman\bin\Debug\Lisman.exe.config
 C:\Users\Vik-t\Documents\Software Engineering\5to Semestre\Tecnologías para la Construcción\Proyecto\LISMAN\Lisman\Lisman\bin\Debug\Lisman.exe
 C:\Users\Vik-t\Documents\Software Engineering\5to Semestre\Tecnologías para la Construcción\Proyecto\LISMAN\Lisman\Lisman\bin\Debug\Lisman.pdb

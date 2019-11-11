@@ -32,34 +32,44 @@ namespace LismanService
             {
                 connectionGameService.Add(user, connection);
             }
-            int index = listGamesOnline[idgame].FindIndex(u => u == user);
+            connectionGameService[user].NotifyColorPlayer(multiplayerGameInformation[idgame].lismanUsers[user].colorLisman, user);
+            connectionGameService[user].PrintInformationPlayers(multiplayerGameInformation[idgame].lismanUsers);
+            /*int index = listGamesOnline[idgame].FindIndex(u => u == user);
 
             switch (index)
             {
                 case 0:
                     multiplayerGameInformation[idgame].lismanUsers.Add(user, LISMANYELLOW);
-                    connectionGameService[user].NotifyColorPlayer(LISMANYELLOW);
+                    connectionGameService[user].NotifyColorPlayer(LISMANYELLOW, user);
                     break;
                 case 1:
                     multiplayerGameInformation[idgame].lismanUsers.Add(user, LISMANBLUE);
-                    connectionGameService[user].NotifyColorPlayer(LISMANBLUE);
+                    connectionGameService[user].NotifyColorPlayer(LISMANBLUE, user);
                     break;
                 case 2:
                     multiplayerGameInformation[idgame].lismanUsers.Add(user, LISMANRED);
-                    connectionGameService[user].NotifyColorPlayer(LISMANRED);
+                    connectionGameService[user].NotifyColorPlayer(LISMANRED, user);
                     break;
                 case 3:
                     multiplayerGameInformation[idgame].lismanUsers.Add(user, LISMANGREEN);
-                    connectionGameService[user].NotifyColorPlayer(LISMANGREEN);
+                    connectionGameService[user].NotifyColorPlayer(LISMANGREEN, user);
                     break;
-            }
+            }*/
         }
+
 
         public void MoveLisman(int idgame,String user, int initialPositionX, int initialPositionY, int finalPositionX, int finalPositionY)
         {
             foreach (var userGame in listGamesOnline[idgame])
             {
-                connectionGameService[userGame].NotifyLismanMoved(multiplayerGameInformation[idgame].lismanUsers[user], finalPositionX, finalPositionY);
+                try
+                {
+                    connectionGameService[userGame].NotifyLismanMoved(multiplayerGameInformation[idgame].lismanUsers[user].colorLisman, finalPositionX, finalPositionY);
+                } catch (CommunicationObjectAbortedException e)
+                {
+                    Console.WriteLine("Error en la conexión con el usuario:" + userGame + ". Error: " + e.Message);
+                }
+               
             }
         }
     }

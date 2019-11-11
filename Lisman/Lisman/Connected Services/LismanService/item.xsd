@@ -54,4 +54,13 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="Message" nillable="true" type="tns:Message" />
+  <xs:complexType name="InformationPlayer">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="colorLisman" type="xs:int" />
+      <xs:element minOccurs="0" name="hasPower" type="xs:boolean" />
+      <xs:element minOccurs="0" name="lifesLisman" type="xs:int" />
+      <xs:element minOccurs="0" name="scoreLisman" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="InformationPlayer" nillable="true" type="tns:InformationPlayer" />
 </xs:schema>

@@ -74,15 +74,23 @@ C:\LISMAN\Lisman\Lisman\obj\Debug\es-MX\Lisman.resources.dll
 C:\LISMAN\Lisman\Lisman\obj\Debug\Lisman.csproj.CopyComplete
 C:\LISMAN\Lisman\Lisman\obj\Debug\Lisman.exe
 C:\LISMAN\Lisman\Lisman\obj\Debug\Lisman.pdb
+C:\LISMAN\Lisman\Lisman\bin\Debug\WpfAnimatedGif.dll
+C:\LISMAN\Lisman\Lisman\bin\Debug\WpfAnimatedGif.xml
+C:\LISMAN\Lisman\Lisman\bin\Debug\log4net.dll
+C:\LISMAN\Lisman\Lisman\bin\Debug\log4net.xml
+C:\LISMAN\Lisman\Lisman\bin\Debug\log4net.config
+C:\Users\Vik-t\Documents\Software Engineering\5to Semestre\Tecnologías para la Construcción\Proyecto\LISMAN\Lisman\Lisman\bin\Debug\log4net.config
 C:\Users\Vik-t\Documents\Software Engineering\5to Semestre\Tecnologías para la Construcción\Proyecto\LISMAN\Lisman\Lisman\bin\Debug\Lisman.exe.config
 C:\Users\Vik-t\Documents\Software Engineering\5to Semestre\Tecnologías para la Construcción\Proyecto\LISMAN\Lisman\Lisman\bin\Debug\Lisman.exe
 C:\Users\Vik-t\Documents\Software Engineering\5to Semestre\Tecnologías para la Construcción\Proyecto\LISMAN\Lisman\Lisman\bin\Debug\Lisman.pdb
 C:\Users\Vik-t\Documents\Software Engineering\5to Semestre\Tecnologías para la Construcción\Proyecto\LISMAN\Lisman\Lisman\bin\Debug\es-MX\Lisman.resources.dll
+C:\Users\Vik-t\Documents\Software Engineering\5to Semestre\Tecnologías para la Construcción\Proyecto\LISMAN\Lisman\Lisman\bin\Debug\log4net.dll
 C:\Users\Vik-t\Documents\Software Engineering\5to Semestre\Tecnologías para la Construcción\Proyecto\LISMAN\Lisman\Lisman\bin\Debug\Logica.dll
 C:\Users\Vik-t\Documents\Software Engineering\5to Semestre\Tecnologías para la Construcción\Proyecto\LISMAN\Lisman\Lisman\bin\Debug\MaterialDesignColors.dll
 C:\Users\Vik-t\Documents\Software Engineering\5to Semestre\Tecnologías para la Construcción\Proyecto\LISMAN\Lisman\Lisman\bin\Debug\MaterialDesignThemes.Wpf.dll
 C:\Users\Vik-t\Documents\Software Engineering\5to Semestre\Tecnologías para la Construcción\Proyecto\LISMAN\Lisman\Lisman\bin\Debug\WpfAnimatedGif.dll
 C:\Users\Vik-t\Documents\Software Engineering\5to Semestre\Tecnologías para la Construcción\Proyecto\LISMAN\Lisman\Lisman\bin\Debug\Logica.pdb
+C:\Users\Vik-t\Documents\Software Engineering\5to Semestre\Tecnologías para la Construcción\Proyecto\LISMAN\Lisman\Lisman\bin\Debug\log4net.xml
 C:\Users\Vik-t\Documents\Software Engineering\5to Semestre\Tecnologías para la Construcción\Proyecto\LISMAN\Lisman\Lisman\bin\Debug\MaterialDesignColors.pdb
 C:\Users\Vik-t\Documents\Software Engineering\5to Semestre\Tecnologías para la Construcción\Proyecto\LISMAN\Lisman\Lisman\bin\Debug\MaterialDesignThemes.Wpf.pdb
 C:\Users\Vik-t\Documents\Software Engineering\5to Semestre\Tecnologías para la Construcción\Proyecto\LISMAN\Lisman\Lisman\bin\Debug\MaterialDesignThemes.Wpf.xml
@@ -114,11 +122,3 @@ C:\Users\Vik-t\Documents\Software Engineering\5to Semestre\Tecnologías para la 
 C:\Users\Vik-t\Documents\Software Engineering\5to Semestre\Tecnologías para la Construcción\Proyecto\LISMAN\Lisman\Lisman\obj\Debug\Lisman.csproj.CopyComplete
 C:\Users\Vik-t\Documents\Software Engineering\5to Semestre\Tecnologías para la Construcción\Proyecto\LISMAN\Lisman\Lisman\obj\Debug\Lisman.exe
 C:\Users\Vik-t\Documents\Software Engineering\5to Semestre\Tecnologías para la Construcción\Proyecto\LISMAN\Lisman\Lisman\obj\Debug\Lisman.pdb
-C:\LISMAN\Lisman\Lisman\bin\Debug\WpfAnimatedGif.dll
-C:\LISMAN\Lisman\Lisman\bin\Debug\WpfAnimatedGif.xml
-C:\LISMAN\Lisman\Lisman\bin\Debug\log4net.dll
-C:\LISMAN\Lisman\Lisman\bin\Debug\log4net.xml
-C:\LISMAN\Lisman\Lisman\bin\Debug\log4net.config
-C:\Users\Vik-t\Documents\Software Engineering\5to Semestre\Tecnologías para la Construcción\Proyecto\LISMAN\Lisman\Lisman\bin\Debug\log4net.config
-C:\Users\Vik-t\Documents\Software Engineering\5to Semestre\Tecnologías para la Construcción\Proyecto\LISMAN\Lisman\Lisman\bin\Debug\log4net.dll
-C:\Users\Vik-t\Documents\Software Engineering\5to Semestre\Tecnologías para la Construcción\Proyecto\LISMAN\Lisman\Lisman\bin\Debug\log4net.xml

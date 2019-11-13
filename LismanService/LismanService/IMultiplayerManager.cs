@@ -20,9 +20,10 @@ namespace LismanService {
         void NotifyColorPlayer(int colorPlayer, String user);
         [OperationContract(IsOneWay = true)]
         void NotifyLismanMoved(int colorPlayer, int positionX, int positionY);
-
-
-
+        [OperationContract(IsOneWay = true)]
+        void NotifyDisappearedPowerPill(int positionX, int positionY);
+        [OperationContract(IsOneWay = true)]
+        void NotifyUpdateScore(int colorPlayer, int scorePlayer);
     }
 
     [DataContract]

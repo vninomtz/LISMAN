@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Security.Cryptography;
+using System.ServiceModel;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -78,33 +79,50 @@ namespace Lisman {
 
         public void LoginUser() {
             if (ValidateFields()) {
-                using (var client = new LismanService.LoginManagerClient()) {
+                try
+                {
+                    using (var client = new LismanService.LoginManagerClient())
+                    {
 
-                    try {
-                        LismanService.Account account = client.LoginAccount(textField_user.Text, EncodePassword(passwordBox_password.Password));
-                        if (account != null) {
-                            if (account.Key_confirmation == "") {
-                                SingletonAccount.setSingletonAccount(account);
-                                MainMenu mainMenu = new MainMenu();
-                                mainMenu.Show();
-                                this.Close();
-                            } else {
-                                var messageAccountConfirm = Properties.Resources.message_account_confirm;
-                                MessageBox.Show(messageAccountConfirm);
+                        try
+                        {
+                            LismanService.Account account = client.LoginAccount(textField_user.Text, EncodePassword(passwordBox_password.Password));
+                            if (account != null)
+                            {
+                                if (account.Key_confirmation == "")
+                                {
+                                    SingletonAccount.setSingletonAccount(account);
+                                    MainMenu mainMenu = new MainMenu();
+                                    mainMenu.Show();
+                                    this.Close();
+                                }
+                                else
+                                {
+                                    var messageAccountConfirm = Properties.Resources.message_account_confirm;
+                                    MessageBox.Show(messageAccountConfirm);
+                                }
+
                             }
+                            else
+                            {
+                                var messageWarningLogin = Properties.Resources.message_warning_login;
+                                MessageBox.Show(messageWarningLogin);
 
-                        } else {
-                            var messageWarningLogin = Properties.Resources.message_warning_login;
-                            MessageBox.Show(messageWarningLogin);
-
-                            Logger.log.Warn("Login Failed, user: " + textField_user.Text);
+                                Logger.log.Warn("Login Failed, user: " + textField_user.Text);
+                            }
                         }
-                    } catch (Exception ex) {
-                        Logger.log.Error("Function LoginUser, " + ex);
+                        catch (Exception ex)
+                        {
+                            Logger.log.Error("Function LoginUser, " + ex);
+                        }
+
+
                     }
-
-
+                } catch (CommunicationException e)
+                {
+                    MessageBox.Show("Error en la conexión al Servidor");
                 }
+                
             }
         }
 

@@ -265,18 +265,6 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Resources\img\Pacman.gif" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Resources\img\Muro.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Resources\img\lisman_Green.png" />
-    <Resource Include="Resources\img\lisman_Red.png" />
-    <Resource Include="Resources\img\lisman_Turquoise.png" />
-    <Resource Include="Resources\img\lisman_Yellow.png" />
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="Resources\img\Pill.png" />
   </ItemGroup>
   <ItemGroup>

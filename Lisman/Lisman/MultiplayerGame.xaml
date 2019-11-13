@@ -176,7 +176,7 @@
             <StackPanel Grid.Row="7" Grid.Column="15" Background="Black"/>
             <StackPanel Grid.Row="7" Grid.Column="16" Background="Black"/>
 
-            <StackPanel x:Name="panel_7_7" Grid.Row="7" Grid.Column="18" Background="Black"/>
+            <StackPanel x:Name="panel_7_18" Grid.Row="7" Grid.Column="18" Background="Black"/>
             <StackPanel Grid.Row="7" Grid.Column="19" Background="Black"/>
             <StackPanel Grid.Row="7" Grid.Column="20" Background="Black"/>
             <StackPanel Grid.Row="7" Grid.Column="21" Background="Black"/>
@@ -192,7 +192,7 @@
             <StackPanel Grid.Row="9" Grid.Column="8" Background="Black"/>
             <StackPanel Grid.Row="9" Grid.Column="9" Background="Black"/>
             <StackPanel Grid.Row="9" Grid.Column="10" Background="Black"/>
-            <StackPanel x:Name="panel_9_9" Grid.Row="9" Grid.Column="11" Background="Black"/>
+            <StackPanel x:Name="panel_9_11" Grid.Row="9" Grid.Column="11" Background="Black"/>
             <StackPanel Grid.Row="9" Grid.Column="12" Background="Black"/>
             <StackPanel Grid.Row="9" Grid.Column="13" Background="Black"/>
             <StackPanel Grid.Row="9" Grid.Column="14" Background="Black"/>
@@ -292,7 +292,7 @@
             <StackPanel Grid.Row="17" Grid.Column="9" Background="Black"/>
             <StackPanel Grid.Row="17" Grid.Column="10" Background="Black"/>
             <StackPanel Grid.Row="17" Grid.Column="11" Background="Black"/>
-            <StackPanel x:Name="panel_12_12" Grid.Row="17" Grid.Column="12" Background="Black"/>
+            <StackPanel x:Name="panel_17_12" Grid.Row="17" Grid.Column="12" Background="Black"/>
             <StackPanel Grid.Row="17" Grid.Column="13" Background="Black"/>
             <StackPanel Grid.Row="17" Grid.Column="14" Background="Black"/>
             <StackPanel Grid.Row="17" Grid.Column="15" Background="Black"/>
@@ -449,43 +449,42 @@
             Style="{StaticResource MaterialDesignDisplay3TextBlock}" 
             FontFamily="Lato Black" FontSize="20" Width="74"  
             Margin="10,100,0,0" Height="30"
-            Grid.Column="1" FontWeight="Bold"  ><Run Text="Lifes"/><Run Text=":"/></TextBlock>
+            Grid.Column="1" FontWeight="Bold"  ><Run Text=""/><Run Text="{x:Static p:Resources.game_lifes}"/></TextBlock>
         <TextBlock HorizontalAlignment="Left" VerticalAlignment="Top"
             Style="{StaticResource MaterialDesignDisplay3TextBlock}" 
             FontFamily="Lato Black" FontSize="20" Width="74"  
             Margin="10,134,0,0" Height="30"
-            Grid.Column="1" FontWeight="Bold"  ><Run Text="Score"/><Run Text=":"/></TextBlock>
+            Grid.Column="1" FontWeight="Bold"  ><Run Text="{x:Static p:Resources.game_score}"/><Run Text=":"/></TextBlock>
         <TextBlock HorizontalAlignment="Left" VerticalAlignment="Top"
             Style="{StaticResource MaterialDesignDisplay3TextBlock}" 
             FontFamily="Lato Black" FontSize="20" Width="74"  
             Margin="10,260,0,0" Height="30"
-            Grid.Column="1" FontWeight="Bold"  ><Run Text="Lifes"/><Run Text=":"/></TextBlock>
+            Grid.Column="1" FontWeight="Bold"  ><Run Text="{x:Static p:Resources.game_lifes}"/><Run Text=":"/></TextBlock>
         <TextBlock HorizontalAlignment="Left" VerticalAlignment="Top"
             Style="{StaticResource MaterialDesignDisplay3TextBlock}" 
             FontFamily="Lato Black" FontSize="20" Width="74"  
             Margin="10,294,0,0" Height="30"
-            Grid.Column="1" FontWeight="Bold"  ><Run Text="Score"/><Run Text=":"/></TextBlock>
+            Grid.Column="1" FontWeight="Bold"  ><Run Text="{x:Static p:Resources.game_score}"/><Run Text=":"/></TextBlock>
         <TextBlock  HorizontalAlignment="Left" VerticalAlignment="Top"
             Style="{StaticResource MaterialDesignDisplay3TextBlock}" 
             FontFamily="Lato Black" FontSize="20" Width="74"  
             Margin="10,416,0,0" Height="30"
-            Grid.Column="1" FontWeight="Bold"  ><Run Text="Lifes"/><Run Text=":"/></TextBlock>
+            Grid.Column="1" FontWeight="Bold"  ><Run Text="{x:Static p:Resources.game_lifes}"/><Run Text=":"/></TextBlock>
         <TextBlock  HorizontalAlignment="Left" VerticalAlignment="Top"
             Style="{StaticResource MaterialDesignDisplay3TextBlock}" 
             FontFamily="Lato Black" FontSize="20" Width="74"  
             Margin="10,452,0,0" Height="30"
-            Grid.Column="1" FontWeight="Bold"  ><Run Text="Score"/><Run Text=":"/></TextBlock>
+            Grid.Column="1" FontWeight="Bold"  ><Run Text="{x:Static p:Resources.game_score}"/><Run Text=":"/></TextBlock>
         <TextBlock HorizontalAlignment="Left" VerticalAlignment="Top"
             Style="{StaticResource MaterialDesignDisplay3TextBlock}" 
             FontFamily="Lato Black" FontSize="20" Width="74"  
             Margin="10,580,0,0" Height="30"
-            Grid.Column="1" FontWeight="Bold"  ><Run Text="Lifes"/><Run Text=":"/></TextBlock>
+            Grid.Column="1" FontWeight="Bold"  ><Run Text="{x:Static p:Resources.game_lifes}"/><Run Text=":"/></TextBlock>
         <TextBlock  HorizontalAlignment="Left" VerticalAlignment="Top"
             Style="{StaticResource MaterialDesignDisplay3TextBlock}" 
             FontFamily="Lato Black" FontSize="20" Width="74"  
             Margin="10,614,0,0" Height="30"
-            Grid.Column="1" FontWeight="Bold"  ><Run Text="Score"/><Run Text=":"/></TextBlock>
-
+            Grid.Column="1" FontWeight="Bold"  ><Run Text="{x:Static p:Resources.game_score}"/><Run Text=":"/></TextBlock>
     </Grid>
 
 </Window>

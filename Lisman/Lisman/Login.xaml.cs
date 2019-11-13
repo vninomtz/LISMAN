@@ -43,9 +43,11 @@ namespace Lisman {
 
         private void Hyperlink_Click(object sender, RoutedEventArgs e)
         {
-           UserRegister userRegister = new UserRegister();
-           userRegister.Show();
-           this.Close();
+            UserRegister userRegister = new UserRegister();
+            userRegister.Show();
+            this.Close();
+
+           
         }
 
         private void MenuItem_Click_Spanish(object sender, RoutedEventArgs e)
@@ -79,37 +81,33 @@ namespace Lisman {
 
         public void LoginUser() {
             if (ValidateFields()) {
+
                 try
                 {
-                    using (var client = new LismanService.LoginManagerClient())
-                    {
+                    
+                using (var client = new LismanService.LoginManagerClient()) {
 
-                        try
-                        {
-                            LismanService.Account account = client.LoginAccount(textField_user.Text, EncodePassword(passwordBox_password.Password));
-                            if (account != null)
-                            {
-                                if (account.Key_confirmation == "")
-                                {
-                                    SingletonAccount.setSingletonAccount(account);
-                                    MainMenu mainMenu = new MainMenu();
-                                    mainMenu.Show();
-                                    this.Close();
-                                }
-                                else
-                                {
-                                    var messageAccountConfirm = Properties.Resources.message_account_confirm;
-                                    MessageBox.Show(messageAccountConfirm);
-                                }
-
+                    try {
+                        LismanService.Account account = client.LoginAccount(textField_user.Text, EncodePassword(passwordBox_password.Password));
+                        if (account != null) {
+                            if (account.Key_confirmation == " ") {
+                                SingletonAccount.setSingletonAccount(account);
+                                MainMenu mainMenu = new MainMenu();
+                                mainMenu.Show();
+                                this.Close();
+                            } else {
+                                var messageAccountConfirm = Properties.Resources.message_account_confirm;
+                                MessageBox.Show(messageAccountConfirm);
                             }
-                            else
-                            {
+
+                        }
+                        else
+                        {
                                 var messageWarningLogin = Properties.Resources.message_warning_login;
                                 MessageBox.Show(messageWarningLogin);
 
                                 Logger.log.Warn("Login Failed, user: " + textField_user.Text);
-                            }
+                        }
                         }
                         catch (Exception ex)
                         {

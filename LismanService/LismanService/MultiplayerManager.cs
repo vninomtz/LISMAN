@@ -63,9 +63,7 @@ namespace LismanService
                     MoveLismanToNewPosition(idgame, user,initialPositionX,initialPositionY, finalPositionX, finalPositionY);
                     break;
                 case POWERPILL:
-                    DisappearPowerPill(idgame, finalPositionX, finalPositionY);
-                    MoveLismanToNewPosition(idgame, user, initialPositionX, initialPositionY, finalPositionX, finalPositionY);
-                    UpdateScore(idgame, user, POWERPILL);
+                    EatPowerPill(idgame, user, initialPositionX, initialPositionY, finalPositionX, finalPositionY);
                     break;
                 case LISMANYELLOW:
                     userEnemy = GetUserByColorLisman(idgame, LISMANYELLOW);
@@ -98,33 +96,50 @@ namespace LismanService
             }
             return user;
         }
+
         private void EatLismanEnemy(int idgame, String lismanAlive, String lismanDead, int initialPositionX, int initialPositionY, int finalPositionX, int finalPositionY)
         {
             int colorLismanAlive = multiplayerGameInformation[idgame].lismanUsers[lismanAlive].colorLisman;
             int colorLismanDead = multiplayerGameInformation[idgame].lismanUsers[lismanDead].colorLisman;
-            int[] positionInitialLismanDead = new int[2];           
-            switch (colorLismanDead)
-            {
-                case LISMANYELLOW:
-                    positionInitialLismanDead[0] = COORDINATESLISMANYELLOW[0];
-                    positionInitialLismanDead[1] = COORDINATESLISMANYELLOW[1];
-                    break;
-                case LISMANRED:
-                    positionInitialLismanDead[0] = COORDINATESLISMANRED[0];
-                    positionInitialLismanDead[1] = COORDINATESLISMANRED[1];
-                    break;
-                case LISMANBLUE:
-                    positionInitialLismanDead[0] = COORDINATESLISMANBLUE[0];
-                    positionInitialLismanDead[1] = COORDINATESLISMANBLUE[1];
-                    break;
-                case LISMANGREEN:
-                    positionInitialLismanDead[0] = COORDINATESLISMANGREEN[0];
-                    positionInitialLismanDead[1] = COORDINATESLISMANGREEN[1];
-                    break;
-            }
-            UpdateGameMap(idgame, colorLismanDead, positionInitialLismanDead[0], positionInitialLismanDead[1]);
+
+            int scoreLismanAlive = UpdateScore(idgame, lismanAlive, POINTSEATLISMAN);
+            int lifesLismanDead = multiplayerGameInformation[idgame].lismanUsers[lismanDead].lifesLisman;
+            bool isDeadLismanDead = false;
+            int[] positionInitialLismanDead = new int[2];
+
             UpdateGameMap(idgame, EMPTYBOX, initialPositionX, initialPositionY);
             UpdateGameMap(idgame, colorLismanAlive, finalPositionX, finalPositionY);
+
+            if (multiplayerGameInformation[idgame].lismanUsers[lismanAlive].lifesLisman > 1)
+            {
+                switch (colorLismanDead)
+                {
+                    case LISMANYELLOW:
+                        positionInitialLismanDead[0] = COORDINATESLISMANYELLOW[0];
+                        positionInitialLismanDead[1] = COORDINATESLISMANYELLOW[1];
+                        break;
+                    case LISMANRED:
+                        positionInitialLismanDead[0] = COORDINATESLISMANRED[0];
+                        positionInitialLismanDead[1] = COORDINATESLISMANRED[1];
+                        break;
+                    case LISMANBLUE:
+                        positionInitialLismanDead[0] = COORDINATESLISMANBLUE[0];
+                        positionInitialLismanDead[1] = COORDINATESLISMANBLUE[1];
+                        break;
+                    case LISMANGREEN:
+                        positionInitialLismanDead[0] = COORDINATESLISMANGREEN[0];
+                        positionInitialLismanDead[1] = COORDINATESLISMANGREEN[1];
+                        break;
+                }
+
+                UpdateGameMap(idgame, colorLismanDead, positionInitialLismanDead[0], positionInitialLismanDead[1]);
+                lifesLismanDead = UpdateSubtractLifes(idgame, lismanDead);
+
+            }
+            else
+            {
+                isDeadLismanDead = true;
+            }
 
             foreach (var userGame in listGamesOnline[idgame])
             {
@@ -132,53 +147,49 @@ namespace LismanService
                 {
                     connectionGameService[userGame].NotifyLismanMoved(colorLismanAlive, finalPositionX, finalPositionY);
                     connectionGameService[userGame].NotifyLismanMoved(colorLismanDead, positionInitialLismanDead[0], positionInitialLismanDead[1]);
+                    connectionGameService[userGame].NotifyUpdateScore(colorLismanAlive, scoreLismanAlive);
+                    connectionGameService[userGame].NotifyUpdateLifes(colorLismanDead, lifesLismanDead);
                 }
                 catch (CommunicationException e)
                 {
-                    Console.WriteLine("Error al actualizar partida:" + idgame + ". Error: " + e.Message);
+                    Console.WriteLine("Error en la conexión con el usuario:" + userGame + ". Error: " + e.Message);
                 }
 
             }
-            UpdateScore(idgame, lismanAlive, POINTSEATLISMAN);
+            if (isDeadLismanDead)
+            {
+                foreach (var userGame in listGamesOnline[idgame])
+                {
+                    try
+                    {
+                        connectionGameService[userGame].NotifyPlayerIsDead(colorLismanDead);
+                    }
+                    catch (CommunicationException e)
+                    {
+                        Console.WriteLine("Error en la conexión con el usuario:" + userGame + ". Error: " + e.Message);
+                    }
+
+                }
+                listGamesOnline[idgame].RemoveAll(u => u == lismanDead);
+            }
+
         }
 
         private void UpdateGameMap(int idgame, int newValue, int positionX, int positionY)
         {
             multiplayerGameInformation[idgame].gameMap[positionX, positionY] = newValue;
-
         }
-        private void UpdateScore(int idgame, String user, int points)
-        {
-            multiplayerGameInformation[idgame].lismanUsers[user].scoreLisman += points;
-            foreach (var userGame in listGamesOnline[idgame])
-            {
-                try
-                {
-                    connectionGameService[userGame].NotifyUpdateScore(multiplayerGameInformation[idgame].lismanUsers[user].colorLisman,
-                        multiplayerGameInformation[idgame].lismanUsers[user].scoreLisman);
-                }
-                catch (CommunicationException e)
-                {
-                    Console.WriteLine("Error al actualizar partida:" + idgame + ". Error: " + e.Message);
-                }
 
-            }
+        private int UpdateSubtractLifes(int idgame, String user)
+        {
+            return multiplayerGameInformation[idgame].lismanUsers[user].lifesLisman -= 1;
         }
-        private void DisappearPowerPill(int idgame, int positionX, int positionY)
-        {
-            foreach (var userGame in listGamesOnline[idgame])
-            {
-                try
-                {
-                    connectionGameService[userGame].NotifyDisappearedPowerPill(positionX, positionY);
-                }
-                catch (CommunicationException e)
-                {
-                    Console.WriteLine("Error al actualizar partida:" + idgame + ". Error: " + e.Message);
-                }
 
-            }
-        } 
+        private int UpdateScore(int idgame, String user, int points)
+        {
+           return multiplayerGameInformation[idgame].lismanUsers[user].scoreLisman += points;
+        }
+        
         private void MoveLismanToNewPosition(int idgame, String user, int initialPositionX, int initialPositionY, int finalPositionX, int finalPositionY)
         {
             int colorLisman = multiplayerGameInformation[idgame].lismanUsers[user].colorLisman;
@@ -189,6 +200,28 @@ namespace LismanService
                 try
                 {
                     connectionGameService[userGame].NotifyLismanMoved(colorLisman, finalPositionX, finalPositionY);
+                }
+                catch (CommunicationException e)
+                {
+                    Console.WriteLine("Error en la conexión con el usuario:" + userGame + ". Error: " + e.Message);
+                }
+
+            }
+        }
+        private void EatPowerPill(int idgame, String user, int initialPositionX, int initialPositionY, int finalPositionX, int finalPositionY)
+        {
+            int colorLisman = multiplayerGameInformation[idgame].lismanUsers[user].colorLisman;
+            UpdateGameMap(idgame, EMPTYBOX, initialPositionX, initialPositionY);
+            UpdateGameMap(idgame, colorLisman, finalPositionX, finalPositionY);
+            int scoreLisman = UpdateScore(idgame, user, POINTSPOWERPILL);
+            foreach (var userGame in listGamesOnline[idgame])
+            {
+                try
+                {
+                    connectionGameService[userGame].NotifyDisappearedPowerPill(finalPositionX, finalPositionY);
+                    connectionGameService[userGame].NotifyLismanMoved(colorLisman, finalPositionX, finalPositionY);
+                    connectionGameService[userGame].NotifyUpdateScore(colorLisman, scoreLisman);
+
                 }
                 catch (CommunicationException e)
                 {

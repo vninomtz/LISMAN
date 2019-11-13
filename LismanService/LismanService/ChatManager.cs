@@ -97,6 +97,7 @@ namespace LismanService {
                     infoPlayer.colorLisman = LISMANGREEN;
                     break;
             }
+            infoPlayer.lifesLisman = 3;
             multiplayerGameInformation[idgame].lismanUsers.Add(user, infoPlayer);
 
             if (multiplayerGameInformation[idgame].lismanUsers[user].colorLisman != 0)

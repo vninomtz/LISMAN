@@ -24,6 +24,10 @@ namespace LismanService {
         void NotifyDisappearedPowerPill(int positionX, int positionY);
         [OperationContract(IsOneWay = true)]
         void NotifyUpdateScore(int colorPlayer, int scorePlayer);
+        [OperationContract(IsOneWay = true)]
+        void NotifyUpdateLifes(int colorPlayer, int lifePlayer);
+        [OperationContract(IsOneWay = true)]
+        void NotifyPlayerIsDead(int colorPlayer);
     }
 
     [DataContract]

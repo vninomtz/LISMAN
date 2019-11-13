@@ -24,10 +24,8 @@ namespace Lisman {
     public partial class MultiplayerGame : Window, IMultiplayerManagerCallback{
 
         int idgame;
-
         int[,] gameMap = new int[24, 23];
-
-       
+        Image[,] matrixPillsImages = new Image[24, 23];       
 
         const int LISMANYELLOW = 3;
         const int LISMANRED = 4;
@@ -87,12 +85,13 @@ namespace Lisman {
             runDown.Tick += new EventHandler(RunDown);
             runDown.Interval = new TimeSpan(0, 0, 0, 0, 300);
             
-            MatrizGame();
-            DrawPills();        
+            MatrixGame();
+            DrawPills();
+            createMatrixPillsImages();
                         
         }
 
-        public void MatrizGame() {
+        public void MatrixGame() {
             using (StreamReader sr = new StreamReader(parentDirectory + "/Resources/Map.txt")) {
 
                 for (int i = 0; i <= 23; i++) {
@@ -100,41 +99,54 @@ namespace Lisman {
                         int caracter = sr.Read();
 
                         if (caracter != -1) {
+                            switch (caracter){
+                                case 48:
+                                    gameMap[i, j] = 0;
+                                    break;
+                                case 49:
+                                    gameMap[i, j] = 1;
+                                    break;
+                                case 51:
+                                    gameMap[i, j] = 3;
+                                    break;
+                                case 52:
+                                    gameMap[i, j] = 4;
+                                    break;
+                                case 53:
+                                    gameMap[i, j] = 5;
+                                    break;
+                                case 54:
+                                    gameMap[i, j] = 6;
+                                    break;
+                                case 56:
+                                    gameMap[i, j] = 8;
+                                    break;
+                                case 50:
+                                    gameMap[i, j] = 2;
+                                    break;                                
+                            }                         
+                        }                   
 
-                            if (caracter == 48) {
-                                gameMap[i, j] = 0;
-                            }
-
-                            if (caracter == 49) {
-                                gameMap[i, j] = 1;
-                            }
-
-                            if (caracter == 51) {
-                                gameMap[i, j] = 3;
-                            }
-
-                            if (caracter == 52) {
-                                gameMap[i, j] = 4;
-                            }
-
-                            if (caracter == 53) {
-                                gameMap[i, j] = 5;
-                            }
-
-                            if (caracter == 54) {
-                                gameMap[i, j] = 6;
-                            }
-                            if (caracter == 56) {
-                                gameMap[i, j] = 8;
-                            }
-                        }
-
-                    }
-                    Console.WriteLine();
+                    }                  
                 }
 
             }
 
+        }
+
+        public void createMatrixPillsImages(){
+            matrixPillsImages[2, 5] = pill0;
+            matrixPillsImages[18, 11] = pill1;
+            matrixPillsImages[5, 11] = pill2;
+            matrixPillsImages[12, 17] = pill3;
+            matrixPillsImages[12, 13] = pill4;
+            matrixPillsImages[12, 21] = pill5;
+            matrixPillsImages[18, 7] = pill6;
+            matrixPillsImages[11, 9] = pill7;
+            matrixPillsImages[22, 15] = pill8;
+            matrixPillsImages[1, 16] = pill9;
+            matrixPillsImages[10, 4] = pill10;
+            matrixPillsImages[13, 2] = pill11;       
         }
 
         public void DrawPills() {
@@ -159,11 +171,11 @@ namespace Lisman {
             panel_5_2.Children.Add(pill0);
             panel_11_18.Children.Add(pill1);
             panel_11_5.Children.Add(pill2);
-            panel_12_12.Children.Add(pill3);
+            panel_17_12.Children.Add(pill3);
             panel_13_12.Children.Add(pill4);
             panel_21_12.Children.Add(pill5);
-            panel_7_7.Children.Add(pill6);
-            panel_9_9.Children.Add(pill7);
+            panel_7_18 .Children.Add(pill6);
+            panel_9_11.Children.Add(pill7);
             panel_15_22.Children.Add(pill8);
             panel_16_1.Children.Add(pill9);
             panel_4_10.Children.Add(pill10);
@@ -177,9 +189,7 @@ namespace Lisman {
             if (gameMap[onX, onY] == 0) {
                 can = false;
             }
-
             return can;
-
         }
 
         public void StopLisman() {
@@ -194,7 +204,7 @@ namespace Lisman {
             runRight.Start();
         }
 
-        private void RunLeft(object sender, EventArgs e) {
+        private void RunLeft(object sender, EventArgs e) {           
             if (X == 0 && Y == 11) {
                 X = 23;
                 Y = 11;
@@ -214,8 +224,6 @@ namespace Lisman {
             } else {
                 StopLisman();
             }
-
-
         }
 
         private void RunUp(object sender, EventArgs e) {
@@ -228,10 +236,7 @@ namespace Lisman {
             } else {
                 StopLisman();
             }
-
-
         }
-
         private void RunRight(object sender, EventArgs e) {
             if (X == 23 && Y == 11) {
                 X = 0;
@@ -249,10 +254,7 @@ namespace Lisman {
             } else {
                 StopLisman();
             }
-
-
         }
-
         private void RunDown(object sender, EventArgs e) {
             if (canMove(X, Y + 1)) {
                 Y += 1;
@@ -263,12 +265,9 @@ namespace Lisman {
                 StopLisman();
             }
         }
-
-
         public void MoveLismanInMap(int initialPositionX, int initialPositionY, int finalPositionX, int finalPositionY)
         {
             client.MoveLisman(this.idgame, SingletonAccount.getSingletonAccount().User, initialPositionX, initialPositionY, finalPositionX, finalPositionY);
-
         }
 
         private void Matriz_KeyDown(object sender, KeyEventArgs e) {

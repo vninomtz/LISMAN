@@ -80,6 +80,15 @@ namespace Lisman.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Comment.
+        /// </summary>
+        public static string comment {
+            get {
+                return ResourceManager.GetString("comment", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Confirm password.
         /// </summary>
         public static string confirm_pass {
@@ -103,6 +112,24 @@ namespace Lisman.Properties {
         public static string exit_game {
             get {
                 return ResourceManager.GetString("exit_game", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Lifes.
+        /// </summary>
+        public static string game_lifes {
+            get {
+                return ResourceManager.GetString("game_lifes", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Score.
+        /// </summary>
+        public static string game_score {
+            get {
+                return ResourceManager.GetString("game_score", resourceCulture);
             }
         }
         
@@ -446,6 +473,24 @@ namespace Lisman.Properties {
         public static string save {
             get {
                 return ResourceManager.GetString("save", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Searching players.
+        /// </summary>
+        public static string searching_players {
+            get {
+                return ResourceManager.GetString("searching_players", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Start Game.
+        /// </summary>
+        public static string start_game {
+            get {
+                return ResourceManager.GetString("start_game", resourceCulture);
             }
         }
         

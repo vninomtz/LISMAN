@@ -124,6 +124,9 @@ Click on the following link to confirm your email address and finish the process
   <data name="cancel" xml:space="preserve">
     <value>Cancel</value>
   </data>
+  <data name="comment" xml:space="preserve">
+    <value>Comment</value>
+  </data>
   <data name="confirm_pass" xml:space="preserve">
     <value>Confirm password</value>
   </data>
@@ -132,6 +135,12 @@ Click on the following link to confirm your email address and finish the process
   </data>
   <data name="exit_game" xml:space="preserve">
     <value>Exit Game</value>
+  </data>
+  <data name="game_lifes" xml:space="preserve">
+    <value>Lifes</value>
+  </data>
+  <data name="game_score" xml:space="preserve">
+    <value>Score</value>
   </data>
   <data name="go_back" xml:space="preserve">
     <value>Go Back</value>
@@ -247,6 +256,12 @@ We have sent a confirmation email to your email please enter the link to complet
   </data>
   <data name="save" xml:space="preserve">
     <value>Save</value>
+  </data>
+  <data name="searching_players" xml:space="preserve">
+    <value>Searching players</value>
+  </data>
+  <data name="start_game" xml:space="preserve">
+    <value>Start Game</value>
   </data>
   <data name="subject_email" xml:space="preserve">
     <value>Confirmation email</value>

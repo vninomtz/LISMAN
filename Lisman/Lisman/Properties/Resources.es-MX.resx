@@ -124,6 +124,9 @@ Haga clic en el siguiente enlace para confirmar su dirección de correo electró
   <data name="cancel" xml:space="preserve">
     <value>Cancelar</value>
   </data>
+  <data name="comment" xml:space="preserve">
+    <value>Escribir</value>
+  </data>
   <data name="confirm_pass" xml:space="preserve">
     <value>Confirmar Contraseña</value>
   </data>
@@ -135,6 +138,12 @@ Haga clic en el siguiente enlace para confirmar su dirección de correo electró
   </data>
   <data name="exit_game" xml:space="preserve">
     <value>Salir del Juego</value>
+  </data>
+  <data name="game_lifes" xml:space="preserve">
+    <value>Vidas</value>
+  </data>
+  <data name="game_score" xml:space="preserve">
+    <value>Puntuación</value>
   </data>
   <data name="go_back" xml:space="preserve">
     <value>Regresar</value>
@@ -248,8 +257,14 @@ Hemos enviado un correo de confirmacion a su correo electronico por favor ingres
   <data name="save" xml:space="preserve">
     <value>Guardar</value>
   </data>
+  <data name="searching_players" xml:space="preserve">
+    <value>Buscando jugadores</value>
+  </data>
   <data name="spanish" xml:space="preserve">
     <value>Español</value>
+  </data>
+  <data name="start_game" xml:space="preserve">
+    <value>Iniciar Juego</value>
   </data>
   <data name="String1" xml:space="preserve">
     <value>Este nombre de usuario ya existe por favor ingresar otro</value>

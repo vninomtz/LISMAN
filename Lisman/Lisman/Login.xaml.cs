@@ -42,9 +42,11 @@ namespace Lisman {
 
         private void Hyperlink_Click(object sender, RoutedEventArgs e)
         {
-           UserRegister userRegister = new UserRegister();
-           userRegister.Show();
-           this.Close();
+            UserRegister userRegister = new UserRegister();
+            userRegister.Show();
+            this.Close();
+
+           
         }
 
         private void MenuItem_Click_Spanish(object sender, RoutedEventArgs e)
@@ -83,7 +85,7 @@ namespace Lisman {
                     try {
                         LismanService.Account account = client.LoginAccount(textField_user.Text, EncodePassword(passwordBox_password.Password));
                         if (account != null) {
-                            if (account.Key_confirmation == "") {
+                            if (account.Key_confirmation == " ") {
                                 SingletonAccount.setSingletonAccount(account);
                                 MainMenu mainMenu = new MainMenu();
                                 mainMenu.Show();

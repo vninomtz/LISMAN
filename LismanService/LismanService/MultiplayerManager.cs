@@ -69,7 +69,7 @@ namespace LismanService
                     userEnemy = GetUserByColorLisman(idgame, LISMANYELLOW);
                     EatLismanEnemy(idgame, user, userEnemy, initialPositionX, initialPositionY, finalPositionX, finalPositionY);
                     break;
-                case LISMANRED:
+                /*case LISMANRED:
                     userEnemy = GetUserByColorLisman(idgame, LISMANRED);
                     EatLismanEnemy(idgame, user, userEnemy, initialPositionX, initialPositionY, finalPositionX, finalPositionY);
                     break;
@@ -80,7 +80,7 @@ namespace LismanService
                 case LISMANGREEN:
                     userEnemy = GetUserByColorLisman(idgame, LISMANGREEN);
                     EatLismanEnemy(idgame, user, userEnemy, initialPositionX, initialPositionY, finalPositionX, finalPositionY);
-                    break;
+                    break;*/
 
             }
 
@@ -110,7 +110,11 @@ namespace LismanService
             UpdateGameMap(idgame, EMPTYBOX, initialPositionX, initialPositionY);
             UpdateGameMap(idgame, colorLismanAlive, finalPositionX, finalPositionY);
 
-            if (multiplayerGameInformation[idgame].lismanUsers[lismanAlive].lifesLisman > 1)
+            if (multiplayerGameInformation[idgame].lismanUsers[lismanDead].lifesLisman == 1)
+            {
+                isDeadLismanDead = true;
+            }
+            else
             {
                 switch (colorLismanDead)
                 {
@@ -133,36 +137,21 @@ namespace LismanService
                 }
 
                 UpdateGameMap(idgame, colorLismanDead, positionInitialLismanDead[0], positionInitialLismanDead[1]);
-                lifesLismanDead = UpdateSubtractLifes(idgame, lismanDead);
-
             }
-            else
-            {
-                isDeadLismanDead = true;
-            }
+            lifesLismanDead = UpdateSubtractLifes(idgame, lismanDead);
 
-            foreach (var userGame in listGamesOnline[idgame])
-            {
-                try
-                {
-                    connectionGameService[userGame].NotifyLismanMoved(colorLismanAlive, finalPositionX, finalPositionY);
-                    connectionGameService[userGame].NotifyLismanMoved(colorLismanDead, positionInitialLismanDead[0], positionInitialLismanDead[1]);
-                    connectionGameService[userGame].NotifyUpdateScore(colorLismanAlive, scoreLismanAlive);
-                    connectionGameService[userGame].NotifyUpdateLifes(colorLismanDead, lifesLismanDead);
-                }
-                catch (CommunicationException e)
-                {
-                    Console.WriteLine("Error en la conexión con el usuario:" + userGame + ". Error: " + e.Message);
-                }
-
-            }
             if (isDeadLismanDead)
             {
                 foreach (var userGame in listGamesOnline[idgame])
                 {
                     try
                     {
-                        connectionGameService[userGame].NotifyPlayerIsDead(colorLismanDead);
+                        connectionGameService[lismanDead].NotifyPlayerIsDead(colorLismanDead);
+
+                        
+                        connectionGameService[userGame].NotifyLismanMoved(colorLismanAlive, finalPositionX, finalPositionY);
+                        connectionGameService[userGame].NotifyUpdateScore(colorLismanAlive, scoreLismanAlive);
+                        connectionGameService[userGame].NotifyUpdateLifes(colorLismanDead, lifesLismanDead);
                     }
                     catch (CommunicationException e)
                     {
@@ -171,6 +160,26 @@ namespace LismanService
 
                 }
                 listGamesOnline[idgame].RemoveAll(u => u == lismanDead);
+            }
+            else
+            {
+                connectionGameService[lismanDead].ReturnLismanToInitialPosition(colorLismanDead, positionInitialLismanDead[0], positionInitialLismanDead[1]);
+                foreach (var userGame in listGamesOnline[idgame])
+                {
+                    try
+                    {
+                        connectionGameService[userGame].NotifyLismanMoved(colorLismanAlive, finalPositionX, finalPositionY);
+                        connectionGameService[userGame].NotifyLismanMoved(colorLismanDead, positionInitialLismanDead[0], positionInitialLismanDead[1]);
+
+                        connectionGameService[userGame].NotifyUpdateScore(colorLismanAlive, scoreLismanAlive);
+                        connectionGameService[userGame].NotifyUpdateLifes(colorLismanDead, lifesLismanDead);
+                    }
+                    catch (CommunicationException e)
+                    {
+                        Console.WriteLine("Error en la conexión con el usuario:" + userGame + ". Error: " + e.Message);
+                    }
+
+                }
             }
 
         }

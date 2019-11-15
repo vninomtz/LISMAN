@@ -279,5 +279,11 @@
       <Install>false</Install>
     </BootstrapperPackage>
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\img\lisman_Green.png" />
+    <Resource Include="Resources\img\lisman_Red.png" />
+    <Resource Include="Resources\img\lisman_Turquoise.png" />
+    <Resource Include="Resources\img\Pacman.gif" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

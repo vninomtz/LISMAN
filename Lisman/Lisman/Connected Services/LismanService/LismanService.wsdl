@@ -261,6 +261,21 @@
   <wsdl:message name="IMultiplayerManager_NotifyLismanMoved_OutputCallbackMessage">
     <wsdl:part name="parameters" element="tns:NotifyLismanMoved" />
   </wsdl:message>
+  <wsdl:message name="IMultiplayerManager_NotifyDisappearedPowerPill_OutputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:NotifyDisappearedPowerPill" />
+  </wsdl:message>
+  <wsdl:message name="IMultiplayerManager_NotifyUpdateScore_OutputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:NotifyUpdateScore" />
+  </wsdl:message>
+  <wsdl:message name="IMultiplayerManager_NotifyUpdateLifes_OutputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:NotifyUpdateLifes" />
+  </wsdl:message>
+  <wsdl:message name="IMultiplayerManager_NotifyPlayerIsDead_OutputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:NotifyPlayerIsDead" />
+  </wsdl:message>
+  <wsdl:message name="IMultiplayerManager_ReturnLismanToInitialPosition_OutputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:ReturnLismanToInitialPosition" />
+  </wsdl:message>
   <wsdl:portType name="IAccountManager">
     <wsdl:operation name="AddAccount">
       <wsdl:input wsaw:Action="http://tempuri.org/IAccountManager/AddAccount" message="tns:IAccountManager_AddAccount_InputMessage" />
@@ -355,6 +370,21 @@
     </wsdl:operation>
     <wsdl:operation name="NotifyLismanMoved">
       <wsdl:output wsaw:Action="http://tempuri.org/IMultiplayerManager/NotifyLismanMoved" message="tns:IMultiplayerManager_NotifyLismanMoved_OutputCallbackMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="NotifyDisappearedPowerPill">
+      <wsdl:output wsaw:Action="http://tempuri.org/IMultiplayerManager/NotifyDisappearedPowerPill" message="tns:IMultiplayerManager_NotifyDisappearedPowerPill_OutputCallbackMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="NotifyUpdateScore">
+      <wsdl:output wsaw:Action="http://tempuri.org/IMultiplayerManager/NotifyUpdateScore" message="tns:IMultiplayerManager_NotifyUpdateScore_OutputCallbackMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="NotifyUpdateLifes">
+      <wsdl:output wsaw:Action="http://tempuri.org/IMultiplayerManager/NotifyUpdateLifes" message="tns:IMultiplayerManager_NotifyUpdateLifes_OutputCallbackMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="NotifyPlayerIsDead">
+      <wsdl:output wsaw:Action="http://tempuri.org/IMultiplayerManager/NotifyPlayerIsDead" message="tns:IMultiplayerManager_NotifyPlayerIsDead_OutputCallbackMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ReturnLismanToInitialPosition">
+      <wsdl:output wsaw:Action="http://tempuri.org/IMultiplayerManager/ReturnLismanToInitialPosition" message="tns:IMultiplayerManager_ReturnLismanToInitialPosition_OutputCallbackMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="NetTcpBinding_IAccountManager" type="tns:IAccountManager">
@@ -559,6 +589,36 @@
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="NotifyDisappearedPowerPill">
+      <soap12:operation soapAction="http://tempuri.org/IMultiplayerManager/NotifyDisappearedPowerPill" style="document" />
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="NotifyUpdateScore">
+      <soap12:operation soapAction="http://tempuri.org/IMultiplayerManager/NotifyUpdateScore" style="document" />
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="NotifyUpdateLifes">
+      <soap12:operation soapAction="http://tempuri.org/IMultiplayerManager/NotifyUpdateLifes" style="document" />
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="NotifyPlayerIsDead">
+      <soap12:operation soapAction="http://tempuri.org/IMultiplayerManager/NotifyPlayerIsDead" style="document" />
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReturnLismanToInitialPosition">
+      <soap12:operation soapAction="http://tempuri.org/IMultiplayerManager/ReturnLismanToInitialPosition" style="document" />
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
   </wsdl:binding>
   <wsdl:service name="LismanService">
     <wsdl:port name="NetTcpBinding_IAccountManager" binding="tns:NetTcpBinding_IAccountManager">
@@ -566,11 +626,7 @@
       <wsa10:EndpointReference>
         <wsa10:Address>net.tcp://localhost:8091/CalculatorService</wsa10:Address>
         <Identity xmlns="http://schemas.xmlsoap.org/ws/2006/02/addressingidentity">
-
-          <Upn>ALANGONZALZ9AE0\alanglezh</Upn>
-
           <Upn>DESKTOP-VICTOR\victorniño</Upn>
-
         </Identity>
       </wsa10:EndpointReference>
     </wsdl:port>
@@ -579,11 +635,7 @@
       <wsa10:EndpointReference>
         <wsa10:Address>net.tcp://localhost:8091/CalculatorService</wsa10:Address>
         <Identity xmlns="http://schemas.xmlsoap.org/ws/2006/02/addressingidentity">
-
-          <Upn>ALANGONZALZ9AE0\alanglezh</Upn>
-
           <Upn>DESKTOP-VICTOR\victorniño</Upn>
-
         </Identity>
       </wsa10:EndpointReference>
     </wsdl:port>
@@ -592,11 +644,7 @@
       <wsa10:EndpointReference>
         <wsa10:Address>net.tcp://localhost:8091/CalculatorService</wsa10:Address>
         <Identity xmlns="http://schemas.xmlsoap.org/ws/2006/02/addressingidentity">
-
-          <Upn>ALANGONZALZ9AE0\alanglezh</Upn>
-
           <Upn>DESKTOP-VICTOR\victorniño</Upn>
-
         </Identity>
       </wsa10:EndpointReference>
     </wsdl:port>
@@ -605,9 +653,6 @@
       <wsa10:EndpointReference>
         <wsa10:Address>net.tcp://localhost:8091/CalculatorService</wsa10:Address>
         <Identity xmlns="http://schemas.xmlsoap.org/ws/2006/02/addressingidentity">
-
-          <Upn>ALANGONZALZ9AE0\alanglezh</Upn>
-
           <Upn>DESKTOP-VICTOR\victorniño</Upn>
         </Identity>
       </wsa10:EndpointReference>
@@ -618,7 +663,6 @@
         <wsa10:Address>net.tcp://localhost:8091/CalculatorService</wsa10:Address>
         <Identity xmlns="http://schemas.xmlsoap.org/ws/2006/02/addressingidentity">
           <Upn>DESKTOP-VICTOR\victorniño</Upn>
-
         </Identity>
       </wsa10:EndpointReference>
     </wsdl:port>

@@ -964,6 +964,21 @@ namespace Lisman.LismanService {
         
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IMultiplayerManager/NotifyLismanMoved")]
         void NotifyLismanMoved(int colorPlayer, int positionX, int positionY);
+        
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IMultiplayerManager/NotifyDisappearedPowerPill")]
+        void NotifyDisappearedPowerPill(int positionX, int positionY);
+        
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IMultiplayerManager/NotifyUpdateScore")]
+        void NotifyUpdateScore(int colorPlayer, int scorePlayer);
+        
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IMultiplayerManager/NotifyUpdateLifes")]
+        void NotifyUpdateLifes(int colorPlayer, int lifePlayer);
+        
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IMultiplayerManager/NotifyPlayerIsDead")]
+        void NotifyPlayerIsDead(int colorPlayer);
+        
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IMultiplayerManager/ReturnLismanToInitialPosition")]
+        void ReturnLismanToInitialPosition(int colorPlayer, int positionX, int positionY);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]

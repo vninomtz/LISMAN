@@ -28,6 +28,8 @@ namespace LismanService {
         void NotifyUpdateLifes(int colorPlayer, int lifePlayer);
         [OperationContract(IsOneWay = true)]
         void NotifyPlayerIsDead(int colorPlayer);
+        [OperationContract(IsOneWay = true)]
+        void  ReturnLismanToInitialPosition(int colorPlayer, int positionX, int positionY);
     }
 
     [DataContract]

@@ -263,4 +263,44 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="NotifyDisappearedPowerPill">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="positionX" type="xs:int" />
+        <xs:element minOccurs="0" name="positionY" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="NotifyUpdateScore">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="colorPlayer" type="xs:int" />
+        <xs:element minOccurs="0" name="scorePlayer" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="NotifyUpdateLifes">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="colorPlayer" type="xs:int" />
+        <xs:element minOccurs="0" name="lifePlayer" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="NotifyPlayerIsDead">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="colorPlayer" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ReturnLismanToInitialPosition">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="colorPlayer" type="xs:int" />
+        <xs:element minOccurs="0" name="positionX" type="xs:int" />
+        <xs:element minOccurs="0" name="positionY" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
 </xs:schema>

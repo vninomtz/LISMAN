@@ -15,8 +15,8 @@ namespace LismanService
         const int EMPTYBOX = 1;
         const int POWERPILL = 2;
         const int LISMANYELLOW = 3;
-        const int LISMANBLUE = 4;
-        const int LISMANRED = 5;
+        const int LISMANRED = 4;
+        const int LISMANBLUE = 5;
         const int LISMANGREEN = 6;
         const int GHOST = 8;
 
@@ -69,7 +69,7 @@ namespace LismanService
                     userEnemy = GetUserByColorLisman(idgame, LISMANYELLOW);
                     EatLismanEnemy(idgame, user, userEnemy, initialPositionX, initialPositionY, finalPositionX, finalPositionY);
                     break;
-                /*case LISMANRED:
+                case LISMANRED:
                     userEnemy = GetUserByColorLisman(idgame, LISMANRED);
                     EatLismanEnemy(idgame, user, userEnemy, initialPositionX, initialPositionY, finalPositionX, finalPositionY);
                     break;
@@ -80,7 +80,7 @@ namespace LismanService
                 case LISMANGREEN:
                     userEnemy = GetUserByColorLisman(idgame, LISMANGREEN);
                     EatLismanEnemy(idgame, user, userEnemy, initialPositionX, initialPositionY, finalPositionX, finalPositionY);
-                    break;*/
+                    break;
 
             }
 
@@ -146,9 +146,7 @@ namespace LismanService
                 {
                     try
                     {
-                        connectionGameService[lismanDead].NotifyPlayerIsDead(colorLismanDead);
-
-                        
+                        connectionGameService[userGame].NotifyPlayerIsDead(colorLismanDead);
                         connectionGameService[userGame].NotifyLismanMoved(colorLismanAlive, finalPositionX, finalPositionY);
                         connectionGameService[userGame].NotifyUpdateScore(colorLismanAlive, scoreLismanAlive);
                         connectionGameService[userGame].NotifyUpdateLifes(colorLismanDead, lifesLismanDead);
@@ -159,6 +157,7 @@ namespace LismanService
                     }
 
                 }
+
                 listGamesOnline[idgame].RemoveAll(u => u == lismanDead);
             }
             else

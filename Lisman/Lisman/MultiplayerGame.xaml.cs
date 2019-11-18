@@ -15,6 +15,7 @@ using System.Windows.Shapes;
 using System.Windows.Threading;
 using System.ServiceModel;
 using Lisman.LismanService;
+using WpfAnimatedGif;
 
 namespace Lisman {
     /// <summary>
@@ -31,6 +32,7 @@ namespace Lisman {
         const int LISMANRED = 4;
         const int LISMANBLUE = 5;        
         const int LISMANGREEN = 6;
+        int playerColor;
         Image lismanPlayerImage = null;
 
         int X = 1;
@@ -152,23 +154,23 @@ namespace Lisman {
         }
 
         public void DrawPills() {
-            BitmapImage bmp1 = new BitmapImage();
-            bmp1.BeginInit();
-            bmp1.UriSource = new Uri(parentDirectory + "/Resources/img/Pill.png");
-            bmp1.EndInit();
+            BitmapImage imagePath = new BitmapImage();
+            imagePath.BeginInit();
+            imagePath.UriSource = new Uri(parentDirectory + "/Resources/img/Pill.png");
+            imagePath.EndInit();
 
-            pill0.Source = bmp1;
-            pill1.Source = bmp1;
-            pill2.Source = bmp1;
-            pill3.Source = bmp1;
-            pill4.Source = bmp1;
-            pill5.Source = bmp1;
-            pill6.Source = bmp1;
-            pill7.Source = bmp1;
-            pill8.Source = bmp1;
-            pill9.Source = bmp1;
-            pill10.Source = bmp1;
-            pill11.Source = bmp1;
+            pill0.Source = imagePath;
+            pill1.Source = imagePath;
+            pill2.Source = imagePath;
+            pill3.Source = imagePath;
+            pill4.Source = imagePath;
+            pill5.Source = imagePath;
+            pill6.Source = imagePath;
+            pill7.Source = imagePath;
+            pill8.Source = imagePath;
+            pill9.Source = imagePath;
+            pill10.Source = imagePath;
+            pill11.Source = imagePath;
 
             panel_5_2.Children.Add(pill0);
             panel_11_18.Children.Add(pill1);
@@ -271,30 +273,35 @@ namespace Lisman {
                 runUp.Stop();
                 runRight.Stop();
                 runDown.Stop();
+                MoveLismanImageLeft();
                 runLeft.Start();
             }
             if (e.Key == Key.Up) {
                 runLeft.Stop();
                 runRight.Stop();
                 runDown.Stop();
+                MoveLismanImageUp();
                 runUp.Start();
             }
             if (e.Key == Key.Right) {
                 runLeft.Stop();
                 runUp.Stop();
                 runDown.Stop();
+                MoveLismanImageRight();
                 runRight.Start();
             }
             if (e.Key == Key.Down) {
                 runLeft.Stop();
                 runUp.Stop();
                 runRight.Stop();
+                MoveLismanImageDown();
                 runDown.Start();
             }
         }
 
         public void NotifyColorPlayer(int colorPlayer, String user)
         {
+            playerColor = colorPlayer;
             switch (colorPlayer)
             {
                 case LISMANYELLOW:
@@ -322,6 +329,140 @@ namespace Lisman {
                     UserLismanGreen.Text = user;
                     break;
             }
+        }
+
+        public void MoveLismanImageRight()
+        {
+            BitmapImage imagePath = new BitmapImage();
+            switch (playerColor)
+            {
+                case LISMANYELLOW:
+                    imagePath.BeginInit();
+                    imagePath.UriSource = new Uri(parentDirectory + "/Resources/img/LismanYellow.gif");
+                    imagePath.EndInit();
+                    ImageBehavior.SetAnimatedSource(lismanPlayerImage, imagePath);
+                    break;
+                case LISMANRED:
+                    imagePath.BeginInit();
+                    imagePath.UriSource = new Uri(parentDirectory + "/Resources/img/LismanRed.gif");
+                    imagePath.EndInit();
+                    ImageBehavior.SetAnimatedSource(lismanPlayerImage, imagePath);
+
+                    break;
+                case LISMANBLUE:
+                    imagePath.BeginInit();
+                    imagePath.UriSource = new Uri(parentDirectory + "/Resources/img/LismanBlue.gif");
+                    imagePath.EndInit();
+                    ImageBehavior.SetAnimatedSource(lismanPlayerImage, imagePath);
+                    break;
+                case LISMANGREEN:
+                    imagePath.BeginInit();
+                    imagePath.UriSource = new Uri(parentDirectory + "/Resources/img/LismanGreen.gif");
+                    imagePath.EndInit();
+                    ImageBehavior.SetAnimatedSource(lismanPlayerImage, imagePath);
+                    break;
+            }
+
+        }
+
+        public void MoveLismanImageLeft()
+        {
+            BitmapImage imagePath = new BitmapImage();
+            switch (playerColor)
+            {
+                case LISMANYELLOW:
+                    imagePath.BeginInit();
+                    imagePath.UriSource = new Uri(parentDirectory + "/Resources/img/LismanYellowLeft.gif");
+                    imagePath.EndInit();
+                    ImageBehavior.SetAnimatedSource(lismanPlayerImage, imagePath);
+                    break;
+                case LISMANRED:
+                    imagePath.BeginInit();
+                    imagePath.UriSource = new Uri(parentDirectory + "/Resources/img/LismanRedLeft.gif");
+                    imagePath.EndInit();
+                    ImageBehavior.SetAnimatedSource(lismanPlayerImage, imagePath);
+
+                    break;
+                case LISMANBLUE:
+                    imagePath.BeginInit();
+                    imagePath.UriSource = new Uri(parentDirectory + "/Resources/img/LismanBlueLeft.gif");
+                    imagePath.EndInit();
+                    ImageBehavior.SetAnimatedSource(lismanPlayerImage, imagePath);
+                    break;
+                case LISMANGREEN:
+                    imagePath.BeginInit();
+                    imagePath.UriSource = new Uri(parentDirectory + "/Resources/img/LismanGreenLeft.gif");
+                    imagePath.EndInit();
+                    ImageBehavior.SetAnimatedSource(lismanPlayerImage, imagePath);
+                    break;
+            }
+
+        }
+        public void MoveLismanImageUp()
+        {
+            BitmapImage imagePath = new BitmapImage();
+            switch (playerColor)
+            {
+                case LISMANYELLOW:
+                    imagePath.BeginInit();
+                    imagePath.UriSource = new Uri(parentDirectory + "/Resources/img/LismanYellowUp.gif");
+                    imagePath.EndInit();
+                    ImageBehavior.SetAnimatedSource(lismanPlayerImage, imagePath);
+                    break;
+                case LISMANRED:
+                    imagePath.BeginInit();
+                    imagePath.UriSource = new Uri(parentDirectory + "/Resources/img/LismanRedUp.gif");
+                    imagePath.EndInit();
+                    ImageBehavior.SetAnimatedSource(lismanPlayerImage, imagePath);
+
+                    break;
+                case LISMANBLUE:
+                    imagePath.BeginInit();
+                    imagePath.UriSource = new Uri(parentDirectory + "/Resources/img/LismanBlueUp.gif");
+                    imagePath.EndInit();
+                    ImageBehavior.SetAnimatedSource(lismanPlayerImage, imagePath);
+                    break;
+                case LISMANGREEN:
+                    imagePath.BeginInit();
+                    imagePath.UriSource = new Uri(parentDirectory + "/Resources/img/LismanGreenUp.gif");
+                    imagePath.EndInit();
+                    ImageBehavior.SetAnimatedSource(lismanPlayerImage, imagePath);
+                    break;
+            }
+
+        }
+        public void MoveLismanImageDown()
+        {
+            BitmapImage imagePath = new BitmapImage();
+            switch (playerColor)
+            {
+                case LISMANYELLOW:                
+                    imagePath.BeginInit();
+                    imagePath.UriSource = new Uri(parentDirectory + "/Resources/img/LismanYellowDown.gif");
+                    imagePath.EndInit();
+                    ImageBehavior.SetAnimatedSource(lismanPlayerImage, imagePath);
+                    break;
+                case LISMANRED:                                   
+                    imagePath.BeginInit();
+                    imagePath.UriSource = new Uri(parentDirectory + "/Resources/img/LismanRedDown.gif");
+                    imagePath.EndInit();
+                    ImageBehavior.SetAnimatedSource(lismanPlayerImage, imagePath);
+                    
+                    break;
+                case LISMANBLUE:
+                    imagePath.BeginInit();
+                    imagePath.UriSource = new Uri(parentDirectory + "/Resources/img/LismanBlueDown.gif");
+                    imagePath.EndInit();
+                    ImageBehavior.SetAnimatedSource(lismanPlayerImage, imagePath);
+                    break;
+                case LISMANGREEN:
+                    imagePath.BeginInit();
+                    imagePath.UriSource = new Uri(parentDirectory + "/Resources/img/LismanGreenDown.gif");
+                    imagePath.EndInit();
+                    ImageBehavior.SetAnimatedSource(lismanPlayerImage, imagePath);
+                    break;
+            }
+
         }
 
         public void NotifyLismanMoved(int colorPlayer, int positionX, int positionY)

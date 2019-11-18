@@ -74,13 +74,16 @@
             </Grid.ColumnDefinitions>
 
             <Image x:Name="LismanYellowImage" gif:ImageBehavior.RepeatBehavior="1000x" 
-                   Grid.Row="1" Grid.Column="1" gif:ImageBehavior.AnimatedSource="Resources/img/Pacman.gif" 
+                   Grid.Row="1" Grid.Column="1" gif:ImageBehavior.AnimatedSource="Resources/img/LismanYellow.gif" 
                    Margin="0,3,0,26" Grid.RowSpan="2" Panel.ZIndex="1"></Image>
-            <Image x:Name="LismanRedImage" Source="Resources/img/lisman_Red.png" Grid.Row="1" Grid.Column="22"
+            <Image x:Name="LismanRedImage" gif:ImageBehavior.RepeatBehavior="1000x" gif:ImageBehavior.AnimatedSource="Resources/img/LismanRedLeft.gif"
+                   Grid.Row="1" Grid.Column="22"
                    Panel.ZIndex="1"/>
-            <Image x:Name="LismanTurquoiseImage" Source="Resources/img/lisman_Turquoise.png" Grid.Row="21" Grid.Column="1"
+            <Image x:Name="LismanTurquoiseImage" gif:ImageBehavior.RepeatBehavior="1000x" gif:ImageBehavior.AnimatedSource="Resources/img/LismanBlue.gif"
+                   Grid.Row="21" Grid.Column="1"
                    Panel.ZIndex="1"/>
-            <Image x:Name="LismanGreenImage" Source="Resources/img/lisman_Green.png" Grid.Row="21" Grid.Column="22"
+            <Image x:Name="LismanGreenImage" gif:ImageBehavior.RepeatBehavior="1000x" gif:ImageBehavior.AnimatedSource="Resources/img/LismanGreenLeft.gif"
+                   Grid.Row="21" Grid.Column="22"
                    Panel.ZIndex="1"/>
 
             <Image x:Name="ImgCoin"  Grid.Row="5" Grid.Column="1"

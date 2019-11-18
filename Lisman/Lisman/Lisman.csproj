@@ -280,10 +280,22 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Resources\img\lisman_Green.png" />
-    <Resource Include="Resources\img\lisman_Red.png" />
-    <Resource Include="Resources\img\lisman_Turquoise.png" />
-    <Resource Include="Resources\img\Pacman.gif" />
+    <Resource Include="Resources\img\LismanBlue.gif" />
+    <Resource Include="Resources\img\LismanBlueDown.gif" />
+    <Resource Include="Resources\img\LismanBlueLeft.gif" />
+    <Resource Include="Resources\img\LismanBlueUp.gif" />
+    <Resource Include="Resources\img\LismanGreen.gif" />
+    <Resource Include="Resources\img\LismanGreenDown.gif" />
+    <Resource Include="Resources\img\LismanGreenLeft.gif" />
+    <Resource Include="Resources\img\LismanGreenUp.gif" />
+    <Resource Include="Resources\img\LismanRed.gif" />
+    <Resource Include="Resources\img\LismanRedDown.gif" />
+    <Resource Include="Resources\img\LismanRedLeft.gif" />
+    <Resource Include="Resources\img\LismanRedUp.gif" />
+    <Resource Include="Resources\img\LismanYellow.gif" />
+    <Resource Include="Resources\img\LismanYellowDown.gif" />
+    <Resource Include="Resources\img\LismanYellowLeft.gif" />
+    <Resource Include="Resources\img\LismanYellowUp.gif" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

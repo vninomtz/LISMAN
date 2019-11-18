@@ -31,6 +31,8 @@ namespace Lisman {
         const int LISMANRED = 4;
         const int LISMANBLUE = 5;        
         const int LISMANGREEN = 6;
+        int speedLisman = 300;
+        int timerValidation = 0;
         Image lismanPlayerImage = null;
 
         int X = 1;
@@ -55,6 +57,7 @@ namespace Lisman {
         DispatcherTimer runUp = new DispatcherTimer();
         DispatcherTimer runRight = new DispatcherTimer();
         DispatcherTimer runDown = new DispatcherTimer();
+        DispatcherTimer timePower = new DispatcherTimer();
 
         InstanceContext instace = null;
         MultiplayerManagerClient client = null;
@@ -79,14 +82,18 @@ namespace Lisman {
 
 
             runLeft.Tick +=  new EventHandler(RunLeft);
-            runLeft.Interval = new TimeSpan(0, 0, 0, 0, 300);
+            runLeft.Interval = new TimeSpan(0, 0, 0, 0, speedLisman);
             runUp.Tick += new EventHandler(RunUp);  
-            runUp.Interval = new TimeSpan(0, 0, 0, 0,300);
+            runUp.Interval = new TimeSpan(0, 0, 0, 0,speedLisman);
             runRight.Tick += new EventHandler(RunRight);
-            runRight.Interval = new TimeSpan(0, 0, 0, 0, 300);         
+            runRight.Interval = new TimeSpan(0, 0, 0, 0, speedLisman);         
             runDown.Tick += new EventHandler(RunDown);
-            runDown.Interval = new TimeSpan(0, 0, 0, 0, 300);
+            runDown.Interval = new TimeSpan(0, 0, 0, 0, speedLisman);
+
             
+
+
+
             MatrixGame();
             DrawPills();
             createMatrixPillsImages();
@@ -463,6 +470,40 @@ namespace Lisman {
             Y = positionY;
             Grid.SetColumn(lismanImageMoved, positionX);
             Grid.SetRow(lismanImageMoved, positionY);
+        }
+
+        public void UpdateLismanSpeed(int speed,bool hasPower)
+        {
+            if (hasPower)
+            {
+                timePower.Tick += new EventHandler(RemovePowerSpeed);
+                timePower.Interval = new TimeSpan(0, 0, 10);
+                timePower.Start();
+
+            }
+            runLeft.Interval = new TimeSpan(0, 0, 0, 0, speed);
+            runUp.Interval = new TimeSpan(0, 0, 0, 0, speed);
+            runRight.Interval = new TimeSpan(0, 0, 0, 0, speed);
+            runDown.Interval = new TimeSpan(0, 0, 0, 0, speed);
+            speedLisman = speed;
+
+        }
+
+        public void RemovePowerSpeed(object sender, EventArgs e)
+        {
+           if (timerValidation == 1 )
+            {
+                client.RemovePower(SingletonAccount.getSingletonAccount().User);
+                timePower.Stop();
+                timerValidation = 0;
+            }
+            else
+            {
+                timerValidation = 1;
+            }
+           
+
+           
         }
     }
 }

@@ -951,6 +951,12 @@ namespace Lisman.LismanService {
         
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IMultiplayerManager/MoveLisman")]
         System.Threading.Tasks.Task MoveLismanAsync(int idGame, string user, int initialPositionX, int initialPositionY, int finalPositionX, int finalPositionY);
+        
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IMultiplayerManager/RemovePower")]
+        void RemovePower(string user);
+        
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IMultiplayerManager/RemovePower")]
+        System.Threading.Tasks.Task RemovePowerAsync(string user);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -979,6 +985,9 @@ namespace Lisman.LismanService {
         
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IMultiplayerManager/ReturnLismanToInitialPosition")]
         void ReturnLismanToInitialPosition(int colorPlayer, int positionX, int positionY);
+        
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IMultiplayerManager/UpdateLismanSpeed")]
+        void UpdateLismanSpeed(int speed, bool hasPower);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -1023,6 +1032,14 @@ namespace Lisman.LismanService {
         
         public System.Threading.Tasks.Task MoveLismanAsync(int idGame, string user, int initialPositionX, int initialPositionY, int finalPositionX, int finalPositionY) {
             return base.Channel.MoveLismanAsync(idGame, user, initialPositionX, initialPositionY, finalPositionX, finalPositionY);
+        }
+        
+        public void RemovePower(string user) {
+            base.Channel.RemovePower(user);
+        }
+        
+        public System.Threading.Tasks.Task RemovePowerAsync(string user) {
+            return base.Channel.RemovePowerAsync(user);
         }
     }
 }

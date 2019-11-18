@@ -1,10 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 using System.ServiceModel;
-using System.Text;
-using System.Threading.Tasks;
+using System.Windows.Threading;
 
 namespace LismanService
 {
@@ -27,6 +25,15 @@ namespace LismanService
 
         const int POINTSPOWERPILL = 100;
         const int POINTSEATLISMAN = 200;
+        const int SPEEDNORMAL = 300;
+        const int SPEEDPOWERFUL = 210;
+       
+       
+
+        public void ValidateLismanPowerful(object sender, EventArgs e)
+        {
+
+        }
 
         String parentDirectory = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName;
 
@@ -37,6 +44,7 @@ namespace LismanService
 
         public void JoinMultiplayerGame(string user, int idgame)
         {
+
             var connection = OperationContext.Current.GetCallbackChannel<IMultiplayerManagerCallBack>();
             if (connectionGameService.ContainsKey(user))
             {
@@ -222,6 +230,7 @@ namespace LismanService
             UpdateGameMap(idgame, EMPTYBOX, initialPositionX, initialPositionY);
             UpdateGameMap(idgame, colorLisman, finalPositionX, finalPositionY);
             int scoreLisman = UpdateScore(idgame, user, POINTSPOWERPILL);
+            connectionGameService[user].UpdateLismanSpeed(SPEEDPOWERFUL,true);
             foreach (var userGame in listGamesOnline[idgame])
             {
                 try
@@ -237,6 +246,7 @@ namespace LismanService
                 }
 
             }
+            
         }
 
         private int GetValueBox(int idGame,int finalPositionX, int finalPositionY)
@@ -320,6 +330,11 @@ namespace LismanService
 
             }
 
+        }
+
+        public void RemovePower(String user)
+        {
+            connectionGameService[user].UpdateLismanSpeed(SPEEDNORMAL,false);
         }
     }
 }

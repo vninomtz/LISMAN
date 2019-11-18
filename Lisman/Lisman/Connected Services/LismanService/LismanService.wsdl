@@ -252,6 +252,9 @@
   <wsdl:message name="IMultiplayerManager_MoveLisman_InputMessage">
     <wsdl:part name="parameters" element="tns:MoveLisman" />
   </wsdl:message>
+  <wsdl:message name="IMultiplayerManager_RemovePower_InputMessage">
+    <wsdl:part name="parameters" element="tns:RemovePower" />
+  </wsdl:message>
   <wsdl:message name="IMultiplayerManager_PrintInformationPlayers_OutputCallbackMessage">
     <wsdl:part name="parameters" element="tns:PrintInformationPlayers" />
   </wsdl:message>
@@ -275,6 +278,9 @@
   </wsdl:message>
   <wsdl:message name="IMultiplayerManager_ReturnLismanToInitialPosition_OutputCallbackMessage">
     <wsdl:part name="parameters" element="tns:ReturnLismanToInitialPosition" />
+  </wsdl:message>
+  <wsdl:message name="IMultiplayerManager_UpdateLismanSpeed_OutputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:UpdateLismanSpeed" />
   </wsdl:message>
   <wsdl:portType name="IAccountManager">
     <wsdl:operation name="AddAccount">
@@ -362,6 +368,9 @@
     <wsdl:operation name="MoveLisman">
       <wsdl:input wsaw:Action="http://tempuri.org/IMultiplayerManager/MoveLisman" message="tns:IMultiplayerManager_MoveLisman_InputMessage" />
     </wsdl:operation>
+    <wsdl:operation name="RemovePower">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMultiplayerManager/RemovePower" message="tns:IMultiplayerManager_RemovePower_InputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="PrintInformationPlayers">
       <wsdl:output wsaw:Action="http://tempuri.org/IMultiplayerManager/PrintInformationPlayers" message="tns:IMultiplayerManager_PrintInformationPlayers_OutputCallbackMessage" />
     </wsdl:operation>
@@ -385,6 +394,9 @@
     </wsdl:operation>
     <wsdl:operation name="ReturnLismanToInitialPosition">
       <wsdl:output wsaw:Action="http://tempuri.org/IMultiplayerManager/ReturnLismanToInitialPosition" message="tns:IMultiplayerManager_ReturnLismanToInitialPosition_OutputCallbackMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateLismanSpeed">
+      <wsdl:output wsaw:Action="http://tempuri.org/IMultiplayerManager/UpdateLismanSpeed" message="tns:IMultiplayerManager_UpdateLismanSpeed_OutputCallbackMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="NetTcpBinding_IAccountManager" type="tns:IAccountManager">
@@ -571,6 +583,12 @@
         <soap12:body use="literal" />
       </wsdl:input>
     </wsdl:operation>
+    <wsdl:operation name="RemovePower">
+      <soap12:operation soapAction="http://tempuri.org/IMultiplayerManager/RemovePower" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
     <wsdl:operation name="PrintInformationPlayers">
       <soap12:operation soapAction="http://tempuri.org/IMultiplayerManager/PrintInformationPlayers" style="document" />
       <wsdl:output>
@@ -615,6 +633,12 @@
     </wsdl:operation>
     <wsdl:operation name="ReturnLismanToInitialPosition">
       <soap12:operation soapAction="http://tempuri.org/IMultiplayerManager/ReturnLismanToInitialPosition" style="document" />
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateLismanSpeed">
+      <soap12:operation soapAction="http://tempuri.org/IMultiplayerManager/UpdateLismanSpeed" style="document" />
       <wsdl:output>
         <soap12:body use="literal" />
       </wsdl:output>

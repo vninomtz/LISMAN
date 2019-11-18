@@ -236,6 +236,7 @@
         <xs:element minOccurs="0" name="initialPositionY" type="xs:int" />
         <xs:element minOccurs="0" name="finalPositionX" type="xs:int" />
         <xs:element minOccurs="0" name="finalPositionY" type="xs:int" />
+        <xs:element minOccurs="0" name="goTo" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -267,6 +268,7 @@
         <xs:element minOccurs="0" name="colorPlayer" type="xs:int" />
         <xs:element minOccurs="0" name="positionX" type="xs:int" />
         <xs:element minOccurs="0" name="positionY" type="xs:int" />
+        <xs:element minOccurs="0" name="goTo" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

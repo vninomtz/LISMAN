@@ -947,10 +947,10 @@ namespace Lisman.LismanService {
         System.Threading.Tasks.Task JoinMultiplayerGameAsync(string user, int idgame);
         
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IMultiplayerManager/MoveLisman")]
-        void MoveLisman(int idGame, string user, int initialPositionX, int initialPositionY, int finalPositionX, int finalPositionY);
+        void MoveLisman(int idGame, string user, int initialPositionX, int initialPositionY, int finalPositionX, int finalPositionY, string goTo);
         
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IMultiplayerManager/MoveLisman")]
-        System.Threading.Tasks.Task MoveLismanAsync(int idGame, string user, int initialPositionX, int initialPositionY, int finalPositionX, int finalPositionY);
+        System.Threading.Tasks.Task MoveLismanAsync(int idGame, string user, int initialPositionX, int initialPositionY, int finalPositionX, int finalPositionY, string goTo);
         
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IMultiplayerManager/RemovePower")]
         void RemovePower(string user);
@@ -969,7 +969,7 @@ namespace Lisman.LismanService {
         void NotifyColorPlayer(int colorPlayer, string user);
         
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IMultiplayerManager/NotifyLismanMoved")]
-        void NotifyLismanMoved(int colorPlayer, int positionX, int positionY);
+        void NotifyLismanMoved(int colorPlayer, int positionX, int positionY, string goTo);
         
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IMultiplayerManager/NotifyDisappearedPowerPill")]
         void NotifyDisappearedPowerPill(int positionX, int positionY);
@@ -1026,12 +1026,12 @@ namespace Lisman.LismanService {
             return base.Channel.JoinMultiplayerGameAsync(user, idgame);
         }
         
-        public void MoveLisman(int idGame, string user, int initialPositionX, int initialPositionY, int finalPositionX, int finalPositionY) {
-            base.Channel.MoveLisman(idGame, user, initialPositionX, initialPositionY, finalPositionX, finalPositionY);
+        public void MoveLisman(int idGame, string user, int initialPositionX, int initialPositionY, int finalPositionX, int finalPositionY, string goTo) {
+            base.Channel.MoveLisman(idGame, user, initialPositionX, initialPositionY, finalPositionX, finalPositionY, goTo);
         }
         
-        public System.Threading.Tasks.Task MoveLismanAsync(int idGame, string user, int initialPositionX, int initialPositionY, int finalPositionX, int finalPositionY) {
-            return base.Channel.MoveLismanAsync(idGame, user, initialPositionX, initialPositionY, finalPositionX, finalPositionY);
+        public System.Threading.Tasks.Task MoveLismanAsync(int idGame, string user, int initialPositionX, int initialPositionY, int finalPositionX, int finalPositionY, string goTo) {
+            return base.Channel.MoveLismanAsync(idGame, user, initialPositionX, initialPositionY, finalPositionX, finalPositionY, goTo);
         }
         
         public void RemovePower(string user) {

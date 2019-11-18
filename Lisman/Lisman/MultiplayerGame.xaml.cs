@@ -221,13 +221,13 @@ namespace Lisman {
             if (X == 0 && Y == 11) {
                 X = 23;
                 Y = 11;
-                MoveLismanInMap(initialPositionX, initialpositionY, X, Y);
+                MoveLismanInMap(initialPositionX, initialpositionY, X, Y,"LEFT");
                 return;
             }
             if (canMove(X - 1, Y)) {
                
                 X -= 1;
-                MoveLismanInMap(initialPositionX, initialpositionY, X, Y);
+                MoveLismanInMap(initialPositionX, initialpositionY, X, Y,"LEFT");
                 
             } else {
                 StopLisman();
@@ -240,7 +240,7 @@ namespace Lisman {
 
             if (canMove(X, Y - 1)) {
                 Y -= 1;
-                MoveLismanInMap(initialPositionX, initialpositionY, X, Y);
+                MoveLismanInMap(initialPositionX, initialpositionY, X, Y,"UP");
             } else {
                 StopLisman();
             }
@@ -251,12 +251,12 @@ namespace Lisman {
             if (X == 23 && Y == 11) {
                 X = 0;
                 Y = 11;
-                MoveLismanInMap(initialPositionX, initialpositionY, X, Y);
+                MoveLismanInMap(initialPositionX, initialpositionY, X, Y,"RIGHT");
                 return;
             }
             if (canMove(X + 1, Y)) {
                 X += 1;
-                MoveLismanInMap(initialPositionX, initialpositionY, X, Y);
+                MoveLismanInMap(initialPositionX, initialpositionY, X, Y,"RIGHT");
             } else {
                 StopLisman();
             }
@@ -266,50 +266,50 @@ namespace Lisman {
             int initialpositionY = Y;
             if (canMove(X, Y + 1)) {
                 Y += 1;
-                MoveLismanInMap(initialPositionX,initialpositionY,X,Y);
+                MoveLismanInMap(initialPositionX,initialpositionY,X,Y,"DOWN");
             } else {
                 StopLisman();
             }
         }
-        public void MoveLismanInMap(int initialPositionX, int initialPositionY, int finalPositionX, int finalPositionY)
+        public void MoveLismanInMap(int initialPositionX, int initialPositionY, int finalPositionX, int finalPositionY,String goTo)
         {
-            client.MoveLisman(this.idgame, SingletonAccount.getSingletonAccount().User, initialPositionX, initialPositionY, finalPositionX, finalPositionY);
+            client.MoveLisman(this.idgame, SingletonAccount.getSingletonAccount().User, initialPositionX, initialPositionY, finalPositionX, finalPositionY,goTo);
         }
 
         private void Matriz_KeyDown(object sender, KeyEventArgs e) {
             if (e.Key == Key.Left) {
                 runUp.Stop();
                 runRight.Stop();
-                runDown.Stop();
-                MoveLismanImageLeft();
+                runDown.Stop();                
                 runLeft.Start();
             }
             if (e.Key == Key.Up) {
                 runLeft.Stop();
                 runRight.Stop();
-                runDown.Stop();
-                MoveLismanImageUp();
+                runDown.Stop();               
                 runUp.Start();
             }
             if (e.Key == Key.Right) {
                 runLeft.Stop();
                 runUp.Stop();
-                runDown.Stop();
-                MoveLismanImageRight();
+                runDown.Stop();                
                 runRight.Start();
             }
             if (e.Key == Key.Down) {
                 runLeft.Stop();
                 runUp.Stop();
                 runRight.Stop();
-                MoveLismanImageDown();
                 runDown.Start();
             }
         }
 
         public void NotifyColorPlayer(int colorPlayer, String user)
         {
-            playerColor = colorPlayer;
+            if(SingletonAccount.getSingletonAccount().User == user)
+            {
+                playerColor = colorPlayer;
+            }
+            
             switch (colorPlayer)
             {
                 case LISMANYELLOW:
@@ -325,7 +325,7 @@ namespace Lisman {
                     UserLismanRed.Text = user;
                     break;
                 case LISMANBLUE:
-                    lismanPlayerImage = LismanTurquoiseImage;
+                    lismanPlayerImage = LismanBlueImage;
                     X = 1;
                     Y = 21;
                     UserLismanBlue.Text = user;
@@ -339,7 +339,7 @@ namespace Lisman {
             }
         }
 
-        public void MoveLismanImageRight()
+        public void MoveLismanImageRight(int playerColor)
         {
             BitmapImage imagePath = new BitmapImage();
             switch (playerColor)
@@ -348,32 +348,32 @@ namespace Lisman {
                     imagePath.BeginInit();
                     imagePath.UriSource = new Uri(parentDirectory + "/Resources/img/LismanYellow.gif");
                     imagePath.EndInit();
-                    ImageBehavior.SetAnimatedSource(lismanPlayerImage, imagePath);
+                    ImageBehavior.SetAnimatedSource(LismanYellowImage, imagePath);
                     break;
                 case LISMANRED:
                     imagePath.BeginInit();
                     imagePath.UriSource = new Uri(parentDirectory + "/Resources/img/LismanRed.gif");
                     imagePath.EndInit();
-                    ImageBehavior.SetAnimatedSource(lismanPlayerImage, imagePath);
+                    ImageBehavior.SetAnimatedSource(LismanRedImage, imagePath);
 
                     break;
                 case LISMANBLUE:
                     imagePath.BeginInit();
                     imagePath.UriSource = new Uri(parentDirectory + "/Resources/img/LismanBlue.gif");
                     imagePath.EndInit();
-                    ImageBehavior.SetAnimatedSource(lismanPlayerImage, imagePath);
+                    ImageBehavior.SetAnimatedSource(LismanBlueImage, imagePath);
                     break;
                 case LISMANGREEN:
                     imagePath.BeginInit();
                     imagePath.UriSource = new Uri(parentDirectory + "/Resources/img/LismanGreen.gif");
                     imagePath.EndInit();
-                    ImageBehavior.SetAnimatedSource(lismanPlayerImage, imagePath);
+                    ImageBehavior.SetAnimatedSource(LismanGreenImage, imagePath);
                     break;
             }
 
         }
 
-        public void MoveLismanImageLeft()
+        public void MoveLismanImageLeft(int playerColor)
         {
             BitmapImage imagePath = new BitmapImage();
             switch (playerColor)
@@ -382,31 +382,31 @@ namespace Lisman {
                     imagePath.BeginInit();
                     imagePath.UriSource = new Uri(parentDirectory + "/Resources/img/LismanYellowLeft.gif");
                     imagePath.EndInit();
-                    ImageBehavior.SetAnimatedSource(lismanPlayerImage, imagePath);
+                    ImageBehavior.SetAnimatedSource(LismanYellowImage, imagePath);
                     break;
                 case LISMANRED:
                     imagePath.BeginInit();
                     imagePath.UriSource = new Uri(parentDirectory + "/Resources/img/LismanRedLeft.gif");
                     imagePath.EndInit();
-                    ImageBehavior.SetAnimatedSource(lismanPlayerImage, imagePath);
+                    ImageBehavior.SetAnimatedSource(LismanRedImage, imagePath);
 
                     break;
                 case LISMANBLUE:
                     imagePath.BeginInit();
                     imagePath.UriSource = new Uri(parentDirectory + "/Resources/img/LismanBlueLeft.gif");
                     imagePath.EndInit();
-                    ImageBehavior.SetAnimatedSource(lismanPlayerImage, imagePath);
+                    ImageBehavior.SetAnimatedSource(LismanBlueImage, imagePath);
                     break;
                 case LISMANGREEN:
                     imagePath.BeginInit();
                     imagePath.UriSource = new Uri(parentDirectory + "/Resources/img/LismanGreenLeft.gif");
                     imagePath.EndInit();
-                    ImageBehavior.SetAnimatedSource(lismanPlayerImage, imagePath);
+                    ImageBehavior.SetAnimatedSource(LismanGreenImage, imagePath);
                     break;
             }
 
         }
-        public void MoveLismanImageUp()
+        public void MoveLismanImageUp(int playerColor)
         {
             BitmapImage imagePath = new BitmapImage();
             switch (playerColor)
@@ -415,31 +415,31 @@ namespace Lisman {
                     imagePath.BeginInit();
                     imagePath.UriSource = new Uri(parentDirectory + "/Resources/img/LismanYellowUp.gif");
                     imagePath.EndInit();
-                    ImageBehavior.SetAnimatedSource(lismanPlayerImage, imagePath);
+                    ImageBehavior.SetAnimatedSource(LismanYellowImage, imagePath);
                     break;
                 case LISMANRED:
                     imagePath.BeginInit();
                     imagePath.UriSource = new Uri(parentDirectory + "/Resources/img/LismanRedUp.gif");
                     imagePath.EndInit();
-                    ImageBehavior.SetAnimatedSource(lismanPlayerImage, imagePath);
+                    ImageBehavior.SetAnimatedSource(LismanRedImage, imagePath);
 
                     break;
                 case LISMANBLUE:
                     imagePath.BeginInit();
                     imagePath.UriSource = new Uri(parentDirectory + "/Resources/img/LismanBlueUp.gif");
                     imagePath.EndInit();
-                    ImageBehavior.SetAnimatedSource(lismanPlayerImage, imagePath);
+                    ImageBehavior.SetAnimatedSource(LismanBlueImage, imagePath);
                     break;
                 case LISMANGREEN:
                     imagePath.BeginInit();
                     imagePath.UriSource = new Uri(parentDirectory + "/Resources/img/LismanGreenUp.gif");
                     imagePath.EndInit();
-                    ImageBehavior.SetAnimatedSource(lismanPlayerImage, imagePath);
+                    ImageBehavior.SetAnimatedSource(LismanGreenImage, imagePath);
                     break;
             }
 
         }
-        public void MoveLismanImageDown()
+        public void MoveLismanImageDown(int playerColor)
         {
             BitmapImage imagePath = new BitmapImage();
             switch (playerColor)
@@ -448,36 +448,51 @@ namespace Lisman {
                     imagePath.BeginInit();
                     imagePath.UriSource = new Uri(parentDirectory + "/Resources/img/LismanYellowDown.gif");
                     imagePath.EndInit();
-                    ImageBehavior.SetAnimatedSource(lismanPlayerImage, imagePath);
+                    ImageBehavior.SetAnimatedSource(LismanYellowImage, imagePath);
                     break;
                 case LISMANRED:                                   
                     imagePath.BeginInit();
                     imagePath.UriSource = new Uri(parentDirectory + "/Resources/img/LismanRedDown.gif");
                     imagePath.EndInit();
-                    ImageBehavior.SetAnimatedSource(lismanPlayerImage, imagePath);
+                    ImageBehavior.SetAnimatedSource(LismanRedImage, imagePath);
                     
                     break;
                 case LISMANBLUE:
                     imagePath.BeginInit();
                     imagePath.UriSource = new Uri(parentDirectory + "/Resources/img/LismanBlueDown.gif");
                     imagePath.EndInit();
-                    ImageBehavior.SetAnimatedSource(lismanPlayerImage, imagePath);
+                    ImageBehavior.SetAnimatedSource(LismanBlueImage, imagePath);
                     break;
                 case LISMANGREEN:
                     imagePath.BeginInit();
                     imagePath.UriSource = new Uri(parentDirectory + "/Resources/img/LismanGreenDown.gif");
                     imagePath.EndInit();
-                    ImageBehavior.SetAnimatedSource(lismanPlayerImage, imagePath);
+                    ImageBehavior.SetAnimatedSource(LismanGreenImage, imagePath);
                     break;
             }
 
         }
 
-        public void NotifyLismanMoved(int colorPlayer, int positionX, int positionY)
+        public void NotifyLismanMoved(int colorPlayer, int positionX, int positionY,String goTo)
         {
             Image lismanImageMoved = null;
-            switch (colorPlayer)
-            {
+
+            switch (goTo){
+                case "UP":
+                    MoveLismanImageUp(colorPlayer);
+                    break;
+                case "DOWN":
+                    MoveLismanImageDown(colorPlayer);
+                    break;
+                case "RIGHT":
+                    MoveLismanImageRight(colorPlayer);
+                    break;
+                case "LEFT":
+                    MoveLismanImageLeft(colorPlayer);
+                    break;
+            }
+
+            switch (colorPlayer){
                 case LISMANYELLOW:
                     lismanImageMoved = LismanYellowImage;
                     break;
@@ -485,12 +500,14 @@ namespace Lisman {
                     lismanImageMoved = LismanRedImage;
                     break;
                 case LISMANBLUE:
-                    lismanImageMoved = LismanTurquoiseImage;
+                    lismanImageMoved = LismanBlueImage;
                     break;
                 case LISMANGREEN:
                     lismanImageMoved = LismanGreenImage;
                     break;
             }
+
+
             Grid.SetColumn(lismanImageMoved, positionX);
             Grid.SetRow(lismanImageMoved, positionY);
         }
@@ -580,13 +597,21 @@ namespace Lisman {
                     LismanRedImage.Visibility = Visibility.Hidden;
                     break;
                 case LISMANBLUE:
-                    LismanTurquoiseImage.Visibility = Visibility.Hidden;
+                    LismanBlueImage.Visibility = Visibility.Hidden;
                     break;
                 case LISMANGREEN:
                     LismanGreenImage.Visibility = Visibility.Hidden;
                     break;
             }
 
+            if (playerColor == colorPlayer){
+                MessageBox.Show("Te moriste carnal");
+                MultiplayerHome window = new MultiplayerHome();
+                window.Show();
+                this.Close();
+
+            }
+            
 
         }
 
@@ -602,7 +627,7 @@ namespace Lisman {
                     lismanImageMoved = LismanRedImage;
                     break;
                 case LISMANBLUE:
-                    lismanImageMoved = LismanTurquoiseImage;
+                    lismanImageMoved = LismanBlueImage;
                     break;
                 case LISMANGREEN:
                     lismanImageMoved = LismanGreenImage;

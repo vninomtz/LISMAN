@@ -60,7 +60,7 @@ namespace LismanService
         }
 
 
-        public void MoveLisman(int idgame,String user, int initialPositionX, int initialPositionY, int finalPositionX, int finalPositionY)
+        public void MoveLisman(int idgame,String user, int initialPositionX, int initialPositionY, int finalPositionX, int finalPositionY,String goTo)
         {
             int valueBox = GetValueBox(idgame, finalPositionX, finalPositionY);
             String userEnemy = null;
@@ -68,26 +68,26 @@ namespace LismanService
             switch (valueBox)
             {
                 case EMPTYBOX:
-                    MoveLismanToNewPosition(idgame, user,initialPositionX,initialPositionY, finalPositionX, finalPositionY);
+                    MoveLismanToNewPosition(idgame, user,initialPositionX,initialPositionY, finalPositionX, finalPositionY,goTo);
                     break;
                 case POWERPILL:
-                    EatPowerPill(idgame, user, initialPositionX, initialPositionY, finalPositionX, finalPositionY);
+                    EatPowerPill(idgame, user, initialPositionX, initialPositionY, finalPositionX, finalPositionY,goTo);
                     break;
                 case LISMANYELLOW:
                     userEnemy = GetUserByColorLisman(idgame, LISMANYELLOW);
-                    EatLismanEnemy(idgame, user, userEnemy, initialPositionX, initialPositionY, finalPositionX, finalPositionY);
+                    EatLismanEnemy(idgame, user, userEnemy, initialPositionX, initialPositionY, finalPositionX, finalPositionY,goTo);
                     break;
                 case LISMANRED:
                     userEnemy = GetUserByColorLisman(idgame, LISMANRED);
-                    EatLismanEnemy(idgame, user, userEnemy, initialPositionX, initialPositionY, finalPositionX, finalPositionY);
+                    EatLismanEnemy(idgame, user, userEnemy, initialPositionX, initialPositionY, finalPositionX, finalPositionY,goTo);
                     break;
                 case LISMANBLUE:
                     userEnemy = GetUserByColorLisman(idgame, LISMANBLUE);
-                    EatLismanEnemy(idgame, user, userEnemy, initialPositionX, initialPositionY, finalPositionX, finalPositionY);
+                    EatLismanEnemy(idgame, user, userEnemy, initialPositionX, initialPositionY, finalPositionX, finalPositionY,goTo);
                     break;
                 case LISMANGREEN:
                     userEnemy = GetUserByColorLisman(idgame, LISMANGREEN);
-                    EatLismanEnemy(idgame, user, userEnemy, initialPositionX, initialPositionY, finalPositionX, finalPositionY);
+                    EatLismanEnemy(idgame, user, userEnemy, initialPositionX, initialPositionY, finalPositionX, finalPositionY,goTo);
                     break;
 
             }
@@ -105,7 +105,7 @@ namespace LismanService
             return user;
         }
 
-        private void EatLismanEnemy(int idgame, String lismanAlive, String lismanDead, int initialPositionX, int initialPositionY, int finalPositionX, int finalPositionY)
+        private void EatLismanEnemy(int idgame, String lismanAlive, String lismanDead, int initialPositionX, int initialPositionY, int finalPositionX, int finalPositionY,String goTo)
         {
             int colorLismanAlive = multiplayerGameInformation[idgame].lismanUsers[lismanAlive].colorLisman;
             int colorLismanDead = multiplayerGameInformation[idgame].lismanUsers[lismanDead].colorLisman;
@@ -155,7 +155,7 @@ namespace LismanService
                     try
                     {
                         connectionGameService[userGame].NotifyPlayerIsDead(colorLismanDead);
-                        connectionGameService[userGame].NotifyLismanMoved(colorLismanAlive, finalPositionX, finalPositionY);
+                        connectionGameService[userGame].NotifyLismanMoved(colorLismanAlive, finalPositionX, finalPositionY,goTo);
                         connectionGameService[userGame].NotifyUpdateScore(colorLismanAlive, scoreLismanAlive);
                         connectionGameService[userGame].NotifyUpdateLifes(colorLismanDead, lifesLismanDead);
                     }
@@ -175,8 +175,8 @@ namespace LismanService
                 {
                     try
                     {
-                        connectionGameService[userGame].NotifyLismanMoved(colorLismanAlive, finalPositionX, finalPositionY);
-                        connectionGameService[userGame].NotifyLismanMoved(colorLismanDead, positionInitialLismanDead[0], positionInitialLismanDead[1]);
+                        connectionGameService[userGame].NotifyLismanMoved(colorLismanAlive, finalPositionX, finalPositionY,goTo);
+                        connectionGameService[userGame].NotifyLismanMoved(colorLismanDead, positionInitialLismanDead[0], positionInitialLismanDead[1],goTo);
 
                         connectionGameService[userGame].NotifyUpdateScore(colorLismanAlive, scoreLismanAlive);
                         connectionGameService[userGame].NotifyUpdateLifes(colorLismanDead, lifesLismanDead);
@@ -206,7 +206,7 @@ namespace LismanService
            return multiplayerGameInformation[idgame].lismanUsers[user].scoreLisman += points;
         }
         
-        private void MoveLismanToNewPosition(int idgame, String user, int initialPositionX, int initialPositionY, int finalPositionX, int finalPositionY)
+        private void MoveLismanToNewPosition(int idgame, String user, int initialPositionX, int initialPositionY, int finalPositionX, int finalPositionY,String goTo)
         {
             int colorLisman = multiplayerGameInformation[idgame].lismanUsers[user].colorLisman;
             UpdateGameMap(idgame, EMPTYBOX, initialPositionX, initialPositionY);
@@ -215,7 +215,7 @@ namespace LismanService
             {
                 try
                 {
-                    connectionGameService[userGame].NotifyLismanMoved(colorLisman, finalPositionX, finalPositionY);
+                    connectionGameService[userGame].NotifyLismanMoved(colorLisman, finalPositionX, finalPositionY,goTo);
                 }
                 catch (CommunicationException e)
                 {
@@ -224,7 +224,7 @@ namespace LismanService
 
             }
         }
-        private void EatPowerPill(int idgame, String user, int initialPositionX, int initialPositionY, int finalPositionX, int finalPositionY)
+        private void EatPowerPill(int idgame, String user, int initialPositionX, int initialPositionY, int finalPositionX, int finalPositionY,String goTo)
         {
             int colorLisman = multiplayerGameInformation[idgame].lismanUsers[user].colorLisman;
             UpdateGameMap(idgame, EMPTYBOX, initialPositionX, initialPositionY);
@@ -236,7 +236,7 @@ namespace LismanService
                 try
                 {
                     connectionGameService[userGame].NotifyDisappearedPowerPill(finalPositionX, finalPositionY);
-                    connectionGameService[userGame].NotifyLismanMoved(colorLisman, finalPositionX, finalPositionY);
+                    connectionGameService[userGame].NotifyLismanMoved(colorLisman, finalPositionX, finalPositionY,goTo);
                     connectionGameService[userGame].NotifyUpdateScore(colorLisman, scoreLisman);
 
                 }

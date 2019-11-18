@@ -9,7 +9,7 @@ namespace LismanService {
         [OperationContract(IsOneWay = true)]
         void JoinMultiplayerGame(String user, int idgame);
         [OperationContract(IsOneWay = true)]
-        void MoveLisman(int idGame, String user, int initialPositionX, int initialPositionY, int finalPositionX, int finalPositionY);
+        void MoveLisman(int idGame, String user, int initialPositionX, int initialPositionY, int finalPositionX, int finalPositionY, String goTo);
         [OperationContract(IsOneWay = true)]
         void RemovePower(String user);
     }
@@ -21,7 +21,7 @@ namespace LismanService {
         [OperationContract(IsOneWay = true)]
         void NotifyColorPlayer(int colorPlayer, String user);
         [OperationContract(IsOneWay = true)]
-        void NotifyLismanMoved(int colorPlayer, int positionX, int positionY);
+        void NotifyLismanMoved(int colorPlayer, int positionX, int positionY,String goTo);
         [OperationContract(IsOneWay = true)]
         void NotifyDisappearedPowerPill(int positionX, int positionY);
         [OperationContract(IsOneWay = true)]

@@ -79,7 +79,7 @@
             <Image x:Name="LismanRedImage" gif:ImageBehavior.RepeatBehavior="1000x" gif:ImageBehavior.AnimatedSource="Resources/img/LismanRedLeft.gif"
                    Grid.Row="1" Grid.Column="22"
                    Panel.ZIndex="1"/>
-            <Image x:Name="LismanTurquoiseImage" gif:ImageBehavior.RepeatBehavior="1000x" gif:ImageBehavior.AnimatedSource="Resources/img/LismanBlue.gif"
+            <Image x:Name="LismanBlueImage" gif:ImageBehavior.RepeatBehavior="1000x" gif:ImageBehavior.AnimatedSource="Resources/img/LismanBlue.gif"
                    Grid.Row="21" Grid.Column="1"
                    Panel.ZIndex="1"/>
             <Image x:Name="LismanGreenImage" gif:ImageBehavior.RepeatBehavior="1000x" gif:ImageBehavior.AnimatedSource="Resources/img/LismanGreenLeft.gif"

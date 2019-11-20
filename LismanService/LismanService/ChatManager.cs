@@ -64,7 +64,7 @@ namespace LismanService {
                     gameMap = GAMEMAP,
                     lismanUsers = new Dictionary<string, InformationPlayer>()
 
-            };
+                };
                 multiplayerGameInformation.Add(idgame, informationGame);
             }
             foreach (var userGame in listGamesOnline[idgame]) {

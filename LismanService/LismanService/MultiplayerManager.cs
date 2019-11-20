@@ -167,6 +167,10 @@ namespace LismanService
                 }
 
                 listGamesOnline[idgame].RemoveAll(u => u == lismanDead);
+                if(listGamesOnline[idgame].Count == 1)
+                {
+                    connectionGameService[lismanAlive].NotifyEndGame(lismanAlive);
+                }
             }
             else
             {
@@ -189,6 +193,11 @@ namespace LismanService
                 }
             }
 
+        }
+
+        private void EndGame(int idgame, String user)
+        {
+            
         }
 
         private void UpdateGameMap(int idgame, int newValue, int positionX, int positionY)

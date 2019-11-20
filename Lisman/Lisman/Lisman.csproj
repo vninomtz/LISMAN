@@ -297,5 +297,9 @@
     <Resource Include="Resources\img\LismanYellowLeft.gif" />
     <Resource Include="Resources\img\LismanYellowUp.gif" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\img\LogoIsometrico.png" />
+    <Resource Include="Resources\img\LogoReducido.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

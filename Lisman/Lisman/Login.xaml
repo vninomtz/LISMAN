@@ -8,7 +8,7 @@
         xmlns:local="clr-namespace:Lisman"
         mc:Ignorable="d"
         Title="LISMAN" Height="530" Width="410" ResizeMode="CanMinimize" WindowStartupLocation="CenterScreen" 
-        Icon="Resources/img/icon_pacman.png">
+        Icon="Resources/img/LogoIsometrico.png">
 
     <Grid>
         <Menu IsMainMenu="True"  HorizontalAlignment="Right" VerticalAlignment="Top">
@@ -36,7 +36,9 @@
                 <RowDefinition Height="202*"/>
                 <RowDefinition Height="299*"/>
             </Grid.RowDefinitions>
-            <materialDesign:PackIcon Kind="PacMan" Height="100" Width="100" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="35,38,35,0"/>
+            <Image Source="Resources/img/LogoReducido.png"  
+                   Grid.RowSpan="2" VerticalAlignment="Top"
+                   Margin="0,10"/>
             <Button
                 Name="button_login"
             Style="{StaticResource MaterialDesignRaisedAccentButton}"

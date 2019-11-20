@@ -29,7 +29,5 @@ namespace DataAccess
         public virtual DbSet<Account> AccountSet { get; set; }
         public virtual DbSet<Record> RecordSet { get; set; }
         public virtual DbSet<Game> GameSet { get; set; }
-        public virtual DbSet<Chat> ChatSet { get; set; }
-        public virtual DbSet<Message> MessageSet { get; set; }
     }
 }

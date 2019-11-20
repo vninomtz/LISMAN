@@ -282,6 +282,9 @@
   <wsdl:message name="IMultiplayerManager_UpdateLismanSpeed_OutputCallbackMessage">
     <wsdl:part name="parameters" element="tns:UpdateLismanSpeed" />
   </wsdl:message>
+  <wsdl:message name="IMultiplayerManager_NotifyEndGame_OutputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:NotifyEndGame" />
+  </wsdl:message>
   <wsdl:portType name="IAccountManager">
     <wsdl:operation name="AddAccount">
       <wsdl:input wsaw:Action="http://tempuri.org/IAccountManager/AddAccount" message="tns:IAccountManager_AddAccount_InputMessage" />
@@ -397,6 +400,9 @@
     </wsdl:operation>
     <wsdl:operation name="UpdateLismanSpeed">
       <wsdl:output wsaw:Action="http://tempuri.org/IMultiplayerManager/UpdateLismanSpeed" message="tns:IMultiplayerManager_UpdateLismanSpeed_OutputCallbackMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="NotifyEndGame">
+      <wsdl:output wsaw:Action="http://tempuri.org/IMultiplayerManager/NotifyEndGame" message="tns:IMultiplayerManager_NotifyEndGame_OutputCallbackMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="NetTcpBinding_IAccountManager" type="tns:IAccountManager">
@@ -639,6 +645,12 @@
     </wsdl:operation>
     <wsdl:operation name="UpdateLismanSpeed">
       <soap12:operation soapAction="http://tempuri.org/IMultiplayerManager/UpdateLismanSpeed" style="document" />
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="NotifyEndGame">
+      <soap12:operation soapAction="http://tempuri.org/IMultiplayerManager/NotifyEndGame" style="document" />
       <wsdl:output>
         <soap12:body use="literal" />
       </wsdl:output>

@@ -988,6 +988,9 @@ namespace Lisman.LismanService {
         
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IMultiplayerManager/UpdateLismanSpeed")]
         void UpdateLismanSpeed(int speed, bool hasPower);
+        
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IMultiplayerManager/NotifyEndGame")]
+        void NotifyEndGame(string winner);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]

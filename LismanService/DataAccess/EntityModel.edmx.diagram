@@ -9,21 +9,9 @@
         <EntityTypeShape EntityType="EntityModel.Account" Width="1.5" PointX="2.875" PointY="0.5" />
         <EntityTypeShape EntityType="EntityModel.Record" Width="2.375" PointX="5.875" PointY="0.625" />
         <EntityTypeShape EntityType="EntityModel.Game" Width="1.5" PointX="6.625" PointY="3.125" />
-        <EntityTypeShape EntityType="EntityModel.Chat" Width="1.5" PointX="4" PointY="4.25" />
-        <EntityTypeShape EntityType="EntityModel.Message" Width="1.5" PointX="0.75" PointY="3.875" />
         <AssociationConnector Association="EntityModel.AccountRecord" />
         <AssociationConnector Association="EntityModel.AccountPlayer" />
-        <AssociationConnector Association="EntityModel.AccountGameMembers" ManuallyRouted="true" >
-          <ConnectorPoint PointX="3.6259795312499996" PointY="2.8648893229166661" />
-          <ConnectorPoint PointX="3.6259795312499996" PointY="3.8802083333333335" />
-          <ConnectorPoint PointX="6.298406670953125" PointY="3.8802083333333335" />
-          <ConnectorPoint PointX="6.298406670953125" PointY="3.6149709469383096" />
-          <ConnectorPoint PointX="6.625" PointY="3.6149709469383096" />
-        </AssociationConnector>
         <AssociationConnector Association="EntityModel.GameAccount" />
-        <AssociationConnector Association="EntityModel.GameChat" />
-        <AssociationConnector Association="EntityModel.ChatMessage" />
-        <AssociationConnector Association="EntityModel.AccountMessage" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

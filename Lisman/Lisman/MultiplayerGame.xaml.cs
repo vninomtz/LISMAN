@@ -672,5 +672,10 @@ namespace Lisman {
 
            
         }
+
+        public void NotifyEndGame(string winner)
+        {
+            MessageBox.Show("Felicidades has ganado");
+        }
     }
 }

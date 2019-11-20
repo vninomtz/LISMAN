@@ -35,6 +35,8 @@ namespace LismanService {
         [OperationContract(IsOneWay = true)]
         
         void UpdateLismanSpeed(int speed, bool hasPower);
+        [OperationContract(IsOneWay = true)]
+        void NotifyEndGame(String winner);
 
     }
 

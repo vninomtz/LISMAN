@@ -53,9 +53,6 @@
     <Compile Include="Account.cs">
       <DependentUpon>EntityModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Chat.cs">
-      <DependentUpon>EntityModel.tt</DependentUpon>
-    </Compile>
     <Compile Include="Class1.cs" />
     <Compile Include="EntityModel.Context.cs">
       <AutoGen>True</AutoGen>
@@ -73,9 +70,6 @@
       <DependentUpon>EntityModel.edmx</DependentUpon>
     </Compile>
     <Compile Include="Game.cs">
-      <DependentUpon>EntityModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Message.cs">
       <DependentUpon>EntityModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Player.cs">

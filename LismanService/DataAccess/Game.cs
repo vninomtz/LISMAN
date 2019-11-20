@@ -26,9 +26,7 @@ namespace DataAccess
         public bool Status { get; set; }
         public Nullable<System.DateTime> Game_over { get; set; }
     
-        public virtual Account GameCreator { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Account> Members { get; set; }
-        public virtual Chat Chat { get; set; }
     }
 }

@@ -77,6 +77,7 @@ namespace Lisman {
             }
             catch (Exception ex)
             {
+                MessageBox.Show(Properties.Resources.server_conecction_error);
                 Logger.log.Error(ex);
                 
             }
@@ -675,7 +676,10 @@ namespace Lisman {
 
         public void NotifyEndGame(string winner)
         {
-            MessageBox.Show("Felicidades has ganado");
+            MessageBox.Show("FElICIDADES :)");
+            MultiplayerHome windowHome = new MultiplayerHome();
+            windowHome.Show();
+            this.Close();
         }
     }
 }

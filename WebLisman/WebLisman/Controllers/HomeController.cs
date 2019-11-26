@@ -27,13 +27,13 @@ namespace WebLisman.Controllers {
                     int exist = dataBase.AccountSet.Where(u => u.Key_confirmation == token).Count();
                     if (exist > 0) {
                         var accountValidate = dataBase.AccountSet.Where(u => u.Key_confirmation == token).FirstOrDefault();
-                        accountValidate.Key_confirmation = "";
+                        accountValidate.Key_confirmation = " ";
                         result = dataBase.SaveChanges();
                     }
                 }
             } catch (Exception ex) {
-                throw new Exception(ex.Message);
-            }
+                ViewBag.Message = ex.Message;
+                    }
             if (result == -1) {
                 ViewBag.Message = "No se pudo confirmar tu registro.";
             } else {

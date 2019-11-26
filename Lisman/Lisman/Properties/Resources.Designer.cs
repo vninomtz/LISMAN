@@ -486,6 +486,15 @@ namespace Lisman.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Server connection error, please try again.
+        /// </summary>
+        public static string server_conecction_error {
+            get {
+                return ResourceManager.GetString("server_conecction_error", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Start Game.
         /// </summary>
         public static string start_game {

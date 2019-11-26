@@ -31,9 +31,19 @@ namespace Lisman {
             instance = new InstanceContext(this);
             this.idGame = idGame;
             client = new ChatManagerClient(instance);
-            client.JoinChat(SingletonAccount.getSingletonAccount().User, idGame);
-            textBlock_name_player.Text = SingletonAccount.getSingletonAccount().User;
-            btn_startGame.IsEnabled = false;
+            try
+            {
+                client.JoinChat(SingletonAccount.getSingletonAccount().User, idGame);
+                textBlock_name_player.Text = SingletonAccount.getSingletonAccount().User;
+                btn_startGame.IsEnabled = false;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(Properties.Resources.server_conecction_error);
+                Logger.log.Warn("Function Lobby " + ex.Message);
+                
+            }
+            
             
 
         }
@@ -48,10 +58,22 @@ namespace Lisman {
         private void btn_exitGame_Click(object sender, RoutedEventArgs e) {
             MultiplayerHome homeMultiplayer = new MultiplayerHome();
             LismanService.GameManagerClient clientGame = new LismanService.GameManagerClient();
-            clientGame.LeaveGame(SingletonAccount.getSingletonAccount().User, idGame);
-            client.LeaveChat(SingletonAccount.getSingletonAccount().User, idGame);
-            homeMultiplayer.Show();
-            this.Close();
+
+            try
+            {
+                clientGame.LeaveGame(SingletonAccount.getSingletonAccount().User, idGame);
+                client.LeaveChat(SingletonAccount.getSingletonAccount().User, idGame);
+                homeMultiplayer.Show();
+                this.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(Properties.Resources.server_conecction_error);
+                Logger.log.Warn("Error en funcion exit game " + ex.Message);                                              
+            }
+
+           
+           
         }
 
         public void NotifyMessage(Message message)
@@ -78,8 +100,19 @@ namespace Lisman {
                     Account = SingletonAccount.getSingletonAccount()
                 };
 
-                client.SendMessage(message, idGame);
-                textBox_message.Text = String.Empty;
+                try
+                {
+                    client.SendMessage(message, idGame);
+                    textBox_message.Text = String.Empty;
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(Properties.Resources.server_conecction_error);
+                    Logger.log.Warn("Function sendMessage" + ex.Message); 
+                }
+
+                
+                
             }
             
 
@@ -113,7 +146,16 @@ namespace Lisman {
 
         private void btn_startGame_Click(object sender, RoutedEventArgs e)
         {
-            client.StartGame(SingletonAccount.getSingletonAccount().User, idGame);
+            try{
+                client.StartGame(SingletonAccount.getSingletonAccount().User, idGame);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(Properties.Resources.server_conecction_error);
+                Console.WriteLine("Error en startGame " + ex.Message);
+                
+            }
+            
         }
 
         public void InitGame()

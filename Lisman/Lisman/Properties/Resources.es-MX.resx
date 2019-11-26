@@ -260,6 +260,9 @@ Hemos enviado un correo de confirmacion a su correo electronico por favor ingres
   <data name="searching_players" xml:space="preserve">
     <value>Buscando jugadores</value>
   </data>
+  <data name="server_conecction_error" xml:space="preserve">
+    <value>Error de conexión con el servidor</value>
+  </data>
   <data name="spanish" xml:space="preserve">
     <value>Español</value>
   </data>

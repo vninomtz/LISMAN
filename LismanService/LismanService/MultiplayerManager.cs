@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity.Validation;
 using System.IO;
+using System.Linq;
 using System.ServiceModel;
-using System.Windows.Threading;
+using DataAccess;
 
 namespace LismanService
 {
@@ -28,12 +30,6 @@ namespace LismanService
         const int SPEEDNORMAL = 300;
         const int SPEEDPOWERFUL = 210;
        
-       
-
-        public void ValidateLismanPowerful(object sender, EventArgs e)
-        {
-
-        }
 
         String parentDirectory = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName;
 
@@ -56,7 +52,8 @@ namespace LismanService
             }
             connectionGameService[user].NotifyColorPlayer(multiplayerGameInformation[idgame].lismanUsers[user].colorLisman, user);
             connectionGameService[user].PrintInformationPlayers(multiplayerGameInformation[idgame].lismanUsers);
-            
+
+            SaveLastUpdate(idgame);
         }
 
 
@@ -91,7 +88,7 @@ namespace LismanService
                     break;
 
             }
-
+            SaveLastUpdate(idgame);
         }
         private String GetUserByColorLisman(int idgame,int colorLisman)
         {
@@ -170,6 +167,7 @@ namespace LismanService
                 if(listGamesOnline[idgame].Count == 1)
                 {
                     connectionGameService[lismanAlive].NotifyEndGame(lismanAlive);
+                    EndGame(idgame, lismanAlive);
                 }
             }
             else
@@ -195,9 +193,44 @@ namespace LismanService
 
         }
 
-        private void EndGame(int idgame, String user)
+        private void EndGame(int idgame, String userWinner)
         {
-            
+            try
+            {
+                using (var dataBase = new EntityModelContainer())
+                {
+                    var gameUpdate = dataBase.GameSet.Where(u => u.Id == idgame).FirstOrDefault();
+                    if (gameUpdate.Id != 0)
+                    {
+                        gameUpdate.Last_update = DateTime.Now;
+                        gameUpdate.Status = false;
+                        foreach (KeyValuePair<String, InformationPlayer> players in multiplayerGameInformation[idgame].lismanUsers)
+                        {
+                           var account = dataBase.AccountSet.Where(u => u.User == players.Key).FirstOrDefault();
+                            account.Record.Mult_best_score = players.Value.scoreLisman;
+                            account.Record.Mult_games_played += 1;
+                            if(players.Key == userWinner)
+                            {
+                                account.Record.Mult_games_won += 1;
+                            }
+                            gameUpdate.Members.Add(account);
+                        }
+                        try
+                        {
+                            dataBase.SaveChanges();
+
+                        }
+                        catch (DbEntityValidationException ex)
+                        {
+                            Logger.log.Warn("SaveLastUpdate DataBase" + ex);
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Logger.log.Error("Funtion SaveLastUpdate: " + ex.Message);
+            }
         }
 
         private void UpdateGameMap(int idgame, int newValue, int positionX, int positionY)
@@ -344,6 +377,33 @@ namespace LismanService
         public void RemovePower(String user)
         {
             connectionGameService[user].UpdateLismanSpeed(SPEEDNORMAL,false);
+        }
+
+        public void SaveLastUpdate(int idgame)
+        {
+            try
+            {
+                using(var dataBase = new EntityModelContainer())
+                {
+                    var gameUpdate = dataBase.GameSet.Where(u => u.Id == idgame).FirstOrDefault();
+                    if(gameUpdate.Id != 0)
+                    {
+                        gameUpdate.Last_update = DateTime.Now;
+                        try
+                        {
+                            dataBase.SaveChanges();
+
+                        }
+                        catch (DbEntityValidationException ex)
+                        {
+                            Logger.log.Warn("SaveLastUpdate DataBase" + ex);
+                        }
+                    }
+                }
+            }catch(Exception ex)
+            {
+                Logger.log.Error("Funtion SaveLastUpdate: " + ex.Message);
+            }
         }
     }
 }

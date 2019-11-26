@@ -12,34 +12,40 @@ using System.Data.Entity.Validation;
 namespace LismanService {
     public partial class LismanService : IGameManager {
        static Dictionary<int, List<String>> listGamesOnline = new Dictionary<int,List<String>>();
-        static int idGamesOnline = 0;
         public int CreateGame(string user)
         {
             int idgame = 0;
-            using (var dataBase = new EntityModelContainer())
+            try
             {
-                var newGame = new DataAccess.Game
+                using (var dataBase = new EntityModelContainer())
                 {
-                    Creation_date = DateTime.Now,
-                    Status = true,
-                    Members = new List<DataAccess.Account>(),
-                    Last_update = DateTime.Now
-                };
-                try
-                {
-                    dataBase.GameSet.Add(newGame);
-                    dataBase.SaveChanges();
-                }
-                catch (DbEntityValidationException ex)
-                {
-                    Logger.log.Error(ex);
-                    return -1;
-                }
+                    var newGame = new DataAccess.Game
+                    {
+                        Creation_date = DateTime.Now,
+                        Status = true,
+                        Members = new List<DataAccess.Account>(),
+                        Last_update = DateTime.Now
+                    };
+                    try
+                    {
+                        dataBase.GameSet.Add(newGame);
+                        dataBase.SaveChanges();
+                    }
+                    catch (DbEntityValidationException ex)
+                    {
+                        Logger.log.Error(ex);
+                        return -1;
+                    }
 
-                idgame = dataBase.GameSet.LastOrDefault().Id;
+                    idgame = dataBase.GameSet.Max(u => u.Id);
+                }
             }
-
+            catch (Exception ex)
+            {
+                Logger.log.Error("Funtion CreateGame: " + ex.Message);
+            }
             
+
             var listPlayer = new List<String>();
             listGamesOnline.Add(idgame, listPlayer);
             listGamesOnline[idgame].Add(user);

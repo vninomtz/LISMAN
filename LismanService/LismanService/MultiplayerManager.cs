@@ -88,7 +88,7 @@ namespace LismanService
                     break;
 
             }
-            SaveLastUpdate(idgame);
+            //SaveLastUpdate(idgame);
         }
         private String GetUserByColorLisman(int idgame,int colorLisman)
         {
@@ -204,6 +204,7 @@ namespace LismanService
                     {
                         gameUpdate.Last_update = DateTime.Now;
                         gameUpdate.Status = false;
+                        gameUpdate.Game_over = DateTime.Now;
                         foreach (KeyValuePair<String, InformationPlayer> players in multiplayerGameInformation[idgame].lismanUsers)
                         {
                            var account = dataBase.AccountSet.Where(u => u.User == players.Key).FirstOrDefault();

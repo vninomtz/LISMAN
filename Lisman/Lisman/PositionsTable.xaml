@@ -9,7 +9,7 @@
         mc:Ignorable="d"
         Title="{x:Static p:Resources.positions_table}" Height="450" Width="800"
         WindowStartupLocation="CenterScreen" 
-        Icon="Resources/img/icon_pacman.png">
+        Icon="Resources/img/LogoIsometrico.png">
     <Grid>
         <Button
                 Style="{StaticResource MaterialDesignFlatButton}" Content="{x:Static p:Resources.go_back}"

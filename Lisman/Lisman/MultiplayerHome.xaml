@@ -8,7 +8,7 @@
         xmlns:local="clr-namespace:Lisman"
         mc:Ignorable="d"
          Title="{x:Static p:Resources.multiplayer_mode}" Height="500" Width="600" ResizeMode="CanMinimize" WindowStartupLocation="CenterScreen" 
-        Topmost="True" Icon="Resources/img/icon_pacman.png">
+        Topmost="True"  Icon="Resources/img/LogoIsometrico.png">
     <Grid>
         <Button
             x:Name="button_goBack"

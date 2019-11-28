@@ -9,7 +9,7 @@
         xmlns:gif="http://wpfanimatedgif.codeplex.com"
         mc:Ignorable="d"
         Title="Game Multiplayer" Height="700" Width="1000" ResizeMode="CanMinimize" WindowStartupLocation="CenterScreen" KeyDown="Matriz_KeyDown" 
-        Topmost="True" Icon="Resources/img/icon_pacman.png">
+        Topmost="True" Icon="Resources/img/LogoIsometrico.png">
     <Grid MaxHeight="700" MaxWidth="1000">
 
 

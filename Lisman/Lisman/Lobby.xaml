@@ -7,7 +7,8 @@
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         xmlns:local="clr-namespace:Lisman"
         mc:Ignorable="d"
-        Title="Lobby" Height="450" Width="772.363" Background="White"  ResizeMode="CanMinimize">
+        Title="Lobby" Height="450" Width="772.363" Background="White"  ResizeMode="CanMinimize"
+         Icon="Resources/img/LogoIsometrico.png">
     <Grid  >
 
         <TextBlock HorizontalAlignment="Left" VerticalAlignment="Top" Text="{x:Static p:Resources.searching_players}"

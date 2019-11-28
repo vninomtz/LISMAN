@@ -86,11 +86,7 @@ namespace Lisman {
             runRight.Interval = new TimeSpan(0, 0, 0, 0, speedLisman);         
             runDown.Tick += new EventHandler(RunDown);
             runDown.Interval = new TimeSpan(0, 0, 0, 0, speedLisman);
-
             
-
-
-
             MatrixGame();
             DrawPills();
             createMatrixPillsImages();
@@ -666,7 +662,6 @@ namespace Lisman {
 
            
         }
-
         public void NotifyEndGame(string winner)
         {
             MessageBox.Show("FElICIDADES :)");

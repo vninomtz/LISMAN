@@ -1,7 +1,6 @@
 ﻿using System;
+using System.IO;
 using System.Net.Mail;
-using System.Security.Cryptography;
-using System.Text;
 using System.Text.RegularExpressions;
 using System.Windows;
 using System.Windows.Input;
@@ -10,10 +9,12 @@ namespace Lisman {
     /// <summary>
     /// Lógica de interacción para UserRegister.xaml
     /// </summary>
-    public partial class UserRegister : Window {
+    public partial class UserRegister : Window
+    {
+        static String  parentDirectory = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName;
         public UserRegister()
         {
-            InitializeComponent();
+            InitializeComponent();            
         }
 
         private void Button_Click_Cancel(object sender, RoutedEventArgs e)
@@ -23,9 +24,10 @@ namespace Lisman {
             this.Close();
         }
 
-        private void SendEmail(String destinationEmail,String token){
+        private void SendEmail(String destinationEmail,String token)
+        {
             String originEmail = "lismanapp@gmail.com";
-            String passwordEmail = "#LismaN&1423";
+            String passwordEmail = GetEmailPassword();
             String subjectEmail = Properties.Resources.subject_email;
             String bodyEmail = Properties.Resources.body_email;
             String url = " http://weblisman.azurewebsites.net/Home/About?token=" + token;
@@ -43,19 +45,17 @@ namespace Lisman {
 
             smtpClient.Send(mailMessage);
             smtpClient.Dispose();
-
-
-
         }
 
-        public void SaveData() {
+        public void SaveData() 
+        {
             if (validateEmptyFields() && ValidateData()) {
                 try {
                     using (var client = new LismanService.AccountManagerClient()) {
-                        String token = EncodePassword(Guid.NewGuid().ToString());
+                        String token = Encrypter.EncodePassword(Guid.NewGuid().ToString());
                         var accountSave = new LismanService.Account {
                             User = textField_userName.Text,
-                            Password = EncodePassword(passwordBox_password.Password),
+                            Password = Encrypter.EncodePassword(passwordBox_password.Password),
                             Registration_date = DateTime.Now.ToString(),
                             Key_confirmation = token,
                             Player = new LismanService.Player {
@@ -175,16 +175,20 @@ namespace Lisman {
             return true;
         }
 
-        public string EncodePassword(string originalPassword)
-        {
-            SHA256 sha256 = SHA256Managed.Create();
-            ASCIIEncoding encoding = new ASCIIEncoding();
-            byte[] stream = null;
-            StringBuilder sb = new StringBuilder();
-            stream = sha256.ComputeHash(encoding.GetBytes(originalPassword));
-            for (int i = 0; i < stream.Length; i++) sb.AppendFormat("{0:x2}", stream[i]);
-            return sb.ToString();
+        
 
+        
+
+        public static string GetEmailPassword()
+        {
+            string password;
+            using (StreamReader sr = new StreamReader(parentDirectory + "/Resources/EmailPassword.txt"))
+            {
+               password = sr.ReadLine();
+            }
+            return Encrypter.Decrypt(password);
         }
+
+        
     }
 }

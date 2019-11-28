@@ -113,6 +113,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
+    <Compile Include="Encrypter.cs" />
     <Compile Include="Lobby.xaml.cs">
       <DependentUpon>Lobby.xaml</DependentUpon>
     </Compile>
@@ -244,6 +245,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="Resources\img\LogoReducido.png" />
     <Resource Include="Resources\Map.txt" />
   </ItemGroup>
   <ItemGroup>
@@ -296,10 +298,12 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Resources\img\LogoIsometrico.png" />
-    <Resource Include="Resources\img\LogoReducido.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Connected Services\LismanService\item1.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\EmailPassword.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -36,49 +36,6 @@ C:\Users\Vik-t\Documents\CarreraUV\5to Semestre\Tecnologías para la Construcci�
 C:\Users\Vik-t\Documents\CarreraUV\5to Semestre\Tecnologías para la Construcción\Proyecto\LISMAN\Lisman\Lisman\obj\Debug\Lisman.exe
 C:\Users\Vik-t\Documents\CarreraUV\5to Semestre\Tecnologías para la Construcción\Proyecto\LISMAN\Lisman\Lisman\obj\Debug\Lisman.pdb
 C:\Users\Vik-t\Documents\CarreraUV\5to Semestre\Tecnologías para la Construcción\Proyecto\LISMAN\Lisman\Lisman\obj\Debug\Lisman.csprojAssemblyReference.cache
-C:\LISMAN\Lisman\Lisman\bin\Debug\Lisman.exe.config
-C:\LISMAN\Lisman\Lisman\bin\Debug\Lisman.exe
-C:\LISMAN\Lisman\Lisman\bin\Debug\Lisman.pdb
-C:\LISMAN\Lisman\Lisman\bin\Debug\es-MX\Lisman.resources.dll
-C:\LISMAN\Lisman\Lisman\bin\Debug\Logica.dll
-C:\LISMAN\Lisman\Lisman\bin\Debug\MaterialDesignColors.dll
-C:\LISMAN\Lisman\Lisman\bin\Debug\MaterialDesignThemes.Wpf.dll
-C:\LISMAN\Lisman\Lisman\bin\Debug\Logica.pdb
-C:\LISMAN\Lisman\Lisman\bin\Debug\MaterialDesignColors.pdb
-C:\LISMAN\Lisman\Lisman\bin\Debug\MaterialDesignThemes.Wpf.pdb
-C:\LISMAN\Lisman\Lisman\bin\Debug\MaterialDesignThemes.Wpf.xml
-C:\LISMAN\Lisman\Lisman\obj\Debug\Lisman.csprojAssemblyReference.cache
-C:\LISMAN\Lisman\Lisman\obj\Debug\Lobby.g.cs
-C:\LISMAN\Lisman\Lisman\obj\Debug\Login.g.cs
-C:\LISMAN\Lisman\Lisman\obj\Debug\MainMenu.g.cs
-C:\LISMAN\Lisman\Lisman\obj\Debug\MultiplayerHome.g.cs
-C:\LISMAN\Lisman\Lisman\obj\Debug\MultiplayerGame.g.cs
-C:\LISMAN\Lisman\Lisman\obj\Debug\PositionsTable.g.cs
-C:\LISMAN\Lisman\Lisman\obj\Debug\UserRegister.g.cs
-C:\LISMAN\Lisman\Lisman\obj\Debug\App.g.cs
-C:\LISMAN\Lisman\Lisman\obj\Debug\Lisman_MarkupCompile.cache
-C:\LISMAN\Lisman\Lisman\obj\Debug\Lisman_MarkupCompile.lref
-C:\LISMAN\Lisman\Lisman\obj\Debug\App.baml
-C:\LISMAN\Lisman\Lisman\obj\Debug\Lobby.baml
-C:\LISMAN\Lisman\Lisman\obj\Debug\Login.baml
-C:\LISMAN\Lisman\Lisman\obj\Debug\MainMenu.baml
-C:\LISMAN\Lisman\Lisman\obj\Debug\MultiplayerHome.baml
-C:\LISMAN\Lisman\Lisman\obj\Debug\MultiplayerGame.baml
-C:\LISMAN\Lisman\Lisman\obj\Debug\PositionsTable.baml
-C:\LISMAN\Lisman\Lisman\obj\Debug\UserRegister.baml
-C:\LISMAN\Lisman\Lisman\obj\Debug\Lisman.g.resources
-C:\LISMAN\Lisman\Lisman\obj\Debug\Lisman.Properties.Resources.resources
-C:\LISMAN\Lisman\Lisman\obj\Debug\Lisman.Properties.Resources.es-MX.resources
-C:\LISMAN\Lisman\Lisman\obj\Debug\Lisman.csproj.GenerateResource.cache
-C:\LISMAN\Lisman\Lisman\obj\Debug\es-MX\Lisman.resources.dll
-C:\LISMAN\Lisman\Lisman\obj\Debug\Lisman.csproj.CopyComplete
-C:\LISMAN\Lisman\Lisman\obj\Debug\Lisman.exe
-C:\LISMAN\Lisman\Lisman\obj\Debug\Lisman.pdb
-C:\LISMAN\Lisman\Lisman\bin\Debug\WpfAnimatedGif.dll
-C:\LISMAN\Lisman\Lisman\bin\Debug\WpfAnimatedGif.xml
-C:\LISMAN\Lisman\Lisman\bin\Debug\log4net.dll
-C:\LISMAN\Lisman\Lisman\bin\Debug\log4net.xml
-C:\LISMAN\Lisman\Lisman\bin\Debug\log4net.config
 C:\Users\Vik-t\Documents\Software Engineering\5to Semestre\Tecnologías para la Construcción\Proyecto\LISMAN\Lisman\Lisman\bin\Debug\log4net.config
 C:\Users\Vik-t\Documents\Software Engineering\5to Semestre\Tecnologías para la Construcción\Proyecto\LISMAN\Lisman\Lisman\bin\Debug\Lisman.exe.config
 C:\Users\Vik-t\Documents\Software Engineering\5to Semestre\Tecnologías para la Construcción\Proyecto\LISMAN\Lisman\Lisman\bin\Debug\Lisman.exe
@@ -122,3 +79,46 @@ C:\Users\Vik-t\Documents\Software Engineering\5to Semestre\Tecnologías para la 
 C:\Users\Vik-t\Documents\Software Engineering\5to Semestre\Tecnologías para la Construcción\Proyecto\LISMAN\Lisman\Lisman\obj\Debug\Lisman.csproj.CopyComplete
 C:\Users\Vik-t\Documents\Software Engineering\5to Semestre\Tecnologías para la Construcción\Proyecto\LISMAN\Lisman\Lisman\obj\Debug\Lisman.exe
 C:\Users\Vik-t\Documents\Software Engineering\5to Semestre\Tecnologías para la Construcción\Proyecto\LISMAN\Lisman\Lisman\obj\Debug\Lisman.pdb
+C:\LISMAN\Lisman\Lisman\bin\Debug\log4net.config
+C:\LISMAN\Lisman\Lisman\bin\Debug\Lisman.exe.config
+C:\LISMAN\Lisman\Lisman\bin\Debug\Lisman.exe
+C:\LISMAN\Lisman\Lisman\bin\Debug\Lisman.pdb
+C:\LISMAN\Lisman\Lisman\bin\Debug\es-MX\Lisman.resources.dll
+C:\LISMAN\Lisman\Lisman\bin\Debug\log4net.dll
+C:\LISMAN\Lisman\Lisman\bin\Debug\Logica.dll
+C:\LISMAN\Lisman\Lisman\bin\Debug\MaterialDesignColors.dll
+C:\LISMAN\Lisman\Lisman\bin\Debug\MaterialDesignThemes.Wpf.dll
+C:\LISMAN\Lisman\Lisman\bin\Debug\WpfAnimatedGif.dll
+C:\LISMAN\Lisman\Lisman\bin\Debug\Logica.pdb
+C:\LISMAN\Lisman\Lisman\bin\Debug\log4net.xml
+C:\LISMAN\Lisman\Lisman\bin\Debug\MaterialDesignColors.pdb
+C:\LISMAN\Lisman\Lisman\bin\Debug\MaterialDesignThemes.Wpf.pdb
+C:\LISMAN\Lisman\Lisman\bin\Debug\MaterialDesignThemes.Wpf.xml
+C:\LISMAN\Lisman\Lisman\bin\Debug\WpfAnimatedGif.xml
+C:\LISMAN\Lisman\Lisman\obj\Debug\Lisman.csprojAssemblyReference.cache
+C:\LISMAN\Lisman\Lisman\obj\Debug\Lobby.g.cs
+C:\LISMAN\Lisman\Lisman\obj\Debug\Login.g.cs
+C:\LISMAN\Lisman\Lisman\obj\Debug\MainMenu.g.cs
+C:\LISMAN\Lisman\Lisman\obj\Debug\MultiplayerHome.g.cs
+C:\LISMAN\Lisman\Lisman\obj\Debug\MultiplayerGame.g.cs
+C:\LISMAN\Lisman\Lisman\obj\Debug\PositionsTable.g.cs
+C:\LISMAN\Lisman\Lisman\obj\Debug\UserRegister.g.cs
+C:\LISMAN\Lisman\Lisman\obj\Debug\App.g.cs
+C:\LISMAN\Lisman\Lisman\obj\Debug\Lisman_MarkupCompile.cache
+C:\LISMAN\Lisman\Lisman\obj\Debug\Lisman_MarkupCompile.lref
+C:\LISMAN\Lisman\Lisman\obj\Debug\App.baml
+C:\LISMAN\Lisman\Lisman\obj\Debug\Lobby.baml
+C:\LISMAN\Lisman\Lisman\obj\Debug\Login.baml
+C:\LISMAN\Lisman\Lisman\obj\Debug\MainMenu.baml
+C:\LISMAN\Lisman\Lisman\obj\Debug\MultiplayerHome.baml
+C:\LISMAN\Lisman\Lisman\obj\Debug\MultiplayerGame.baml
+C:\LISMAN\Lisman\Lisman\obj\Debug\PositionsTable.baml
+C:\LISMAN\Lisman\Lisman\obj\Debug\UserRegister.baml
+C:\LISMAN\Lisman\Lisman\obj\Debug\Lisman.g.resources
+C:\LISMAN\Lisman\Lisman\obj\Debug\Lisman.Properties.Resources.resources
+C:\LISMAN\Lisman\Lisman\obj\Debug\Lisman.Properties.Resources.es-MX.resources
+C:\LISMAN\Lisman\Lisman\obj\Debug\Lisman.csproj.GenerateResource.cache
+C:\LISMAN\Lisman\Lisman\obj\Debug\es-MX\Lisman.resources.dll
+C:\LISMAN\Lisman\Lisman\obj\Debug\Lisman.csproj.CopyComplete
+C:\LISMAN\Lisman\Lisman\obj\Debug\Lisman.exe
+C:\LISMAN\Lisman\Lisman\obj\Debug\Lisman.pdb

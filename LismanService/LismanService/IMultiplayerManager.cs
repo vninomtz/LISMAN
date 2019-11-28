@@ -15,7 +15,7 @@ namespace LismanService {
     }
 
     [ServiceContract]
-    public  interface IMultiplayerManagerCallBack {
+    public interface IMultiplayerManagerCallBack {
         [OperationContract(IsOneWay = true)]
         void PrintInformationPlayers(Dictionary<String,InformationPlayer> listPlayers);
         [OperationContract(IsOneWay = true)]

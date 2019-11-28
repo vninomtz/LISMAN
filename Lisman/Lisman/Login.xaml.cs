@@ -1,7 +1,6 @@
 ﻿using System;
-using System.Security.Cryptography;
+using System.Net;
 using System.ServiceModel;
-using System.Text;
 using System.Windows;
 using System.Windows.Input;
 
@@ -12,7 +11,8 @@ namespace Lisman {
     public partial class MainWindow : Window {
         public MainWindow()
         {
-            InitializeComponent();
+            InitializeComponent();           
+           
         }
 
         public Boolean ValidateFields()
@@ -65,7 +65,15 @@ namespace Lisman {
 
 
         private void btn_login_Click(object sender, RoutedEventArgs e) {
-            LoginUser();         
+            if (CheckForInternetConnection())
+            {
+                LoginUser();
+            }
+            else
+            {
+                MessageBox.Show("No hay conexion a internet");
+            }
+                     
         }
 
 
@@ -78,7 +86,7 @@ namespace Lisman {
                 using (var client = new LismanService.LoginManagerClient()) {
 
                     try {
-                        LismanService.Account account = client.LoginAccount(textField_user.Text, EncodePassword(passwordBox_password.Password));
+                        LismanService.Account account = client.LoginAccount(textField_user.Text, Encrypter.EncodePassword(passwordBox_password.Password));
                         if (account != null) {
                             if (account.Key_confirmation == " ") {
                                 SingletonAccount.setSingletonAccount(account);
@@ -101,30 +109,47 @@ namespace Lisman {
                         }
                         catch (Exception ex)
                         {
-                            Logger.log.Error("Function LoginUser, " + ex);
+                            Logger.log.Error("Function LoginUser, " + ex.Message);
                         }
 
 
                     }
-                } catch (CommunicationException e)
+                } catch (CommunicationException ex)
                 {
-                    MessageBox.Show("Error en la conexión al Servidor");
+                    MessageBox.Show(Properties.Resources.server_conecction_error);
+                    Logger.log.Error("Function LoginUser, " + ex.Message);
                 }
                 
             }
         }
 
-        public string EncodePassword(string originalPassword)
+        public static bool CheckForInternetConnection()
         {
-            SHA256 sha256 = SHA256Managed.Create();
-            ASCIIEncoding encoding = new ASCIIEncoding();
-            byte[] stream = null;
-            StringBuilder sb = new StringBuilder();
-            stream = sha256.ComputeHash(encoding.GetBytes(originalPassword));
-            for (int i = 0; i < stream.Length; i++) sb.AppendFormat("{0:x2}", stream[i]);
-            return sb.ToString();
+            bool internetAvailable = true;
+            try
+            {
+                using (var client = new WebClient())
+                {                    
+                    using (client.OpenRead("http://google.com"))
+                    { 
+                    }
+                }
+                
+            }
+            catch
+            {
+                internetAvailable = false;               
+            }
+
+            return internetAvailable;
         }
 
-        
+
+
+
+
+
+
+
     }
 }

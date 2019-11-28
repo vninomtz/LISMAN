@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Windows;
 
-
 namespace Lisman {
     /// <summary>
     /// Interaction logic for MultijugadorHome.xaml

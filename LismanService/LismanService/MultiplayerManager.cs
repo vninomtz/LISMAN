@@ -57,7 +57,7 @@ namespace LismanService
         }
 
 
-        public void MoveLisman(int idgame,String user, int initialPositionX, int initialPositionY, int finalPositionX, int finalPositionY,String goTo)
+        public void MoveLisman(int idgame, String user, int initialPositionX, int initialPositionY, int finalPositionX, int finalPositionY, String goTo)
         {
             int valueBox = GetValueBox(idgame, finalPositionX, finalPositionY);
             String userEnemy = null;
@@ -88,22 +88,26 @@ namespace LismanService
                     break;
 
             }
-            SaveLastUpdate(idgame);
+            //SaveLastUpdate(idgame);
         }
         private String GetUserByColorLisman(int idgame,int colorLisman)
         {
             String user = null;
-            foreach (var userGame in listGamesOnline[idgame])
+            foreach (KeyValuePair<String, InformationPlayer> userGame in multiplayerGameInformation[idgame].lismanUsers)
             {
-                if (colorLisman == multiplayerGameInformation[idgame].lismanUsers[userGame].colorLisman){
-                    user = userGame;
+                if (colorLisman == userGame.Value.colorLisman){
+                    user = userGame.Key;
                 }
             }
             return user;
         }
 
-        private void EatLismanEnemy(int idgame, String lismanAlive, String lismanDead, int initialPositionX, int initialPositionY, int finalPositionX, int finalPositionY,String goTo)
+
+
+        private void EatLismanEnemy(int idgame, String lismanAlive, String lismanDead, int initialPositionX, 
+            int initialPositionY, int finalPositionX, int finalPositionY,String goTo)
         {
+
             int colorLismanAlive = multiplayerGameInformation[idgame].lismanUsers[lismanAlive].colorLisman;
             int colorLismanDead = multiplayerGameInformation[idgame].lismanUsers[lismanDead].colorLisman;
 
@@ -204,6 +208,7 @@ namespace LismanService
                     {
                         gameUpdate.Last_update = DateTime.Now;
                         gameUpdate.Status = false;
+                        gameUpdate.Game_over = DateTime.Now;
                         foreach (KeyValuePair<String, InformationPlayer> players in multiplayerGameInformation[idgame].lismanUsers)
                         {
                            var account = dataBase.AccountSet.Where(u => u.User == players.Key).FirstOrDefault();
@@ -257,7 +262,7 @@ namespace LismanService
             {
                 try
                 {
-                    connectionGameService[userGame].NotifyLismanMoved(colorLisman, finalPositionX, finalPositionY,goTo);
+                    connectionGameService[userGame].NotifyLismanMoved(colorLisman, finalPositionX, finalPositionY, goTo);
                 }
                 catch (CommunicationException e)
                 {
@@ -266,13 +271,13 @@ namespace LismanService
 
             }
         }
-        private void EatPowerPill(int idgame, String user, int initialPositionX, int initialPositionY, int finalPositionX, int finalPositionY,String goTo)
+        private void EatPowerPill(int idgame, String user, int initialPositionX, int initialPositionY, int finalPositionX, int finalPositionY ,String goTo)
         {
             int colorLisman = multiplayerGameInformation[idgame].lismanUsers[user].colorLisman;
             UpdateGameMap(idgame, EMPTYBOX, initialPositionX, initialPositionY);
             UpdateGameMap(idgame, colorLisman, finalPositionX, finalPositionY);
             int scoreLisman = UpdateScore(idgame, user, POINTSPOWERPILL);
-            connectionGameService[user].UpdateLismanSpeed(SPEEDPOWERFUL,true);
+            connectionGameService[user].UpdateLismanSpeed(SPEEDPOWERFUL, true);
             foreach (var userGame in listGamesOnline[idgame])
             {
                 try
@@ -280,7 +285,6 @@ namespace LismanService
                     connectionGameService[userGame].NotifyDisappearedPowerPill(finalPositionX, finalPositionY);
                     connectionGameService[userGame].NotifyLismanMoved(colorLisman, finalPositionX, finalPositionY,goTo);
                     connectionGameService[userGame].NotifyUpdateScore(colorLisman, scoreLisman);
-
                 }
                 catch (CommunicationException e)
                 {

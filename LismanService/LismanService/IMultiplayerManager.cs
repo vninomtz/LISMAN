@@ -61,6 +61,8 @@ namespace LismanService {
         public int scoreLisman { get; set; }
         [DataMember]
         public bool hasPower { get; set; }
+        [DataMember]
+        public bool isLive { get; set; }
     }
         
 }

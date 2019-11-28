@@ -22,12 +22,12 @@
     <MetadataSource Address="http://localhost:8081" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="item1.disco" MetadataType="Disco" ID="e0fd247c-6e2f-420e-8358-ebef1e53154b" SourceId="1" SourceUrl="http://192.168.43.196:8081/?disco" />
-    <MetadataFile FileName="item4.xsd" MetadataType="Schema" ID="b0af879a-a013-439e-b68c-410894b5c11b" SourceId="1" SourceUrl="http://192.168.43.196:8081/?xsd=xsd1" />
-    <MetadataFile FileName="item41.xsd" MetadataType="Schema" ID="5d072021-cf3d-4da4-a35d-40e9ab4b3b98" SourceId="1" SourceUrl="http://192.168.43.196:8081/?xsd=xsd3" />
-    <MetadataFile FileName="item42.xsd" MetadataType="Schema" ID="9c19ba06-6d9a-4442-9eb3-735c6b07e455" SourceId="1" SourceUrl="http://192.168.43.196:8081/?xsd=xsd2" />
-    <MetadataFile FileName="item43.xsd" MetadataType="Schema" ID="ba33a3a0-f3df-4a90-a6b6-6b15bd91fa5d" SourceId="1" SourceUrl="http://192.168.43.196:8081/?xsd=xsd0" />
-    <MetadataFile FileName="LismanService1.wsdl" MetadataType="Wsdl" ID="17f1ab1e-5d7e-4cdd-ab35-705eaf900500" SourceId="1" SourceUrl="http://192.168.43.196:8081/?wsdl" />
+    <MetadataFile FileName="item1.disco" MetadataType="Disco" ID="fdca4f3f-e434-459e-877a-f7b9a32b9cac" SourceId="1" SourceUrl="http://192.168.43.196:8081/?disco" />
+    <MetadataFile FileName="item4.xsd" MetadataType="Schema" ID="261c8a3b-feb7-462c-aa40-f70f0306bb2a" SourceId="1" SourceUrl="http://192.168.43.196:8081/?xsd=xsd1" />
+    <MetadataFile FileName="item41.xsd" MetadataType="Schema" ID="e6fea537-71bd-4798-8d53-e491776cb1af" SourceId="1" SourceUrl="http://192.168.43.196:8081/?xsd=xsd3" />
+    <MetadataFile FileName="item42.xsd" MetadataType="Schema" ID="93d88ea5-d241-4edd-93ca-136ac96d33e8" SourceId="1" SourceUrl="http://192.168.43.196:8081/?xsd=xsd2" />
+    <MetadataFile FileName="item43.xsd" MetadataType="Schema" ID="01779d99-7cdd-4d67-9096-1646399c6247" SourceId="1" SourceUrl="http://192.168.43.196:8081/?xsd=xsd0" />
+    <MetadataFile FileName="LismanService1.wsdl" MetadataType="Wsdl" ID="f06c9aed-fd32-4912-8873-c870f36c7eaf" SourceId="1" SourceUrl="http://192.168.43.196:8081/?wsdl" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

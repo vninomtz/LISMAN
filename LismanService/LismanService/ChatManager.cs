@@ -62,7 +62,7 @@ namespace LismanService {
                 Game informationGame = new Game
                 {
                     gameMap = GAMEMAP,
-                    lismanUsers = new Dictionary<string, InformationPlayer>()
+                    lismanUsers = new Dictionary<int, InformationPlayer>()
 
                 };
                 multiplayerGameInformation.Add(idgame, informationGame);
@@ -82,25 +82,30 @@ namespace LismanService {
             InformationPlayer infoPlayer = new InformationPlayer();
             int index = listGamesOnline[idgame].FindIndex(u => u == user);
             bool result = false;
+            int colorAssigned = 0;
             switch (index)
             {
                 case 0:
-                    infoPlayer.colorLisman = LISMANYELLOW;
+                    colorAssigned =  LISMANYELLOW;
                     break;
                 case 1:
-                    infoPlayer.colorLisman = LISMANBLUE;
+                    colorAssigned = LISMANRED;
                     break;
                 case 2:
-                    infoPlayer.colorLisman = LISMANRED;
+                    colorAssigned = LISMANBLUE;
                     break;
                 case 3:
-                    infoPlayer.colorLisman = LISMANGREEN;
+                    colorAssigned = LISMANGREEN;
                     break;
             }
+            infoPlayer.userLisman = user;
             infoPlayer.lifesLisman = 3;
-            multiplayerGameInformation[idgame].lismanUsers.Add(user, infoPlayer);
+            infoPlayer.hasPower = false;
+            infoPlayer.isLive = true;
+            infoPlayer.scoreLisman = 0;
+            multiplayerGameInformation[idgame].lismanUsers.Add(colorAssigned, infoPlayer);
 
-            if (multiplayerGameInformation[idgame].lismanUsers[user].colorLisman != 0)
+            if (colorAssigned != 0)
             {
                 result = true;
             }

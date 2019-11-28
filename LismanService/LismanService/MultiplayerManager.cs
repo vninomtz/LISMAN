@@ -38,9 +38,8 @@ namespace LismanService
         static Dictionary<int, Game> multiplayerGameInformation = new Dictionary<int, Game>();
 
 
-        public void JoinMultiplayerGame(string user, int idgame)
+        public void JoinMultiplayerGame(string user, int idGame)
         {
-
             var connection = OperationContext.Current.GetCallbackChannel<IMultiplayerManagerCallBack>();
             if (connectionGameService.ContainsKey(user))
             {
@@ -50,10 +49,24 @@ namespace LismanService
             {
                 connectionGameService.Add(user, connection);
             }
-            connectionGameService[user].NotifyColorPlayer(multiplayerGameInformation[idgame].lismanUsers[user].colorLisman, user);
-            connectionGameService[user].PrintInformationPlayers(multiplayerGameInformation[idgame].lismanUsers);
+            
+            connectionGameService[user].NotifyColorPlayer(GetColorLismanByUser(idGame, user), user);
+            connectionGameService[user].PrintInformationPlayers(multiplayerGameInformation[idGame].lismanUsers);
 
-            SaveLastUpdate(idgame);
+            SaveLastUpdate(idGame);
+        }
+
+        public int GetColorLismanByUser(int idGame, String user)
+        {
+            int colorLisman = 0;
+            foreach(KeyValuePair<int, InformationPlayer> listUsers in multiplayerGameInformation[idGame].lismanUsers)
+            {
+                if(listUsers.Value.userLisman == user)
+                {
+                    colorLisman = listUsers.Key;
+                }
+            }
+            return colorLisman;
         }
 
 
@@ -70,21 +83,10 @@ namespace LismanService
                 case POWERPILL:
                     EatPowerPill(idgame, user, initialPositionX, initialPositionY, finalPositionX, finalPositionY,goTo);
                     break;
-                case LISMANYELLOW:
-                    userEnemy = GetUserByColorLisman(idgame, LISMANYELLOW);
-                    EatLismanEnemy(idgame, user, userEnemy, initialPositionX, initialPositionY, finalPositionX, finalPositionY,goTo);
-                    break;
-                case LISMANRED:
-                    userEnemy = GetUserByColorLisman(idgame, LISMANRED);
-                    EatLismanEnemy(idgame, user, userEnemy, initialPositionX, initialPositionY, finalPositionX, finalPositionY,goTo);
-                    break;
-                case LISMANBLUE:
-                    userEnemy = GetUserByColorLisman(idgame, LISMANBLUE);
-                    EatLismanEnemy(idgame, user, userEnemy, initialPositionX, initialPositionY, finalPositionX, finalPositionY,goTo);
-                    break;
-                case LISMANGREEN:
-                    userEnemy = GetUserByColorLisman(idgame, LISMANGREEN);
-                    EatLismanEnemy(idgame, user, userEnemy, initialPositionX, initialPositionY, finalPositionX, finalPositionY,goTo);
+                default:
+                    userEnemy = GetUserByColorLisman(idgame, valueBox);
+                    EatLismanEnemy(idgame, user, userEnemy, initialPositionX, initialPositionY, finalPositionX, finalPositionY, goTo);
+                    
                     break;
 
             }
@@ -104,22 +106,22 @@ namespace LismanService
 
 
 
-        private void EatLismanEnemy(int idgame, String lismanAlive, String lismanDead, int initialPositionX, 
-            int initialPositionY, int finalPositionX, int finalPositionY,String goTo)
+        private void EatLismanEnemy(int idGame, String lismanAlive, String lismanDead, int initialPositionX, 
+            int initialPositionY, int finalPositionX, int finalPositionY, String goTo)
         {
 
-            int colorLismanAlive = multiplayerGameInformation[idgame].lismanUsers[lismanAlive].colorLisman;
-            int colorLismanDead = multiplayerGameInformation[idgame].lismanUsers[lismanDead].colorLisman;
+            int colorLismanAlive = multiplayerGameInformation[idGame].lismanUsers[lismanAlive].colorLisman;
+            int colorLismanDead = multiplayerGameInformation[idGame].lismanUsers[lismanDead].colorLisman;
 
-            int scoreLismanAlive = UpdateScore(idgame, lismanAlive, POINTSEATLISMAN);
-            int lifesLismanDead = multiplayerGameInformation[idgame].lismanUsers[lismanDead].lifesLisman;
+            int scoreLismanAlive = UpdateScore(idGame, lismanAlive, POINTSEATLISMAN);
+            int lifesLismanDead = multiplayerGameInformation[idGame].lismanUsers[lismanDead].lifesLisman;
             bool isDeadLismanDead = false;
             int[] positionInitialLismanDead = new int[2];
 
-            UpdateGameMap(idgame, EMPTYBOX, initialPositionX, initialPositionY);
-            UpdateGameMap(idgame, colorLismanAlive, finalPositionX, finalPositionY);
+            UpdateGameMap(idGame, EMPTYBOX, initialPositionX, initialPositionY);
+            UpdateGameMap(idGame, colorLismanAlive, finalPositionX, finalPositionY);
 
-            if (multiplayerGameInformation[idgame].lismanUsers[lismanDead].lifesLisman == 1)
+            if (multiplayerGameInformation[idGame].lismanUsers[lismanDead].lifesLisman == 1)
             {
                 isDeadLismanDead = true;
             }
@@ -145,13 +147,13 @@ namespace LismanService
                         break;
                 }
 
-                UpdateGameMap(idgame, colorLismanDead, positionInitialLismanDead[0], positionInitialLismanDead[1]);
+                UpdateGameMap(idGame, colorLismanDead, positionInitialLismanDead[0], positionInitialLismanDead[1]);
             }
-            lifesLismanDead = UpdateSubtractLifes(idgame, lismanDead);
+            lifesLismanDead = UpdateSubtractLifes(idGame, lismanDead);
 
             if (isDeadLismanDead)
             {
-                foreach (var userGame in listGamesOnline[idgame])
+                foreach (var userGame in listGamesOnline[idGame])
                 {
                     try
                     {
@@ -167,17 +169,17 @@ namespace LismanService
 
                 }
 
-                listGamesOnline[idgame].RemoveAll(u => u == lismanDead);
-                if(listGamesOnline[idgame].Count == 1)
+                listGamesOnline[idGame].RemoveAll(u => u == lismanDead);
+                if(listGamesOnline[idGame].Count == 1)
                 {
                     connectionGameService[lismanAlive].NotifyEndGame(lismanAlive);
-                    EndGame(idgame, lismanAlive);
+                    SaveGame(idGame, lismanAlive);
                 }
             }
             else
             {
                 connectionGameService[lismanDead].ReturnLismanToInitialPosition(colorLismanDead, positionInitialLismanDead[0], positionInitialLismanDead[1]);
-                foreach (var userGame in listGamesOnline[idgame])
+                foreach (var userGame in listGamesOnline[idGame])
                 {
                     try
                     {
@@ -197,7 +199,46 @@ namespace LismanService
 
         }
 
-        private void EndGame(int idgame, String userWinner)
+        private void EatLismanEnemy(LismanMovement lismanMovement, int colorEnemy)
+        {
+            if(PlayerWillDead())
+        }
+        public void FinishGame(int idGame, String userWinner)
+        {
+            
+        }
+        
+        public bool PlayerWillDead (int idGame, String user)
+        {
+            bool result = false;
+            if (multiplayerGameInformation[idGame].lismanUsers[user].lifesLisman == 1)
+            {
+                result = true;
+            }
+
+            return result;
+        }
+        public bool GameWillEnd(int idGame)
+        {
+            bool result = false;
+            int playersLives = 0;
+            foreach (KeyValuePair<String, InformationPlayer> userGame in multiplayerGameInformation[idGame].lismanUsers)
+            {
+                if(userGame.Value.isLive == true)
+                {
+                    playersLives += 1;
+                }
+            }
+            if(playersLives == 2)
+            {
+                result = true;
+            }
+
+            return result;
+        }
+
+
+        private void SaveGame(int idgame, String userWinner)
         {
             try
             {
@@ -295,7 +336,7 @@ namespace LismanService
             
         }
 
-        private int GetValueBox(int idGame,int finalPositionX, int finalPositionY)
+        private int GetValueBox(int idGame, int finalPositionX, int finalPositionY)
         {
             int result = -1;
             int valuePosition = multiplayerGameInformation[idGame].gameMap[finalPositionX, finalPositionY];

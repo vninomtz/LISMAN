@@ -676,7 +676,7 @@ namespace Lisman {
 
         public void NotifyEndGame(string winner)
         {
-            MessageBox.Show("FElICIDADES :)");
+            MessageBox.Show("FELICIDADES :)");
             MultiplayerHome windowHome = new MultiplayerHome();
             windowHome.Show();
             this.Close();

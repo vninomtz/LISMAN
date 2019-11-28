@@ -7,7 +7,7 @@ namespace LismanService {
     [ServiceContract(CallbackContract = typeof(IMultiplayerManagerCallBack))]
     public interface IMultiplayerManager {
         [OperationContract(IsOneWay = true)]
-        void JoinMultiplayerGame(String user, int idgame);
+        void JoinMultiplayerGame(String user, int idGame);
         [OperationContract(IsOneWay = true)]
         void MoveLisman(int idGame, String user, int initialPositionX, int initialPositionY, int finalPositionX, int finalPositionY, String goTo);
         [OperationContract(IsOneWay = true)]
@@ -17,7 +17,7 @@ namespace LismanService {
     [ServiceContract]
     public  interface IMultiplayerManagerCallBack {
         [OperationContract(IsOneWay = true)]
-        void PrintInformationPlayers(Dictionary<String,InformationPlayer> listPlayers);
+        void PrintInformationPlayers(Dictionary<int, InformationPlayer> listPlayers);
         [OperationContract(IsOneWay = true)]
         void NotifyColorPlayer(int colorPlayer, String user);
         [OperationContract(IsOneWay = true)]
@@ -46,7 +46,7 @@ namespace LismanService {
         [DataMember]
         public int[,] gameMap  { get; set; }
         [DataMember]
-        public Dictionary<String, InformationPlayer> lismanUsers { get; set; }
+        public Dictionary<int, InformationPlayer> lismanUsers { get; set; }
         
     }
 
@@ -54,7 +54,7 @@ namespace LismanService {
     public class InformationPlayer
     {
         [DataMember]
-        public int colorLisman { get; set; }
+        public String userLisman { get; set; }
         [DataMember]
         public int lifesLisman { get; set; }
         [DataMember]
@@ -64,7 +64,26 @@ namespace LismanService {
         [DataMember]
         public bool isLive { get; set; }
     }
-        
+
+    [DataContract]
+    public class LismanMovement
+    {
+        [DataMember]
+        public int idGame { get; set; }
+        [DataMember]
+        public String user { get; set; }
+        [DataMember]
+        public int initialPositionX { get; set; }
+        [DataMember]
+        public int initialPositionY { get; set; }
+        [DataMember]
+        public int finalPositionX { get; set; }
+        [DataMember]
+        public int finalPositionY { get; set; }
+        [DataMember]
+        public String goTo { get; set; }
+    }
+
 }
 
 

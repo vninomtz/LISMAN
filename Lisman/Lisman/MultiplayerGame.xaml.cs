@@ -265,9 +265,17 @@ namespace Lisman {
                 StopLisman();
             }
         }
-        public void MoveLismanInMap(int initialPositionX, int initialPositionY, int finalPositionX, int finalPositionY,String goTo)
+
+        static LismanMovement movement = new LismanMovement();
+        public void MoveLismanInMap(int initialPositionX, int initialPositionY, int finalPositionX, int finalPositionY, String goTo)
         {
-            client.MoveLisman(this.idgame, SingletonAccount.getSingletonAccount().User, initialPositionX, initialPositionY, finalPositionX, finalPositionY,goTo);
+            movement.colorLisman = playerColor;
+            movement.initialPositionX = initialPositionX;
+            movement.initialPositionY = initialPositionY;
+            movement.finalPositionX = finalPositionX;
+            movement.finalPositionY = finalPositionY;
+            movement.goTo = goTo;
+            client.MoveLisman(movement);
         }
 
         private void Matriz_KeyDown(object sender, KeyEventArgs e) {
@@ -506,30 +514,30 @@ namespace Lisman {
             Grid.SetRow(lismanImageMoved, positionY);
         }
 
-        public void PrintInformationPlayers(Dictionary<string, InformationPlayer> listPlayers)
+        public void PrintInformationPlayers(Dictionary<int, InformationPlayer> listPlayers)
         {
-            foreach (KeyValuePair<String, InformationPlayer> player in listPlayers)
+            foreach (KeyValuePair<int, InformationPlayer> player in listPlayers)
             {
-                int colorPlayer = player.Value.colorLisman;
+                int colorPlayer = player.Key;
                 switch (colorPlayer)
                 {
                     case LISMANYELLOW:
-                        UserLismanYellow.Text =player.Key;
+                        UserLismanYellow.Text = player.Value.userLisman;
                         UserLismanYellowLifes.Text = player.Value.lifesLisman.ToString();
                         UserLismanYellowScore.Text = player.Value.scoreLisman.ToString();
                         break;
                     case LISMANRED:
-                        UserLismanRed.Text = player.Key;
+                        UserLismanRed.Text = player.Value.userLisman;
                         UserLismanRedLifes.Text = player.Value.lifesLisman.ToString();
                         UserLismanRedScore.Text = player.Value.scoreLisman.ToString();
                         break;
                     case LISMANBLUE:
-                        UserLismanBlue.Text = player.Key;
+                        UserLismanBlue.Text = player.Value.userLisman;
                         UserLismanBlueLifes.Text = player.Value.lifesLisman.ToString();
                         UserLismanBlueScore.Text = player.Value.scoreLisman.ToString();
                         break;
                     case LISMANGREEN:
-                        UserLismanGreen.Text = player.Key;
+                        UserLismanGreen.Text = player.Value.userLisman;
                         UserLismanGreenLifes.Text = player.Value.lifesLisman.ToString();
                         UserLismanGreenScore.Text = player.Value.scoreLisman.ToString();
                         break;
@@ -667,7 +675,7 @@ namespace Lisman {
            
         }
 
-        public void NotifyEndGame(string winner)
+        public void NotifyEndGame(int colorLisman)
         {
             MessageBox.Show("FELICIDADES :)");
             MultiplayerHome windowHome = new MultiplayerHome();

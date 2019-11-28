@@ -398,16 +398,10 @@ namespace Lisman.LismanService {
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private Lisman.LismanService.Account AccountField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.DateTime Creation_dateField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int IdField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string TextField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string userNameField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
@@ -416,45 +410,6 @@ namespace Lisman.LismanService {
             }
             set {
                 this.extensionDataField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public Lisman.LismanService.Account Account {
-            get {
-                return this.AccountField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.AccountField, value) != true)) {
-                    this.AccountField = value;
-                    this.RaisePropertyChanged("Account");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.DateTime Creation_date {
-            get {
-                return this.Creation_dateField;
-            }
-            set {
-                if ((this.Creation_dateField.Equals(value) != true)) {
-                    this.Creation_dateField = value;
-                    this.RaisePropertyChanged("Creation_date");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int Id {
-            get {
-                return this.IdField;
-            }
-            set {
-                if ((this.IdField.Equals(value) != true)) {
-                    this.IdField = value;
-                    this.RaisePropertyChanged("Id");
-                }
             }
         }
         
@@ -471,6 +426,19 @@ namespace Lisman.LismanService {
             }
         }
         
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string userName {
+            get {
+                return this.userNameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.userNameField, value) != true)) {
+                    this.userNameField = value;
+                    this.RaisePropertyChanged("userName");
+                }
+            }
+        }
+        
         public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
         
         protected void RaisePropertyChanged(string propertyName) {
@@ -483,9 +451,9 @@ namespace Lisman.LismanService {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="InformationPlayer", Namespace="http://schemas.datacontract.org/2004/07/LismanService")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="LismanMovement", Namespace="http://schemas.datacontract.org/2004/07/LismanService")]
     [System.SerializableAttribute()]
-    public partial class InformationPlayer : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+    public partial class LismanMovement : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
         [System.NonSerializedAttribute()]
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
@@ -494,13 +462,22 @@ namespace Lisman.LismanService {
         private int colorLismanField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private bool hasPowerField;
+        private int finalPositionXField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int lifesLismanField;
+        private int finalPositionYField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int scoreLismanField;
+        private string goToField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int idGameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int initialPositionXField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int initialPositionYField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
@@ -526,6 +503,131 @@ namespace Lisman.LismanService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public int finalPositionX {
+            get {
+                return this.finalPositionXField;
+            }
+            set {
+                if ((this.finalPositionXField.Equals(value) != true)) {
+                    this.finalPositionXField = value;
+                    this.RaisePropertyChanged("finalPositionX");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int finalPositionY {
+            get {
+                return this.finalPositionYField;
+            }
+            set {
+                if ((this.finalPositionYField.Equals(value) != true)) {
+                    this.finalPositionYField = value;
+                    this.RaisePropertyChanged("finalPositionY");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string goTo {
+            get {
+                return this.goToField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.goToField, value) != true)) {
+                    this.goToField = value;
+                    this.RaisePropertyChanged("goTo");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int idGame {
+            get {
+                return this.idGameField;
+            }
+            set {
+                if ((this.idGameField.Equals(value) != true)) {
+                    this.idGameField = value;
+                    this.RaisePropertyChanged("idGame");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int initialPositionX {
+            get {
+                return this.initialPositionXField;
+            }
+            set {
+                if ((this.initialPositionXField.Equals(value) != true)) {
+                    this.initialPositionXField = value;
+                    this.RaisePropertyChanged("initialPositionX");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int initialPositionY {
+            get {
+                return this.initialPositionYField;
+            }
+            set {
+                if ((this.initialPositionYField.Equals(value) != true)) {
+                    this.initialPositionYField = value;
+                    this.RaisePropertyChanged("initialPositionY");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="InformationPlayer", Namespace="http://schemas.datacontract.org/2004/07/LismanService")]
+    [System.SerializableAttribute()]
+    public partial class InformationPlayer : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private bool hasPowerField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string initialDirecctionField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private bool isLiveField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int lifesLismanField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int scoreLismanField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string userLismanField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public bool hasPower {
             get {
                 return this.hasPowerField;
@@ -534,6 +636,32 @@ namespace Lisman.LismanService {
                 if ((this.hasPowerField.Equals(value) != true)) {
                     this.hasPowerField = value;
                     this.RaisePropertyChanged("hasPower");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string initialDirecction {
+            get {
+                return this.initialDirecctionField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.initialDirecctionField, value) != true)) {
+                    this.initialDirecctionField = value;
+                    this.RaisePropertyChanged("initialDirecction");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public bool isLive {
+            get {
+                return this.isLiveField;
+            }
+            set {
+                if ((this.isLiveField.Equals(value) != true)) {
+                    this.isLiveField = value;
+                    this.RaisePropertyChanged("isLive");
                 }
             }
         }
@@ -560,6 +688,19 @@ namespace Lisman.LismanService {
                 if ((this.scoreLismanField.Equals(value) != true)) {
                     this.scoreLismanField = value;
                     this.RaisePropertyChanged("scoreLisman");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string userLisman {
+            get {
+                return this.userLismanField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.userLismanField, value) != true)) {
+                    this.userLismanField = value;
+                    this.RaisePropertyChanged("userLisman");
                 }
             }
         }
@@ -941,16 +1082,16 @@ namespace Lisman.LismanService {
     public interface IMultiplayerManager {
         
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IMultiplayerManager/JoinMultiplayerGame")]
-        void JoinMultiplayerGame(string user, int idgame);
+        void JoinMultiplayerGame(string user, int idGame);
         
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IMultiplayerManager/JoinMultiplayerGame")]
-        System.Threading.Tasks.Task JoinMultiplayerGameAsync(string user, int idgame);
+        System.Threading.Tasks.Task JoinMultiplayerGameAsync(string user, int idGame);
         
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IMultiplayerManager/MoveLisman")]
-        void MoveLisman(int idGame, string user, int initialPositionX, int initialPositionY, int finalPositionX, int finalPositionY, string goTo);
+        void MoveLisman(Lisman.LismanService.LismanMovement movement);
         
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IMultiplayerManager/MoveLisman")]
-        System.Threading.Tasks.Task MoveLismanAsync(int idGame, string user, int initialPositionX, int initialPositionY, int finalPositionX, int finalPositionY, string goTo);
+        System.Threading.Tasks.Task MoveLismanAsync(Lisman.LismanService.LismanMovement movement);
         
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IMultiplayerManager/RemovePower")]
         void RemovePower(string user);
@@ -963,7 +1104,7 @@ namespace Lisman.LismanService {
     public interface IMultiplayerManagerCallback {
         
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IMultiplayerManager/PrintInformationPlayers")]
-        void PrintInformationPlayers(System.Collections.Generic.Dictionary<string, Lisman.LismanService.InformationPlayer> listPlayers);
+        void PrintInformationPlayers(System.Collections.Generic.Dictionary<int, Lisman.LismanService.InformationPlayer> listPlayers);
         
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IMultiplayerManager/NotifyColorPlayer")]
         void NotifyColorPlayer(int colorPlayer, string user);
@@ -990,7 +1131,7 @@ namespace Lisman.LismanService {
         void UpdateLismanSpeed(int speed, bool hasPower);
         
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IMultiplayerManager/NotifyEndGame")]
-        void NotifyEndGame(string winner);
+        void NotifyEndGame(int colorLisman);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -1021,20 +1162,20 @@ namespace Lisman.LismanService {
                 base(callbackInstance, binding, remoteAddress) {
         }
         
-        public void JoinMultiplayerGame(string user, int idgame) {
-            base.Channel.JoinMultiplayerGame(user, idgame);
+        public void JoinMultiplayerGame(string user, int idGame) {
+            base.Channel.JoinMultiplayerGame(user, idGame);
         }
         
-        public System.Threading.Tasks.Task JoinMultiplayerGameAsync(string user, int idgame) {
-            return base.Channel.JoinMultiplayerGameAsync(user, idgame);
+        public System.Threading.Tasks.Task JoinMultiplayerGameAsync(string user, int idGame) {
+            return base.Channel.JoinMultiplayerGameAsync(user, idGame);
         }
         
-        public void MoveLisman(int idGame, string user, int initialPositionX, int initialPositionY, int finalPositionX, int finalPositionY, string goTo) {
-            base.Channel.MoveLisman(idGame, user, initialPositionX, initialPositionY, finalPositionX, finalPositionY, goTo);
+        public void MoveLisman(Lisman.LismanService.LismanMovement movement) {
+            base.Channel.MoveLisman(movement);
         }
         
-        public System.Threading.Tasks.Task MoveLismanAsync(int idGame, string user, int initialPositionX, int initialPositionY, int finalPositionX, int finalPositionY, string goTo) {
-            return base.Channel.MoveLismanAsync(idGame, user, initialPositionX, initialPositionY, finalPositionX, finalPositionY, goTo);
+        public System.Threading.Tasks.Task MoveLismanAsync(Lisman.LismanService.LismanMovement movement) {
+            return base.Channel.MoveLismanAsync(movement);
         }
         
         public void RemovePower(string user) {

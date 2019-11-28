@@ -68,7 +68,7 @@ namespace Lisman {
 
         public void NotifyMessage(Message message)
         {
-            textBox_chat.Text += "\n" + message.Account.User + ": " + message.Text;
+            textBox_chat.Text += "\n" + message.userName + ": " + message.Text;
 
         }
 
@@ -80,14 +80,11 @@ namespace Lisman {
         }
 
         public void SendMessage() {
-            Random rd = new Random(999);
             if (textBox_message.Text != String.Empty) {
                 Message message = new Message {
 
-                    Id = rd.Next(),
-                    Creation_date = DateTime.Now,
                     Text = textBox_message.Text,
-                    Account = SingletonAccount.getSingletonAccount()
+                    userName = SingletonAccount.getSingletonAccount().User
                 };
 
                 try

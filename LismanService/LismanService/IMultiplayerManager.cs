@@ -9,7 +9,7 @@ namespace LismanService {
         [OperationContract(IsOneWay = true)]
         void JoinMultiplayerGame(String user, int idGame);
         [OperationContract(IsOneWay = true)]
-        void MoveLisman(int idGame, String user, int initialPositionX, int initialPositionY, int finalPositionX, int finalPositionY, String goTo);
+        void MoveLisman(LismanMovement movement);
         [OperationContract(IsOneWay = true)]
         void RemovePower(String user);
     }
@@ -36,7 +36,7 @@ namespace LismanService {
         
         void UpdateLismanSpeed(int speed, bool hasPower);
         [OperationContract(IsOneWay = true)]
-        void NotifyEndGame(String winner);
+        void NotifyEndGame(int colorLisman);
 
     }
 
@@ -63,6 +63,8 @@ namespace LismanService {
         public bool hasPower { get; set; }
         [DataMember]
         public bool isLive { get; set; }
+        [DataMember]
+        public String initialDirecction { get; set; }
     }
 
     [DataContract]
@@ -71,7 +73,7 @@ namespace LismanService {
         [DataMember]
         public int idGame { get; set; }
         [DataMember]
-        public String user { get; set; }
+        public int colorLisman { get; set; }
         [DataMember]
         public int initialPositionX { get; set; }
         [DataMember]

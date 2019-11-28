@@ -84,15 +84,19 @@ namespace LismanService {
             {
                 case 0:
                     colorAssigned =  LISMANYELLOW;
+                    infoPlayer.initialDirecction = "right";
                     break;
                 case 1:
                     colorAssigned = LISMANRED;
+                    infoPlayer.initialDirecction = "left";
                     break;
                 case 2:
                     colorAssigned = LISMANBLUE;
+                    infoPlayer.initialDirecction = "right";
                     break;
                 case 3:
                     colorAssigned = LISMANGREEN;
+                    infoPlayer.initialDirecction = "left";
                     break;
             }
             infoPlayer.userLisman = user;

@@ -60,7 +60,8 @@ namespace Lisman {
 
         public void NotifyMessage(Message message)
         {
-            textBox_chat.Text += "\n" + message.Account.User + ": " + message.Text;
+            textBox_chat.Text += "\n" + message.userName + ": " + message.Text;
+
         }
 
         public void NotifyJoinedPlayer(string user)
@@ -70,10 +71,10 @@ namespace Lisman {
 
         public void SendMessage() {
             if (textBox_message.Text != String.Empty) {
-                Message message = new Message {        
-                    
+
+                Message message = new Message {
                     Text = textBox_message.Text,
-                    Account = SingletonAccount.getSingletonAccount()
+                    userName = SingletonAccount.getSingletonAccount().User
                 };
 
                 try

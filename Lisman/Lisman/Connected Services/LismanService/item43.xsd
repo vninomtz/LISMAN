@@ -223,20 +223,14 @@
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" name="user" nillable="true" type="xs:string" />
-        <xs:element minOccurs="0" name="idgame" type="xs:int" />
+        <xs:element minOccurs="0" name="idGame" type="xs:int" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="MoveLisman">
     <xs:complexType>
       <xs:sequence>
-        <xs:element minOccurs="0" name="idGame" type="xs:int" />
-        <xs:element minOccurs="0" name="user" nillable="true" type="xs:string" />
-        <xs:element minOccurs="0" name="initialPositionX" type="xs:int" />
-        <xs:element minOccurs="0" name="initialPositionY" type="xs:int" />
-        <xs:element minOccurs="0" name="finalPositionX" type="xs:int" />
-        <xs:element minOccurs="0" name="finalPositionY" type="xs:int" />
-        <xs:element minOccurs="0" name="goTo" nillable="true" type="xs:string" />
+        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/LismanService" minOccurs="0" name="movement" nillable="true" type="q8:LismanMovement" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -250,7 +244,7 @@
   <xs:element name="PrintInformationPlayers">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q8="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="listPlayers" nillable="true" type="q8:ArrayOfKeyValueOfstringInformationPlayeruKS9XB9A" />
+        <xs:element xmlns:q9="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="listPlayers" nillable="true" type="q9:ArrayOfKeyValueOfintInformationPlayeruKS9XB9A" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -323,7 +317,7 @@
   <xs:element name="NotifyEndGame">
     <xs:complexType>
       <xs:sequence>
-        <xs:element minOccurs="0" name="winner" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="colorLisman" type="xs:int" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

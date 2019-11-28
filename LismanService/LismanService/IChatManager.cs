@@ -32,13 +32,8 @@ namespace LismanService {
     [DataContract]
     public partial class Message {
         [DataMember]
-        public int Id { get; set; }
-        [DataMember]
         public string Text { get; set; }
         [DataMember]
-        public System.DateTime Creation_date { get; set; }
-        
-        [DataMember]
-        public virtual Account Account { get; set; }
+        public String userName { get; set; }
     }
 }

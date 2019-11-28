@@ -1,22 +1,20 @@
-Ó
-òC:\Users\Vik-t\Documents\Software Engineering\5to Semestre\Tecnolog√≠as para la Construcci√≥n\Proyecto\LISMAN\LismanService\LismanService\ChatManager.cs& (08@HR 0=0;5=0;10=1;20=0;30=0;60=0;90=0Z1=0;2=2;4=2;6=1;8=0;10=0;12=0rY	
- "#$%&'(+,-.0345678:;<=>?@ACDEFHIJKMNPQRSTUVWXYZ[\]^_`abcdfghiklmnxÇ"$%'(-56<DFHJSUXY[\^_abdfhk´
-òC:\Users\Vik-t\Documents\Software Engineering\5to Semestre\Tecnolog√≠as para la Construcci√≥n\Proyecto\LISMAN\LismanService\LismanService\GameManager.cs (08@HR 0=0;5=1;10=0;20=0;30=0;60=0;90=0Z1=1;2=2;4=0;6=0;8=0;10=0;12=0r+	 !"#%&()*+,-./0123xÇ !%,-.0ô
+
+òC:\Users\Vik-t\Documents\Software Engineering\5to Semestre\Tecnolog√≠as para la Construcci√≥n\Proyecto\LISMAN\LismanService\LismanService\ChatManager.cs' (08@HR 0=0;5=0;10=1;20=0;30=0;60=0;90=0Z1=0;2=2;4=2;6=1;8=0;10=0;12=0rZ	
+ "#$%&'(+,-.0345678:;<=>?@ACDEFHIJKMNPQRSTUVWXYZ[\]^_`abcdeghijlmnoxÇ#$%'(-56<DFHJSUXY[\^_abdegilŒ
+òC:\Users\Vik-t\Documents\Software Engineering\5to Semestre\Tecnolog√≠as para la Construcci√≥n\Proyecto\LISMAN\LismanService\LismanService\GameManager.cs (08@HR 0=0;5=1;10=0;20=0;30=0;60=0;90=0Z1=1;2=2;4=0;6=0;8=0;10=0;12=0rF	 !"#$%&()*+,-.1234689:;<=>?ABDEFGHIJKLMNOxÇ $%(-234:;<=AHIJLô
 ôC:\Users\Vik-t\Documents\Software Engineering\5to Semestre\Tecnolog√≠as para la Construcci√≥n\Proyecto\LISMAN\LismanService\LismanService\IChatManager.cs (08@HR 0=0;5=1;10=0;20=0;30=0;60=0;90=0Z1=8;2=0;4=0;6=0;8=0;10=0;12=0r,	
  !"$%&'()*+-./0ˆ
-ôC:\Users\Vik-t\Documents\Software Engineering\5to Semestre\Tecnolog√≠as para la Construcci√≥n\Proyecto\LISMAN\LismanService\LismanService\IGameManager.cs(0R 0=1;5=0;10=0;20=0;30=0;60=0;90=0Z1=0;2=0;4=0;6=0;8=0;10=0;12=0r	ü
-†C:\Users\Vik-t\Documents\Software Engineering\5to Semestre\Tecnolog√≠as para la Construcci√≥n\Proyecto\LISMAN\LismanService\LismanService\IMultiplayerManager.cs (
-0
-8@HR 0=0;5=0;10=1;20=0;30=0;60=0;90=0Z1=12;2=0;4=0;6=0;8=0;10=0;12=0r*	
-!#$%&'()*+,-.0
+ôC:\Users\Vik-t\Documents\Software Engineering\5to Semestre\Tecnolog√≠as para la Construcci√≥n\Proyecto\LISMAN\LismanService\LismanService\IGameManager.cs(0R 0=1;5=0;10=0;20=0;30=0;60=0;90=0Z1=0;2=0;4=0;6=0;8=0;10=0;12=0r	±
+†C:\Users\Vik-t\Documents\Software Engineering\5to Semestre\Tecnolog√≠as para la Construcci√≥n\Proyecto\LISMAN\LismanService\LismanService\IMultiplayerManager.cs (08@HR 0=0;5=0;10=1;20=0;30=0;60=0;90=0Z1=14;2=0;4=0;6=0;8=0;10=0;12=0r<	
+ !"#%&')+,-./01356789:;<=>?@ABD
 öC:\Users\Vik-t\Documents\Software Engineering\5to Semestre\Tecnolog√≠as para la Construcci√≥n\Proyecto\LISMAN\LismanService\LismanService\LismanService.cs (08@HR 0=0;5=1;10=0;20=0;30=0;60=0;90=0Z1=5;2=0;4=0;6=0;8=0;10=0;12=0jrX
  !"#$%&'(*+,-./01235678:;<=?@ABCDFGHIJKLMNOPQRTUVWXYZ\]^_`axÇ '(+,017<BCFGHIJMNOPQTWX^Ω
 úC:\Users\Vik-t\Documents\Software Engineering\5to Semestre\Tecnolog√≠as para la Construcci√≥n\Proyecto\LISMAN\LismanService\LismanService\IAccountManager.cs $(08$@$H$R 0=0;5=0;10=0;20=0;30=1;60=0;90=0Z1=36;2=0;4=0;6=0;8=0;10=0;12=0j	rI !"#$'()*+,-./0123456789:;<=>?@ABCEFGHIJKLMNOPQRSÈ
 ìC:\Users\Vik-t\Documents\Software Engineering\5to Semestre\Tecnolog√≠as para la Construcci√≥n\Proyecto\LISMAN\LismanService\LismanService\Logger.csR 0=1;5=0;10=0;20=0;30=0;60=0;90=0Z1=0;2=0;4=0;6=0;8=0;10=0;12=0r
 	
 Ç	˙
-ôC:\Users\Vik-t\Documents\Software Engineering\5to Semestre\Tecnolog√≠as para la Construcci√≥n\Proyecto\LISMAN\LismanService\LismanService\LoginManager.cs# (08@HR 0=0;5=0;10=1;20=0;30=0;60=0;90=0Z1=1;2=3;4=1;6=0;8=0;10=0;12=0r^ !"#$%&'()*+,-./123456789:;=>?@ABCEFGHIJKLMNOPQRUVWXYZ[\]^`abcdefghxÇ( !"#%&'()+,-/2489?@BHIJKOQXY[\]^cd∏
-üC:\Users\Vik-t\Documents\Software Engineering\5to Semestre\Tecnolog√≠as para la Construcci√≥n\Proyecto\LISMAN\LismanService\LismanService\MultiplayerManager.cs3 (08@HR 0=0;5=0;10=0;20=1;30=0;60=0;90=0Z1=0;2=2;4=0;6=0;8=1;10=0;12=1râ	
- !"#$%&'(*-./012345679:<=>?@ABCDEFGHIJKLMNOPQRSTUVWYZ\]^_`bcdefhijklmnopqrstuvwxyz{|}~ÄÅÇÉÖáâäåéèêxÇ4!%'(/36?@CDFGIJLMOPRSUVY_bdfhjmnpqstvwyz|}ÄÇÉã
+ôC:\Users\Vik-t\Documents\Software Engineering\5to Semestre\Tecnolog√≠as para la Construcci√≥n\Proyecto\LISMAN\LismanService\LismanService\LoginManager.cs# (08@HR 0=0;5=0;10=1;20=0;30=0;60=0;90=0Z1=1;2=3;4=1;6=0;8=0;10=0;12=0r^ !"#$%&'()*+,-./123456789:;=>?@ABCEFGHIJKLMNOPQRUVWXYZ[\]^`abcdefghxÇ( !"#%&'()+,-/2489?@BHIJKOQXY[\]^cd˘
+üC:\Users\Vik-t\Documents\Software Engineering\5to Semestre\Tecnolog√≠as para la Construcci√≥n\Proyecto\LISMAN\LismanService\LismanService\MultiplayerManager.cs• (088@8H8R 0=0;5=0;10=0;20=0;30=1;60=0;90=0Z1=4;2=5;4=1;6=1;8=1;10=1;12=1j[rÈ	
+"%&)*,-./012345689<=>?ABCDEFGHIJKLMNOPQRSTUVWXZ\]^_`abcdefgklmoprstuwxz{|}~ÄÅÇÉÑÖÜáàâäãåçéèêëíîïñòôöõúùûü†°¢£§•¶®™´¨≠ÆØ∞±≤≥¥µ∂∑∏πªºΩæø¿¡√ƒ∆»… ÀÃÕŒœ–—“”‘’÷◊ÿŸ⁄€‹›ﬁﬂ‡·„‰ÂÊÁËÈÍÎÏÌÓÔÒÚÛÙˆ˜¯˘˚¸˝˛ÄÅÇÉÑÖÜáàâäãåçéêëíìîïñóòôöõúùûü†°¢£§¶®™´¨≠ÆØ∞±≤≥¥µ∂∑∏π∫ªºΩæø¿¡¬√ƒ≈«» ÀÃÕœ–—“”’÷◊ÿŸ⁄€‹›ﬁﬂ‡·‚„‰ÂÊÁËÈÍÎÏÌÓÔÚÙˆ˜˘˚˝˛ˇÄÇÉÑÖÜáàâäãåçéêëíìîïñóòôöõúùx6Çê",-/3568>ADEGHJKLNOPRSTVWX`bcfoprswxz|ÄÉÑÖáàâãåçèêëîñòöûü†°•™´≠Æ≥¥∏πªº¿ÃŒœ—“”‘÷◊ÿŸ€›·ÊÌÛ¯˝ÇÉÑÖâçîïñóòôùûü£≠Æ±≤¥µ∑∏∫ªΩæ¿¡√ƒ«Ãœ—”’◊⁄€›ﬁ‡·„‰ÊÁÈÍÏÌÔˇÜàâãéìôã
 §C:\Users\Vik-t\Documents\Software Engineering\5to Semestre\Tecnolog√≠as para la Construcci√≥n\Proyecto\LISMAN\LismanService\LismanService\Properties\AssemblyInfo.csR 0=1;5=0;10=0;20=0;30=0;60=0;90=0Z1=0;2=0;4=0;6=0;8=0;10=0;12=0j !"r	
 #$%

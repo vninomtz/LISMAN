@@ -12,10 +12,12 @@ namespace LismanService {
         void MoveLisman(LismanMovement movement);
         [OperationContract(IsOneWay = true)]
         void RemovePower(String user);
+        [OperationContract(IsOneWay = true)]
+        void LeaveGame(int idGame, int colorLisman, int positionX, int positionY);
     }
 
     [ServiceContract]
-    public interface IMultiplayerManagerCallBack {
+    public interface IMultiplayerManagerCallBack {  
         [OperationContract(IsOneWay = true)]
         void PrintInformationPlayers(Dictionary<int, InformationPlayer> listPlayers);
         [OperationContract(IsOneWay = true)]
@@ -33,10 +35,11 @@ namespace LismanService {
         [OperationContract(IsOneWay = true)]
         void ReturnLismanToInitialPosition(int colorPlayer, int positionX, int positionY);
         [OperationContract(IsOneWay = true)]
-        
         void UpdateLismanSpeed(int speed, bool hasPower);
         [OperationContract(IsOneWay = true)]
         void NotifyEndGame(int colorLisman);
+        [OperationContract(IsOneWay = true)]
+        void NotifyLismanLeaveGame(int colorGame);
 
     }
 

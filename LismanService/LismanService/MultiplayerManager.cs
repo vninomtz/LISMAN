@@ -131,9 +131,8 @@ namespace LismanService
                         Console.WriteLine("Error en la conexión con el usuario:" + player.Value.userLisman + ". Error: " + e.Message);
                     }
                 }
-                 
-
             }
+            multiplayerGameInformation[movement.idGame].lismanUsers[colorLismanEnemy].isLive = false;
         }
         public void RespawnLisman(LismanMovement movement, int colorLismanEnemy, int scoreLisman, int lifesLismanEnemy)
         {
@@ -219,7 +218,7 @@ namespace LismanService
         public bool PlayerWillDead (int idGame, int colorLisman)
         {
             bool result = false;
-            if (multiplayerGameInformation[idGame].lismanUsers[colorLisman].lifesLisman == 1)
+            if (multiplayerGameInformation[idGame].lismanUsers[colorLisman].lifesLisman == 0)
             {
                 result = true;
             }
@@ -300,10 +299,7 @@ namespace LismanService
                 lifesLisman = multiplayerGameInformation[idGame].lismanUsers[colorLisman].lifesLisman -= 1;
             }
            
-            if(lifesLisman == 0)
-            {
-                multiplayerGameInformation[idGame].lismanUsers[colorLisman].isLive = false;
-            }
+            
             return lifesLisman;
         }
 
@@ -471,6 +467,26 @@ namespace LismanService
             {
                 Logger.log.Error("Funtion SaveLastUpdate: " + ex.Message);
             }
+        }
+
+        public void LeaveGame(int idGame, int colorLisman, int positionX, int positionY)
+        {
+            UpdateGameMap(idGame, EMPTYBOX, positionX, positionY);
+            foreach (KeyValuePair<int, InformationPlayer> player in multiplayerGameInformation[idGame].lismanUsers)
+            {
+                if (player.Value.isLive == true)
+                {
+                    try
+                    {
+                        connectionGameService[player.Value.userLisman].NotifyLismanLeaveGame(colorLisman);
+                    }
+                    catch (CommunicationException e)
+                    {
+                        Console.WriteLine("Error en la conexión con el usuario:" + player.Value.userLisman + ". Error: " + e.Message);
+                    }
+                }
+            }
+            multiplayerGameInformation[idGame].lismanUsers[colorLisman].isLive = false;
         }
     }
 }

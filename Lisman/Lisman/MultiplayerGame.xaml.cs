@@ -265,6 +265,7 @@ namespace Lisman {
         static LismanMovement movement = new LismanMovement();
         public void MoveLismanInMap(int initialPositionX, int initialPositionY, int finalPositionX, int finalPositionY, String goTo)
         {
+            movement.idGame = this.idgame;
             movement.colorLisman = playerColor;
             movement.initialPositionX = initialPositionX;
             movement.initialPositionY = initialPositionY;

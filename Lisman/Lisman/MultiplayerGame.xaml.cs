@@ -9,6 +9,7 @@ using System.Windows.Threading;
 using System.ServiceModel;
 using Lisman.LismanService;
 using WpfAnimatedGif;
+using System.Threading;
 
 namespace Lisman {
     /// <summary>
@@ -90,7 +91,26 @@ namespace Lisman {
             MatrixGame();
             DrawPills();
             createMatrixPillsImages();
-                        
+
+            Thread threadReconnection = new Thread(new ThreadStart(Reconnection));
+            threadReconnection.Start();
+
+
+        }
+
+        public void Reconnection()
+        {
+            try
+            {
+                client.Reconntection(SingletonAccount.getSingletonAccount().User);
+                Thread.Sleep(1000);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(Properties.Resources.server_connection_error);
+                Logger.log.Error(ex);
+
+            }
         }
 
         public void MatrixGame() {

@@ -45,6 +45,7 @@ namespace LismanService {
             var listPlayer = new List<String>();
             listGamesOnline.Add(idgame, listPlayer);
             listGamesOnline[idgame].Add(user);
+            Console.WriteLine("Game created by {0} ID:{1}, at:{2}", user, idgame, DateTime.Now);
             return idgame;
             
         }
@@ -54,10 +55,11 @@ namespace LismanService {
             foreach (KeyValuePair<int, List<String>> games in listGamesOnline) {
                 if(games.Value.Count < 4) {
                     games.Value.Add(user);
+                    Console.WriteLine("{0} joined game ID:{1}, at:{2}",user, games.Key, DateTime.Now);
                     return games.Key;
                 }
             }
-
+            
             return -1;
         }
 
@@ -65,9 +67,15 @@ namespace LismanService {
         {
             int isDelete = 1; 
             var listGameUserNames = listGamesOnline[game];
-                listGameUserNames.Remove(user);
-                if (listGameUserNames.Count == 0) {
-                    listGamesOnline.Remove(game);
+            listGameUserNames.Remove(user);
+            if (listGameUserNames.Count == 0) 
+            {
+                listGamesOnline.Remove(game);
+                Console.WriteLine("Game removed ID:{0}, at:{1}", game, DateTime.Now);
+            }
+            else
+            {
+                LeaveChat(user, game);
             }
             return isDelete;
         }

@@ -42,10 +42,10 @@
   </wsp:Policy>
   <wsdl:types>
     <xsd:schema targetNamespace="http://tempuri.org/Imports">
-      <xsd:import schemaLocation="http://192.168.43.196:8081/?xsd=xsd0" namespace="http://tempuri.org/" />
-      <xsd:import schemaLocation="http://192.168.43.196:8081/?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
-      <xsd:import schemaLocation="http://192.168.43.196:8081/?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/LismanService" />
-      <xsd:import schemaLocation="http://192.168.43.196:8081/?xsd=xsd3" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <xsd:import schemaLocation="http://localhost:8081/?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost:8081/?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:8081/?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/LismanService" />
+      <xsd:import schemaLocation="http://localhost:8081/?xsd=xsd3" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
     </xsd:schema>
   </wsdl:types>
   <wsdl:message name="IAccountManager_AddAccount_InputMessage">
@@ -152,6 +152,9 @@
   </wsdl:message>
   <wsdl:message name="IMultiplayerManager_ExitGame_InputMessage">
     <wsdl:part name="parameters" element="tns:ExitGame" />
+  </wsdl:message>
+  <wsdl:message name="IMultiplayerManager_Reconntection_InputMessage">
+    <wsdl:part name="parameters" element="tns:Reconntection" />
   </wsdl:message>
   <wsdl:message name="IMultiplayerManager_PrintInformationPlayers_OutputCallbackMessage">
     <wsdl:part name="parameters" element="tns:PrintInformationPlayers" />
@@ -277,6 +280,9 @@
     </wsdl:operation>
     <wsdl:operation name="ExitGame">
       <wsdl:input wsaw:Action="http://tempuri.org/IMultiplayerManager/ExitGame" message="tns:IMultiplayerManager_ExitGame_InputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Reconntection">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMultiplayerManager/Reconntection" message="tns:IMultiplayerManager_Reconntection_InputMessage" />
     </wsdl:operation>
     <wsdl:operation name="PrintInformationPlayers">
       <wsdl:output wsaw:Action="http://tempuri.org/IMultiplayerManager/PrintInformationPlayers" message="tns:IMultiplayerManager_PrintInformationPlayers_OutputCallbackMessage" />
@@ -508,6 +514,12 @@
         <soap12:body use="literal" />
       </wsdl:input>
     </wsdl:operation>
+    <wsdl:operation name="Reconntection">
+      <soap12:operation soapAction="http://tempuri.org/IMultiplayerManager/Reconntection" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
     <wsdl:operation name="PrintInformationPlayers">
       <soap12:operation soapAction="http://tempuri.org/IMultiplayerManager/PrintInformationPlayers" style="document" />
       <wsdl:output>
@@ -577,33 +589,33 @@
   </wsdl:binding>
   <wsdl:service name="LismanService">
     <wsdl:port name="NetTcpBinding_IAccountManager" binding="tns:NetTcpBinding_IAccountManager">
-      <soap12:address location="net.tcp://192.168.43.196:8091/CalculatorService" />
+      <soap12:address location="net.tcp://localhost:8091/CalculatorService" />
       <wsa10:EndpointReference>
-        <wsa10:Address>net.tcp://192.168.43.196:8091/CalculatorService</wsa10:Address>
+        <wsa10:Address>net.tcp://localhost:8091/CalculatorService</wsa10:Address>
       </wsa10:EndpointReference>
     </wsdl:port>
     <wsdl:port name="NetTcpBinding_IGameManager" binding="tns:NetTcpBinding_IGameManager">
-      <soap12:address location="net.tcp://192.168.43.196:8091/CalculatorService" />
+      <soap12:address location="net.tcp://localhost:8091/CalculatorService" />
       <wsa10:EndpointReference>
-        <wsa10:Address>net.tcp://192.168.43.196:8091/CalculatorService</wsa10:Address>
+        <wsa10:Address>net.tcp://localhost:8091/CalculatorService</wsa10:Address>
       </wsa10:EndpointReference>
     </wsdl:port>
     <wsdl:port name="NetTcpBinding_IChatManager" binding="tns:NetTcpBinding_IChatManager">
-      <soap12:address location="net.tcp://192.168.43.196:8091/CalculatorService" />
+      <soap12:address location="net.tcp://localhost:8091/CalculatorService" />
       <wsa10:EndpointReference>
-        <wsa10:Address>net.tcp://192.168.43.196:8091/CalculatorService</wsa10:Address>
+        <wsa10:Address>net.tcp://localhost:8091/CalculatorService</wsa10:Address>
       </wsa10:EndpointReference>
     </wsdl:port>
     <wsdl:port name="NetTcpBinding_ILoginManager" binding="tns:NetTcpBinding_ILoginManager">
-      <soap12:address location="net.tcp://192.168.43.196:8091/CalculatorService" />
+      <soap12:address location="net.tcp://localhost:8091/CalculatorService" />
       <wsa10:EndpointReference>
-        <wsa10:Address>net.tcp://192.168.43.196:8091/CalculatorService</wsa10:Address>
+        <wsa10:Address>net.tcp://localhost:8091/CalculatorService</wsa10:Address>
       </wsa10:EndpointReference>
     </wsdl:port>
     <wsdl:port name="NetTcpBinding_IMultiplayerManager" binding="tns:NetTcpBinding_IMultiplayerManager">
-      <soap12:address location="net.tcp://192.168.43.196:8091/CalculatorService" />
+      <soap12:address location="net.tcp://localhost:8091/CalculatorService" />
       <wsa10:EndpointReference>
-        <wsa10:Address>net.tcp://192.168.43.196:8091/CalculatorService</wsa10:Address>
+        <wsa10:Address>net.tcp://localhost:8091/CalculatorService</wsa10:Address>
       </wsa10:EndpointReference>
     </wsdl:port>
   </wsdl:service>

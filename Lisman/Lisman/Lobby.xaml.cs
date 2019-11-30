@@ -26,7 +26,7 @@ namespace Lisman {
             }
             catch (Exception ex)
             {
-                MessageBox.Show(Properties.Resources.server_conecction_error);
+                MessageBox.Show(Properties.Resources.server_connection_error);
                 Logger.log.Warn("Function Lobby " + ex.Message);                
             }
 
@@ -53,7 +53,7 @@ namespace Lisman {
             }
             catch (Exception ex)
             {
-                MessageBox.Show(Properties.Resources.server_conecction_error);
+                MessageBox.Show(Properties.Resources.server_connection_error);
                 Logger.log.Warn("Error en funcion exit game " + ex.Message);                                              
             }          
         }
@@ -84,7 +84,7 @@ namespace Lisman {
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show(Properties.Resources.server_conecction_error);
+                    MessageBox.Show(Properties.Resources.server_connection_error);
                     Logger.log.Warn("Function sendMessage" + ex.Message); 
                 }
 
@@ -128,7 +128,7 @@ namespace Lisman {
             }
             catch (Exception ex)
             {
-                MessageBox.Show(Properties.Resources.server_conecction_error);
+                MessageBox.Show(Properties.Resources.server_connection_error);
                 Console.WriteLine("Error en startGame " + ex.Message);                
             }
             

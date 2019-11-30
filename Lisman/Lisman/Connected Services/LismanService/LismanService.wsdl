@@ -42,10 +42,10 @@
   </wsp:Policy>
   <wsdl:types>
     <xsd:schema targetNamespace="http://tempuri.org/Imports">
-      <xsd:import schemaLocation="http://192.168.43.196:8081/?xsd=xsd0" namespace="http://tempuri.org/" />
-      <xsd:import schemaLocation="http://192.168.43.196:8081/?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
-      <xsd:import schemaLocation="http://192.168.43.196:8081/?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/LismanService" />
-      <xsd:import schemaLocation="http://192.168.43.196:8081/?xsd=xsd3" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <xsd:import schemaLocation="http://localhost:8081/?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost:8081/?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:8081/?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/LismanService" />
+      <xsd:import schemaLocation="http://localhost:8081/?xsd=xsd3" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
     </xsd:schema>
   </wsdl:types>
   <wsdl:message name="IAccountManager_AddAccount_InputMessage">
@@ -150,6 +150,9 @@
   <wsdl:message name="IMultiplayerManager_RemovePower_InputMessage">
     <wsdl:part name="parameters" element="tns:RemovePower" />
   </wsdl:message>
+  <wsdl:message name="IMultiplayerManager_ExitGame_InputMessage">
+    <wsdl:part name="parameters" element="tns:ExitGame" />
+  </wsdl:message>
   <wsdl:message name="IMultiplayerManager_PrintInformationPlayers_OutputCallbackMessage">
     <wsdl:part name="parameters" element="tns:PrintInformationPlayers" />
   </wsdl:message>
@@ -179,6 +182,9 @@
   </wsdl:message>
   <wsdl:message name="IMultiplayerManager_NotifyEndGame_OutputCallbackMessage">
     <wsdl:part name="parameters" element="tns:NotifyEndGame" />
+  </wsdl:message>
+  <wsdl:message name="IMultiplayerManager_NotifyLismanLeaveGame_OutputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:NotifyLismanLeaveGame" />
   </wsdl:message>
   <wsdl:portType name="IAccountManager">
     <wsdl:operation name="AddAccount">
@@ -269,6 +275,9 @@
     <wsdl:operation name="RemovePower">
       <wsdl:input wsaw:Action="http://tempuri.org/IMultiplayerManager/RemovePower" message="tns:IMultiplayerManager_RemovePower_InputMessage" />
     </wsdl:operation>
+    <wsdl:operation name="ExitGame">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMultiplayerManager/ExitGame" message="tns:IMultiplayerManager_ExitGame_InputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="PrintInformationPlayers">
       <wsdl:output wsaw:Action="http://tempuri.org/IMultiplayerManager/PrintInformationPlayers" message="tns:IMultiplayerManager_PrintInformationPlayers_OutputCallbackMessage" />
     </wsdl:operation>
@@ -298,6 +307,9 @@
     </wsdl:operation>
     <wsdl:operation name="NotifyEndGame">
       <wsdl:output wsaw:Action="http://tempuri.org/IMultiplayerManager/NotifyEndGame" message="tns:IMultiplayerManager_NotifyEndGame_OutputCallbackMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="NotifyLismanLeaveGame">
+      <wsdl:output wsaw:Action="http://tempuri.org/IMultiplayerManager/NotifyLismanLeaveGame" message="tns:IMultiplayerManager_NotifyLismanLeaveGame_OutputCallbackMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="NetTcpBinding_IAccountManager" type="tns:IAccountManager">
@@ -490,6 +502,12 @@
         <soap12:body use="literal" />
       </wsdl:input>
     </wsdl:operation>
+    <wsdl:operation name="ExitGame">
+      <soap12:operation soapAction="http://tempuri.org/IMultiplayerManager/ExitGame" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
     <wsdl:operation name="PrintInformationPlayers">
       <soap12:operation soapAction="http://tempuri.org/IMultiplayerManager/PrintInformationPlayers" style="document" />
       <wsdl:output>
@@ -550,36 +568,42 @@
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="NotifyLismanLeaveGame">
+      <soap12:operation soapAction="http://tempuri.org/IMultiplayerManager/NotifyLismanLeaveGame" style="document" />
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
   </wsdl:binding>
   <wsdl:service name="LismanService">
     <wsdl:port name="NetTcpBinding_IAccountManager" binding="tns:NetTcpBinding_IAccountManager">
-      <soap12:address location="net.tcp://192.168.43.196:8091/CalculatorService" />
+      <soap12:address location="net.tcp://localhost:8091/CalculatorService" />
       <wsa10:EndpointReference>
-        <wsa10:Address>net.tcp://192.168.43.196:8091/CalculatorService</wsa10:Address>
+        <wsa10:Address>net.tcp://localhost:8091/CalculatorService</wsa10:Address>
       </wsa10:EndpointReference>
     </wsdl:port>
     <wsdl:port name="NetTcpBinding_IGameManager" binding="tns:NetTcpBinding_IGameManager">
-      <soap12:address location="net.tcp://192.168.43.196:8091/CalculatorService" />
+      <soap12:address location="net.tcp://localhost:8091/CalculatorService" />
       <wsa10:EndpointReference>
-        <wsa10:Address>net.tcp://192.168.43.196:8091/CalculatorService</wsa10:Address>
+        <wsa10:Address>net.tcp://localhost:8091/CalculatorService</wsa10:Address>
       </wsa10:EndpointReference>
     </wsdl:port>
     <wsdl:port name="NetTcpBinding_IChatManager" binding="tns:NetTcpBinding_IChatManager">
-      <soap12:address location="net.tcp://192.168.43.196:8091/CalculatorService" />
+      <soap12:address location="net.tcp://localhost:8091/CalculatorService" />
       <wsa10:EndpointReference>
-        <wsa10:Address>net.tcp://192.168.43.196:8091/CalculatorService</wsa10:Address>
+        <wsa10:Address>net.tcp://localhost:8091/CalculatorService</wsa10:Address>
       </wsa10:EndpointReference>
     </wsdl:port>
     <wsdl:port name="NetTcpBinding_ILoginManager" binding="tns:NetTcpBinding_ILoginManager">
-      <soap12:address location="net.tcp://192.168.43.196:8091/CalculatorService" />
+      <soap12:address location="net.tcp://localhost:8091/CalculatorService" />
       <wsa10:EndpointReference>
-        <wsa10:Address>net.tcp://192.168.43.196:8091/CalculatorService</wsa10:Address>
+        <wsa10:Address>net.tcp://localhost:8091/CalculatorService</wsa10:Address>
       </wsa10:EndpointReference>
     </wsdl:port>
     <wsdl:port name="NetTcpBinding_IMultiplayerManager" binding="tns:NetTcpBinding_IMultiplayerManager">
-      <soap12:address location="net.tcp://192.168.43.196:8091/CalculatorService" />
+      <soap12:address location="net.tcp://localhost:8091/CalculatorService" />
       <wsa10:EndpointReference>
-        <wsa10:Address>net.tcp://192.168.43.196:8091/CalculatorService</wsa10:Address>
+        <wsa10:Address>net.tcp://localhost:8091/CalculatorService</wsa10:Address>
       </wsa10:EndpointReference>
     </wsdl:port>
   </wsdl:service>

@@ -469,24 +469,24 @@ namespace LismanService
             }
         }
 
-        public void LeaveGame(int idGame, int colorLisman, int positionX, int positionY)
-        {
-            UpdateGameMap(idGame, EMPTYBOX, positionX, positionY);
-            foreach (KeyValuePair<int, InformationPlayer> player in multiplayerGameInformation[idGame].lismanUsers)
-            {
-                if (player.Value.isLive == true)
-                {
-                    try
-                    {
-                        connectionGameService[player.Value.userLisman].NotifyLismanLeaveGame(colorLisman);
-                    }
-                    catch (CommunicationException e)
-                    {
-                        Console.WriteLine("Error en la conexión con el usuario:" + player.Value.userLisman + ". Error: " + e.Message);
-                    }
-                }
-            }
-            multiplayerGameInformation[idGame].lismanUsers[colorLisman].isLive = false;
-        }
+         public void ExitGame(int idGame, int colorLisman, int positionX, int positionY)
+          {
+              UpdateGameMap(idGame, EMPTYBOX, positionX, positionY);
+              foreach (KeyValuePair<int, InformationPlayer> player in multiplayerGameInformation[idGame].lismanUsers)
+              {
+                  if (player.Value.isLive == true)
+                  {
+                      try
+                      {
+                          connectionGameService[player.Value.userLisman].NotifyLismanLeaveGame(colorLisman);
+                      }
+                      catch (CommunicationException e)
+                      {
+                          Console.WriteLine("Error en la conexión con el usuario:" + player.Value.userLisman + ". Error: " + e.Message);
+                      }
+                  }
+              }
+              multiplayerGameInformation[idGame].lismanUsers[colorLisman].isLive = false;
+          }
     }
 }

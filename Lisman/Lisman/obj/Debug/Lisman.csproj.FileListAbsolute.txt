@@ -79,6 +79,17 @@ C:\Users\Vik-t\Documents\Software Engineering\5to Semestre\Tecnologías para la 
 C:\Users\Vik-t\Documents\Software Engineering\5to Semestre\Tecnologías para la Construcción\Proyecto\LISMAN\Lisman\Lisman\obj\Debug\Lisman.csproj.CopyComplete
 C:\Users\Vik-t\Documents\Software Engineering\5to Semestre\Tecnologías para la Construcción\Proyecto\LISMAN\Lisman\Lisman\obj\Debug\Lisman.exe
 C:\Users\Vik-t\Documents\Software Engineering\5to Semestre\Tecnologías para la Construcción\Proyecto\LISMAN\Lisman\Lisman\obj\Debug\Lisman.pdb
+C:\LISMAN\Lisman\Lisman\obj\Debug\Lisman.csprojAssemblyReference.cache
+C:\LISMAN\Lisman\Lisman\obj\Debug\Lobby.g.cs
+C:\LISMAN\Lisman\Lisman\obj\Debug\Login.g.cs
+C:\LISMAN\Lisman\Lisman\obj\Debug\MainMenu.g.cs
+C:\LISMAN\Lisman\Lisman\obj\Debug\MultiplayerHome.g.cs
+C:\LISMAN\Lisman\Lisman\obj\Debug\MultiplayerGame.g.cs
+C:\LISMAN\Lisman\Lisman\obj\Debug\PositionsTable.g.cs
+C:\LISMAN\Lisman\Lisman\obj\Debug\UserRegister.g.cs
+C:\LISMAN\Lisman\Lisman\obj\Debug\App.g.cs
+C:\LISMAN\Lisman\Lisman\obj\Debug\Lisman_MarkupCompile.cache
+C:\LISMAN\Lisman\Lisman\obj\Debug\Lisman_MarkupCompile.lref
 C:\LISMAN\Lisman\Lisman\bin\Debug\log4net.config
 C:\LISMAN\Lisman\Lisman\bin\Debug\Lisman.exe.config
 C:\LISMAN\Lisman\Lisman\bin\Debug\Lisman.exe
@@ -95,17 +106,6 @@ C:\LISMAN\Lisman\Lisman\bin\Debug\MaterialDesignColors.pdb
 C:\LISMAN\Lisman\Lisman\bin\Debug\MaterialDesignThemes.Wpf.pdb
 C:\LISMAN\Lisman\Lisman\bin\Debug\MaterialDesignThemes.Wpf.xml
 C:\LISMAN\Lisman\Lisman\bin\Debug\WpfAnimatedGif.xml
-C:\LISMAN\Lisman\Lisman\obj\Debug\Lisman.csprojAssemblyReference.cache
-C:\LISMAN\Lisman\Lisman\obj\Debug\Lobby.g.cs
-C:\LISMAN\Lisman\Lisman\obj\Debug\Login.g.cs
-C:\LISMAN\Lisman\Lisman\obj\Debug\MainMenu.g.cs
-C:\LISMAN\Lisman\Lisman\obj\Debug\MultiplayerHome.g.cs
-C:\LISMAN\Lisman\Lisman\obj\Debug\MultiplayerGame.g.cs
-C:\LISMAN\Lisman\Lisman\obj\Debug\PositionsTable.g.cs
-C:\LISMAN\Lisman\Lisman\obj\Debug\UserRegister.g.cs
-C:\LISMAN\Lisman\Lisman\obj\Debug\App.g.cs
-C:\LISMAN\Lisman\Lisman\obj\Debug\Lisman_MarkupCompile.cache
-C:\LISMAN\Lisman\Lisman\obj\Debug\Lisman_MarkupCompile.lref
 C:\LISMAN\Lisman\Lisman\obj\Debug\App.baml
 C:\LISMAN\Lisman\Lisman\obj\Debug\Lobby.baml
 C:\LISMAN\Lisman\Lisman\obj\Debug\Login.baml

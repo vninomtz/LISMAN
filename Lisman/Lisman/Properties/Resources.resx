@@ -248,6 +248,9 @@ We have sent a confirmation email to your email please enter the link to complet
   <data name="password" xml:space="preserve">
     <value>Password</value>
   </data>
+  <data name="players_found" xml:space="preserve">
+    <value>Players Found</value>
+  </data>
   <data name="positions_table" xml:space="preserve">
     <value>Positions Table</value>
   </data>
@@ -260,7 +263,7 @@ We have sent a confirmation email to your email please enter the link to complet
   <data name="searching_players" xml:space="preserve">
     <value>Searching players</value>
   </data>
-  <data name="server_conecction_error" xml:space="preserve">
+  <data name="server_connection_error" xml:space="preserve">
     <value>Server connection error, please try again</value>
   </data>
   <data name="start_game" xml:space="preserve">

@@ -116,7 +116,7 @@ namespace Lisman {
                     }
                 } catch (CommunicationException ex)
                 {
-                    MessageBox.Show(Properties.Resources.server_conecction_error);
+                    MessageBox.Show(Properties.Resources.server_connection_error);
                     Logger.log.Error("Function LoginUser, " + ex.Message);
                 }
                 

@@ -13,8 +13,8 @@
 
         <TextBlock HorizontalAlignment="Left" VerticalAlignment="Top" Text="{x:Static p:Resources.searching_players}"
             Style="{StaticResource MaterialDesignDisplay3TextBlock}" FontFamily="Lato Black" FontSize="36" Margin="32,27,0,0" Height="43" Width="344"/>
-        <TextBlock HorizontalAlignment="Left" VerticalAlignment="Top"  Text="Jugadores encontrados"
-            Style="{StaticResource MaterialDesignDisplay3TextBlock}" FontFamily="Lato Black" FontSize="25" Width="272" Height="30" Margin="61,75,425,0"/>
+        <TextBlock HorizontalAlignment="Left" VerticalAlignment="Top"  Text="{x:Static p:Resources.players_found}"
+            Style="{StaticResource MaterialDesignDisplay3TextBlock}" FontFamily="Lato Black" FontSize="25" Width="272" Height="30" Margin="103,75,0,0"/>
         <TextBlock x:Name="textBlock_number_players" HorizontalAlignment="Left" VerticalAlignment="Top"  Text="0 / 4"
             Style="{StaticResource MaterialDesignDisplay3TextBlock}" FontFamily="Lato Black" FontSize="25" Width="64"  Margin="153,110,541,0" Height="30"/>
 

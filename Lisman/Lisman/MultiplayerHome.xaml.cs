@@ -36,7 +36,7 @@ namespace Lisman {
             {
 
                 MessageBox.Show("Error de conexión con el servidor, por favor intente mas tarde");
-                Logger.log.Error("Function new game");
+                Logger.log.Error("Function new game" + ex.Message);
             }
            
             

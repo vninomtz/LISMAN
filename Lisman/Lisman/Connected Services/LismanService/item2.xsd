@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-  <xs:import schemaLocation="http://192.168.43.196:8081/?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/LismanService" />
-  <xs:import schemaLocation="http://192.168.43.196:8081/?xsd=xsd3" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+  <xs:import schemaLocation="http://localhost:8081/?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/LismanService" />
+  <xs:import schemaLocation="http://localhost:8081/?xsd=xsd3" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
   <xs:element name="AddAccount">
     <xs:complexType>
       <xs:sequence>
@@ -241,6 +241,16 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="ExitGame">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="idGame" type="xs:int" />
+        <xs:element minOccurs="0" name="colorLisman" type="xs:int" />
+        <xs:element minOccurs="0" name="positionX" type="xs:int" />
+        <xs:element minOccurs="0" name="positionY" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
   <xs:element name="PrintInformationPlayers">
     <xs:complexType>
       <xs:sequence>
@@ -318,6 +328,13 @@
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" name="colorLisman" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="NotifyLismanLeaveGame">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="colorGame" type="xs:int" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

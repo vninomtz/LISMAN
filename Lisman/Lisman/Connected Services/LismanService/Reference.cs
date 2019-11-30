@@ -1098,6 +1098,12 @@ namespace Lisman.LismanService {
         
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IMultiplayerManager/RemovePower")]
         System.Threading.Tasks.Task RemovePowerAsync(string user);
+        
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IMultiplayerManager/ExitGame")]
+        void ExitGame(int idGame, int colorLisman, int positionX, int positionY);
+        
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IMultiplayerManager/ExitGame")]
+        System.Threading.Tasks.Task ExitGameAsync(int idGame, int colorLisman, int positionX, int positionY);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -1132,6 +1138,9 @@ namespace Lisman.LismanService {
         
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IMultiplayerManager/NotifyEndGame")]
         void NotifyEndGame(int colorLisman);
+        
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IMultiplayerManager/NotifyLismanLeaveGame")]
+        void NotifyLismanLeaveGame(int colorGame);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -1184,6 +1193,14 @@ namespace Lisman.LismanService {
         
         public System.Threading.Tasks.Task RemovePowerAsync(string user) {
             return base.Channel.RemovePowerAsync(user);
+        }
+        
+        public void ExitGame(int idGame, int colorLisman, int positionX, int positionY) {
+            base.Channel.ExitGame(idGame, colorLisman, positionX, positionY);
+        }
+        
+        public System.Threading.Tasks.Task ExitGameAsync(int idGame, int colorLisman, int positionX, int positionY) {
+            return base.Channel.ExitGameAsync(idGame, colorLisman, positionX, positionY);
         }
     }
 }

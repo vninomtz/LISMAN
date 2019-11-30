@@ -61,7 +61,7 @@ namespace LismanService {
             return -1;
         }
 
-        public int LeaveGame(string user, int game)
+       public int LeaveGame(string user, int game)
         {
             int isDelete = 1; 
             var listGameUserNames = listGamesOnline[game];

@@ -450,6 +450,15 @@ namespace Lisman.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Players Found.
+        /// </summary>
+        public static string players_found {
+            get {
+                return ResourceManager.GetString("players_found", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Positions Table.
         /// </summary>
         public static string positions_table {
@@ -488,9 +497,9 @@ namespace Lisman.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Server connection error, please try again.
         /// </summary>
-        public static string server_conecction_error {
+        public static string server_connection_error {
             get {
-                return ResourceManager.GetString("server_conecction_error", resourceCulture);
+                return ResourceManager.GetString("server_connection_error", resourceCulture);
             }
         }
         

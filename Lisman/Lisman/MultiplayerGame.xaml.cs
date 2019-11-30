@@ -70,7 +70,7 @@ namespace Lisman {
             }
             catch (Exception ex)
             {
-                MessageBox.Show(Properties.Resources.server_conecction_error);
+                MessageBox.Show(Properties.Resources.server_connection_error);
                 Logger.log.Error(ex);
                 
             }
@@ -200,9 +200,8 @@ namespace Lisman {
             runDown.Stop();
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e) {
-            StopLisman();
-            runRight.Start();
+        private void Button_ExitGame_Click(object sender, RoutedEventArgs e) {
+            client.ExitGame(idgame,playerColor,X,Y);
         }
 
         private void RunLeft(object sender, EventArgs e) {
@@ -680,5 +679,34 @@ namespace Lisman {
             windowHome.Show();
             this.Close();
         }
+
+        public void NotifyLismanLeaveGame(int colorGame)
+        {
+            
+                switch (colorGame)
+                {
+                    case LISMANYELLOW:
+                        LismanYellowImage.Visibility = Visibility.Hidden;
+                        break;
+                    case LISMANRED:
+                        LismanRedImage.Visibility = Visibility.Hidden;
+                        break;
+                    case LISMANBLUE:
+                        LismanBlueImage.Visibility = Visibility.Hidden;
+                        break;
+                    case LISMANGREEN:
+                        LismanGreenImage.Visibility = Visibility.Hidden;
+                        break;
+                }
+
+                if (playerColor == colorGame)
+                {
+                    MessageBox.Show("¿Por qué te fuiste bro? :c");
+                    MultiplayerHome window = new MultiplayerHome();
+                    window.Show();
+                    this.Close();
+                }
+            }
     }
 }
+

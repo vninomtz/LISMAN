@@ -248,6 +248,9 @@ Hemos enviado un correo de confirmacion a su correo electronico por favor ingres
   <data name="password" xml:space="preserve">
     <value>Contraseña</value>
   </data>
+  <data name="players_found" xml:space="preserve">
+    <value>Jugadores Encontrados</value>
+  </data>
   <data name="positions_table" xml:space="preserve">
     <value>Tabla de Posiciones</value>
   </data>
@@ -260,7 +263,7 @@ Hemos enviado un correo de confirmacion a su correo electronico por favor ingres
   <data name="searching_players" xml:space="preserve">
     <value>Buscando jugadores</value>
   </data>
-  <data name="server_conecction_error" xml:space="preserve">
+  <data name="server_connection_error" xml:space="preserve">
     <value>Error de conexión con el servidor</value>
   </data>
   <data name="spanish" xml:space="preserve">

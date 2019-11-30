@@ -376,7 +376,7 @@
                    FontFamily="Lato Black" FontSize="17" Width="151"  
                    Margin="0,15,0,0" Height="30"
                    Grid.Column="1" />
-        <Button Content="{x:Static p:Resources.exit_game}" Grid.Column="1" HorizontalAlignment="Left" Margin="156,10,0,0" VerticalAlignment="Top" Width="132" Click="Button_Click"/>
+        <Button Content="{x:Static p:Resources.exit_game}" Grid.Column="1" HorizontalAlignment="Left" Margin="156,10,0,0" VerticalAlignment="Top" Width="132" Click="Button_ExitGame_Click"/>
         <TextBlock x:Name="UserLismanYellow"  HorizontalAlignment="Left" VerticalAlignment="Top"  
                     Text="Usuario1"
             Style="{StaticResource MaterialDesignDisplay3TextBlock}" 

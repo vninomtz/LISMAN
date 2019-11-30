@@ -13,7 +13,7 @@ namespace LismanService {
         [OperationContract(IsOneWay = true)]
         void RemovePower(String user);
         [OperationContract(IsOneWay = true)]
-        void LeaveGame(int idGame, int colorLisman, int positionX, int positionY);
+        void ExitGame(int idGame, int colorLisman, int positionX, int positionY);
     }
 
     [ServiceContract]

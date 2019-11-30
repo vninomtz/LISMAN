@@ -198,16 +198,16 @@
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <None Include="Connected Services\LismanService\item.xsd">
+    <None Include="Connected Services\LismanService\item4.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Connected Services\LismanService\item1.xsd">
+    <None Include="Connected Services\LismanService\item41.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Connected Services\LismanService\item2.xsd">
+    <None Include="Connected Services\LismanService\item42.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Connected Services\LismanService\item3.xsd">
+    <None Include="Connected Services\LismanService\item43.xsd">
       <SubType>Designer</SubType>
     </None>
     <None Include="Connected Services\LismanService\Lisman.LismanService.Account.datasource">
@@ -216,7 +216,7 @@
     <None Include="Connected Services\LismanService\Lisman.LismanService.Record.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Connected Services\LismanService\LismanService.wsdl" />
+    <None Include="Connected Services\LismanService\LismanService1.wsdl" />
     <None Include="log4net.config">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
@@ -303,7 +303,7 @@
     <Resource Include="Resources\EmailPassword.txt" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Connected Services\LismanService\item.disco" />
+    <None Include="Connected Services\LismanService\item1.disco" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

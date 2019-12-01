@@ -90,8 +90,10 @@ namespace Lisman {
                         if (account != null) {
                             if (account.Key_confirmation == " ") {
                                 SingletonAccount.setSingletonAccount(account);
+                                SingletonConnection.CreateConnection();
                                 MainMenu mainMenu = new MainMenu();
                                 mainMenu.Show();
+                                
                                 this.Close();
                             } else {
                                 var messageAccountConfirm = Properties.Resources.message_account_confirm;
@@ -109,6 +111,7 @@ namespace Lisman {
                         }
                         catch (Exception ex)
                         {
+                            Console.WriteLine(ex.Message);
                             Logger.log.Error("Function LoginUser, " + ex.Message);
                         }
 

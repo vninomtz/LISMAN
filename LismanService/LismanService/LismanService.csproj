@@ -60,8 +60,10 @@
   <ItemGroup>
     <Compile Include="ChatManager.cs" />
     <Compile Include="GameManager.cs" />
+    <Compile Include="HeartBeatManager.cs" />
     <Compile Include="IChatManager.cs" />
     <Compile Include="IGameManager.cs" />
+    <Compile Include="IHeartBeat.cs" />
     <Compile Include="IMultiplayerManager.cs" />
     <Compile Include="LismanService.cs" />
     <Compile Include="IAccountManager.cs" />

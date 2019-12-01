@@ -8,7 +8,7 @@
         xmlns:local="clr-namespace:Lisman"
         mc:Ignorable="d"
         Title="{x:Static p:Resources.title_main_menu}" Height="500" Width="600" ResizeMode="CanMinimize" WindowStartupLocation="CenterScreen" 
-        Topmost="True" Icon="Resources/img/icon_pacman.png">
+        Topmost="True" Icon="Resources/img/LogoIsometrico.png">
     <Grid>
         <TextBlock HorizontalAlignment="Center" VerticalAlignment="Top" Margin="10"
             Style="{StaticResource MaterialDesignDisplay3TextBlock}" FontFamily="Gill Sans Ultra Bold">

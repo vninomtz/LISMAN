@@ -1203,4 +1203,59 @@ namespace Lisman.LismanService {
             return base.Channel.ExitGameAsync(idGame, colorLisman, positionX, positionY);
         }
     }
+    
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="LismanService.IHeartBeat", CallbackContract=typeof(Lisman.LismanService.IHeartBeatCallback))]
+    public interface IHeartBeat {
+        
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IHeartBeat/NewLogin")]
+        void NewLogin(string username);
+        
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IHeartBeat/NewLogin")]
+        System.Threading.Tasks.Task NewLoginAsync(string username);
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public interface IHeartBeatCallback {
+        
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IHeartBeat/NotifyOk")]
+        void NotifyOk();
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public interface IHeartBeatChannel : Lisman.LismanService.IHeartBeat, System.ServiceModel.IClientChannel {
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public partial class HeartBeatClient : System.ServiceModel.DuplexClientBase<Lisman.LismanService.IHeartBeat>, Lisman.LismanService.IHeartBeat {
+        
+        public HeartBeatClient(System.ServiceModel.InstanceContext callbackInstance) : 
+                base(callbackInstance) {
+        }
+        
+        public HeartBeatClient(System.ServiceModel.InstanceContext callbackInstance, string endpointConfigurationName) : 
+                base(callbackInstance, endpointConfigurationName) {
+        }
+        
+        public HeartBeatClient(System.ServiceModel.InstanceContext callbackInstance, string endpointConfigurationName, string remoteAddress) : 
+                base(callbackInstance, endpointConfigurationName, remoteAddress) {
+        }
+        
+        public HeartBeatClient(System.ServiceModel.InstanceContext callbackInstance, string endpointConfigurationName, System.ServiceModel.EndpointAddress remoteAddress) : 
+                base(callbackInstance, endpointConfigurationName, remoteAddress) {
+        }
+        
+        public HeartBeatClient(System.ServiceModel.InstanceContext callbackInstance, System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
+                base(callbackInstance, binding, remoteAddress) {
+        }
+        
+        public void NewLogin(string username) {
+            base.Channel.NewLogin(username);
+        }
+        
+        public System.Threading.Tasks.Task NewLoginAsync(string username) {
+            return base.Channel.NewLoginAsync(username);
+        }
+    }
 }

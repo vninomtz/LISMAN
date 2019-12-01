@@ -9,6 +9,7 @@ namespace LismanService {
         public void JoinChat(string user, int idgame)
         {
             var connection = OperationContext.Current.GetCallbackChannel<IChatManagerCallBack>();
+            
             if (connectionChatService.ContainsKey(user)) {
                 connectionChatService[user] = connection;
             } else {

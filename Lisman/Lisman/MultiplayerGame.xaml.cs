@@ -56,6 +56,8 @@ namespace Lisman {
         DispatcherTimer runDown = new DispatcherTimer();
         DispatcherTimer timePower = new DispatcherTimer();
 
+        DispatcherTimer reconnectionTimer = new DispatcherTimer();
+
         InstanceContext instace = null;
         MultiplayerManagerClient client = null;
 
@@ -92,18 +94,21 @@ namespace Lisman {
             DrawPills();
             createMatrixPillsImages();
 
-            Thread threadReconnection = new Thread(new ThreadStart(Reconnection));
-            threadReconnection.Start();
+        
+            reconnectionTimer.Tick += new EventHandler(Reconnection);
+            reconnectionTimer.Interval = new TimeSpan(0,0,0,1);
+            reconnectionTimer.Start();
 
 
         }
 
-        public void Reconnection()
+        public void Reconnection(object sender, EventArgs e)
         {
             try
             {
+                Console.WriteLine("Timersito");
                 client.Reconntection(SingletonAccount.getSingletonAccount().User);
-                Thread.Sleep(1000);
+           
             }
             catch (Exception ex)
             {

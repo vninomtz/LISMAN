@@ -8,18 +8,7 @@ namespace LismanService
 {
     public partial class LismanService : IHeartBeat
     {
-        static Dictionary<String, IHeartBeatCallBack> logginsConnections = new Dictionary<string, IHeartBeatCallBack>();
-        
-        DispatcherTimer timerReconnection = new DispatcherTimer();
-        public LismanService()
-        {
-            timerReconnection.Tick += new EventHandler(Hola);
-            timerReconnection.Interval = new TimeSpan(0, 0, 0,5);
-            timerReconnection.Start();
-        }
-
-
-        
+        static Dictionary<String, IHeartBeatCallBack> logginsConnections = new Dictionary<string, IHeartBeatCallBack>();        
         public void NewLogin(string username)
         {
             var connection = OperationContext.Current.GetCallbackChannel<IHeartBeatCallBack>();
@@ -40,25 +29,24 @@ namespace LismanService
         public void Hola(Object sender, EventArgs e)
         {
             Console.WriteLine("Hola");
-            //Thread.Sleep(1000);
+           
         }
-        public static void TheyLive()
+        public void ImLive(String username)
         {
-            Console.WriteLine("Hilito");
-            foreach (KeyValuePair<string, IHeartBeatCallBack> user in logginsConnections)
+            Console.WriteLine(username + " Se encuentra vivo");
+
+            try
             {
-                try
-                {
-                    user.Value.NotifyOk();
-                }
-                catch (Exception ex)
-                {
-                    Console.WriteLine(ex.Message);
-                    Console.WriteLine(user.Key + " se ha desconectado");
-                    QuitConnection(user.Key);
-                }
-                
+                logginsConnections[username].NotifyOk();
             }
+            catch (Exception ex)
+            {
+                Logger.log.Info("Sudden disconnection user: " + username + " " + ex.Message);
+                Console.WriteLine(username + " se ha desconectado");
+                QuitConnection(username);
+
+            }  
+            
             
         }
 

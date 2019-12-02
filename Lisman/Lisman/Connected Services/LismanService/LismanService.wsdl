@@ -149,6 +149,12 @@
   <wsdl:message name="ILoginManager_EmailExists_OutputMessage">
     <wsdl:part name="parameters" element="tns:EmailExistsResponse" />
   </wsdl:message>
+  <wsdl:message name="ILoginManager_UserInSession_InputMessage">
+    <wsdl:part name="parameters" element="tns:UserInSession" />
+  </wsdl:message>
+  <wsdl:message name="ILoginManager_UserInSession_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UserInSessionResponse" />
+  </wsdl:message>
   <wsdl:message name="IMultiplayerManager_JoinMultiplayerGame_InputMessage">
     <wsdl:part name="parameters" element="tns:JoinMultiplayerGame" />
   </wsdl:message>
@@ -197,8 +203,14 @@
   <wsdl:message name="IHeartBeat_NewLogin_InputMessage">
     <wsdl:part name="parameters" element="tns:NewLogin" />
   </wsdl:message>
+  <wsdl:message name="IHeartBeat_ImLive_InputMessage">
+    <wsdl:part name="parameters" element="tns:ImLive" />
+  </wsdl:message>
   <wsdl:message name="IHeartBeat_NotifyOk_OutputCallbackMessage">
     <wsdl:part name="parameters" element="tns:NotifyOk" />
+  </wsdl:message>
+  <wsdl:message name="IHeartBeat_NotifyOk_InputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:NotifyOkResponse" />
   </wsdl:message>
   <wsdl:portType name="IAccountManager">
     <wsdl:operation name="AddAccount">
@@ -278,6 +290,10 @@
       <wsdl:input wsaw:Action="http://tempuri.org/ILoginManager/EmailExists" message="tns:ILoginManager_EmailExists_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/ILoginManager/EmailExistsResponse" message="tns:ILoginManager_EmailExists_OutputMessage" />
     </wsdl:operation>
+    <wsdl:operation name="UserInSession">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILoginManager/UserInSession" message="tns:ILoginManager_UserInSession_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILoginManager/UserInSessionResponse" message="tns:ILoginManager_UserInSession_OutputMessage" />
+    </wsdl:operation>
   </wsdl:portType>
   <wsdl:portType name="IMultiplayerManager">
     <wsdl:operation name="JoinMultiplayerGame">
@@ -330,8 +346,12 @@
     <wsdl:operation name="NewLogin">
       <wsdl:input wsaw:Action="http://tempuri.org/IHeartBeat/NewLogin" message="tns:IHeartBeat_NewLogin_InputMessage" />
     </wsdl:operation>
+    <wsdl:operation name="ImLive">
+      <wsdl:input wsaw:Action="http://tempuri.org/IHeartBeat/ImLive" message="tns:IHeartBeat_ImLive_InputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="NotifyOk">
       <wsdl:output wsaw:Action="http://tempuri.org/IHeartBeat/NotifyOk" message="tns:IHeartBeat_NotifyOk_OutputCallbackMessage" />
+      <wsdl:input wsaw:Action="http://tempuri.org/IHeartBeat/NotifyOkResponse" message="tns:IHeartBeat_NotifyOk_InputCallbackMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="NetTcpBinding_IAccountManager" type="tns:IAccountManager">
@@ -502,6 +522,15 @@
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="UserInSession">
+      <soap12:operation soapAction="http://tempuri.org/ILoginManager/UserInSession" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
   </wsdl:binding>
   <wsdl:binding name="NetTcpBinding_IMultiplayerManager" type="tns:IMultiplayerManager">
     <wsp:PolicyReference URI="#NetTcpBinding_IMultiplayerManager_policy" />
@@ -606,8 +635,17 @@
         <soap12:body use="literal" />
       </wsdl:input>
     </wsdl:operation>
+    <wsdl:operation name="ImLive">
+      <soap12:operation soapAction="http://tempuri.org/IHeartBeat/ImLive" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
     <wsdl:operation name="NotifyOk">
       <soap12:operation soapAction="http://tempuri.org/IHeartBeat/NotifyOk" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
       <wsdl:output>
         <soap12:body use="literal" />
       </wsdl:output>

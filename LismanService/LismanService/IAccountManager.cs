@@ -31,6 +31,10 @@ namespace LismanService {
         bool UserNameExists(String username);
         [OperationContract]
         bool EmailExists(String emailAdress);
+
+        [OperationContract]
+        bool UserInSession(String username);
+
     }
 
 

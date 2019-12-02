@@ -1015,6 +1015,12 @@ namespace Lisman.LismanService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILoginManager/EmailExists", ReplyAction="http://tempuri.org/ILoginManager/EmailExistsResponse")]
         System.Threading.Tasks.Task<bool> EmailExistsAsync(string emailAdress);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILoginManager/UserInSession", ReplyAction="http://tempuri.org/ILoginManager/UserInSessionResponse")]
+        bool UserInSession(string username);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILoginManager/UserInSession", ReplyAction="http://tempuri.org/ILoginManager/UserInSessionResponse")]
+        System.Threading.Tasks.Task<bool> UserInSessionAsync(string username);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -1074,6 +1080,14 @@ namespace Lisman.LismanService {
         
         public System.Threading.Tasks.Task<bool> EmailExistsAsync(string emailAdress) {
             return base.Channel.EmailExistsAsync(emailAdress);
+        }
+        
+        public bool UserInSession(string username) {
+            return base.Channel.UserInSession(username);
+        }
+        
+        public System.Threading.Tasks.Task<bool> UserInSessionAsync(string username) {
+            return base.Channel.UserInSessionAsync(username);
         }
     }
     
@@ -1213,12 +1227,18 @@ namespace Lisman.LismanService {
         
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IHeartBeat/NewLogin")]
         System.Threading.Tasks.Task NewLoginAsync(string username);
+        
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IHeartBeat/ImLive")]
+        void ImLive(string usernam);
+        
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IHeartBeat/ImLive")]
+        System.Threading.Tasks.Task ImLiveAsync(string usernam);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     public interface IHeartBeatCallback {
         
-        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IHeartBeat/NotifyOk")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IHeartBeat/NotifyOk", ReplyAction="http://tempuri.org/IHeartBeat/NotifyOkResponse")]
         void NotifyOk();
     }
     
@@ -1256,6 +1276,14 @@ namespace Lisman.LismanService {
         
         public System.Threading.Tasks.Task NewLoginAsync(string username) {
             return base.Channel.NewLoginAsync(username);
+        }
+        
+        public void ImLive(string usernam) {
+            base.Channel.ImLive(usernam);
+        }
+        
+        public System.Threading.Tasks.Task ImLiveAsync(string usernam) {
+            return base.Channel.ImLiveAsync(usernam);
         }
     }
 }

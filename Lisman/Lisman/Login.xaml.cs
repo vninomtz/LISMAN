@@ -87,18 +87,27 @@ namespace Lisman {
 
                     try {
                         LismanService.Account account = client.LoginAccount(textField_user.Text, Encrypter.EncodePassword(passwordBox_password.Password));
-                        if (account != null) {
-                            if (account.Key_confirmation == " ") {
-                                SingletonAccount.setSingletonAccount(account);
-                                SingletonConnection.CreateConnection();
-                                MainMenu mainMenu = new MainMenu();
-                                mainMenu.Show();
-                                
-                                this.Close();
-                            } else {
-                                var messageAccountConfirm = Properties.Resources.message_account_confirm;
-                                MessageBox.Show(messageAccountConfirm);
-                            }
+                            bool inSession = client.UserInSession(textField_user.Text);
+                            if (account != null) {
+                                if (account.Key_confirmation == " ") {
+                                    if (!inSession)
+                                    {
+                                        SingletonAccount.setSingletonAccount(account);
+                                        SingletonConnection.CreateConnection();
+                                        MainMenu mainMenu = new MainMenu();
+                                        mainMenu.Show();
+
+                                        this.Close();
+                                    }
+                                    else
+                                    {
+                                        MessageBox.Show("Hay una sesion iniciada, por favor cerrarla");
+                                    }       
+                                   
+                                } else {
+                                    var messageAccountConfirm = Properties.Resources.message_account_confirm;
+                                    MessageBox.Show(messageAccountConfirm);
+                                }
 
                         }
                         else

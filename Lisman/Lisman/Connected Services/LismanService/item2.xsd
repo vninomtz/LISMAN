@@ -219,6 +219,20 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="UserInSession">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="username" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UserInSessionResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="UserInSessionResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
   <xs:element name="JoinMultiplayerGame">
     <xs:complexType>
       <xs:sequence>
@@ -345,7 +359,19 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="ImLive">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="usernam" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
   <xs:element name="NotifyOk">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="NotifyOkResponse">
     <xs:complexType>
       <xs:sequence />
     </xs:complexType>

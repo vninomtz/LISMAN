@@ -96,5 +96,16 @@ namespace LismanService {
                 return null;
             }
         }
+
+        public bool UserInSession(String userName)
+        {
+           bool inSesion = false;
+            if (logginsConnections.ContainsKey(userName))
+            {
+                inSesion = true;
+            }
+
+            return inSesion;
+        }
     }
 }

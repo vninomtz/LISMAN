@@ -15,6 +15,11 @@ namespace LismanService
         [OperationContract(IsOneWay = true)]
         void NewLogin(string username);
 
+        [OperationContract(IsOneWay = true)]
+        void ImLive(String usernam);
+
+
+
 
     }
 
@@ -22,7 +27,7 @@ namespace LismanService
     [ServiceContract]
     public interface IHeartBeatCallBack
     {
-       [OperationContract (IsOneWay = true)]
+       [OperationContract(IsOneWay = true)]
        void NotifyOk();
 
     }

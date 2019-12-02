@@ -167,6 +167,9 @@
   <wsdl:message name="IMultiplayerManager_ExitGame_InputMessage">
     <wsdl:part name="parameters" element="tns:ExitGame" />
   </wsdl:message>
+  <wsdl:message name="IMultiplayerManager_Reconntection_InputMessage">
+    <wsdl:part name="parameters" element="tns:Reconntection" />
+  </wsdl:message>
   <wsdl:message name="IMultiplayerManager_PrintInformationPlayers_OutputCallbackMessage">
     <wsdl:part name="parameters" element="tns:PrintInformationPlayers" />
   </wsdl:message>
@@ -307,6 +310,9 @@
     </wsdl:operation>
     <wsdl:operation name="ExitGame">
       <wsdl:input wsaw:Action="http://tempuri.org/IMultiplayerManager/ExitGame" message="tns:IMultiplayerManager_ExitGame_InputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Reconntection">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMultiplayerManager/Reconntection" message="tns:IMultiplayerManager_Reconntection_InputMessage" />
     </wsdl:operation>
     <wsdl:operation name="PrintInformationPlayers">
       <wsdl:output wsaw:Action="http://tempuri.org/IMultiplayerManager/PrintInformationPlayers" message="tns:IMultiplayerManager_PrintInformationPlayers_OutputCallbackMessage" />
@@ -559,6 +565,12 @@
         <soap12:body use="literal" />
       </wsdl:input>
     </wsdl:operation>
+    <wsdl:operation name="Reconntection">
+      <soap12:operation soapAction="http://tempuri.org/IMultiplayerManager/Reconntection" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
     <wsdl:operation name="PrintInformationPlayers">
       <soap12:operation soapAction="http://tempuri.org/IMultiplayerManager/PrintInformationPlayers" style="document" />
       <wsdl:output>
@@ -678,12 +690,14 @@
     </wsdl:port>
     <wsdl:port name="NetTcpBinding_IMultiplayerManager" binding="tns:NetTcpBinding_IMultiplayerManager">
       <soap12:address location="net.tcp://localhost:8091/CalculatorService" />
+
       <wsa10:EndpointReference>
         <wsa10:Address>net.tcp://localhost:8091/CalculatorService</wsa10:Address>
       </wsa10:EndpointReference>
     </wsdl:port>
     <wsdl:port name="NetTcpBinding_IHeartBeat" binding="tns:NetTcpBinding_IHeartBeat">
       <soap12:address location="net.tcp://localhost:8091/CalculatorService" />
+
       <wsa10:EndpointReference>
         <wsa10:Address>net.tcp://localhost:8091/CalculatorService</wsa10:Address>
       </wsa10:EndpointReference>

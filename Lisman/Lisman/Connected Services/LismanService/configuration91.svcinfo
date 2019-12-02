@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <SavedWcfConfigurationInformation xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Version="9.1" CheckSum="aVGb07LkOeUXSesmqgA/sNbBfjk=">
+
+<SavedWcfConfigurationInformation xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Version="9.1" CheckSum="s8MMX90N4QoYD44RWQQB0v1Mn8M=">
+
   <bindingConfigurations>
     <bindingConfiguration bindingType="netTcpBinding" name="NetTcpBinding_IAccountManager">
       <properties>

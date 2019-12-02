@@ -1118,6 +1118,12 @@ namespace Lisman.LismanService {
         
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IMultiplayerManager/ExitGame")]
         System.Threading.Tasks.Task ExitGameAsync(int idGame, int colorLisman, int positionX, int positionY);
+        
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IMultiplayerManager/Reconntection")]
+        void Reconntection(string userLisman);
+        
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IMultiplayerManager/Reconntection")]
+        System.Threading.Tasks.Task ReconntectionAsync(string userLisman);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -1215,6 +1221,14 @@ namespace Lisman.LismanService {
         
         public System.Threading.Tasks.Task ExitGameAsync(int idGame, int colorLisman, int positionX, int positionY) {
             return base.Channel.ExitGameAsync(idGame, colorLisman, positionX, positionY);
+        }
+        
+        public void Reconntection(string userLisman) {
+            base.Channel.Reconntection(userLisman);
+        }
+        
+        public System.Threading.Tasks.Task ReconntectionAsync(string userLisman) {
+            return base.Channel.ReconntectionAsync(userLisman);
         }
     }
     

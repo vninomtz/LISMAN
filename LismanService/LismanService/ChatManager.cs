@@ -18,11 +18,19 @@ namespace LismanService {
 
 
             foreach (var userGame in listGamesOnline[idgame]) {
-                connectionChatService[userGame].NotifyNumberPlayers(listGamesOnline[idgame].Count);
-                if (userGame != user) {
-                    connectionChatService[userGame].NotifyJoinedPlayer(user);
+                try
+                {
+                    connectionChatService[userGame].NotifyNumberPlayers(listGamesOnline[idgame].Count);
+                    if (userGame != user)
+                    {
+                        connectionChatService[userGame].NotifyJoinedPlayer(user);
 
+                    }
+                }catch(CommunicationException ex)
+                {
+                    Logger.log.Error("JoinChat, " + ex);
                 }
+                
                 
             }
 
@@ -32,11 +40,15 @@ namespace LismanService {
         public void LeaveChat(string user, int idgame) {
             try {
                 foreach (var userGame in listGamesOnline[idgame]) {
-                    connectionChatService[userGame].NotifyNumberPlayers(listGamesOnline[idgame].Count);
-                }
-                foreach (var userGame in listGamesOnline[idgame]) {
-                    connectionChatService[userGame].NotifyLeftPlayer(user);
-
+                    try
+                    {
+                        connectionChatService[userGame].NotifyNumberPlayers(listGamesOnline[idgame].Count);
+                        connectionChatService[userGame].NotifyLeftPlayer(user);
+                    }
+                    catch (CommunicationException ex)
+                    {
+                        Logger.log.Error("LeaveChat, " + ex);
+                    }
 
                 }
             } catch (KeyNotFoundException ex) {
@@ -48,31 +60,54 @@ namespace LismanService {
 
         public void SendMessage(Message message, int idgame)
         {
-            foreach (var userGame in listGamesOnline[idgame]) {           
-                    connectionChatService[userGame].NotifyMessage(message);
-            }
+                foreach (var userGame in listGamesOnline[idgame])
+                {
+                    try
+                    {
+                        connectionChatService[userGame].NotifyMessage(message);
+                    }
+                    catch (CommunicationException ex)
+                    {
+                        Logger.log.Error("SendMessage, " + ex);
+                    }
+
+                }
+            
+
         }
 
         public void StartGame(string user, int idgame)
         {
+            ReadMapGame();
             if (!multiplayerGameInformation.ContainsKey(idgame))
             {
                 Game informationGame = new Game
                 {
+
                     gameMap = GAMEMAP,
                     lismanUsers = new Dictionary<int, InformationPlayer>()
 
                 };
                 multiplayerGameInformation.Add(idgame, informationGame);
             }
-            foreach (var userGame in listGamesOnline[idgame]) {
-
-                if (AssignColorPlayer(idgame, userGame))
+                foreach (var userGame in listGamesOnline[idgame])
                 {
-                    connectionChatService[userGame].InitGame();
+
+                    if (AssignColorPlayer(idgame, userGame))
+                    {
+                        try
+                        {
+                            connectionChatService[userGame].InitGame();
+                        }
+                        catch (CommunicationException ex)
+                        {
+                            Logger.log.Error("StartGame, " + ex);
+                        }
+
+                    }
+
                 }
-               
-            }
+                Console.WriteLine("Game started ID:{0}, at:{1}", idgame, DateTime.Now);
         }
 
         private bool AssignColorPlayer(int idgame, String user)

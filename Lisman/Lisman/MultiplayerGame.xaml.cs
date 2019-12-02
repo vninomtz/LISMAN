@@ -9,6 +9,7 @@ using System.Windows.Threading;
 using System.ServiceModel;
 using Lisman.LismanService;
 using WpfAnimatedGif;
+using System.Threading;
 
 namespace Lisman {
     /// <summary>
@@ -55,6 +56,8 @@ namespace Lisman {
         DispatcherTimer runDown = new DispatcherTimer();
         DispatcherTimer timePower = new DispatcherTimer();
 
+        DispatcherTimer reconnectionTimer = new DispatcherTimer();
+
         InstanceContext instace = null;
         MultiplayerManagerClient client = null;
 
@@ -90,7 +93,29 @@ namespace Lisman {
             MatrixGame();
             DrawPills();
             createMatrixPillsImages();
-                        
+
+        
+            reconnectionTimer.Tick += new EventHandler(Reconnection);
+            reconnectionTimer.Interval = new TimeSpan(0,0,0,1);
+            reconnectionTimer.Start();
+
+
+        }
+
+        public void Reconnection(object sender, EventArgs e)
+        {
+            try
+            {
+                Console.WriteLine("Timersito");
+                client.Reconntection(SingletonAccount.getSingletonAccount().User);
+           
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(Properties.Resources.server_connection_error);
+                Logger.log.Error(ex);
+
+            }
         }
 
         public void MatrixGame() {

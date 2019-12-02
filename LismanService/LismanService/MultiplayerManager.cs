@@ -49,11 +49,17 @@ namespace LismanService
             {
                 connectionGameService.Add(user, connection);
             }
-            
-            connectionGameService[user].NotifyColorPlayer(GetColorLismanByUser(idGame, user), user);
-            connectionGameService[user].PrintInformationPlayers(multiplayerGameInformation[idGame].lismanUsers);
+            try
+            {
+                connectionGameService[user].NotifyColorPlayer(GetColorLismanByUser(idGame, user), user);
+                connectionGameService[user].PrintInformationPlayers(multiplayerGameInformation[idGame].lismanUsers);
 
-            SaveLastUpdate(idGame);
+                SaveLastUpdate(idGame);
+            }catch(CommunicationException ex)
+            {
+                Logger.log.Error("JoinMultiplayerGame, " + ex);
+            }
+           
         }
 
         public int GetColorLismanByUser(int idGame, String user)
@@ -203,18 +209,47 @@ namespace LismanService
 
             String userLisman = multiplayerGameInformation[movement.idGame].lismanUsers[movement.colorLisman].userLisman;
             String userLismanEnemy = multiplayerGameInformation[movement.idGame].lismanUsers[colorLismanEnemy].userLisman;
+            try
+            {
+                connectionGameService[userLisman].NotifyPlayerIsDead(colorLismanEnemy);
+                connectionGameService[userLismanEnemy].NotifyPlayerIsDead(colorLismanEnemy);
 
-            connectionGameService[userLisman].NotifyPlayerIsDead(colorLismanEnemy);
-            connectionGameService[userLismanEnemy].NotifyPlayerIsDead(colorLismanEnemy);
+                connectionGameService[userLisman].NotifyUpdateScore(movement.colorLisman, scoreLisman);
+                connectionGameService[userLisman].NotifyUpdateLifes(colorLismanEnemy, lifesLismanEnemy);
 
-            connectionGameService[userLisman].NotifyUpdateScore(movement.colorLisman, scoreLisman);
-            connectionGameService[userLisman].NotifyUpdateLifes(colorLismanEnemy, lifesLismanEnemy);
-
-            connectionGameService[userLisman].NotifyEndGame(movement.colorLisman);
-            SaveGame(movement.idGame, userLisman);
+                connectionGameService[userLisman].NotifyEndGame(movement.colorLisman);
+                SaveGame(movement.idGame, userLisman);
+            }
+            catch (CommunicationException ex)
+            {
+                Logger.log.Error("FinishGame, " + ex);
+            }
+           
 
         }
-        
+        public void FinishGame(int idGame)
+        {
+            foreach(KeyValuePair<int,InformationPlayer> player in multiplayerGameInformation[idGame].lismanUsers){
+                if(player.Value.isLive == true)
+                {
+                    try
+                    {
+                        connectionGameService[player.Value.userLisman].NotifyEndGame(player.Key);
+                        SaveGame(idGame, player.Value.userLisman);
+                        Console.WriteLine("Game finished ID:{0}, at:{1}", idGame, DateTime.Now);
+                        return;
+                    }
+                    catch (CommunicationException e)
+                    {
+                        Console.WriteLine("FinishGame:" + player.Value.userLisman + ". Error: " + e.Message);
+                    }
+                }
+            }
+
+          
+
+        }
+
         public bool PlayerWillDead (int idGame, int colorLisman)
         {
             bool result = false;
@@ -315,7 +350,7 @@ namespace LismanService
             UpdateGameMap(movement.idGame, movement.colorLisman , movement.finalPositionX, movement.finalPositionY);
             foreach (KeyValuePair<int, InformationPlayer> player in multiplayerGameInformation[movement.idGame].lismanUsers)
             {
-                if(player.Value.isLive == true)
+                if(player.Value.isLive == true && connectionGameService[player.Value.userLisman] != null)
                 {
                     try
                     {
@@ -324,6 +359,7 @@ namespace LismanService
                     catch (CommunicationException e)
                     {
                         Console.WriteLine("Error en la conexión con el usuario:" + player.Value.userLisman + ". Error: " + e.Message);
+                        connectionGameService[player.Value.userLisman] = null;
                     }
                 }
             }
@@ -470,7 +506,8 @@ namespace LismanService
         }
 
          public void ExitGame(int idGame, int colorLisman, int positionX, int positionY)
-          {
+         {
+            int playersLives = 0;
               UpdateGameMap(idGame, EMPTYBOX, positionX, positionY);
               foreach (KeyValuePair<int, InformationPlayer> player in multiplayerGameInformation[idGame].lismanUsers)
               {
@@ -479,14 +516,34 @@ namespace LismanService
                       try
                       {
                           connectionGameService[player.Value.userLisman].NotifyLismanLeaveGame(colorLisman);
+                          playersLives++;
                       }
                       catch (CommunicationException e)
                       {
                           Console.WriteLine("Error en la conexión con el usuario:" + player.Value.userLisman + ". Error: " + e.Message);
                       }
+                    
                   }
               }
               multiplayerGameInformation[idGame].lismanUsers[colorLisman].isLive = false;
+            if(playersLives == 2)
+            {
+                FinishGame(idGame);
+            }
           }
+
+        public void Reconntection (String userLisman)
+        {
+            var connection = OperationContext.Current.GetCallbackChannel<IMultiplayerManagerCallBack>();
+            if (connectionGameService.ContainsKey(userLisman))
+            {
+                if (connectionGameService[userLisman] == null)
+                {
+                    connectionGameService[userLisman] = connection;
+                    
+                }
+                
+            }
+        }
     }
 }

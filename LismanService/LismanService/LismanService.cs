@@ -9,6 +9,8 @@ namespace LismanService {
     // NOTE: You can use the "Rename" command on the "Refactor" menu to change the class name "AccountManager" in both code and config file together.
     [ServiceBehavior(ConcurrencyMode = ConcurrencyMode.Multiple, InstanceContextMode = InstanceContextMode.PerSession)]
     public partial class LismanService : IAccountManager {
+
+       public LismanService() { }
         public int AddAccount(Account account)
         {
             try {

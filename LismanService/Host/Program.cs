@@ -11,7 +11,6 @@ namespace Host {
         {
             using(ServiceHost host = new ServiceHost(typeof(LismanService.LismanService))){
                 LismanService.LismanService service = new LismanService.LismanService();
-                service.ReadMapGame();
                 host.Open();
                 Console.WriteLine("Server is running:  " + DateTime.Now);
                 Console.ReadKey();

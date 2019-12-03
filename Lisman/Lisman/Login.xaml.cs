@@ -77,46 +77,53 @@ namespace Lisman {
         }
 
 
-        public void LoginUser() {
-            if (ValidateFields()) {
-
+        public void LoginUser()
+        {
+            if (ValidateFields())
+            {
                 try
                 {
-                    
-                using (var client = new LismanService.LoginManagerClient()) {
-
-                    try {
-                        LismanService.Account account = client.LoginAccount(textField_user.Text, Encrypter.EncodePassword(passwordBox_password.Password));
-                            bool inSession = client.UserInSession(textField_user.Text);
-                            if (account != null) {
-                                if (account.Key_confirmation == " ") {
-                                    if (!inSession)
-                                    {
-                                        SingletonAccount.setSingletonAccount(account);
-                                        SingletonConnection.CreateConnection();
-                                        MainMenu mainMenu = new MainMenu();
-                                        mainMenu.Show();
-
-                                        this.Close();
-                                    }
-                                    else
-                                    {
-                                        MessageBox.Show("Hay una sesion iniciada, por favor cerrarla");
-                                    }       
-                                   
-                                } else {
-                                    var messageAccountConfirm = Properties.Resources.message_account_confirm;
-                                    MessageBox.Show(messageAccountConfirm);
-                                }
-
-                        }
-                        else
+                    using (var client = new LismanService.LoginManagerClient()) 
+                    {
+                        try 
                         {
-                                var messageWarningLogin = Properties.Resources.message_warning_login;
-                                MessageBox.Show(messageWarningLogin);
+                            bool inSession = client.UserInSession(textField_user.Text);
+                            LismanService.Account account = client.LoginAccount(textField_user.Text, Encrypter.EncodePassword(passwordBox_password.Password));
+                            if (!inSession) 
+                            {
+                                switch (account.Id)
+                                {
+                                    case 0:
+                                        var messageWarningLogin = Properties.Resources.message_warning_login;
+                                        MessageBox.Show(messageWarningLogin);
+                                        Logger.log.Warn("Login Failed, user: " + textField_user.Text);
+                                        break;
+                                    case -1:
+                                        MessageBox.Show("Error en la conexión a la BD");
+                                        break;
+                                    default:
+                                        if (account.Key_confirmation == " ")
+                                        {
+                                            SingletonAccount.setSingletonAccount(account);
+                                            //SingletonConnection.CreateConnection();
+                                            MainMenu mainMenu = new MainMenu();
+                                            mainMenu.Show();
+                                            this.Close();
+                                        }
+                                        else
+                                        {
+                                            var messageAccountConfirm = Properties.Resources.message_account_confirm;
+                                            MessageBox.Show(messageAccountConfirm);
+                                        }
+                                        break;
+                                }
+                            }
+                            else
+                            {
+                                MessageBox.Show("Hay una sesion iniciada, por favor cerrarla");
 
-                                Logger.log.Warn("Login Failed, user: " + textField_user.Text);
-                        }
+                            }
+
                         }
                         catch (Exception ex)
                         {

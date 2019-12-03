@@ -50,10 +50,10 @@
   </wsp:Policy>
   <wsdl:types>
     <xsd:schema targetNamespace="http://tempuri.org/Imports">
-      <xsd:import schemaLocation="http://localhost:8081/?xsd=xsd0" namespace="http://tempuri.org/" />
-      <xsd:import schemaLocation="http://localhost:8081/?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
-      <xsd:import schemaLocation="http://localhost:8081/?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/LismanService" />
-      <xsd:import schemaLocation="http://localhost:8081/?xsd=xsd3" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <xsd:import schemaLocation="http://192.168.43.196:8081/?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://192.168.43.196:8081/?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://192.168.43.196:8081/?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/LismanService" />
+      <xsd:import schemaLocation="http://192.168.43.196:8081/?xsd=xsd3" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
     </xsd:schema>
   </wsdl:types>
   <wsdl:message name="IAccountManager_AddAccount_InputMessage">
@@ -212,9 +212,6 @@
   <wsdl:message name="IHeartBeat_NotifyOk_OutputCallbackMessage">
     <wsdl:part name="parameters" element="tns:NotifyOk" />
   </wsdl:message>
-  <wsdl:message name="IHeartBeat_NotifyOk_InputCallbackMessage">
-    <wsdl:part name="parameters" element="tns:NotifyOkResponse" />
-  </wsdl:message>
   <wsdl:portType name="IAccountManager">
     <wsdl:operation name="AddAccount">
       <wsdl:input wsaw:Action="http://tempuri.org/IAccountManager/AddAccount" message="tns:IAccountManager_AddAccount_InputMessage" />
@@ -357,7 +354,6 @@
     </wsdl:operation>
     <wsdl:operation name="NotifyOk">
       <wsdl:output wsaw:Action="http://tempuri.org/IHeartBeat/NotifyOk" message="tns:IHeartBeat_NotifyOk_OutputCallbackMessage" />
-      <wsdl:input wsaw:Action="http://tempuri.org/IHeartBeat/NotifyOkResponse" message="tns:IHeartBeat_NotifyOk_InputCallbackMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="NetTcpBinding_IAccountManager" type="tns:IAccountManager">
@@ -655,9 +651,6 @@
     </wsdl:operation>
     <wsdl:operation name="NotifyOk">
       <soap12:operation soapAction="http://tempuri.org/IHeartBeat/NotifyOk" style="document" />
-      <wsdl:input>
-        <soap12:body use="literal" />
-      </wsdl:input>
       <wsdl:output>
         <soap12:body use="literal" />
       </wsdl:output>
@@ -665,41 +658,39 @@
   </wsdl:binding>
   <wsdl:service name="LismanService">
     <wsdl:port name="NetTcpBinding_IAccountManager" binding="tns:NetTcpBinding_IAccountManager">
-      <soap12:address location="net.tcp://localhost:8091/CalculatorService" />
+      <soap12:address location="net.tcp://192.168.43.196:8091/CalculatorService" />
       <wsa10:EndpointReference>
-        <wsa10:Address>net.tcp://localhost:8091/CalculatorService</wsa10:Address>
+        <wsa10:Address>net.tcp://192.168.43.196:8091/CalculatorService</wsa10:Address>
       </wsa10:EndpointReference>
     </wsdl:port>
     <wsdl:port name="NetTcpBinding_IGameManager" binding="tns:NetTcpBinding_IGameManager">
-      <soap12:address location="net.tcp://localhost:8091/CalculatorService" />
+      <soap12:address location="net.tcp://192.168.43.196:8091/CalculatorService" />
       <wsa10:EndpointReference>
-        <wsa10:Address>net.tcp://localhost:8091/CalculatorService</wsa10:Address>
+        <wsa10:Address>net.tcp://192.168.43.196:8091/CalculatorService</wsa10:Address>
       </wsa10:EndpointReference>
     </wsdl:port>
     <wsdl:port name="NetTcpBinding_IChatManager" binding="tns:NetTcpBinding_IChatManager">
-      <soap12:address location="net.tcp://localhost:8091/CalculatorService" />
+      <soap12:address location="net.tcp://192.168.43.196:8091/CalculatorService" />
       <wsa10:EndpointReference>
-        <wsa10:Address>net.tcp://localhost:8091/CalculatorService</wsa10:Address>
+        <wsa10:Address>net.tcp://192.168.43.196:8091/CalculatorService</wsa10:Address>
       </wsa10:EndpointReference>
     </wsdl:port>
     <wsdl:port name="NetTcpBinding_ILoginManager" binding="tns:NetTcpBinding_ILoginManager">
-      <soap12:address location="net.tcp://localhost:8091/CalculatorService" />
+      <soap12:address location="net.tcp://192.168.43.196:8091/CalculatorService" />
       <wsa10:EndpointReference>
-        <wsa10:Address>net.tcp://localhost:8091/CalculatorService</wsa10:Address>
+        <wsa10:Address>net.tcp://192.168.43.196:8091/CalculatorService</wsa10:Address>
       </wsa10:EndpointReference>
     </wsdl:port>
     <wsdl:port name="NetTcpBinding_IMultiplayerManager" binding="tns:NetTcpBinding_IMultiplayerManager">
-      <soap12:address location="net.tcp://localhost:8091/CalculatorService" />
-
+      <soap12:address location="net.tcp://192.168.43.196:8091/CalculatorService" />
       <wsa10:EndpointReference>
-        <wsa10:Address>net.tcp://localhost:8091/CalculatorService</wsa10:Address>
+        <wsa10:Address>net.tcp://192.168.43.196:8091/CalculatorService</wsa10:Address>
       </wsa10:EndpointReference>
     </wsdl:port>
     <wsdl:port name="NetTcpBinding_IHeartBeat" binding="tns:NetTcpBinding_IHeartBeat">
-      <soap12:address location="net.tcp://localhost:8091/CalculatorService" />
-
+      <soap12:address location="net.tcp://192.168.43.196:8091/CalculatorService" />
       <wsa10:EndpointReference>
-        <wsa10:Address>net.tcp://localhost:8091/CalculatorService</wsa10:Address>
+        <wsa10:Address>net.tcp://192.168.43.196:8091/CalculatorService</wsa10:Address>
       </wsa10:EndpointReference>
     </wsdl:port>
   </wsdl:service>

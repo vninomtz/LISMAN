@@ -1252,7 +1252,7 @@ namespace Lisman.LismanService {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     public interface IHeartBeatCallback {
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IHeartBeat/NotifyOk", ReplyAction="http://tempuri.org/IHeartBeat/NotifyOkResponse")]
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IHeartBeat/NotifyOk")]
         void NotifyOk();
     }
     

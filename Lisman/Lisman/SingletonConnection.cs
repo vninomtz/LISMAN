@@ -5,31 +5,30 @@ using System.ServiceModel;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Threading;
+using System.Timers;
+
 
 namespace Lisman
 {
-    class SingletonConnection: LismanService.IHeartBeatCallback
+    public class SingletonConnection: LismanService.IHeartBeatCallback
     {
         InstanceContext instance;
-        LismanService.HeartBeatClient clientLoggins;
+        static LismanService.HeartBeatClient clientLoggins;
         static SingletonConnection singletonConnection = null;
-        DispatcherTimer connectionTimer = new DispatcherTimer();
-        
+        static Timer timerConnection;
+
 
         private SingletonConnection()
         {
             instance = new InstanceContext(this);
             clientLoggins = new LismanService.HeartBeatClient(instance);
-            clientLoggins.NewLogin(SingletonAccount.getSingletonAccount().User);
-            connectionTimer.Tick += new EventHandler(Hola);
-            connectionTimer.Interval = new TimeSpan(0, 0, 0, 1);
-            connectionTimer.Start();
-            Console.WriteLine("Inicio de timer");
+            
         }
 
-        public void Hola(Object ob, EventArgs e)
+        public static void NotifyConnection()
         {
             clientLoggins.ImLive(SingletonAccount.getSingletonAccount().User);
+            Console.WriteLine("Me estoy ejecuntando");
         }
 
         public static void CreateConnection()
@@ -37,6 +36,8 @@ namespace Lisman
             if (singletonConnection == null)
             {
                 singletonConnection = new SingletonConnection();
+                clientLoggins.NewLogin(SingletonAccount.getSingletonAccount().User);
+                //NotifyConnection();
             }   
         }
 

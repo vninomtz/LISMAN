@@ -23,12 +23,13 @@ namespace LismanService {
             return false;
         }
         public Account LoginAccount(string user, string password)
-        { 
+        {
+            var newAccount = new Account();
             try {
                 using (var dataBase = new EntityModelContainer()) {
                     int exists = dataBase.AccountSet.Where(u => u.User == user & u.Password == password).Count();
                     if (exists > 0) {
-                        var newAccount = dataBase.AccountSet.Where(u => u.User == user & u.Password == password).Select(u => new Account
+                        newAccount = dataBase.AccountSet.Where(u => u.User == user & u.Password == password).Select(u => new Account
                         {
                             Id = u.Id,
                             User = u.User,
@@ -37,20 +38,22 @@ namespace LismanService {
                             Key_confirmation = u.Key_confirmation
                         }).FirstOrDefault();
                         if(newAccount != null) {
-                            if (!connectionChatService.ContainsKey(user)) {
-                                connectionChatService.Add(user, null);
+                            if (!logginsConnections.ContainsKey(user)) {
+                                logginsConnections.Add(user, null);
                             }
                             Console.WriteLine("User: {0} Connected at: {1}", newAccount.User, DateTime.Now);
                             
                         }
                         return newAccount;
                     } else {
-                        return null;
+                        newAccount.Id = 0;
+                        return newAccount;
                     }
                 }
             } catch (Exception ex) {
                 Logger.log.Error(ex.Message);
-                return null;
+                newAccount.Id = -1;
+                return newAccount;
             }
         }
 

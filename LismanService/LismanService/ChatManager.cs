@@ -5,6 +5,13 @@ using System.ServiceModel;
 namespace LismanService {
     public partial class LismanService : IChatManager {
         static Dictionary<String, IChatManagerCallBack> connectionChatService = new Dictionary<String, IChatManagerCallBack>();
+        
+        private Func<IChatManagerCallBack> callbackChannel;
+        public LismanService(Func<IChatManagerCallBack> callbackCreator)
+        {
+            this.callbackChannel = callbackCreator ?? throw new ArgumentNullException("callbackCreator");
+        }
+
 
         public void JoinChat(string user, int idgame)
         {

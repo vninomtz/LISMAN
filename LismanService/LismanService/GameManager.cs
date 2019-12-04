@@ -8,6 +8,9 @@ using System.Data.Entity.Validation;
 namespace LismanService {
     public partial class LismanService : IGameManager {
        static Dictionary<int, List<String>> listGamesOnline = new Dictionary<int,List<String>>();
+
+        
+        
         public int CreateGame(string user)
         {
             int idgame = 0;

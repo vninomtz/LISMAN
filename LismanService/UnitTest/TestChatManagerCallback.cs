@@ -12,11 +12,22 @@ namespace UnitTest
         private bool responseInitGame;
         private string responseNotifyJoinedPlayer;
         private string responseNotifyLeftPlayer;
-        private LismanService.Message responseNotifyMessage = null;
-        private int responseNumberPlayers = 0;
+        private LismanService.Message responseNotifyMessage;
+        private int responseNumberPlayers;
 
-        internal String ResponseInitGame {
-            get { return ResponseInitGame; }
+
+
+
+        internal TestChatManagerCallback()
+        {
+            this.responseInitGame = false;
+            this.responseNotifyJoinedPlayer = "";
+            this.responseNotifyLeftPlayer = "";
+            this.responseNotifyMessage = null;
+            this.responseNumberPlayers = 0;
+        }
+        internal bool ResponseInitGame {
+            get { return responseInitGame; }
         }
         internal String ResponseNotifyJoinedPlayer {
             get { return responseNotifyJoinedPlayer; }

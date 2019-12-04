@@ -17,3 +17,4 @@ C:\Users\Vik-t\Documents\Software Engineering\5to Semestre\Tecnologías para la 
 C:\Users\Vik-t\Documents\Software Engineering\5to Semestre\Tecnologías para la Construcción\Proyecto\LISMAN\LismanService\Host\obj\Debug\Host.csproj.CopyComplete
 C:\Users\Vik-t\Documents\Software Engineering\5to Semestre\Tecnologías para la Construcción\Proyecto\LISMAN\LismanService\Host\obj\Debug\Host.exe
 C:\Users\Vik-t\Documents\Software Engineering\5to Semestre\Tecnologías para la Construcción\Proyecto\LISMAN\LismanService\Host\obj\Debug\Host.pdb
+C:\Users\Vik-t\Documents\Software Engineering\5to Semestre\Tecnologías para la Construcción\Proyecto\LISMAN\LismanService\Host\obj\Debug\Host.csprojAssemblyReference.cache

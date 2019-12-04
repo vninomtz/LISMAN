@@ -106,13 +106,13 @@ namespace Lisman {
         {
             try
             {
-                Console.WriteLine("Timersito");
                 client.Reconntection(SingletonAccount.getSingletonAccount().User);
-           
+                ConnectionStatus.Text = "Connected";
             }
             catch (Exception ex)
             {
-                MessageBox.Show(Properties.Resources.server_connection_error);
+                //MessageBox.Show(Properties.Resources.server_connection_error);
+                ConnectionStatus.Text = "Diconnected";
                 Logger.log.Error(ex);
 
             }
@@ -691,9 +691,6 @@ namespace Lisman {
             {
                 timerValidation = 1;
             }
-           
-
-           
         }
 
 
@@ -701,6 +698,7 @@ namespace Lisman {
         {
             MessageBox.Show("FELICIDADES :)");
             MultiplayerHome windowHome = new MultiplayerHome();
+            reconnectionTimer.Stop();
             windowHome.Show();
             this.Close();
         }
@@ -728,6 +726,7 @@ namespace Lisman {
                 {
                     MessageBox.Show("¿Por qué te fuiste bro? :c");
                     MultiplayerHome window = new MultiplayerHome();
+                    reconnectionTimer.Stop();
                     window.Show();
                     this.Close();
                 }

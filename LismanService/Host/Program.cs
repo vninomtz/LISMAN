@@ -10,7 +10,7 @@ namespace Host {
         static void Main(string[] args)
         {
             using(ServiceHost host = new ServiceHost(typeof(LismanService.LismanService))){
-                LismanService.LismanService service = new LismanService.LismanService();
+                LismanService.LismanService service = new LismanService.LismanService();                
                 host.Open();
                 Console.WriteLine("Server is running:  " + DateTime.Now);
                 Console.ReadKey();

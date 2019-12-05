@@ -220,6 +220,12 @@ Haga clic en el siguiente enlace para confirmar su dirección de correo electró
   <data name="message_invalid_name" xml:space="preserve">
     <value>Ingresar un nombre valido por favor</value>
   </data>
+  <data name="message_lisman_left_game" xml:space="preserve">
+    <value>Has abandonado el juego</value>
+  </data>
+  <data name="message_lose_game" xml:space="preserve">
+    <value>Has perdido la partida</value>
+  </data>
   <data name="message_nogames_found" xml:space="preserve">
     <value>No hay juegos disponibles</value>
   </data>
@@ -232,6 +238,9 @@ Hemos enviado un correo de confirmacion a su correo electronico por favor ingres
   </data>
   <data name="message_warning_login" xml:space="preserve">
     <value>Nombre de usuario o contraseña invalido</value>
+  </data>
+  <data name="message_you_win" xml:space="preserve">
+    <value>¡Felicidades! Has ganado la partida</value>
   </data>
   <data name="multiplayer_games_won" xml:space="preserve">
     <value>Juegos Multijugador Ganados</value>

@@ -38,6 +38,7 @@ namespace LismanService
         static Dictionary<int, Game> multiplayerGameInformation = new Dictionary<int, Game>();
 
 
+       
         public void JoinMultiplayerGame(string user, int idGame)
         {
             var connection = OperationContext.Current.GetCallbackChannel<IMultiplayerManagerCallBack>();
@@ -321,12 +322,12 @@ namespace LismanService
             }
         }
 
-        private void UpdateGameMap(int idgame, int newValue, int positionX, int positionY)
+        public void UpdateGameMap(int idgame, int newValue, int positionX, int positionY)
         {
             multiplayerGameInformation[idgame].gameMap[positionX, positionY] = newValue;
         }
 
-        private int UpdateSubtractLifes(int idGame, int colorLisman)
+        public int UpdateSubtractLifes(int idGame, int colorLisman)
         {
             int lifesLisman = multiplayerGameInformation[idGame].lismanUsers[colorLisman].lifesLisman;
             if (lifesLisman > 0)
@@ -338,7 +339,7 @@ namespace LismanService
             return lifesLisman;
         }
 
-        private int UpdateScore(int idgame, int colorLisman, int points)
+        public int UpdateScore(int idgame, int colorLisman, int points)
         {
            return multiplayerGameInformation[idgame].lismanUsers[colorLisman].scoreLisman += points;
         }
@@ -390,7 +391,7 @@ namespace LismanService
             
         }
 
-        private int GetValueBox(int idGame, int finalPositionX, int finalPositionY)
+        public int GetValueBox(int idGame, int finalPositionX, int finalPositionY)
         {
             int result = -1;
             int valuePosition = multiplayerGameInformation[idGame].gameMap[finalPositionX, finalPositionY];
@@ -544,6 +545,64 @@ namespace LismanService
                 }
                 
             }
+        }
+
+
+        public void InitializeTest()
+        {
+            List<String> playersList = new List<string>();
+            playersList.Add("victor");
+            playersList.Add("Alan");
+            playersList.Add("Pepe");
+
+            connectionChatService.Add("victor", null);
+            connectionChatService.Add("Alan", null);
+            connectionChatService.Add("Pepe", null);
+
+            logginsConnections.Add("Alan", null);
+
+            listGamesOnline.Add(1, playersList);
+            listGamesOnline.Add(2, playersList);
+
+            InformationPlayer info1 = new InformationPlayer();
+            info1.userLisman = "Alan";
+            info1.isLive = true;
+            info1.lifesLisman = 0;
+            info1.scoreLisman = 0;
+            InformationPlayer info2 = new InformationPlayer();
+            info2.userLisman = "Victor";
+            info2.isLive = true;
+            info2.lifesLisman = 2;
+            info2.scoreLisman = 0;
+            InformationPlayer info3 = new InformationPlayer();
+            info3.userLisman = "Pablo";
+            info3.isLive = true;
+            info3.lifesLisman = 2;
+            info3.scoreLisman = 0;
+            InformationPlayer info4 = new InformationPlayer();
+            info4.userLisman = "Gume";
+            info4.isLive = true;
+            info4.lifesLisman = 3;
+            info4.scoreLisman = 0;
+
+            ReadMapGame();
+
+            Game game = new Game();
+            game.gameMap = GAMEMAP;
+            game.lismanUsers = new Dictionary<int, InformationPlayer>();
+            game.lismanUsers.Add(3, info1);
+            game.lismanUsers.Add(4, info2);
+            game.lismanUsers.Add(5, info3);
+            game.lismanUsers.Add(6, info4);
+
+            multiplayerGameInformation.Add(1,game);
+
+            Game game2 = new Game();
+            game2.lismanUsers = new Dictionary<int, InformationPlayer>();
+            multiplayerGameInformation.Add(2, game2);
+
+            
+
         }
     }
 }

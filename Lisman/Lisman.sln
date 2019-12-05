@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lisman", "Lisman\Lisman.csp
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Logica", "Logica\Logica.csproj", "{761DB705-0289-4518-BF10-465B8F8E3B00}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTest", "UnitTest\UnitTest.csproj", "{0DB59A70-0066-476A-BD19-BBF052B3F95C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -31,6 +33,14 @@ Global
 		{761DB705-0289-4518-BF10-465B8F8E3B00}.Release|Any CPU.Build.0 = Release|Any CPU
 		{761DB705-0289-4518-BF10-465B8F8E3B00}.Release|x86.ActiveCfg = Release|Any CPU
 		{761DB705-0289-4518-BF10-465B8F8E3B00}.Release|x86.Build.0 = Release|Any CPU
+		{0DB59A70-0066-476A-BD19-BBF052B3F95C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0DB59A70-0066-476A-BD19-BBF052B3F95C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0DB59A70-0066-476A-BD19-BBF052B3F95C}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{0DB59A70-0066-476A-BD19-BBF052B3F95C}.Debug|x86.Build.0 = Debug|Any CPU
+		{0DB59A70-0066-476A-BD19-BBF052B3F95C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0DB59A70-0066-476A-BD19-BBF052B3F95C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0DB59A70-0066-476A-BD19-BBF052B3F95C}.Release|x86.ActiveCfg = Release|Any CPU
+		{0DB59A70-0066-476A-BD19-BBF052B3F95C}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

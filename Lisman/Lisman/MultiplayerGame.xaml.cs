@@ -61,6 +61,10 @@ namespace Lisman {
         InstanceContext instace = null;
         MultiplayerManagerClient client = null;
 
+        public MultiplayerGame(String test)
+        {
+
+        }
         public MultiplayerGame(int idgame)
         {
             InitializeComponent();
@@ -628,7 +632,7 @@ namespace Lisman {
             }
 
             if (playerColor == colorPlayer){
-                MessageBox.Show("Te moriste carnal");
+                MessageBox.Show(Properties.Resources.message_lose_game);
                 MultiplayerHome window = new MultiplayerHome();
                 window.Show();
                 this.Close();
@@ -696,7 +700,7 @@ namespace Lisman {
 
         public void NotifyEndGame(int colorLisman)
         {
-            MessageBox.Show("FELICIDADES :)");
+            MessageBox.Show(Properties.Resources.message_you_win);
             MultiplayerHome windowHome = new MultiplayerHome();
             reconnectionTimer.Stop();
             windowHome.Show();
@@ -724,7 +728,7 @@ namespace Lisman {
 
                 if (playerColor == colorGame)
                 {
-                    MessageBox.Show("¿Por qué te fuiste bro? :c");
+                    MessageBox.Show(Properties.Resources.message_lisman_left_game);
                     MultiplayerHome window = new MultiplayerHome();
                     reconnectionTimer.Stop();
                     window.Show();

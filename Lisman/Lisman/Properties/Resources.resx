@@ -220,6 +220,12 @@ Click on the following link to confirm your email address and finish the process
   <data name="message_invalid_name" xml:space="preserve">
     <value>Enter valid name please</value>
   </data>
+  <data name="message_lisman_left_game" xml:space="preserve">
+    <value>You have left the game</value>
+  </data>
+  <data name="message_lose_game" xml:space="preserve">
+    <value>You have lost the game</value>
+  </data>
   <data name="message_nogames_found" xml:space="preserve">
     <value>No games available</value>
   </data>
@@ -232,6 +238,9 @@ We have sent a confirmation email to your email please enter the link to complet
   </data>
   <data name="message_warning_login" xml:space="preserve">
     <value>Invalid username or password</value>
+  </data>
+  <data name="message_you_win" xml:space="preserve">
+    <value>Congratulations! You won the game</value>
   </data>
   <data name="multiplayer_games_won" xml:space="preserve">
     <value>Multiplayer Games Won</value>

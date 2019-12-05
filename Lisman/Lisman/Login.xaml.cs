@@ -163,12 +163,5 @@ namespace Lisman {
             return internetAvailable;
         }
 
-
-
-
-
-
-
-
     }
 }

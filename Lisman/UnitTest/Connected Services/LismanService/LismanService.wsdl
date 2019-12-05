@@ -1,0 +1,697 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="LismanService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsp:Policy wsu:Id="NetTcpBinding_IAccountManager_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <msb:BinaryEncoding xmlns:msb="http://schemas.microsoft.com/ws/06/2004/mspolicy/netbinary1" />
+        <wsaw:UsingAddressing />
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="NetTcpBinding_IGameManager_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <msb:BinaryEncoding xmlns:msb="http://schemas.microsoft.com/ws/06/2004/mspolicy/netbinary1" />
+        <wsaw:UsingAddressing />
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="NetTcpBinding_IChatManager_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <msb:BinaryEncoding xmlns:msb="http://schemas.microsoft.com/ws/06/2004/mspolicy/netbinary1" />
+        <wsaw:UsingAddressing />
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="NetTcpBinding_ILoginManager_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <msb:BinaryEncoding xmlns:msb="http://schemas.microsoft.com/ws/06/2004/mspolicy/netbinary1" />
+        <wsaw:UsingAddressing />
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="NetTcpBinding_IMultiplayerManager_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <msb:BinaryEncoding xmlns:msb="http://schemas.microsoft.com/ws/06/2004/mspolicy/netbinary1" />
+        <wsaw:UsingAddressing />
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="NetTcpBinding_IHeartBeat_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <msb:BinaryEncoding xmlns:msb="http://schemas.microsoft.com/ws/06/2004/mspolicy/netbinary1" />
+        <wsaw:UsingAddressing />
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://localhost:8081/?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost:8081/?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:8081/?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/LismanService" />
+      <xsd:import schemaLocation="http://localhost:8081/?xsd=xsd3" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IAccountManager_AddAccount_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddAccount" />
+  </wsdl:message>
+  <wsdl:message name="IAccountManager_AddAccount_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddAccountResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAccountManager_GetAccounts_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAccounts" />
+  </wsdl:message>
+  <wsdl:message name="IAccountManager_GetAccounts_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAccountsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAccountManager_GetAccountById_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAccountById" />
+  </wsdl:message>
+  <wsdl:message name="IAccountManager_GetAccountById_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAccountByIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAccountManager_GetRecords_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetRecords" />
+  </wsdl:message>
+  <wsdl:message name="IAccountManager_GetRecords_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetRecordsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IGameManager_CreateGame_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateGame" />
+  </wsdl:message>
+  <wsdl:message name="IGameManager_CreateGame_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateGameResponse" />
+  </wsdl:message>
+  <wsdl:message name="IGameManager_JoinGame_InputMessage">
+    <wsdl:part name="parameters" element="tns:JoinGame" />
+  </wsdl:message>
+  <wsdl:message name="IGameManager_JoinGame_OutputMessage">
+    <wsdl:part name="parameters" element="tns:JoinGameResponse" />
+  </wsdl:message>
+  <wsdl:message name="IGameManager_LeaveGame_InputMessage">
+    <wsdl:part name="parameters" element="tns:LeaveGame" />
+  </wsdl:message>
+  <wsdl:message name="IGameManager_LeaveGame_OutputMessage">
+    <wsdl:part name="parameters" element="tns:LeaveGameResponse" />
+  </wsdl:message>
+  <wsdl:message name="IChatManager_SendMessage_InputMessage">
+    <wsdl:part name="parameters" element="tns:SendMessage" />
+  </wsdl:message>
+  <wsdl:message name="IChatManager_JoinChat_InputMessage">
+    <wsdl:part name="parameters" element="tns:JoinChat" />
+  </wsdl:message>
+  <wsdl:message name="IChatManager_LeaveChat_InputMessage">
+    <wsdl:part name="parameters" element="tns:LeaveChat" />
+  </wsdl:message>
+  <wsdl:message name="IChatManager_StartGame_InputMessage">
+    <wsdl:part name="parameters" element="tns:StartGame" />
+  </wsdl:message>
+  <wsdl:message name="IChatManager_NotifyMessage_OutputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:NotifyMessage" />
+  </wsdl:message>
+  <wsdl:message name="IChatManager_NotifyJoinedPlayer_OutputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:NotifyJoinedPlayer" />
+  </wsdl:message>
+  <wsdl:message name="IChatManager_NotifyNumberPlayers_OutputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:NotifyNumberPlayers" />
+  </wsdl:message>
+  <wsdl:message name="IChatManager_NotifyLeftPlayer_OutputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:NotifyLeftPlayer" />
+  </wsdl:message>
+  <wsdl:message name="IChatManager_InitGame_OutputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:InitGame" />
+  </wsdl:message>
+  <wsdl:message name="ILoginManager_LoginAccount_InputMessage">
+    <wsdl:part name="parameters" element="tns:LoginAccount" />
+  </wsdl:message>
+  <wsdl:message name="ILoginManager_LoginAccount_OutputMessage">
+    <wsdl:part name="parameters" element="tns:LoginAccountResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILoginManager_LogoutAccount_InputMessage">
+    <wsdl:part name="parameters" element="tns:LogoutAccount" />
+  </wsdl:message>
+  <wsdl:message name="ILoginManager_LogoutAccount_OutputMessage">
+    <wsdl:part name="parameters" element="tns:LogoutAccountResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILoginManager_UserNameExists_InputMessage">
+    <wsdl:part name="parameters" element="tns:UserNameExists" />
+  </wsdl:message>
+  <wsdl:message name="ILoginManager_UserNameExists_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UserNameExistsResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILoginManager_EmailExists_InputMessage">
+    <wsdl:part name="parameters" element="tns:EmailExists" />
+  </wsdl:message>
+  <wsdl:message name="ILoginManager_EmailExists_OutputMessage">
+    <wsdl:part name="parameters" element="tns:EmailExistsResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILoginManager_UserInSession_InputMessage">
+    <wsdl:part name="parameters" element="tns:UserInSession" />
+  </wsdl:message>
+  <wsdl:message name="ILoginManager_UserInSession_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UserInSessionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMultiplayerManager_JoinMultiplayerGame_InputMessage">
+    <wsdl:part name="parameters" element="tns:JoinMultiplayerGame" />
+  </wsdl:message>
+  <wsdl:message name="IMultiplayerManager_MoveLisman_InputMessage">
+    <wsdl:part name="parameters" element="tns:MoveLisman" />
+  </wsdl:message>
+  <wsdl:message name="IMultiplayerManager_RemovePower_InputMessage">
+    <wsdl:part name="parameters" element="tns:RemovePower" />
+  </wsdl:message>
+  <wsdl:message name="IMultiplayerManager_ExitGame_InputMessage">
+    <wsdl:part name="parameters" element="tns:ExitGame" />
+  </wsdl:message>
+  <wsdl:message name="IMultiplayerManager_Reconntection_InputMessage">
+    <wsdl:part name="parameters" element="tns:Reconntection" />
+  </wsdl:message>
+  <wsdl:message name="IMultiplayerManager_PrintInformationPlayers_OutputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:PrintInformationPlayers" />
+  </wsdl:message>
+  <wsdl:message name="IMultiplayerManager_NotifyColorPlayer_OutputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:NotifyColorPlayer" />
+  </wsdl:message>
+  <wsdl:message name="IMultiplayerManager_NotifyLismanMoved_OutputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:NotifyLismanMoved" />
+  </wsdl:message>
+  <wsdl:message name="IMultiplayerManager_NotifyDisappearedPowerPill_OutputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:NotifyDisappearedPowerPill" />
+  </wsdl:message>
+  <wsdl:message name="IMultiplayerManager_NotifyUpdateScore_OutputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:NotifyUpdateScore" />
+  </wsdl:message>
+  <wsdl:message name="IMultiplayerManager_NotifyUpdateLifes_OutputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:NotifyUpdateLifes" />
+  </wsdl:message>
+  <wsdl:message name="IMultiplayerManager_NotifyPlayerIsDead_OutputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:NotifyPlayerIsDead" />
+  </wsdl:message>
+  <wsdl:message name="IMultiplayerManager_ReturnLismanToInitialPosition_OutputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:ReturnLismanToInitialPosition" />
+  </wsdl:message>
+  <wsdl:message name="IMultiplayerManager_UpdateLismanSpeed_OutputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:UpdateLismanSpeed" />
+  </wsdl:message>
+  <wsdl:message name="IMultiplayerManager_NotifyEndGame_OutputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:NotifyEndGame" />
+  </wsdl:message>
+  <wsdl:message name="IMultiplayerManager_NotifyLismanLeaveGame_OutputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:NotifyLismanLeaveGame" />
+  </wsdl:message>
+  <wsdl:message name="IHeartBeat_NewLogin_InputMessage">
+    <wsdl:part name="parameters" element="tns:NewLogin" />
+  </wsdl:message>
+  <wsdl:message name="IHeartBeat_ImLive_InputMessage">
+    <wsdl:part name="parameters" element="tns:ImLive" />
+  </wsdl:message>
+  <wsdl:message name="IHeartBeat_NotifyOk_OutputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:NotifyOk" />
+  </wsdl:message>
+  <wsdl:portType name="IAccountManager">
+    <wsdl:operation name="AddAccount">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAccountManager/AddAccount" message="tns:IAccountManager_AddAccount_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAccountManager/AddAccountResponse" message="tns:IAccountManager_AddAccount_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAccounts">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAccountManager/GetAccounts" message="tns:IAccountManager_GetAccounts_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAccountManager/GetAccountsResponse" message="tns:IAccountManager_GetAccounts_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAccountById">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAccountManager/GetAccountById" message="tns:IAccountManager_GetAccountById_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAccountManager/GetAccountByIdResponse" message="tns:IAccountManager_GetAccountById_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetRecords">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAccountManager/GetRecords" message="tns:IAccountManager_GetRecords_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAccountManager/GetRecordsResponse" message="tns:IAccountManager_GetRecords_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="IGameManager">
+    <wsdl:operation name="CreateGame">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGameManager/CreateGame" message="tns:IGameManager_CreateGame_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IGameManager/CreateGameResponse" message="tns:IGameManager_CreateGame_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="JoinGame">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGameManager/JoinGame" message="tns:IGameManager_JoinGame_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IGameManager/JoinGameResponse" message="tns:IGameManager_JoinGame_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="LeaveGame">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGameManager/LeaveGame" message="tns:IGameManager_LeaveGame_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IGameManager/LeaveGameResponse" message="tns:IGameManager_LeaveGame_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="IChatManager">
+    <wsdl:operation name="SendMessage">
+      <wsdl:input wsaw:Action="http://tempuri.org/IChatManager/SendMessage" message="tns:IChatManager_SendMessage_InputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="JoinChat">
+      <wsdl:input wsaw:Action="http://tempuri.org/IChatManager/JoinChat" message="tns:IChatManager_JoinChat_InputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="LeaveChat">
+      <wsdl:input wsaw:Action="http://tempuri.org/IChatManager/LeaveChat" message="tns:IChatManager_LeaveChat_InputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="StartGame">
+      <wsdl:input wsaw:Action="http://tempuri.org/IChatManager/StartGame" message="tns:IChatManager_StartGame_InputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="NotifyMessage">
+      <wsdl:output wsaw:Action="http://tempuri.org/IChatManager/NotifyMessage" message="tns:IChatManager_NotifyMessage_OutputCallbackMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="NotifyJoinedPlayer">
+      <wsdl:output wsaw:Action="http://tempuri.org/IChatManager/NotifyJoinedPlayer" message="tns:IChatManager_NotifyJoinedPlayer_OutputCallbackMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="NotifyNumberPlayers">
+      <wsdl:output wsaw:Action="http://tempuri.org/IChatManager/NotifyNumberPlayers" message="tns:IChatManager_NotifyNumberPlayers_OutputCallbackMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="NotifyLeftPlayer">
+      <wsdl:output wsaw:Action="http://tempuri.org/IChatManager/NotifyLeftPlayer" message="tns:IChatManager_NotifyLeftPlayer_OutputCallbackMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="InitGame">
+      <wsdl:output wsaw:Action="http://tempuri.org/IChatManager/InitGame" message="tns:IChatManager_InitGame_OutputCallbackMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="ILoginManager">
+    <wsdl:operation name="LoginAccount">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILoginManager/LoginAccount" message="tns:ILoginManager_LoginAccount_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILoginManager/LoginAccountResponse" message="tns:ILoginManager_LoginAccount_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="LogoutAccount">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILoginManager/LogoutAccount" message="tns:ILoginManager_LogoutAccount_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILoginManager/LogoutAccountResponse" message="tns:ILoginManager_LogoutAccount_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UserNameExists">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILoginManager/UserNameExists" message="tns:ILoginManager_UserNameExists_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILoginManager/UserNameExistsResponse" message="tns:ILoginManager_UserNameExists_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="EmailExists">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILoginManager/EmailExists" message="tns:ILoginManager_EmailExists_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILoginManager/EmailExistsResponse" message="tns:ILoginManager_EmailExists_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UserInSession">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILoginManager/UserInSession" message="tns:ILoginManager_UserInSession_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILoginManager/UserInSessionResponse" message="tns:ILoginManager_UserInSession_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="IMultiplayerManager">
+    <wsdl:operation name="JoinMultiplayerGame">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMultiplayerManager/JoinMultiplayerGame" message="tns:IMultiplayerManager_JoinMultiplayerGame_InputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="MoveLisman">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMultiplayerManager/MoveLisman" message="tns:IMultiplayerManager_MoveLisman_InputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RemovePower">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMultiplayerManager/RemovePower" message="tns:IMultiplayerManager_RemovePower_InputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ExitGame">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMultiplayerManager/ExitGame" message="tns:IMultiplayerManager_ExitGame_InputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Reconntection">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMultiplayerManager/Reconntection" message="tns:IMultiplayerManager_Reconntection_InputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="PrintInformationPlayers">
+      <wsdl:output wsaw:Action="http://tempuri.org/IMultiplayerManager/PrintInformationPlayers" message="tns:IMultiplayerManager_PrintInformationPlayers_OutputCallbackMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="NotifyColorPlayer">
+      <wsdl:output wsaw:Action="http://tempuri.org/IMultiplayerManager/NotifyColorPlayer" message="tns:IMultiplayerManager_NotifyColorPlayer_OutputCallbackMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="NotifyLismanMoved">
+      <wsdl:output wsaw:Action="http://tempuri.org/IMultiplayerManager/NotifyLismanMoved" message="tns:IMultiplayerManager_NotifyLismanMoved_OutputCallbackMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="NotifyDisappearedPowerPill">
+      <wsdl:output wsaw:Action="http://tempuri.org/IMultiplayerManager/NotifyDisappearedPowerPill" message="tns:IMultiplayerManager_NotifyDisappearedPowerPill_OutputCallbackMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="NotifyUpdateScore">
+      <wsdl:output wsaw:Action="http://tempuri.org/IMultiplayerManager/NotifyUpdateScore" message="tns:IMultiplayerManager_NotifyUpdateScore_OutputCallbackMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="NotifyUpdateLifes">
+      <wsdl:output wsaw:Action="http://tempuri.org/IMultiplayerManager/NotifyUpdateLifes" message="tns:IMultiplayerManager_NotifyUpdateLifes_OutputCallbackMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="NotifyPlayerIsDead">
+      <wsdl:output wsaw:Action="http://tempuri.org/IMultiplayerManager/NotifyPlayerIsDead" message="tns:IMultiplayerManager_NotifyPlayerIsDead_OutputCallbackMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ReturnLismanToInitialPosition">
+      <wsdl:output wsaw:Action="http://tempuri.org/IMultiplayerManager/ReturnLismanToInitialPosition" message="tns:IMultiplayerManager_ReturnLismanToInitialPosition_OutputCallbackMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateLismanSpeed">
+      <wsdl:output wsaw:Action="http://tempuri.org/IMultiplayerManager/UpdateLismanSpeed" message="tns:IMultiplayerManager_UpdateLismanSpeed_OutputCallbackMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="NotifyEndGame">
+      <wsdl:output wsaw:Action="http://tempuri.org/IMultiplayerManager/NotifyEndGame" message="tns:IMultiplayerManager_NotifyEndGame_OutputCallbackMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="NotifyLismanLeaveGame">
+      <wsdl:output wsaw:Action="http://tempuri.org/IMultiplayerManager/NotifyLismanLeaveGame" message="tns:IMultiplayerManager_NotifyLismanLeaveGame_OutputCallbackMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="IHeartBeat">
+    <wsdl:operation name="NewLogin">
+      <wsdl:input wsaw:Action="http://tempuri.org/IHeartBeat/NewLogin" message="tns:IHeartBeat_NewLogin_InputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ImLive">
+      <wsdl:input wsaw:Action="http://tempuri.org/IHeartBeat/ImLive" message="tns:IHeartBeat_ImLive_InputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="NotifyOk">
+      <wsdl:output wsaw:Action="http://tempuri.org/IHeartBeat/NotifyOk" message="tns:IHeartBeat_NotifyOk_OutputCallbackMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="NetTcpBinding_IAccountManager" type="tns:IAccountManager">
+    <wsp:PolicyReference URI="#NetTcpBinding_IAccountManager_policy" />
+    <soap12:binding transport="http://schemas.microsoft.com/soap/tcp" />
+    <wsdl:operation name="AddAccount">
+      <soap12:operation soapAction="http://tempuri.org/IAccountManager/AddAccount" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAccounts">
+      <soap12:operation soapAction="http://tempuri.org/IAccountManager/GetAccounts" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAccountById">
+      <soap12:operation soapAction="http://tempuri.org/IAccountManager/GetAccountById" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRecords">
+      <soap12:operation soapAction="http://tempuri.org/IAccountManager/GetRecords" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="NetTcpBinding_IGameManager" type="tns:IGameManager">
+    <wsp:PolicyReference URI="#NetTcpBinding_IGameManager_policy" />
+    <soap12:binding transport="http://schemas.microsoft.com/soap/tcp" />
+    <wsdl:operation name="CreateGame">
+      <soap12:operation soapAction="http://tempuri.org/IGameManager/CreateGame" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="JoinGame">
+      <soap12:operation soapAction="http://tempuri.org/IGameManager/JoinGame" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LeaveGame">
+      <soap12:operation soapAction="http://tempuri.org/IGameManager/LeaveGame" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="NetTcpBinding_IChatManager" type="tns:IChatManager">
+    <wsp:PolicyReference URI="#NetTcpBinding_IChatManager_policy" />
+    <soap12:binding transport="http://schemas.microsoft.com/soap/tcp" />
+    <wsdl:operation name="SendMessage">
+      <soap12:operation soapAction="http://tempuri.org/IChatManager/SendMessage" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="JoinChat">
+      <soap12:operation soapAction="http://tempuri.org/IChatManager/JoinChat" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="LeaveChat">
+      <soap12:operation soapAction="http://tempuri.org/IChatManager/LeaveChat" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="StartGame">
+      <soap12:operation soapAction="http://tempuri.org/IChatManager/StartGame" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="NotifyMessage">
+      <soap12:operation soapAction="http://tempuri.org/IChatManager/NotifyMessage" style="document" />
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="NotifyJoinedPlayer">
+      <soap12:operation soapAction="http://tempuri.org/IChatManager/NotifyJoinedPlayer" style="document" />
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="NotifyNumberPlayers">
+      <soap12:operation soapAction="http://tempuri.org/IChatManager/NotifyNumberPlayers" style="document" />
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="NotifyLeftPlayer">
+      <soap12:operation soapAction="http://tempuri.org/IChatManager/NotifyLeftPlayer" style="document" />
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InitGame">
+      <soap12:operation soapAction="http://tempuri.org/IChatManager/InitGame" style="document" />
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="NetTcpBinding_ILoginManager" type="tns:ILoginManager">
+    <wsp:PolicyReference URI="#NetTcpBinding_ILoginManager_policy" />
+    <soap12:binding transport="http://schemas.microsoft.com/soap/tcp" />
+    <wsdl:operation name="LoginAccount">
+      <soap12:operation soapAction="http://tempuri.org/ILoginManager/LoginAccount" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LogoutAccount">
+      <soap12:operation soapAction="http://tempuri.org/ILoginManager/LogoutAccount" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UserNameExists">
+      <soap12:operation soapAction="http://tempuri.org/ILoginManager/UserNameExists" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EmailExists">
+      <soap12:operation soapAction="http://tempuri.org/ILoginManager/EmailExists" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UserInSession">
+      <soap12:operation soapAction="http://tempuri.org/ILoginManager/UserInSession" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="NetTcpBinding_IMultiplayerManager" type="tns:IMultiplayerManager">
+    <wsp:PolicyReference URI="#NetTcpBinding_IMultiplayerManager_policy" />
+    <soap12:binding transport="http://schemas.microsoft.com/soap/tcp" />
+    <wsdl:operation name="JoinMultiplayerGame">
+      <soap12:operation soapAction="http://tempuri.org/IMultiplayerManager/JoinMultiplayerGame" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="MoveLisman">
+      <soap12:operation soapAction="http://tempuri.org/IMultiplayerManager/MoveLisman" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="RemovePower">
+      <soap12:operation soapAction="http://tempuri.org/IMultiplayerManager/RemovePower" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="ExitGame">
+      <soap12:operation soapAction="http://tempuri.org/IMultiplayerManager/ExitGame" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="Reconntection">
+      <soap12:operation soapAction="http://tempuri.org/IMultiplayerManager/Reconntection" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="PrintInformationPlayers">
+      <soap12:operation soapAction="http://tempuri.org/IMultiplayerManager/PrintInformationPlayers" style="document" />
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="NotifyColorPlayer">
+      <soap12:operation soapAction="http://tempuri.org/IMultiplayerManager/NotifyColorPlayer" style="document" />
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="NotifyLismanMoved">
+      <soap12:operation soapAction="http://tempuri.org/IMultiplayerManager/NotifyLismanMoved" style="document" />
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="NotifyDisappearedPowerPill">
+      <soap12:operation soapAction="http://tempuri.org/IMultiplayerManager/NotifyDisappearedPowerPill" style="document" />
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="NotifyUpdateScore">
+      <soap12:operation soapAction="http://tempuri.org/IMultiplayerManager/NotifyUpdateScore" style="document" />
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="NotifyUpdateLifes">
+      <soap12:operation soapAction="http://tempuri.org/IMultiplayerManager/NotifyUpdateLifes" style="document" />
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="NotifyPlayerIsDead">
+      <soap12:operation soapAction="http://tempuri.org/IMultiplayerManager/NotifyPlayerIsDead" style="document" />
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReturnLismanToInitialPosition">
+      <soap12:operation soapAction="http://tempuri.org/IMultiplayerManager/ReturnLismanToInitialPosition" style="document" />
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateLismanSpeed">
+      <soap12:operation soapAction="http://tempuri.org/IMultiplayerManager/UpdateLismanSpeed" style="document" />
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="NotifyEndGame">
+      <soap12:operation soapAction="http://tempuri.org/IMultiplayerManager/NotifyEndGame" style="document" />
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="NotifyLismanLeaveGame">
+      <soap12:operation soapAction="http://tempuri.org/IMultiplayerManager/NotifyLismanLeaveGame" style="document" />
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="NetTcpBinding_IHeartBeat" type="tns:IHeartBeat">
+    <wsp:PolicyReference URI="#NetTcpBinding_IHeartBeat_policy" />
+    <soap12:binding transport="http://schemas.microsoft.com/soap/tcp" />
+    <wsdl:operation name="NewLogin">
+      <soap12:operation soapAction="http://tempuri.org/IHeartBeat/NewLogin" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="ImLive">
+      <soap12:operation soapAction="http://tempuri.org/IHeartBeat/ImLive" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="NotifyOk">
+      <soap12:operation soapAction="http://tempuri.org/IHeartBeat/NotifyOk" style="document" />
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="LismanService">
+    <wsdl:port name="NetTcpBinding_IAccountManager" binding="tns:NetTcpBinding_IAccountManager">
+      <soap12:address location="net.tcp://localhost:8091/CalculatorService" />
+      <wsa10:EndpointReference>
+        <wsa10:Address>net.tcp://localhost:8091/CalculatorService</wsa10:Address>
+      </wsa10:EndpointReference>
+    </wsdl:port>
+    <wsdl:port name="NetTcpBinding_IGameManager" binding="tns:NetTcpBinding_IGameManager">
+      <soap12:address location="net.tcp://localhost:8091/CalculatorService" />
+      <wsa10:EndpointReference>
+        <wsa10:Address>net.tcp://localhost:8091/CalculatorService</wsa10:Address>
+      </wsa10:EndpointReference>
+    </wsdl:port>
+    <wsdl:port name="NetTcpBinding_IChatManager" binding="tns:NetTcpBinding_IChatManager">
+      <soap12:address location="net.tcp://localhost:8091/CalculatorService" />
+      <wsa10:EndpointReference>
+        <wsa10:Address>net.tcp://localhost:8091/CalculatorService</wsa10:Address>
+      </wsa10:EndpointReference>
+    </wsdl:port>
+    <wsdl:port name="NetTcpBinding_ILoginManager" binding="tns:NetTcpBinding_ILoginManager">
+      <soap12:address location="net.tcp://localhost:8091/CalculatorService" />
+      <wsa10:EndpointReference>
+        <wsa10:Address>net.tcp://localhost:8091/CalculatorService</wsa10:Address>
+      </wsa10:EndpointReference>
+    </wsdl:port>
+    <wsdl:port name="NetTcpBinding_IMultiplayerManager" binding="tns:NetTcpBinding_IMultiplayerManager">
+      <soap12:address location="net.tcp://localhost:8091/CalculatorService" />
+      <wsa10:EndpointReference>
+        <wsa10:Address>net.tcp://localhost:8091/CalculatorService</wsa10:Address>
+      </wsa10:EndpointReference>
+    </wsdl:port>
+    <wsdl:port name="NetTcpBinding_IHeartBeat" binding="tns:NetTcpBinding_IHeartBeat">
+      <soap12:address location="net.tcp://localhost:8091/CalculatorService" />
+      <wsa10:EndpointReference>
+        <wsa10:Address>net.tcp://localhost:8091/CalculatorService</wsa10:Address>
+      </wsa10:EndpointReference>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

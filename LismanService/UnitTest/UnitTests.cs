@@ -12,13 +12,13 @@ namespace UnitTest
         int idGame = 0;
 
         [TestInitialize]
-        public void testInit()
+        public void TestInit()
         {
             testChatManagerCallback = new TestChatManagerCallback();
-            lismanService = new LismanService.LismanService(() => testChatManagerCallback);
-            lismanService.InsertGameTest(1);
+            lismanService = new LismanService.LismanService(() => testChatManagerCallback);            
             this.user = "gume";
             this.idGame = 1;
+            lismanService.InitializeTest();
 
 
         }
@@ -75,6 +75,7 @@ namespace UnitTest
         {
             int expected = 1;
             int result = lismanService.LogoutAccount(user);
+            
 
             Assert.AreEqual(expected, result);
 
@@ -97,6 +98,87 @@ namespace UnitTest
             Assert.AreEqual(expected, result);
 
         }
+
+        [TestMethod]
+        public void TestGetValueBox()
+        {
+            int result = lismanService.GetValueBox(1,1,5);
+            int expected = 1;
+            Assert.AreEqual(expected,result);
+        }
+
+        [TestMethod]
+
+        public void TestUpdateScore()
+        {
+            int result = lismanService.UpdateScore(idGame, 3, 100);
+            int expected = 100;
+            Assert.AreEqual(expected, result);
+        }
+
+        [TestMethod]
+        public void TestUpdateSubstractLifes()
+        {
+            int result = lismanService.UpdateSubtractLifes(idGame, 4);
+            int expected = 1;
+            Assert.AreEqual(expected, result);
+        }
+
+        [TestMethod]
+        public void TestGameWillEnd()
+        {
+            bool result = lismanService.GameWillEnd(idGame);
+            bool expected = false;
+            Assert.AreEqual(expected, result);
+        }
+
+        [TestMethod]
+        public void TestPlayerWillDead()
+        {
+            bool result = lismanService.PlayerWillDead(idGame, 3);
+            bool expected = true;
+            Assert.AreEqual(expected,result);
+        }
+
+        [TestMethod]
+        public void TestPlayerWontDead()
+        {
+            bool result = lismanService.PlayerWillDead(idGame, 4);
+            bool expected = false;
+            Assert.AreEqual(expected, result);
+        }
+
+        [TestMethod]
+        public void TestGetColorLismanByUser()
+        {
+            int colorLisman = lismanService.GetColorLismanByUser(idGame,"Alan");
+            int expected = 3;
+            Assert.AreEqual(colorLisman, expected);
+        }
+
+        [TestMethod]
+
+        public void TestGetInitialPositionLisman()
+        {
+            int[] result = lismanService.GetInitialPositionsLisman(4);
+            int[] expected = new int[2] { 22, 1 };
+            Assert.AreEqual(expected[0], result[0]);          
+
+        }
+
+        [TestMethod]
+
+        public void TestAssignColorPlayer()
+        {
+            bool result = lismanService.AssignColorPlayer(2, "victor");
+            bool expected = true;
+            Assert.AreEqual(expected, result);
+        }
+
+
+
+
+        
 
 
 

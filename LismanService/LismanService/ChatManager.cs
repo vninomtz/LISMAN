@@ -174,7 +174,7 @@ namespace LismanService {
         }
 
        
-        private bool AssignColorPlayer(int idgame, String user)
+        public bool AssignColorPlayer(int idgame, String user)
         {
             InformationPlayer infoPlayer = new InformationPlayer();
             int index = listGamesOnline[idgame].FindIndex(u => u == user);
@@ -214,21 +214,7 @@ namespace LismanService {
             return result;
         }
 
-        public void InsertGameTest(int idGame)
-        {
-            List<String> playersList = new List<string>();            
-            playersList.Add("victor");
-            playersList.Add("Alan");
-            playersList.Add("Pepe");
-
-            connectionChatService.Add("victor", null);
-            connectionChatService.Add("Alan", null);
-            connectionChatService.Add("Pepe", null);
-
-            logginsConnections.Add("Alan", null);
-
-            listGamesOnline.Add(idGame, playersList);
-        }
+        
 
 
 

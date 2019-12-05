@@ -368,6 +368,24 @@ namespace Lisman.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to You have left the game.
+        /// </summary>
+        public static string message_lisman_left_game {
+            get {
+                return ResourceManager.GetString("message_lisman_left_game", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to You have lost the game.
+        /// </summary>
+        public static string message_lose_game {
+            get {
+                return ResourceManager.GetString("message_lose_game", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to No games available.
         /// </summary>
         public static string message_nogames_found {
@@ -401,6 +419,15 @@ namespace Lisman.Properties {
         public static string message_warning_login {
             get {
                 return ResourceManager.GetString("message_warning_login", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Congratulations! You won the game.
+        /// </summary>
+        public static string message_you_win {
+            get {
+                return ResourceManager.GetString("message_you_win", resourceCulture);
             }
         }
         

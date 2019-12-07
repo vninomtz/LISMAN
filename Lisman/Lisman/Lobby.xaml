@@ -22,10 +22,6 @@
           Style="{StaticResource MaterialDesignCircularProgressBar}"
           Value="35"
           IsIndeterminate="True" Width="Auto" Height="Auto" Margin="112,176,511,93"   />
-        <Button
-                Style="{StaticResource MaterialDesignFlatButton}" Content="{x:Static p:Resources.go_back}"
-                ToolTip="MaterialDesignFlatButton" VerticalAlignment="Top" HorizontalAlignment="Left" 
-            Height="27" Click="Button_Click_Cancel" Width="84" />
 
         <Button
             x:Name="btn_exitGame"

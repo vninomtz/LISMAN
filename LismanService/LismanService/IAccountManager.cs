@@ -33,7 +33,7 @@ namespace LismanService {
         bool EmailExists(String emailAdress);
 
         [OperationContract]
-        bool UserInSession(String username);
+        bool UserInSession(String userName);
 
     }
 

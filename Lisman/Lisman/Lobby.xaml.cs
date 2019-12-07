@@ -33,13 +33,6 @@ namespace Lisman {
             
         }
 
-        private void Button_Click_Cancel(object sender, RoutedEventArgs e)
-        {
-            MultiplayerHome homeMultiplayer = new MultiplayerHome();
-            homeMultiplayer.Show();
-            this.Close();
-        }
-
         private void btn_exitGame_Click(object sender, RoutedEventArgs e) {
             MultiplayerHome homeMultiplayer = new MultiplayerHome();
             LismanService.GameManagerClient clientGame = new LismanService.GameManagerClient();

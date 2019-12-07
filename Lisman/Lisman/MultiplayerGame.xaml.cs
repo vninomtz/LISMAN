@@ -9,7 +9,6 @@ using System.Windows.Threading;
 using System.ServiceModel;
 using Lisman.LismanService;
 using WpfAnimatedGif;
-using System.Threading;
 
 namespace Lisman {
     /// <summary>
@@ -115,7 +114,6 @@ namespace Lisman {
             }
             catch (Exception ex)
             {
-                //MessageBox.Show(Properties.Resources.server_connection_error);
                 ConnectionStatus.Text = "Diconnected";
                 Logger.log.Error(ex);
 

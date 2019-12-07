@@ -884,10 +884,10 @@ namespace Lisman.LismanService {
     public interface IChatManager {
         
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IChatManager/SendMessage")]
-        void SendMessage(Lisman.LismanService.Message message, int Game);
+        void SendMessage(Lisman.LismanService.Message message, int idgame);
         
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IChatManager/SendMessage")]
-        System.Threading.Tasks.Task SendMessageAsync(Lisman.LismanService.Message message, int Game);
+        System.Threading.Tasks.Task SendMessageAsync(Lisman.LismanService.Message message, int idgame);
         
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IChatManager/JoinChat")]
         void JoinChat(string user, int idgame);
@@ -955,12 +955,12 @@ namespace Lisman.LismanService {
                 base(callbackInstance, binding, remoteAddress) {
         }
         
-        public void SendMessage(Lisman.LismanService.Message message, int Game) {
-            base.Channel.SendMessage(message, Game);
+        public void SendMessage(Lisman.LismanService.Message message, int idgame) {
+            base.Channel.SendMessage(message, idgame);
         }
         
-        public System.Threading.Tasks.Task SendMessageAsync(Lisman.LismanService.Message message, int Game) {
-            return base.Channel.SendMessageAsync(message, Game);
+        public System.Threading.Tasks.Task SendMessageAsync(Lisman.LismanService.Message message, int idgame) {
+            return base.Channel.SendMessageAsync(message, idgame);
         }
         
         public void JoinChat(string user, int idgame) {
@@ -1017,10 +1017,10 @@ namespace Lisman.LismanService {
         System.Threading.Tasks.Task<bool> EmailExistsAsync(string emailAdress);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILoginManager/UserInSession", ReplyAction="http://tempuri.org/ILoginManager/UserInSessionResponse")]
-        bool UserInSession(string username);
+        bool UserInSession(string userName);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILoginManager/UserInSession", ReplyAction="http://tempuri.org/ILoginManager/UserInSessionResponse")]
-        System.Threading.Tasks.Task<bool> UserInSessionAsync(string username);
+        System.Threading.Tasks.Task<bool> UserInSessionAsync(string userName);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -1082,12 +1082,12 @@ namespace Lisman.LismanService {
             return base.Channel.EmailExistsAsync(emailAdress);
         }
         
-        public bool UserInSession(string username) {
-            return base.Channel.UserInSession(username);
+        public bool UserInSession(string userName) {
+            return base.Channel.UserInSession(userName);
         }
         
-        public System.Threading.Tasks.Task<bool> UserInSessionAsync(string username) {
-            return base.Channel.UserInSessionAsync(username);
+        public System.Threading.Tasks.Task<bool> UserInSessionAsync(string userName) {
+            return base.Channel.UserInSessionAsync(userName);
         }
     }
     
@@ -1243,10 +1243,10 @@ namespace Lisman.LismanService {
         System.Threading.Tasks.Task NewLoginAsync(string username);
         
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IHeartBeat/ImLive")]
-        void ImLive(string usernam);
+        void ImLive(string username);
         
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IHeartBeat/ImLive")]
-        System.Threading.Tasks.Task ImLiveAsync(string usernam);
+        System.Threading.Tasks.Task ImLiveAsync(string username);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -1292,12 +1292,12 @@ namespace Lisman.LismanService {
             return base.Channel.NewLoginAsync(username);
         }
         
-        public void ImLive(string usernam) {
-            base.Channel.ImLive(usernam);
+        public void ImLive(string username) {
+            base.Channel.ImLive(username);
         }
         
-        public System.Threading.Tasks.Task ImLiveAsync(string usernam) {
-            return base.Channel.ImLiveAsync(usernam);
+        public System.Threading.Tasks.Task ImLiveAsync(string username) {
+            return base.Channel.ImLiveAsync(username);
         }
     }
 }

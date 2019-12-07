@@ -1,103 +1,91 @@
-ò
+Ä	
 ‹C:\Users\Vik-t\Documents\Software Engineering\5to Semestre\TecnologÃ­as para la ConstrucciÃ³n\Proyecto\LISMAN\LismanService\Host\Program.cs
-	namespace 	
-Host
+	namespace 	
+Host
  
-{ 
-class		 	
-Program		
- 
-{		 
-static
+{ 
+public 
+
+static 
+class 
+Program 
+{  !
+static 
+void 
+Main 
+( 
+string 
+[  
+]  !
+args" &
+)& '
+{ 	
+using 
+( 
+ServiceHost 
+host "
+=# $
+new% (
+ServiceHost) 4
+(4 5
+typeof5 ;
+(; <
+LismanService< I
+.I J
+LismanServiceJ W
+)W X
+)X Y
+)Y Z
+{Z [
+host		 
+.		 
+Open		 
+(		 
+)		 
+;		 
+Console
 
- 
-void
+ 
+.
 
- 
-Main
+ 
+	WriteLine
 
- 
+ !
 (
 
- 
-string
+! "
+$str
 
- 
-[
+" 8
++
 
-  
-]
+9 :
+DateTime
 
-  !
-args
+; C
+.
 
-" &
+C D
+Now
+
+D G
 )
 
-& '
-{ 	
-using 
-( 
-ServiceHost 
-host "
-=# $
-new% (
-ServiceHost) 4
-(4 5
-typeof5 ;
-(; <
-LismanService< I
-.I J
-LismanServiceJ W
-)W X
-)X Y
-)Y Z
-{Z [
-LismanService 
-. 
-LismanService +
-service, 3
-=4 5
-new6 9
-LismanService: G
-.G H
-LismanServiceH U
-(U V
-)V W
-;W X
-service 
-. 
-ReadMapGame #
-(# $
-)$ %
-;% &
-host 
-. 
-Open 
-( 
-) 
-; 
-Console 
-. 
-	WriteLine !
-(! "
-$str" 8
-+9 :
-DateTime; C
-.C D
-NowD G
-)G H
-;H I
-Console 
-. 
-ReadKey 
-(  
-)  !
-;! "
-} 
-} 	
-} 
-} Ç
+G H
+;
+
+H I
+Console 
+. 
+ReadKey 
+(  
+)  !
+;! "
+} 
+} 	
+} 
+} Ç
 ›C:\Users\Vik-t\Documents\Software Engineering\5to Semestre\TecnologÃ­as para la ConstrucciÃ³n\Proyecto\LISMAN\LismanService\Host\Properties\AssemblyInfo.cs
 [ 
 assembly 	

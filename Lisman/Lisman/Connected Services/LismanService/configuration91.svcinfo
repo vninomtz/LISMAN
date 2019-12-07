@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<SavedWcfConfigurationInformation xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Version="9.1" CheckSum="qVF8aR48XBbuZPJF61dirxTWXeA=">
+<SavedWcfConfigurationInformation xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Version="9.1" CheckSum="1bFxMPltY5GEqkbFqEvV83/46A8=">
   <bindingConfigurations>
     <bindingConfiguration bindingType="netTcpBinding" name="NetTcpBinding_IAccountManager1">
       <properties>
@@ -711,10 +711,10 @@
     </bindingConfiguration>
   </bindingConfigurations>
   <endpoints>
-    <endpoint name="NetTcpBinding_IAccountManager1" contract="LismanService.IAccountManager" bindingType="netTcpBinding" address="net.tcp://192.168.43.196:8091/CalculatorService" bindingConfiguration="NetTcpBinding_IAccountManager1">
+    <endpoint name="NetTcpBinding_IAccountManager" contract="LismanService.IAccountManager" bindingType="netTcpBinding" address="net.tcp://localhost:8091/CalculatorService" bindingConfiguration="NetTcpBinding_IAccountManager1">
       <properties>
         <property path="/address" isComplexType="false" isExplicitlyDefined="true" clrType="System.Uri, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-          <serializedValue>net.tcp://192.168.43.196:8091/CalculatorService</serializedValue>
+          <serializedValue>net.tcp://localhost:8091/CalculatorService</serializedValue>
         </property>
         <property path="/behaviorConfiguration" isComplexType="false" isExplicitlyDefined="false" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue />
@@ -786,7 +786,7 @@
           <serializedValue>False</serializedValue>
         </property>
         <property path="/name" isComplexType="false" isExplicitlyDefined="true" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-          <serializedValue>NetTcpBinding_IAccountManager1</serializedValue>
+          <serializedValue>NetTcpBinding_IAccountManager</serializedValue>
         </property>
         <property path="/kind" isComplexType="false" isExplicitlyDefined="false" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue />
@@ -796,10 +796,10 @@
         </property>
       </properties>
     </endpoint>
-    <endpoint name="NetTcpBinding_IGameManager1" contract="LismanService.IGameManager" bindingType="netTcpBinding" address="net.tcp://192.168.43.196:8091/CalculatorService" bindingConfiguration="NetTcpBinding_IGameManager1">
+    <endpoint name="NetTcpBinding_IGameManager" contract="LismanService.IGameManager" bindingType="netTcpBinding" address="net.tcp://localhost:8091/CalculatorService" bindingConfiguration="NetTcpBinding_IGameManager1">
       <properties>
         <property path="/address" isComplexType="false" isExplicitlyDefined="true" clrType="System.Uri, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-          <serializedValue>net.tcp://192.168.43.196:8091/CalculatorService</serializedValue>
+          <serializedValue>net.tcp://localhost:8091/CalculatorService</serializedValue>
         </property>
         <property path="/behaviorConfiguration" isComplexType="false" isExplicitlyDefined="false" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue />
@@ -871,7 +871,7 @@
           <serializedValue>False</serializedValue>
         </property>
         <property path="/name" isComplexType="false" isExplicitlyDefined="true" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-          <serializedValue>NetTcpBinding_IGameManager1</serializedValue>
+          <serializedValue>NetTcpBinding_IGameManager</serializedValue>
         </property>
         <property path="/kind" isComplexType="false" isExplicitlyDefined="false" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue />
@@ -881,10 +881,10 @@
         </property>
       </properties>
     </endpoint>
-    <endpoint name="NetTcpBinding_IChatManager1" contract="LismanService.IChatManager" bindingType="netTcpBinding" address="net.tcp://192.168.43.196:8091/CalculatorService" bindingConfiguration="NetTcpBinding_IChatManager1">
+    <endpoint name="NetTcpBinding_IChatManager" contract="LismanService.IChatManager" bindingType="netTcpBinding" address="net.tcp://localhost:8091/CalculatorService" bindingConfiguration="NetTcpBinding_IChatManager1">
       <properties>
         <property path="/address" isComplexType="false" isExplicitlyDefined="true" clrType="System.Uri, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-          <serializedValue>net.tcp://192.168.43.196:8091/CalculatorService</serializedValue>
+          <serializedValue>net.tcp://localhost:8091/CalculatorService</serializedValue>
         </property>
         <property path="/behaviorConfiguration" isComplexType="false" isExplicitlyDefined="false" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue />
@@ -956,7 +956,7 @@
           <serializedValue>False</serializedValue>
         </property>
         <property path="/name" isComplexType="false" isExplicitlyDefined="true" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-          <serializedValue>NetTcpBinding_IChatManager1</serializedValue>
+          <serializedValue>NetTcpBinding_IChatManager</serializedValue>
         </property>
         <property path="/kind" isComplexType="false" isExplicitlyDefined="false" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue />
@@ -966,10 +966,10 @@
         </property>
       </properties>
     </endpoint>
-    <endpoint name="NetTcpBinding_ILoginManager1" contract="LismanService.ILoginManager" bindingType="netTcpBinding" address="net.tcp://192.168.43.196:8091/CalculatorService" bindingConfiguration="NetTcpBinding_ILoginManager1">
+    <endpoint name="NetTcpBinding_ILoginManager" contract="LismanService.ILoginManager" bindingType="netTcpBinding" address="net.tcp://localhost:8091/CalculatorService" bindingConfiguration="NetTcpBinding_ILoginManager1">
       <properties>
         <property path="/address" isComplexType="false" isExplicitlyDefined="true" clrType="System.Uri, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-          <serializedValue>net.tcp://192.168.43.196:8091/CalculatorService</serializedValue>
+          <serializedValue>net.tcp://localhost:8091/CalculatorService</serializedValue>
         </property>
         <property path="/behaviorConfiguration" isComplexType="false" isExplicitlyDefined="false" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue />
@@ -1041,7 +1041,7 @@
           <serializedValue>False</serializedValue>
         </property>
         <property path="/name" isComplexType="false" isExplicitlyDefined="true" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-          <serializedValue>NetTcpBinding_ILoginManager1</serializedValue>
+          <serializedValue>NetTcpBinding_ILoginManager</serializedValue>
         </property>
         <property path="/kind" isComplexType="false" isExplicitlyDefined="false" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue />
@@ -1051,10 +1051,10 @@
         </property>
       </properties>
     </endpoint>
-    <endpoint name="NetTcpBinding_IMultiplayerManager1" contract="LismanService.IMultiplayerManager" bindingType="netTcpBinding" address="net.tcp://192.168.43.196:8091/CalculatorService" bindingConfiguration="NetTcpBinding_IMultiplayerManager1">
+    <endpoint name="NetTcpBinding_IMultiplayerManager" contract="LismanService.IMultiplayerManager" bindingType="netTcpBinding" address="net.tcp://localhost:8091/CalculatorService" bindingConfiguration="NetTcpBinding_IMultiplayerManager1">
       <properties>
         <property path="/address" isComplexType="false" isExplicitlyDefined="true" clrType="System.Uri, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-          <serializedValue>net.tcp://192.168.43.196:8091/CalculatorService</serializedValue>
+          <serializedValue>net.tcp://localhost:8091/CalculatorService</serializedValue>
         </property>
         <property path="/behaviorConfiguration" isComplexType="false" isExplicitlyDefined="false" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue />
@@ -1126,7 +1126,7 @@
           <serializedValue>False</serializedValue>
         </property>
         <property path="/name" isComplexType="false" isExplicitlyDefined="true" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-          <serializedValue>NetTcpBinding_IMultiplayerManager1</serializedValue>
+          <serializedValue>NetTcpBinding_IMultiplayerManager</serializedValue>
         </property>
         <property path="/kind" isComplexType="false" isExplicitlyDefined="false" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue />
@@ -1136,10 +1136,10 @@
         </property>
       </properties>
     </endpoint>
-    <endpoint name="NetTcpBinding_IHeartBeat1" contract="LismanService.IHeartBeat" bindingType="netTcpBinding" address="net.tcp://192.168.43.196:8091/CalculatorService" bindingConfiguration="NetTcpBinding_IHeartBeat1">
+    <endpoint name="NetTcpBinding_IHeartBeat" contract="LismanService.IHeartBeat" bindingType="netTcpBinding" address="net.tcp://localhost:8091/CalculatorService" bindingConfiguration="NetTcpBinding_IHeartBeat1">
       <properties>
         <property path="/address" isComplexType="false" isExplicitlyDefined="true" clrType="System.Uri, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-          <serializedValue>net.tcp://192.168.43.196:8091/CalculatorService</serializedValue>
+          <serializedValue>net.tcp://localhost:8091/CalculatorService</serializedValue>
         </property>
         <property path="/behaviorConfiguration" isComplexType="false" isExplicitlyDefined="false" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue />
@@ -1211,7 +1211,7 @@
           <serializedValue>False</serializedValue>
         </property>
         <property path="/name" isComplexType="false" isExplicitlyDefined="true" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-          <serializedValue>NetTcpBinding_IHeartBeat1</serializedValue>
+          <serializedValue>NetTcpBinding_IHeartBeat</serializedValue>
         </property>
         <property path="/kind" isComplexType="false" isExplicitlyDefined="false" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue />

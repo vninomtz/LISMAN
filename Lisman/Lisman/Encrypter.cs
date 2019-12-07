@@ -7,7 +7,8 @@ namespace Lisman
 {
     static class Encrypter
     {
-        static readonly string PasswordHash = "P@@Sw0rd";
+        static String parentDirectory = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName;
+        static readonly string PasswordHash = GetHashPassword();
         static readonly string SaltKey = "S@LT&KEY";
         static readonly string VIKey = "@1B2c3D4e5F6g7H8";
         public static string Decrypt(string encryptedText)
@@ -39,6 +40,15 @@ namespace Lisman
                 return hashedInputStringBuilder.ToString();
             }
 
+        }
+        public static string GetHashPassword()
+        {
+            string password;
+            using (StreamReader sr = new StreamReader(parentDirectory + "/Resources/HashPassword.txt"))
+            {
+               password = sr.ReadLine();
+            }
+            return password;
         }
     }
 }

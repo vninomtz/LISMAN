@@ -7,7 +7,7 @@
   <HasBeginStepCommandLineCredentials>false</HasBeginStepCommandLineCredentials>
   <SonarQubeHostUrl>http://localhost:9000</SonarQubeHostUrl>
   <SonarQubeVersion>8.0.0.29455</SonarQubeVersion>
-  <SonarProjectKey>Lisman-v4</SonarProjectKey>
+  <SonarProjectKey>Lisman-v6</SonarProjectKey>
   <AdditionalConfig>
     <ConfigSetting Id="BuildUri" />
     <ConfigSetting Id="TfsUri" />
@@ -103,7 +103,7 @@
     <Property Name="sonar.java.collectAnalysisErrors">false</Property>
     <Property Name="sonar.updatecenter.url">https://update.sonarsource.org/update-center.properties</Property>
     <Property Name="sonar.core.id">BF41A1F2-AW484BYogo2YYPXroVx_</Property>
-    <Property Name="sonar.core.startTime">28/11/2019 10:55:17 a. m.</Property>
+    <Property Name="sonar.core.startTime">06/12/2019 06:52:09 p. m.</Property>
   </ServerSettings>
   <LocalSettings />
   <AnalyzersSettings>

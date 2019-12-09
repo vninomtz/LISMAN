@@ -19,6 +19,9 @@ namespace Lisman {
             this.Close();
         }
 
+        /// <summary>
+        /// Consulta a la base de datos la informacion de los jugadores para mostrarla en la tabla 
+        /// </summary>
         public void LoadTable()
         {
             using (var client = new LismanService.AccountManagerClient()) {

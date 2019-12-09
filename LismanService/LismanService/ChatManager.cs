@@ -15,8 +15,9 @@ namespace LismanService {
         {
             this.callbackChannel = callbackCreator ?? throw new ArgumentNullException("callbackCreator");
             
-        }      
+        }
 
+        public LismanService() { }
         
         /// <summary>
         /// Método que une a un jugador a un Chat
@@ -146,6 +147,7 @@ namespace LismanService {
                 
             }
             this.callbackChannel().InitGame();
+
 
 
 

@@ -1,6 +1,5 @@
 ù
-ëC:\Users\Vik-t\Documents\Software Engineering\5to Semestre\Tecnolog√≠as para la Construcci√≥n\Proyecto\LISMAN\LismanService\DataAccess\Account.csutf-8ö
-êC:\Users\Vik-t\Documents\Software Engineering\5to Semestre\Tecnolog√≠as para la Construcci√≥n\Proyecto\LISMAN\LismanService\DataAccess\Class1.csutf-8©
+ëC:\Users\Vik-t\Documents\Software Engineering\5to Semestre\Tecnolog√≠as para la Construcci√≥n\Proyecto\LISMAN\LismanService\DataAccess\Account.csutf-8©
 ùC:\Users\Vik-t\Documents\Software Engineering\5to Semestre\Tecnolog√≠as para la Construcci√≥n\Proyecto\LISMAN\LismanService\DataAccess\EntityModel.Context.csutf-8°
 ïC:\Users\Vik-t\Documents\Software Engineering\5to Semestre\Tecnolog√≠as para la Construcci√≥n\Proyecto\LISMAN\LismanService\DataAccess\EntityModel.csutf-8™
 ûC:\Users\Vik-t\Documents\Software Engineering\5to Semestre\Tecnolog√≠as para la Construcci√≥n\Proyecto\LISMAN\LismanService\DataAccess\EntityModel.Designer.csutf-8ö

@@ -1,5 +1,4 @@
-﻿using System.ServiceModel;
-
+﻿
 namespace Lisman {
     public class SingletonAccount {
         private static LismanService.Account account = null;

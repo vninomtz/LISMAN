@@ -80,9 +80,41 @@ namespace Lisman {
                      
         }
 
+
         /// <summary>
         /// Obtiene los campos ingresados por el usuario y valida con el servidor si son correctos o existe algún problema 
         /// </summary>
+
+        public void AccessManagement(LismanService.Account account)
+        {
+            switch (account.Id)
+            {
+                case 0:
+                    var messageWarningLogin = Properties.Resources.message_warning_login;
+                    MessageBox.Show(messageWarningLogin);
+                    Logger.log.Warn("Login Failed, user: " + textField_user.Text);
+                    break;
+                case -1:
+                    MessageBox.Show("Error en la conexión a la BD");
+                    break;
+                default:
+                    if (account.Key_confirmation == " ")
+                    {
+                        SingletonAccount.setSingletonAccount(account);
+                        MainMenu mainMenu = new MainMenu();
+                        mainMenu.Show();
+                        this.Close();
+                    }
+                    else
+                    {
+                        var messageAccountConfirm = Properties.Resources.message_account_confirm;
+                        MessageBox.Show(messageAccountConfirm);
+                    }
+                    break;
+            }
+        }
+
+
         public void LoginUser()
         {
             if (ValidateFields())
@@ -94,35 +126,11 @@ namespace Lisman {
                         try 
                         {
                             bool inSession = client.UserInSession(textField_user.Text);
-                            LismanService.Account account = client.LoginAccount(textField_user.Text, Encrypter.EncodePassword(passwordBox_password.Password));
+                            
                             if (!inSession) 
                             {
-                                switch (account.Id)
-                                {
-                                    case 0:
-                                        var messageWarningLogin = Properties.Resources.message_warning_login;
-                                        MessageBox.Show(messageWarningLogin);
-                                        Logger.log.Warn("Login Failed, user: " + textField_user.Text);
-                                        break;
-                                    case -1:
-                                        MessageBox.Show("Error en la conexión a la BD");
-                                        break;
-                                    default:
-                                        if (account.Key_confirmation == " ")
-                                        {
-                                            SingletonAccount.setSingletonAccount(account);
-                                            //SingletonConnection.CreateConnection();
-                                            MainMenu mainMenu = new MainMenu();
-                                            mainMenu.Show();
-                                            this.Close();
-                                        }
-                                        else
-                                        {
-                                            var messageAccountConfirm = Properties.Resources.message_account_confirm;
-                                            MessageBox.Show(messageAccountConfirm);
-                                        }
-                                        break;
-                                }
+                                LismanService.Account account = client.LoginAccount(textField_user.Text, Encrypter.EncodePassword(passwordBox_password.Password));
+                                AccessManagement(account);
                             }
                             else
                             {
@@ -159,10 +167,8 @@ namespace Lisman {
             try
             {
                 using (var client = new WebClient())
-                {                    
-                    using (client.OpenRead("http://google.com"))
-                    { 
-                    }
+                {
+                    client.OpenRead("http://google.com");
                 }
                 
             }

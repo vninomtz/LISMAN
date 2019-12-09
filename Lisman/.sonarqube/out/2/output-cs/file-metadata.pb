@@ -1,5 +1,6 @@
 µ
-©C:\Users\Vik-t\Documents\Software Engineering\5to Semestre\Tecnolog√≠as para la Construcci√≥n\Proyecto\LISMAN\Lisman\Lisman\Connected Services\LismanService\Reference.csutf-8ì
+©C:\Users\Vik-t\Documents\Software Engineering\5to Semestre\Tecnolog√≠as para la Construcci√≥n\Proyecto\LISMAN\Lisman\Lisman\Connected Services\LismanService\Reference.csutf-8í
+àC:\Users\Vik-t\Documents\Software Engineering\5to Semestre\Tecnolog√≠as para la Construcci√≥n\Proyecto\LISMAN\Lisman\Lisman\Encrypter.csutf-8ì
 âC:\Users\Vik-t\Documents\Software Engineering\5to Semestre\Tecnolog√≠as para la Construcci√≥n\Proyecto\LISMAN\Lisman\Lisman\Lobby.xaml.csutf-8è
 ÖC:\Users\Vik-t\Documents\Software Engineering\5to Semestre\Tecnolog√≠as para la Construcci√≥n\Proyecto\LISMAN\Lisman\Lisman\Logger.csutf-8ñ
 åC:\Users\Vik-t\Documents\Software Engineering\5to Semestre\Tecnolog√≠as para la Construcci√≥n\Proyecto\LISMAN\Lisman\Lisman\MainMenu.xaml.csutf-8ù

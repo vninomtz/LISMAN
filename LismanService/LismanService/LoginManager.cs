@@ -27,9 +27,9 @@ namespace LismanService {
             var newAccount = new Account();
             try {
                 using (var dataBase = new EntityModelContainer()) {
-                    int exists = dataBase.AccountSet.Where(u => u.User == user & u.Password == password).Count();
+                    int exists = dataBase.AccountSet.Where(u => u.User == user && u.Password == password).Count();
                     if (exists > 0) {
-                        newAccount = dataBase.AccountSet.Where(u => u.User == user & u.Password == password).Select(u => new Account
+                        newAccount = dataBase.AccountSet.Where(u => u.User == user && u.Password == password).Select(u => new Account
                         {
                             Id = u.Id,
                             User = u.User,
@@ -37,7 +37,7 @@ namespace LismanService {
                             Registration_date = u.Registration_date,
                             Key_confirmation = u.Key_confirmation
                         }).FirstOrDefault();
-                        if(newAccount != null) {
+                        if(newAccount.Id > 0) {
                             if (!logginsConnections.ContainsKey(user)) {
                                 logginsConnections.Add(user, null);
                             }

@@ -133,7 +133,8 @@ namespace LismanService {
 
 
 
-            //ReadMapGame();
+
+            ReadMapGame();
            try
             {
                 if (!multiplayerGameInformation.ContainsKey(idgame))

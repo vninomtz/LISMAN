@@ -1,16 +1,10 @@
-ﬁ
+»
 ãC:\Users\Vik-t\Documents\Software Engineering\5to Semestre\Tecnolog√≠as para la Construcci√≥n\Proyecto\LISMAN\LismanService\Host\Program.cs
 
-		
- 
+ 
 
-
-
- 
+ 
 
-
-
-" &
- " 
-, 3 û
+" &
+ "		 û
 õC:\Users\Vik-t\Documents\Software Engineering\5to Semestre\Tecnolog√≠as para la Construcci√≥n\Proyecto\LISMAN\LismanService\Host\Properties\AssemblyInfo.cs

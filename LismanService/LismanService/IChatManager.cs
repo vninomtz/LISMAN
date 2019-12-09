@@ -6,7 +6,7 @@ namespace LismanService {
     [ServiceContract(CallbackContract = typeof(IChatManagerCallBack))]
     public interface IChatManager {
         [OperationContract(IsOneWay = true)]
-        void SendMessage(Message message, int Game);
+        void SendMessage(Message message, int idgame);
         [OperationContract(IsOneWay = true)]
         void JoinChat(String user, int idgame);
         [OperationContract(IsOneWay = true)]

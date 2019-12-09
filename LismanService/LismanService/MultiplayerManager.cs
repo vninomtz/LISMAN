@@ -124,7 +124,7 @@ namespace LismanService
         {
             foreach (KeyValuePair<int, InformationPlayer> player in multiplayerGameInformation[movement.idGame].lismanUsers)
             {
-                if (player.Value.isLive == true)
+                if (player.Value.isLive)
                 {
                     try
                     {
@@ -143,7 +143,6 @@ namespace LismanService
         }
         public void RespawnLisman(LismanMovement movement, int colorLismanEnemy, int scoreLisman, int lifesLismanEnemy)
         {
-            String userLisman = multiplayerGameInformation[movement.idGame].lismanUsers[movement.colorLisman].userLisman;
             String userLismanEnemy = multiplayerGameInformation[movement.idGame].lismanUsers[colorLismanEnemy].userLisman;
             int[] positionInitialLismanEnemy = GetInitialPositionsLisman(colorLismanEnemy);
             UpdateGameMap(movement.idGame, colorLismanEnemy, positionInitialLismanEnemy[0], positionInitialLismanEnemy[1]);
@@ -159,7 +158,7 @@ namespace LismanService
             String initialDirectionLismanEnemy = multiplayerGameInformation[movement.idGame].lismanUsers[colorLismanEnemy].initialDirecction;
             foreach (KeyValuePair<int, InformationPlayer> player in multiplayerGameInformation[movement.idGame].lismanUsers)
             {
-                if(player.Value.isLive == true)
+                if(player.Value.isLive)
                 {
                     try
                     {
@@ -231,7 +230,7 @@ namespace LismanService
         public void FinishGame(int idGame)
         {
             foreach(KeyValuePair<int,InformationPlayer> player in multiplayerGameInformation[idGame].lismanUsers){
-                if(player.Value.isLive == true)
+                if(player.Value.isLive)
                 {
                     try
                     {
@@ -267,7 +266,7 @@ namespace LismanService
             int playersLives = 0;
             foreach (KeyValuePair<int, InformationPlayer> player in multiplayerGameInformation[idGame].lismanUsers)
             {
-                if(player.Value.isLive == true)
+                if(player.Value.isLive)
                 {
                     playersLives += 1;
                 }
@@ -351,7 +350,7 @@ namespace LismanService
             UpdateGameMap(movement.idGame, movement.colorLisman , movement.finalPositionX, movement.finalPositionY);
             foreach (KeyValuePair<int, InformationPlayer> player in multiplayerGameInformation[movement.idGame].lismanUsers)
             {
-                if(player.Value.isLive == true && connectionGameService[player.Value.userLisman] != null)
+                if(player.Value.isLive && connectionGameService[player.Value.userLisman] != null)
                 {
                     try
                     {
@@ -374,7 +373,7 @@ namespace LismanService
             connectionGameService[userName].UpdateLismanSpeed(SPEEDPOWERFUL, true);
             foreach (KeyValuePair<int, InformationPlayer> player in multiplayerGameInformation[movement.idGame].lismanUsers)
             {
-                if(player.Value.isLive == true)
+                if(player.Value.isLive)
                 {
                     try
                     {
@@ -512,7 +511,7 @@ namespace LismanService
               UpdateGameMap(idGame, EMPTYBOX, positionX, positionY);
               foreach (KeyValuePair<int, InformationPlayer> player in multiplayerGameInformation[idGame].lismanUsers)
               {
-                  if (player.Value.isLive == true)
+                  if (player.Value.isLive)
                   {
                       try
                       {
@@ -536,14 +535,9 @@ namespace LismanService
         public void Reconntection (String userLisman)
         {
             var connection = OperationContext.Current.GetCallbackChannel<IMultiplayerManagerCallBack>();
-            if (connectionGameService.ContainsKey(userLisman))
+            if (connectionGameService.ContainsKey(userLisman) && connectionGameService[userLisman] == null)
             {
-                if (connectionGameService[userLisman] == null)
-                {
-                    connectionGameService[userLisman] = connection;
-                    
-                }
-                
+                connectionGameService[userLisman] = connection;
             }
         }
 

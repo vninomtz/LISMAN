@@ -131,7 +131,6 @@
       <DependentUpon>PositionsTable.xaml</DependentUpon>
     </Compile>
     <Compile Include="SingletonAccount.cs" />
-    <Compile Include="SingletonConnection.cs" />
     <Compile Include="UserRegister.xaml.cs">
       <DependentUpon>UserRegister.xaml</DependentUpon>
     </Compile>
@@ -305,6 +304,9 @@
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\HashPassword.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

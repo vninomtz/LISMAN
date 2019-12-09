@@ -65,6 +65,11 @@ namespace Lisman {
         {
 
         }
+
+        /// <summary>
+        /// Une a los jugadores en la información del juego en el servidor al crear la ventana del juego multijugador
+        /// </summary>
+        /// <param name="idgame">Identificador del juego al cual el jugador pertenece y sera gaurdado en el sevidor</param>
         public MultiplayerGame(int idgame)
         {
             InitializeComponent();
@@ -114,14 +119,16 @@ namespace Lisman {
                 ConnectionStatus.Text = "Connected";
             }
             catch (Exception ex)
-            {
-                //MessageBox.Show(Properties.Resources.server_connection_error);
+            {               
                 ConnectionStatus.Text = "Diconnected";
                 Logger.log.Error(ex);
 
             }
         }
 
+        /// <summary>
+        /// Lee los datos de la matriz del juego del archivo de recursos 
+        /// </summary>
         public void MatrixGame() {
             using (StreamReader sr = new StreamReader(parentDirectory + "/Resources/Map.txt")) {
 
@@ -165,6 +172,9 @@ namespace Lisman {
 
         }
 
+        /// <summary>
+        /// Crea las asignaciones de las pill y la posición en la que se encontrarán en el mapa, respecto a la matriz 
+        /// </summary>
         public void createMatrixPillsImages(){
             matrixPillsImages[2, 5] = pill0;
             matrixPillsImages[18, 11] = pill1;
@@ -180,6 +190,9 @@ namespace Lisman {
             matrixPillsImages[13, 2] = pill11;       
         }
 
+        /// <summary>
+        /// Lee y dibuja las imagenes de las pills en pantalla asignandolas a su posicion correspondiente 
+        /// </summary>
         public void DrawPills() {
             BitmapImage imagePath = new BitmapImage();
             imagePath.BeginInit();
@@ -213,6 +226,12 @@ namespace Lisman {
             panel_2_13.Children.Add(pill11);
         }
 
+        /// <summary>
+        /// Determina si el jugador puede realizar un movimiento  a la posición que desea 
+        /// </summary>
+        /// <param name="onX">Coordenada respecto al eje X en el que el jugador se encuentra</param>
+        /// <param name="onY">Coordenada respecto al eje Y en el que el jugador se encuentra</param>
+        /// <returns>Devuelve true si el movimiento del jugador es válido y falseen casoz contrario</returns>
 
         public bool canMove(int onX, int onY) {
             bool can = true;
@@ -222,6 +241,9 @@ namespace Lisman {
             return can;
         }
 
+        /// <summary>
+        /// Detiene los temporizadores que permiten dezplazar al jugador por las coordenadas 
+        /// </summary>
         public void StopLisman() {
             runLeft.Stop();
             runUp.Stop();
@@ -233,6 +255,11 @@ namespace Lisman {
             client.ExitGame(idgame,playerColor,X,Y);
         }
 
+        /// <summary>
+        /// Mueve al juador a la dirección izquierda y actualiza su posición en el servidor
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void RunLeft(object sender, EventArgs e) {
             int initialPositionX = X;
             int initialpositionY = Y;
@@ -252,6 +279,11 @@ namespace Lisman {
             }
         }
 
+        /// <summary>
+        /// Mueve al juador a la dirección arriba y actualiza su posición en el servidor
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void RunUp(object sender, EventArgs e) {
             int initialPositionX = X;
             int initialpositionY = Y;
@@ -263,6 +295,12 @@ namespace Lisman {
                 StopLisman();
             }
         }
+
+        /// <summary>
+        /// Mueve al juador a la dirección derecha y actualiza su posición en el servidor
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void RunRight(object sender, EventArgs e) {
             int initialPositionX = X;
             int initialpositionY = Y;
@@ -279,6 +317,12 @@ namespace Lisman {
                 StopLisman();
             }
         }
+
+        /// <summary>
+        /// Mueve al juador a la dirección abajo y actualiza su posición en el servidor
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void RunDown(object sender, EventArgs e) {
             int initialPositionX = X;
             int initialpositionY = Y;
@@ -290,7 +334,17 @@ namespace Lisman {
             }
         }
 
+      
         static LismanMovement movement = new LismanMovement();
+
+        /// <summary>
+        /// Crea un objeto que contiene la información del dezplazamiento del jugador para enviarlo al servidor
+        /// </summary>
+        /// <param name="initialPositionX">posición en le que se encuentra el jugador respecto al eje X</param>
+        /// <param name="initialPositionY">posición en le que se encuentra el jugador respecto al eje Y</param>
+        /// <param name="finalPositionX">posición a la que desea ir el jugador respecto al eje X</param>
+        /// <param name="finalPositionY">posición a la que desea ir el jugador respecto al eje Y</param>
+        /// <param name="goTo">Dirección a la que el jugador esta realizando el giro</param>
         public void MoveLismanInMap(int initialPositionX, int initialPositionY, int finalPositionX, int finalPositionY, String goTo)
         {
             movement.idGame = this.idgame;
@@ -329,7 +383,11 @@ namespace Lisman {
                 runDown.Start();
             }
         }
-
+        /// <summary>
+        /// Escribe en pantalla el nombre del jugador le asigna la imagen que ocupará
+        /// </summary>
+        /// <param name="colorPlayer"> identificador del color que le toca usar al jugador</param>
+        /// <param name="user">Nombre de usuario del jugador</param>
         public void NotifyColorPlayer(int colorPlayer, String user)
         {
             if(SingletonAccount.getSingletonAccount().User == user)
@@ -366,6 +424,10 @@ namespace Lisman {
             }
         }
 
+        /// <summary>
+        /// Cambia la imagen de lisman a la derecha del color recibidó
+        /// </summary>
+        /// <param name="playerColor">Identificador del color que sera cambiada en pantalla </param>
         public void MoveLismanImageRight(int playerColor)
         {
             BitmapImage imagePath = new BitmapImage();
@@ -400,6 +462,10 @@ namespace Lisman {
 
         }
 
+        /// <summary>
+        /// Cambia la imagen de lisman a la izquierda del color recibidó
+        /// </summary>
+        /// <param name="playerColor">Identificador del color que sera cambiada en pantalla</param>
         public void MoveLismanImageLeft(int playerColor)
         {
             BitmapImage imagePath = new BitmapImage();
@@ -433,6 +499,11 @@ namespace Lisman {
             }
 
         }
+
+        /// <summary>
+        /// Cambia la imagen de lisman hacia arriba del color recibidó
+        /// </summary>
+        /// <param name="playerColor">Identificador del color que sera cambiada en pantalla</param>
         public void MoveLismanImageUp(int playerColor)
         {
             BitmapImage imagePath = new BitmapImage();
@@ -466,6 +537,11 @@ namespace Lisman {
             }
 
         }
+
+        /// <summary>
+        /// Cambia la imagen de lisman hacia arriba del color recibidó
+        /// </summary>
+        /// <param name="playerColor">Identificador del color que sera cambiada en pantalla</param>
         public void MoveLismanImageDown(int playerColor)
         {
             BitmapImage imagePath = new BitmapImage();
@@ -500,6 +576,13 @@ namespace Lisman {
 
         }
 
+        /// <summary>
+        /// Callback que cambia la imagen a la posición y direccion determinada
+        /// </summary>
+        /// <param name="colorPlayer">Identificador de la imagen que sera cambiada</param>
+        /// <param name="positionX">Posición a la que la imagen sera cambiada respecto al eje X</param>
+        /// <param name="positionY">Posición a la que la imagen sera cambiada respecto al eje Y</param>
+        /// <param name="goTo">Dirección a la que la imagen sera cambiada</param>
         public void NotifyLismanMoved(int colorPlayer, int positionX, int positionY,String goTo)
         {
             Image lismanImageMoved = null;
@@ -539,6 +622,10 @@ namespace Lisman {
             Grid.SetRow(lismanImageMoved, positionY);
         }
 
+        /// <summary>
+        /// Escribe en pantalla la información de los jugadores (acerca del juego) que se encuentran ella 
+        /// </summary>
+        /// <param name="listPlayers">Diccionaro que contiene el color del asignado al jugador y la informacion de el</param>
         public void PrintInformationPlayers(Dictionary<int, InformationPlayer> listPlayers)
         {
             foreach (KeyValuePair<int, InformationPlayer> player in listPlayers)
@@ -570,11 +657,21 @@ namespace Lisman {
             }
         }
 
+        /// <summary>
+        /// Callback que borra la imagen de la pill en el juego en la posición determianda
+        /// </summary>
+        /// <param name="positionX">Coordenada respecto al eje X</param>
+        /// <param name="positionY">Coordenada respecto al eje Y </param>
         public void NotifyDisappearedPowerPill(int positionX, int positionY)
         {
             matrixPillsImages[positionX, positionY].Visibility = Visibility.Hidden;
         }
 
+        /// <summary>
+        /// Callback que actualiza en pantalla la puntuación del jugador
+        /// </summary>
+        /// <param name="colorPlayer">color del lisman que su puntuación sera actualizada </param>
+        /// <param name="scorePlayer">puntuación del jugador</param>
         public void NotifyUpdateScore(int colorPlayer, int scorePlayer)
         {
             switch (colorPlayer)
@@ -594,6 +691,11 @@ namespace Lisman {
             }
         }
 
+        /// <summary>
+        /// Callback que actualiza las vidas del jugador 
+        /// </summary>
+        /// <param name="colorPlayer">Identificador del color del lisman que su puntiación sera actualizada</param>
+        /// <param name="lifePlayer">Vidas restantes del jugador</param>
         public void NotifyUpdateLifes(int colorPlayer, int lifePlayer)
         {
             switch (colorPlayer)
@@ -613,6 +715,10 @@ namespace Lisman {
             }
         }
 
+        /// <summary>
+        /// Callback que notifica a los jugadores cuando uno esta muerto y borra la imagen del mapa 
+        /// </summary>
+        /// <param name="colorPlayer">Identificador del color del lisman que sera borrado</param>
         public void NotifyPlayerIsDead(int colorPlayer)
         {
             switch (colorPlayer)
@@ -641,7 +747,12 @@ namespace Lisman {
             
 
         }
-
+        /// <summary>
+        /// Retorna la imagen de lisman a su posición inicial 
+        /// </summary>
+        /// <param name="colorPlayer">Identificdor del color de la imagen del jugador que sera movida</param>
+        /// <param name="positionX">Coordenada respecto al eje X en la cual se moverá</param>
+        /// <param name="positionY">Coordenada respecto al eje Y en la cual se moverá</param>
         public void ReturnLismanToInitialPosition(int colorPlayer, int positionX, int positionY)
         {
             Image lismanImageMoved = null;
@@ -666,6 +777,11 @@ namespace Lisman {
             Grid.SetRow(lismanImageMoved, positionY);
         }
 
+        /// <summary>
+        /// Aumenta la velocidad de dezplazamiento de la imagen por un periodo de tiempo
+        /// </summary>
+        /// <param name="speed">Valor del tiempo en el cual la imagen se dezplazará </param>
+        /// <param name="hasPower">Indica si el jugador tiene mas velocidad o no</param>
         public void UpdateLismanSpeed(int speed,bool hasPower)
         {
             if (hasPower)
@@ -683,6 +799,7 @@ namespace Lisman {
 
         }
 
+       
         public void RemovePowerSpeed(object sender, EventArgs e)
         {
            if (timerValidation == 1 )
@@ -697,7 +814,10 @@ namespace Lisman {
             }
         }
 
-
+        /// <summary>
+        /// Callback que notifica al jugador restante que acabó la partida y ha ganado
+        /// </summary>
+        /// <param name="colorLisman">Identificador del color del jugador que ganó la partida</param>
         public void NotifyEndGame(int colorLisman)
         {
             MessageBox.Show(Properties.Resources.message_you_win);
@@ -706,7 +826,10 @@ namespace Lisman {
             windowHome.Show();
             this.Close();
         }
-
+        /// <summary>
+        /// Callback que borra en pantalla la imagen de un lisman cuando abandonó la partida
+        /// </summary>
+        /// <param name="colorGame">Identificador del color del lisman que abandonó la partida</param>
         public void NotifyLismanLeaveGame(int colorGame)
         {
             

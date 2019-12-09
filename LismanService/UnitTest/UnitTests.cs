@@ -28,7 +28,7 @@ namespace UnitTest
         {            
             
             bool expectedResult = true;                   
-            lismanService.StartGame(user,idGame);
+            lismanService.StartGame(user,2);
             Assert.AreEqual(expectedResult,
                 testChatManagerCallback.ResponseInitGame, "Callback result");
         }

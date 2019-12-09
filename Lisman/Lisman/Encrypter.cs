@@ -5,11 +5,18 @@ using System.Text;
 
 namespace Lisman
 {
-    static class Encrypter
+    public static class Encrypter
     {
         static readonly string PasswordHash = "P@@Sw0rd";
         static readonly string SaltKey = "S@LT&KEY";
         static readonly string VIKey = "@1B2c3D4e5F6g7H8";
+
+
+        /// <summary>
+        /// Decifra textos codificados en el archivo externo
+        /// </summary>
+        /// <param name="encryptedText">Texto que sera decifrado</param>
+        /// <returns>devuelve la cadena decifrada</returns>
         public static string Decrypt(string encryptedText)
         {
             byte[] cipherTextBytes = Convert.FromBase64String(encryptedText);
@@ -27,6 +34,11 @@ namespace Lisman
             return Encoding.UTF8.GetString(plainTextBytes, 0, decryptedByteCount).TrimEnd("\0".ToCharArray());
         }
 
+        /// <summary>
+        /// Realiza un hash en una cadena de tipo SHA512
+        /// </summary>
+        /// <param name="originalPassword"> </param>
+        /// <returns>devuelve la cadena cifrada </returns>
         public static string EncodePassword(string originalPassword)
         {
             var bytes = System.Text.Encoding.UTF8.GetBytes(originalPassword);

@@ -11,7 +11,12 @@ namespace Lisman {
         int COMPLETEPLAYERS = 4;
         InstanceContext instance = null;
         LismanService.ChatManagerClient client = null;
-        int idGame;        
+        int idGame;  
+        
+        /// <summary>
+        /// Función que une al jugador al chat del juego al crear la ventana Lobby
+        /// </summary>
+        /// <param name="idGame"> Identificador del juego al cual el jugador se unirá </param>
         public Lobby(int idGame)
         {
             InitializeComponent();
@@ -57,18 +62,30 @@ namespace Lisman {
                 Logger.log.Warn("Error en funcion exit game " + ex.Message);                                              
             }          
         }
-
+        
+        /// <summary>
+        /// Función callback que escribe un mensaje enviado por el jugador en pantalla 
+        /// </summary>
+        /// <param name="message"> Objeto que contiene que el mensaje que el jugador escribió </param>
         public void NotifyMessage(Message message)
         {
             textBox_chat.Text += "\n" + message.userName + ": " + message.Text;
 
         }
 
+        /// <summary>
+        /// callback que escribe en pantalla el nombre del usuario que se acaba de unir al lobby del juego
+        /// </summary>
+        /// <param name="user">Nombre del usuario que se acaba de unir al lobby </param>
         public void NotifyJoinedPlayer(string user)
         {
             textBox_chat.Text += "\n" + user + Properties.Resources.joined_game;            
         }
 
+        /// <summary>
+        /// Obtiene el mensaje que escribio el jugador en el campo de texto y lo envia al servicio para que lo muestre en pantalla
+        /// de los jugadores que estan en el lobby mediante callback
+        /// </summary>
         public void SendMessage() {
             if (textBox_message.Text != String.Empty) {
 
@@ -101,7 +118,10 @@ namespace Lisman {
             SendMessage();
         }
 
-
+        /// <summary>
+        /// Callback que actualiza el número de jugadores que se unen/abandonan la partida 
+        /// </summary>
+        /// <param name="numberPlayers">Número de jugadores que se encuentran esperando el juego en el lobby </param>
         public void NotifyNumberPlayers(int numberPlayers)
         {
             if(numberPlayers == COMPLETEPLAYERS) {
@@ -117,6 +137,10 @@ namespace Lisman {
             }
         }
 
+        /// <summary>
+        /// Callback que escribe en pantalla cuando un jugador se ha salido del lobby y por lo tanto abandonó el juego 
+        /// </summary>
+        /// <param name="user">Nombre del usuario que abandonó el lobby </param>
         public void NotifyLeftPlayer(string user) {
             textBox_chat.Text += user + Properties.Resources.left_game;
         }
@@ -134,6 +158,9 @@ namespace Lisman {
             
         }
        
+        /// <summary>
+        /// Callback que crea y abre la ventana del juego 
+        /// </summary>
         public void InitGame()
         {
             MultiplayerGame game = new MultiplayerGame(idGame);

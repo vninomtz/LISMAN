@@ -10,7 +10,7 @@ namespace LismanService {
     [ServiceBehavior(InstanceContextMode = InstanceContextMode.PerSession)]
     public partial class LismanService : IAccountManager {
 
-       public LismanService() { }
+      
         public int AddAccount(Account account)
         {
             try {

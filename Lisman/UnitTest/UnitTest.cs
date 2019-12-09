@@ -38,9 +38,19 @@ namespace UnitTest
 
         [TestMethod]
 
+        public void TestLoginValidAccount()
+        {
+            var account = LoginClient.LoginAccount("alanbrito", Lisman.Encrypter.EncodePassword( "12345"));
+            int result = account.Id;
+            int expected = 3;
+            Assert.AreEqual(expected, result);
+        }
+
+        [TestMethod]
+
         public void TestLoginInvalidAccount()
         {
-           var account = LoginClient.LoginAccount("alanbrito", "12345");
+            var account = LoginClient.LoginAccount("alanbrito", "12345");
             int result = account.Id;
             int expected = 0;
             Assert.AreEqual(expected, result);
@@ -57,7 +67,7 @@ namespace UnitTest
         }
 
         [TestMethod]
-        public void testEmailDoesntExists()
+        public void TestEmailDoesntExists()
         {
             bool result = LoginClient.EmailExists("pepe@hotmail.com");
             bool expected = false;

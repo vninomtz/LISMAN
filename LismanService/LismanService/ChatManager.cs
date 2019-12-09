@@ -12,10 +12,14 @@ namespace LismanService {
         {
             this.callbackChannel = callbackCreator ?? throw new ArgumentNullException("callbackCreator");
             
-        }      
+        }
 
-        
-        
+        public LismanService() { }
+
+
+
+
+
         public void JoinChat(string user, int idgame)
         {
                         
@@ -129,7 +133,7 @@ namespace LismanService {
 
 
 
-            // ReadMapGame();
+            //ReadMapGame();
            try
             {
                 if (!multiplayerGameInformation.ContainsKey(idgame))

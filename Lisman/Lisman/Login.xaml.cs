@@ -14,7 +14,11 @@ namespace Lisman {
             InitializeComponent();           
            
         }
-
+        
+        /// <summary>
+        /// Válida  que los campos no esten vacios
+        /// </summary>
+        /// <returns>true si todos los campos estan llenos, false si no </returns>
         public Boolean ValidateFields()
         {
             
@@ -76,7 +80,9 @@ namespace Lisman {
                      
         }
 
-
+        /// <summary>
+        /// Obtiene los campos ingresados por el usuario y valida con el servidor si son correctos o existe algún problema 
+        /// </summary>
         public void LoginUser()
         {
             if (ValidateFields())
@@ -141,6 +147,11 @@ namespace Lisman {
                 
             }
         }
+
+        /// <summary>
+        /// Corrrobora que exista conexion a internet una llamada a una pagina 
+        /// </summary>
+        /// <returns>Devuelve true si hay internet y false en caso contrario </returns>
 
         public static bool CheckForInternetConnection()
         {

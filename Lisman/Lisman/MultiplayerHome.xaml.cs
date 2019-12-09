@@ -18,6 +18,7 @@ namespace Lisman {
             this.Close();
         }
 
+      
         private void button_newGame_Click(object sender, RoutedEventArgs e)
         {
             LismanService.GameManagerClient client = new LismanService.GameManagerClient();

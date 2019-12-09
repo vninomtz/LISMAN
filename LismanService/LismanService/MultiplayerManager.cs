@@ -8,6 +8,9 @@ using DataAccess;
 
 namespace LismanService
 {
+    /// <summary>
+    /// Implementación de la interfaz IMultiplayerManager
+    /// </summary>
     public partial class LismanService : IMultiplayerManager
     {
 
@@ -38,7 +41,12 @@ namespace LismanService
         static Dictionary<int, Game> multiplayerGameInformation = new Dictionary<int, Game>();
 
 
-       
+       /// <summary>
+       /// Métododo que permite al usuario unirse a una partida multijugador
+       /// con su callback
+       /// </summary>
+       /// <param name="user">nombre de usuario del jugador</param>
+       /// <param name="idGame">identificador del juego al que pertenece el jugador</param>
         public void JoinMultiplayerGame(string user, int idGame)
         {
             var connection = OperationContext.Current.GetCallbackChannel<IMultiplayerManagerCallBack>();
@@ -63,6 +71,12 @@ namespace LismanService
            
         }
 
+        /// <summary>
+        /// Método que permite obtener el color que tiene asigando un jugador
+        /// </summary>
+        /// <param name="idGame">identificador del juego al que pertenece</param>
+        /// <param name="user">nombre de usuario del jugador</param>
+        /// <returns>un entero con el color del jugador</returns>
         public int GetColorLismanByUser(int idGame, String user)
         {
             int colorLisman = 0;
@@ -76,7 +90,12 @@ namespace LismanService
             return colorLisman;
         }
 
-
+        /// <summary>
+        /// Método que recibe un objeto de tipo Movement por parte de un cliente 
+        /// para solicitar se movido en el mapa
+        /// </summary>
+        /// <param name="movement">objeto de tipo Movement que tiene conocimiento del 
+        /// movimiento del jugador</param>
         public void MoveLisman(LismanMovement movement)
         {
             int valueBox = GetValueBox(movement.idGame, movement.finalPositionX, movement.finalPositionY);
@@ -95,7 +114,11 @@ namespace LismanService
             }
         }
 
-
+        /// <summary>
+        /// Método que permite comer a un jugador 
+        /// </summary>
+        /// <param name="movement">Objeto de tipo Movement</param>
+        /// <param name="colorLismanEnemy">Color del jugador el cual será comido</param>
         private void EatLismanEnemy(LismanMovement movement, int colorLismanEnemy)
         {
             int scoreLisman = UpdateScore(movement.idGame, movement.colorLisman, POINTSEATLISMAN);
@@ -120,6 +143,13 @@ namespace LismanService
             }
         }
 
+        /// <summary>
+        /// Métdodo  que permite matar a un jugador y avisar a todos los demás
+        /// </summary>
+        /// <param name="movement">objeto de tipo Movement</param>
+        /// <param name="colorLismanEnemy">color del jugador que murio </param>
+        /// <param name="scoreLisman">puntaje del jugador vivo</param>
+        /// <param name="lifesLismanEnemy">vidas del jugador que morirá</param>
         public void KillLisman(LismanMovement movement, int colorLismanEnemy, int scoreLisman, int lifesLismanEnemy)
         {
             foreach (KeyValuePair<int, InformationPlayer> player in multiplayerGameInformation[movement.idGame].lismanUsers)
@@ -141,6 +171,14 @@ namespace LismanService
             }
             multiplayerGameInformation[movement.idGame].lismanUsers[colorLismanEnemy].isLive = false;
         }
+
+        /// <summary>
+        /// Método que permite reaparecer a un jugador que ha sido comido
+        /// </summary>
+        /// <param name="movement">Objeto de tipo Movement</param>
+        /// <param name="colorLismanEnemy">Color del jugador que ha sido comido</param>
+        /// <param name="scoreLisman">Puntaje del jugador que comio </param>
+        /// <param name="lifesLismanEnemy">Vidas del jugador que ha sido comido</param>
         public void RespawnLisman(LismanMovement movement, int colorLismanEnemy, int scoreLisman, int lifesLismanEnemy)
         {
             String userLismanEnemy = multiplayerGameInformation[movement.idGame].lismanUsers[colorLismanEnemy].userLisman;
@@ -179,6 +217,11 @@ namespace LismanService
             }
         }
 
+        /// <summary>
+        /// Método que obtiene las posiciones iniciales de cada jugador
+        /// </summary>
+        /// <param name="colorLisman">color del jugador</param>
+        /// <returns>Arreglo de dos posiciones con las posiciones en X,Y</returns>
         public int[] GetInitialPositionsLisman(int colorLisman)
         {
             int[] positionInitialLisman = new int[2];
@@ -204,6 +247,14 @@ namespace LismanService
             return positionInitialLisman;
             
         }
+
+        /// <summary>
+        /// Métdodo que termina el juego
+        /// </summary>
+        /// <param name="movement">Objeto de tipo Movement</param>
+        /// <param name="colorLismanEnemy">Color del jugador enemigo</param>
+        /// <param name="scoreLisman">Puntaje del jugador vivo</param>
+        /// <param name="lifesLismanEnemy">Vidas del jugador enemigo</param>
         public void FinishGame(LismanMovement movement, int colorLismanEnemy, int scoreLisman, int lifesLismanEnemy)
         {
 
@@ -227,6 +278,12 @@ namespace LismanService
            
 
         }
+
+        /// <summary>
+        /// Sobrescritura del método FinishGame, es utilizado cuando los jugadores se salen 
+        /// del juego sin jugar
+        /// </summary>
+        /// <param name="idGame">identificador del juego</param>
         public void FinishGame(int idGame)
         {
             foreach(KeyValuePair<int,InformationPlayer> player in multiplayerGameInformation[idGame].lismanUsers){
@@ -249,7 +306,12 @@ namespace LismanService
           
 
         }
-
+        /// <summary>
+        /// Métdodo que permite saber si un jugador morirá
+        /// </summary>
+        /// <param name="idGame">identificador del juego </param>
+        /// <param name="colorLisman">color del jugador</param>
+        /// <returns>Regresa un valor true si es que morirá</returns>
         public bool PlayerWillDead (int idGame, int colorLisman)
         {
             bool result = false;
@@ -260,6 +322,11 @@ namespace LismanService
 
             return result;
         }
+        /// <summary>
+        /// Métdodo que permite saber si un juego terminará
+        /// </summary>
+        /// <param name="idGame">identificador del juego</param>
+        /// <returns>regresa true si el juego terminará</returns>
         public bool GameWillEnd(int idGame)
         {
             bool result = false;
@@ -279,7 +346,11 @@ namespace LismanService
             return result;
         }
 
-
+        /// <summary>
+        /// Método que permite guardar la información del juego en la BD
+        /// </summary>
+        /// <param name="idgame">identificador del juego</param>
+        /// <param name="userWinner">nombre de usuario ganador</param>
         private void SaveGame(int idgame, String userWinner)
         {
             try
@@ -321,11 +392,24 @@ namespace LismanService
             }
         }
 
+        /// <summary>
+        /// Método que permite actualizar la información del mapa del juego
+        /// </summary>
+        /// <param name="idgame">identificador del juego</param>
+        /// <param name="newValue">valor nuevo que será guardado</param>
+        /// <param name="positionX">coordenada en X para la matriz</param>
+        /// <param name="positionY">coordenada en Y para la matriz</param>
         public void UpdateGameMap(int idgame, int newValue, int positionX, int positionY)
         {
             multiplayerGameInformation[idgame].gameMap[positionX, positionY] = newValue;
         }
 
+        /// <summary>
+        /// Métdodo que resta una vida a un jugador
+        /// </summary>
+        /// <param name="idGame">identificador del juego</param>
+        /// <param name="colorLisman">color del jugador al que se le restará la vida</param>
+        /// <returns></returns>
         public int UpdateSubtractLifes(int idGame, int colorLisman)
         {
             int lifesLisman = multiplayerGameInformation[idGame].lismanUsers[colorLisman].lifesLisman;
@@ -338,11 +422,21 @@ namespace LismanService
             return lifesLisman;
         }
 
+        /// <summary>
+        /// Métdodo que actualiza el puntaje de un jugador
+        /// </summary>
+        /// <param name="idgame">identificador del juego</param>
+        /// <param name="colorLisman">color del jugador</param>
+        /// <param name="points">puntos que serán sumados</param>
+        /// <returns></returns>
         public int UpdateScore(int idgame, int colorLisman, int points)
         {
            return multiplayerGameInformation[idgame].lismanUsers[colorLisman].scoreLisman += points;
         }
-        
+        /// <summary>
+        /// Metodo que mueve a un jugador a una nueva posicion
+        /// </summary>
+        /// <param name="movement">Objeto de tipo LismanMovement</param>
         private void MoveLismanToNewPosition(LismanMovement movement)
         {
             
@@ -364,6 +458,11 @@ namespace LismanService
                 }
             }
         }
+
+        /// <summary>
+        /// Método que permite comserse una bolita a un jugador y obtener poder
+        /// </summary>
+        /// <param name="movement">Objeto de tipo LismanMovement</param>
         private void EatPowerPill(LismanMovement movement)
         {
             UpdateGameMap(movement.idGame, EMPTYBOX, movement.initialPositionX, movement.initialPositionY);
@@ -390,6 +489,13 @@ namespace LismanService
             
         }
 
+        /// <summary>
+        /// Métodod que permite obtener el valor de una celda del mapa
+        /// </summary>
+        /// <param name="idGame">identificador del juego</param>
+        /// <param name="finalPositionX">posicion en X del mapa</param>
+        /// <param name="finalPositionY">posicion en Y del mapa</param>
+        /// <returns></returns>
         public int GetValueBox(int idGame, int finalPositionX, int finalPositionY)
         {
             int result = -1;
@@ -422,6 +528,9 @@ namespace LismanService
             return result;
         }
 
+        /// <summary>
+        /// Método que permite leer los valores por defecto del mapa 
+        /// </summary>
         public void ReadMapGame()
         {
             using (StreamReader sr = new StreamReader(parentDirectory + "/Resources/Map.txt")) 
@@ -473,11 +582,20 @@ namespace LismanService
 
         }
 
+        /// <summary>
+        /// Método que quita el poder a un jugador
+        /// </summary>
+        /// <param name="user">nombre de usuario del jugador</param>
         public void RemovePower(String user)
         {
             connectionGameService[user].UpdateLismanSpeed(SPEEDNORMAL,false);
         }
 
+        /// <summary>
+        /// Métdodo que permite guardar en la base de datos la última actualización de un
+        /// juego
+        /// </summary>
+        /// <param name="idgame">identificador del juego</param>
         public void SaveLastUpdate(int idgame)
         {
             try
@@ -504,7 +622,13 @@ namespace LismanService
                 Logger.log.Error("Funtion SaveLastUpdate: " + ex.Message);
             }
         }
-
+        /// <summary>
+        /// Método que permite salirse del juego a un jugador
+        /// </summary>
+        /// <param name="idGame">identificador del juego</param>
+        /// <param name="colorLisman">color del jugador</param>
+        /// <param name="positionX">posicion en X del jugador</param>
+        /// <param name="positionY">posicion en Y del jugador</param>
          public void ExitGame(int idGame, int colorLisman, int positionX, int positionY)
          {
             int playersLives = 0;
@@ -532,6 +656,11 @@ namespace LismanService
             }
           }
 
+        /// <summary>
+        /// Metdodo que permite al jugador reconectarse al juego si
+        /// es que perdió su conexión
+        /// </summary>
+        /// <param name="userLisman">nombre de usuario del jugador</param>
         public void Reconntection (String userLisman)
         {
             var connection = OperationContext.Current.GetCallbackChannel<IMultiplayerManagerCallBack>();

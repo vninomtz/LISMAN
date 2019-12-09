@@ -6,11 +6,18 @@ using System.Data.Entity.Validation;
 
 
 namespace LismanService {
+    /// <summary>
+    /// Implementacion de la interfaz de IGameManager
+    /// </summary>
     public partial class LismanService : IGameManager {
        static Dictionary<int, List<String>> listGamesOnline = new Dictionary<int,List<String>>();
 
         
-        
+        /// <summary>
+        /// Método que permite al Cliente crear un nuevo juego
+        /// </summary>
+        /// <param name="user">nombre de usuario del jugador</param>
+        /// <returns>Regresa el identificador del juego que creó</returns>
         public int CreateGame(string user)
         {
             int idgame = 0;
@@ -53,6 +60,11 @@ namespace LismanService {
             
         }
 
+        /// <summary>
+        /// Métdodo que permite al Cliente unirse a un juego 
+        /// </summary>
+        /// <param name="user">nombre de usuario del juego</param>
+        /// <returns>Regresa el identificador del juego al que se unio</returns>
         public int JoinGame(string user)
         {
             foreach (KeyValuePair<int, List<String>> games in listGamesOnline) {
@@ -66,6 +78,12 @@ namespace LismanService {
             return -1;
         }
 
+        /// <summary>
+        /// Método que permite al Cliente dejar el juego al que se unio
+        /// </summary>
+        /// <param name="user">nombre de usuario del jugador</param>
+        /// <param name="game">identificador del juego al que pertenece</param>
+        /// <returns></returns>
        public int LeaveGame(string user, int game)
         {
             int isDelete = 1; 

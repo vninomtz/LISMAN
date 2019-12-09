@@ -6,11 +6,18 @@ using System.ServiceModel;
 using DataAccess;
 
 namespace LismanService {
-    // NOTE: You can use the "Rename" command on the "Refactor" menu to change the class name "AccountManager" in both code and config file together.
+    /// <summary>
+    /// Implementacion de la interfaz IAccountManager
+    /// </summary>
     [ServiceBehavior(InstanceContextMode = InstanceContextMode.PerSession)]
     public partial class LismanService : IAccountManager {
 
        public LismanService() { }
+        /// <summary>
+        /// Método que permite al Cliente registrar una nueva cuenta
+        /// </summary>
+        /// <param name="account">objeto de tipo cuenta que contiene la informacion del jugador</param>
+        /// <returns>regresa un valor int de 1 si la operacion fue exitosa</returns>
         public int AddAccount(Account account)
         {
             try {
@@ -59,7 +66,10 @@ namespace LismanService {
         {
             throw new NotImplementedException();
         }
-
+        /// <summary>
+        /// Método que obtiene una lista de Historial de los usuarios
+        /// </summary>
+        /// <returns>regresa una lista de los historiales registrados</returns>
         public List<Record> GetRecords()
         {
             try {

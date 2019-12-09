@@ -5,9 +5,16 @@ using DataAccess;
 
 
 namespace LismanService {
+    /// <summary>
+    /// Implementacion de la Interfaz ILoginManager
+    /// </summary>
     public partial class LismanService : ILoginManager {
         
-
+        /// <summary>
+        /// Método que evalua si existe un email igual registrado
+        /// </summary>
+        /// <param name="emailAdress">email que sera consultado</param>
+        /// <returns>regresa un valor true si existe el email</returns>
         public bool EmailExists(string emailAdress)
         {
             try {
@@ -22,6 +29,13 @@ namespace LismanService {
             }
             return false;
         }
+
+        /// <summary>
+        /// Métododo que permite iniciar sesion en el sistema
+        /// </summary>
+        /// <param name="user">nombre del ususario del jugador</param>
+        /// <param name="password">contraseña del usuario del sistema</param>
+        /// <returns></returns>
         public Account LoginAccount(string user, string password)
         {
             var newAccount = new Account();
@@ -57,6 +71,11 @@ namespace LismanService {
             }
         }
 
+        /// <summary>
+        /// Método que cierra la sesión de un Cliente
+        /// </summary>
+        /// <param name="user">nombre de usuario del jugador</param>
+        /// <returns>un valor entero si se realizo exitosamente</returns>
         public int LogoutAccount(string user)
         {
             if (connectionChatService.ContainsKey(user)) {
@@ -65,6 +84,11 @@ namespace LismanService {
             return 1;
         }
 
+        /// <summary>
+        /// Método que valida si un nombre de ususario ya se encuentra registrado
+        /// </summary>
+        /// <param name="username"></param>
+        /// <returns>regresa un valor true si es que existe</returns>
         public bool UserNameExists(string username)
         {
             try {
@@ -80,7 +104,11 @@ namespace LismanService {
             return false;
         }
 
-
+        /// <summary>
+        /// Método que obtiene la Account de un jugador por su nombre
+        /// </summary>
+        /// <param name="user">nombre de usuario del cliente</param>
+        /// <returns>Regresa un objeto de tipo Account</returns>
         public Account GetAccountByUser(string user)
         {
             try {
@@ -100,6 +128,11 @@ namespace LismanService {
             }
         }
 
+        /// <summary>
+        /// Método que valida si un usuario ya ha iniciado sesión anteriormente
+        /// </summary>
+        /// <param name="userName">Nomre de usuario del jugador</param>
+        /// <returns>regresa un valor true si ya ha iniciado sesión</returns>
         public bool UserInSession(String userName)
         {
            bool inSesion = false;

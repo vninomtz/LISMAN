@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using System.ServiceModel;
 
 namespace LismanService {
+    /// <summary>
+    /// Implementación del la interfaz de IChatManager
+    /// </summary>
     public partial class LismanService : IChatManager {
 
         static Dictionary<String, IChatManagerCallBack> connectionChatService = new Dictionary<String, IChatManagerCallBack>();
@@ -15,7 +18,11 @@ namespace LismanService {
         }      
 
         
-        
+        /// <summary>
+        /// Método que une a un jugador a un Chat
+        /// </summary>
+        /// <param name="user">nombre de ususario del jugador</param>
+        /// <param name="idgame">identificador del juego al que pertenece</param>
         public void JoinChat(string user, int idgame)
         {
                         
@@ -54,6 +61,11 @@ namespace LismanService {
             
         }
 
+        /// <summary>
+        /// Método que permite a un jugador dejar el chat en el que se encuentra ¿
+        /// </summary>
+        /// <param name="user">nombre de ususario del jugador</param>
+        /// <param name="idgame">identificador del juego al que pertenece</param>
         public void LeaveChat(string user, int idgame) {
             if (callbackChannel == null)
             {
@@ -85,8 +97,12 @@ namespace LismanService {
             }
 
         }
-       
 
+        /// <summary>
+        /// Métdod que permite enviar un mensaje a todos los miembros del Chat
+        /// </summary>
+        /// <param name="message">Objeto de tipo mensaje que tiene como atributos el mensaje y el usuario que lo envió</param>
+        /// <param name="idgame">identificador del juego al que pertenece</param>
         public void SendMessage(Message message, int idgame)
         {
             if (callbackChannel == null)
@@ -117,6 +133,11 @@ namespace LismanService {
 
         }
 
+        /// <summary>
+        /// Método que manda la señal para iniciar el juego en todos los Clientes
+        /// </summary>
+        /// <param name="user">nombre de ususario del jugador</param>
+        /// <param name="idgame">identificador del juego al que pertenece</param>
         public void StartGame(string user, int idgame)
         {
             if (callbackChannel == null)
@@ -173,7 +194,12 @@ namespace LismanService {
                 Console.WriteLine("Game started ID:{0}, at:{1}", idgame, DateTime.Now);
         }
 
-       
+        /// <summary>
+        /// Método que asigna el color que utilizara cada jugador en la partida
+        /// </summary>
+        /// <param name="idgame">identificador del juego al que pertenece</param>
+        /// <param name="user">nombre de usuario del jugador</param>
+        /// <returns></returns>
         public bool AssignColorPlayer(int idgame, String user)
         {
             InformationPlayer infoPlayer = new InformationPlayer();
